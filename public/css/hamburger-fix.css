@@ -1,0 +1,283 @@
+/* Hamburger Menu Responsive Fix */
+
+/* Base styles for hamburger - ensure it's visible when needed */
+.bixol-mobile-hamburger {
+    display: none;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto !important;
+    float: right;
+}
+
+.bixol-mobile-hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    position: relative;
+}
+
+.bixol-mobile-hamburger span:nth-child(1) {
+    width: 25px;
+}
+
+.bixol-mobile-hamburger span:nth-child(2) {
+    width: 20px;
+    margin: 4px 0;
+}
+
+.bixol-mobile-hamburger span:nth-child(3) {
+    width: 15px;
+}
+
+/* Show hamburger at tablet and below */
+@media (max-width: 1199px) {
+    .bixol-mobile-hamburger {
+        display: flex !important;
+    }
+    
+    .desktop-menu-wrapper {
+        display: none;
+    }
+}
+
+/* Ensure hamburger is visible at all mobile breakpoints */
+@media (max-width: 991px) {
+    .bixol-mobile-hamburger {
+        display: flex !important;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .header-right {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center;
+    }
+    
+    .header-right .bixol-mobile-hamburger {
+        display: flex !important;
+        margin-left: 15px;
+        order: 99; /* Ensure it's always last (rightmost) */
+    }
+}
+
+@media (max-width: 768px) {
+    .bixol-mobile-hamburger {
+        display: flex !important;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .bixol-mobile-hamburger span {
+        width: 22px;
+        height: 2.5px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(1) {
+        width: 22px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(2) {
+        width: 18px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(3) {
+        width: 14px;
+    }
+    
+    /* Ensure it's positioned properly to the right */
+    .header-right {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-end !important;
+        width: 100%;
+    }
+    
+    .phone-cta-btn {
+        order: 1;
+    }
+    
+    .header-right .bixol-mobile-hamburger {
+        order: 99; /* Always last (rightmost) */
+        flex-shrink: 0;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .bixol-mobile-hamburger {
+        display: flex !important;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .bixol-mobile-hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(1) {
+        width: 20px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(2) {
+        width: 16px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(3) {
+        width: 12px;
+    }
+    
+    /* Ensure rightmost position */
+    .header-right .bixol-mobile-hamburger {
+        order: 99 !important;
+        margin-left: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .bixol-mobile-hamburger {
+        display: flex !important;
+        width: 26px;
+        height: 26px;
+    }
+    
+    .bixol-mobile-hamburger span {
+        width: 18px;
+        height: 2px;
+        margin: 3px 0;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(1) {
+        width: 18px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(2) {
+        width: 15px;
+    }
+    
+    .bixol-mobile-hamburger span:nth-child(3) {
+        width: 11px;
+    }
+    
+    /* Keep hamburger to the right */
+    .header-right {
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+    
+    .header-right .bixol-mobile-hamburger {
+        order: 99 !important;
+        margin-left: 8px !important;
+    }
+}
+
+/* Active/Open state */
+.bixol-mobile-hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    width: 20px;
+}
+
+.bixol-mobile-hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.bixol-mobile-hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    width: 20px;
+}
+
+/* Ensure visibility in sticky header */
+.sticky-header .bixol-mobile-hamburger {
+    display: flex !important;
+}
+
+/* Override any conflicting styles from style.css */
+.header-style-2 .header-bottom .header-right .bixol-mobile-hamburger {
+    display: none;
+    float: none !important; /* Remove float to use flexbox */
+}
+
+@media (max-width: 1199px) {
+    .header-style-2 .header-bottom .header-right .bixol-mobile-hamburger {
+        display: flex !important;
+        margin-left: auto !important;
+        order: 99 !important;
+    }
+    
+    .header-style-2 .header-bottom .header-right {
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+    }
+}
+
+/* Prevent hamburger from being hidden */
+.bixol-mobile-hamburger {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hover effect for better UX */
+.bixol-mobile-hamburger:hover span {
+    background-color: #043f88;
+}
+
+/* Ensure proper z-index layering */
+.bixol-mobile-hamburger {
+    z-index: 1001;
+}
+
+/* Fix mobile menu visibility - override conflicting styles */
+.bixol-mobile-menu {
+    position: fixed !important;
+    width: 280px !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: -280px !important; /* Start off-screen */
+    background-color: #ffffff !important;
+    z-index: 99999 !important; /* Higher than overlay */
+    transition: left 0.3s ease-in-out !important;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2) !important;
+    overflow-y: auto !important;
+    padding-top: 30px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* This is the key class that shows the menu - MUST be after base styles */
+.bixol-mobile-menu.mobile-menu-active {
+    left: 0 !important; /* Slide into view */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Overlay when menu is open */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+    cursor: pointer;
+}
+
+/* Ensure body doesn't scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}

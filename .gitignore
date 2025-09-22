@@ -1,0 +1,205 @@
+# Laravel & PHP
+/vendor/
+/node_modules/
+/public/storage
+/public/hot
+/public/build
+/storage/*.key
+/storage/pail
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+.phpunit.result.cache
+.phpunit.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+composer.phar
+
+# IDE & Editor directories
+/.fleet
+/.idea
+/.vscode
+/.zed
+*.swp
+*.swo
+*~
+.project
+.settings/
+.phpactor.json
+.phpintel/
+.php_cs.cache
+.php-cs-fixer.cache
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+*.Zone.Identifier
+
+# Laravel specific
+bootstrap/cache/*
+!bootstrap/cache/.gitkeep
+storage/app/*
+!storage/app/public/
+!storage/app/.gitkeep
+storage/framework/cache/*
+!storage/framework/cache/.gitkeep
+!storage/framework/cache/data/
+storage/framework/cache/data/*
+!storage/framework/cache/data/.gitkeep
+storage/framework/sessions/*
+!storage/framework/sessions/.gitkeep
+storage/framework/testing/*
+!storage/framework/testing/.gitkeep
+storage/framework/views/*
+!storage/framework/views/.gitkeep
+storage/logs/*
+!storage/logs/.gitkeep
+storage/debugbar/*
+
+# Testing
+.phpunit.result.cache
+.phpunit.cache
+/phpunit.xml
+.php_cs.cache
+coverage/
+coverage.xml
+*.log
+phpstan.neon
+
+# Laravel Mix / Vite
+/public/css/app.css
+/public/js/app.js
+/public/mix-manifest.json
+/public/manifest.json
+/public/css/filament/*
+/public/js/filament/*
+/public/css/kahusoftware/*
+/public/js/kahusoftware/*
+
+# Backup files
+*.bak
+*.backup
+*_backup
+*.old
+*_old
+*.orig
+*.save
+*.swp
+*.tmp
+*~
+
+# Image optimization and backups
+image_backup_*
+/image_cleanup_report.md
+/IMAGE_CLEANUP_REPORT.md
+
+# Project specific
+/zzTemplatesToCopy
+/ZZTemplatesToCopy
+unused_images*.txt
+check_image_usage.php
+analyze_all_images.php
+find_unused_images.sh
+cleanup_images.sh
+
+# Database
+*.sqlite
+*.sqlite3
+database/*.sqlite*
+!database/database.sqlite.example
+
+# Deployment
+.env.production
+.env.staging
+deployment_notes.txt
+deploy.sh
+
+# Security related
+/public/.htaccess.backup
+/public/web.config.backup
+security_audit_*.txt
+SECURITY_AUDIT_REPORT.md
+
+# Documentation build artifacts
+/docs/_build
+/docs/.doctrees
+
+# Laravel Telescope
+/public/vendor/telescope
+
+# Laravel Horizon  
+/public/vendor/horizon
+
+# Laravel Nova
+/.nova
+
+# Package development
+/packages/**/vendor
+/packages/**/node_modules
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Cache files
+.sass-cache/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+dist/
+.cache-loader/
+
+# SSL Certificates (for local development)
+*.pem
+*.key
+*.crt
+*.csr
+
+# Monitoring
+.monitoring/
+grafana-storage/
+
+# Laravel Sail
+.env.sail
+docker-compose.override.yml
+
+# PHP CS Fixer
+.php-cs-fixer.php
+.php-cs-fixer.cache
+
+# PHPStan
+phpstan.neon
+phpstan-baseline.neon
+
+# Pest
+.pest/
+
+# Miscellaneous
+.notes
+.todo
+TODO.md
+NOTES.md

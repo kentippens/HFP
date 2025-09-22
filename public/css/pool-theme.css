@@ -1,0 +1,273 @@
+/* Pool Resurfacing Theme - Blue/Aqua Color Scheme */
+
+:root {
+    --pool-primary: #043f88;      /* Primary blue accent */
+    --pool-secondary: #0356c7;     /* Secondary blue */
+    --pool-accent: #0669f5;        /* Light blue accent */
+    --pool-dark: #02254d;          /* Dark navy blue */
+    --pool-light: #e6f0ff;         /* Light blue background */
+    --pool-success: #52b788;       /* Green for success */
+    --pool-warning: #ffb700;       /* Yellow for warnings */
+    --pool-text: #212529;          /* Dark text */
+    --pool-text-light: #6c757d;    /* Light gray text */
+}
+
+/* Override primary brand colors */
+.bixol-primary-btn,
+.pool-btn {
+    background: linear-gradient(135deg, var(--pool-primary) 0%, var(--pool-secondary) 100%);
+    border: 2px solid var(--pool-primary);
+    color: #fff !important;
+    transition: all 0.3s ease;
+}
+
+.bixol-primary-btn:hover,
+.pool-btn:hover {
+    background: linear-gradient(135deg, var(--pool-secondary) 0%, var(--pool-dark) 100%);
+    border-color: var(--pool-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(4, 63, 136, 0.3);
+}
+
+/* Header and navigation styling */
+.header-area {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 119, 182, 0.1);
+}
+
+.main-menu ul li a:hover,
+.main-menu ul li a:focus,
+.main-menu ul li.active a {
+    color: var(--pool-primary);
+}
+
+/* Pool CTA Section */
+.pool-cta-section {
+    background: linear-gradient(135deg, var(--pool-light) 0%, #fff 100%);
+    border-top: 3px solid var(--pool-primary);
+    border-bottom: 3px solid var(--pool-primary);
+}
+
+.pool-cta-section h5 {
+    color: var(--pool-secondary);
+    font-weight: 700;
+}
+
+.pool-cta-section p {
+    color: var(--pool-text);
+    font-size: 18px;
+}
+
+/* Service cards */
+.service-single-item {
+    background: #fff;
+    border: 1px solid var(--pool-light);
+    transition: all 0.3s ease;
+}
+
+.service-single-item:hover {
+    border-color: var(--pool-primary);
+    box-shadow: 0 10px 30px rgba(4, 63, 136, 0.15);
+    transform: translateY(-5px);
+}
+
+.srv2-icon-wrapper {
+    background: linear-gradient(135deg, var(--pool-light) 0%, var(--pool-accent) 100%);
+    border-radius: 50%;
+    padding: 20px;
+    display: inline-block;
+}
+
+/* Process section */
+.pool-process-section {
+    background: var(--pool-light);
+}
+
+.process-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.process-item:hover {
+    box-shadow: 0 10px 30px rgba(4, 63, 136, 0.2);
+    transform: translateY(-5px);
+}
+
+.step-number {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: var(--pool-primary);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Testimonial section */
+.home-testimonial {
+    background: linear-gradient(135deg, #fff 0%, var(--pool-light) 100%);
+}
+
+.testimonial-item {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(4, 63, 136, 0.1);
+}
+
+/* Footer styling */
+.footer-area {
+    background: var(--pool-dark);
+}
+
+.footer-widget h4 {
+    color: var(--pool-accent);
+}
+
+.footer-widget a:hover {
+    color: var(--pool-primary);
+}
+
+/* About section enhancements */
+.about-content ul li {
+    color: var(--pool-text);
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.about-content ul li i,
+.about-content ul li svg {
+    color: var(--pool-primary);
+    position: absolute;
+    left: 0;
+    top: 3px;
+}
+
+/* Title styling */
+.bixol-subtitle {
+    color: var(--pool-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+h3 span {
+    color: var(--pool-secondary);
+}
+
+/* CTA section background */
+.home2-cta-section .cta-bg {
+    background: linear-gradient(135deg, var(--pool-primary) 0%, var(--pool-dark) 100%);
+    padding: 60px 40px;
+    border-radius: 10px;
+}
+
+.home2-cta-section .cta-content h3 {
+    color: #fff;
+}
+
+.home2-cta-section .cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.white-btn {
+    background: #fff !important;
+    color: var(--pool-primary) !important;
+}
+
+.white-btn:hover {
+    background: var(--pool-light) !important;
+    color: var(--pool-dark) !important;
+}
+
+/* Form elements */
+.form-control:focus {
+    border-color: var(--pool-primary);
+    box-shadow: 0 0 0 0.2rem rgba(4, 63, 136, 0.25);
+}
+
+/* Why choose section */
+.hw-list ul li {
+    color: var(--pool-text);
+    margin-bottom: 20px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.hw-list ul li i,
+.hw-list ul li svg {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: var(--pool-primary);
+    font-size: 20px;
+}
+
+/* Service page enhancements */
+.service-details-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(4, 63, 136, 0.1);
+}
+
+/* Contact section */
+.contact-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(4, 63, 136, 0.1);
+}
+
+/* Breadcrumb styling */
+.breadcrumb-area {
+    background: linear-gradient(135deg, var(--pool-dark) 0%, var(--pool-secondary) 100%);
+    position: relative;
+}
+
+.breadcrumb-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumb-content h2 {
+    color: #fff;
+}
+
+.breadcrumb-content ul li {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb-content ul li a {
+    color: var(--pool-accent);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .pool-cta-section p {
+        font-size: 16px;
+    }
+    
+    .process-item {
+        padding: 20px;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+    }
+}

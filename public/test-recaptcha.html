@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA Test</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>Google reCAPTCHA v2 Invisible Test</h1>
+
+    <p>Your Site Key: <code>6LfBsdErAAAAALx4EV6sv4U4kEJZPVApRyoMlaWQ</code></p>
+
+    <form action="#" method="POST" id="test-form">
+        <div style="margin-bottom: 20px;">
+            <label>Name:</label><br>
+            <input type="text" name="name" required style="padding: 10px; width: 300px;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label>Email:</label><br>
+            <input type="email" name="email" required style="padding: 10px; width: 300px;">
+        </div>
+
+        <button
+            class="g-recaptcha"
+            data-sitekey="6LfBsdErAAAAALx4EV6sv4U4kEJZPVApRyoMlaWQ"
+            data-callback="onSubmit"
+            data-action="submit"
+            style="padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer;">
+            Submit Form (with Invisible reCAPTCHA)
+        </button>
+    </form>
+
+    <div id="result" style="margin-top: 20px; padding: 20px; background: #f0f0f0; display: none;">
+        <h3>Result:</h3>
+        <p id="result-text"></p>
+    </div>
+
+    <script>
+        function onSubmit(token) {
+            console.log('reCAPTCHA Token:', token);
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result-text').innerHTML =
+                '<strong>✅ reCAPTCHA v2 Invisible is working!</strong><br>' +
+                'Token received: ' + token.substring(0, 50) + '...<br>' +
+                'The invisible badge should appear in the bottom-right corner.';
+        }
+    </script>
+
+    <div style="margin-top: 50px; padding: 20px; background: #f9f9f9;">
+        <h3>Test Instructions:</h3>
+        <ol>
+            <li>Fill in the form fields</li>
+            <li>Click the submit button</li>
+            <li>The invisible reCAPTCHA will validate in the background</li>
+            <li>You should see the reCAPTCHA badge in the bottom-right corner</li>
+            <li>If suspicious activity is detected, you'll see a challenge</li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+/* How it Works Section Styles */
+.how-it-works-section {
+    padding: 100px 0;
+    background: #043f88;
+    position: relative;
+}
+
+/* Section Title */
+.how-it-works-section .section-title {
+    margin-bottom: 60px;
+}
+
+.how-it-works-section .section-title-center {
+    text-align: center;
+}
+
+.how-subtitle {
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.star-icon {
+    font-size: 16px;
+    color: #4fc3f7;
+}
+
+.how-main-title {
+    color: #fff !important;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* Override any conflicting styles */
+.how-it-works-section h2,
+.how-it-works-section h3 {
+    color: #fff !important;
+}
+
+.how-it-works-section .section-title h2,
+.how-it-works-section .section-title h3 {
+    color: #fff !important;
+}
+
+/* How Work Item */
+.how-work-item {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+.how-work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* How Work Image */
+.how-work-item-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    border-radius: 12px 12px 0 0;
+}
+
+.how-work-item-image figure {
+    margin: 0;
+    height: 100%;
+}
+
+.how-work-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.how-work-item:hover .how-work-item-image img {
+    transform: scale(1.1);
+}
+
+/* Step Number */
+.how-work-item-no {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background: #043f88;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(4, 63, 136, 0.3);
+    z-index: 2;
+}
+
+.how-work-item-no h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Content */
+.how-work-item-content {
+    padding: 25px 20px;
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    transition: all 0.3s ease;
+    margin-top: -4px;
+}
+
+.how-work-item-content h3 {
+    color: #212529 !important;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.how-work-item-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for hovered state */
+.how-work-item:hover .how-work-item-content {
+    background: #043f88;
+}
+
+.how-work-item:hover .how-work-item-content h3 {
+    color: #fff !important;
+}
+
+.how-work-item:hover .how-work-item-content p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+.how-it-works-footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+.how-it-works-footer p {
+    color: #fff !important;
+    font-size: 18px;
+    margin: 0;
+}
+
+.how-it-works-footer .get-quote-link {
+    color: #4fc3f7 !important;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.how-it-works-footer .get-quote-link:hover {
+    color: #fff !important;
+    text-decoration: underline;
+}
+
+/* Animation */
+.image-anime {
+    overflow: hidden;
+    position: relative;
+}
+
+.image-anime img {
+    transition: transform 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .how-main-title {
+        font-size: 36px;
+    }
+    
+    .how-work-item {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works-section {
+        padding: 60px 0;
+    }
+    
+    .how-main-title {
+        font-size: 28px;
+    }
+    
+    .how-work-item-image {
+        height: 180px;
+    }
+    
+    .how-work-item-content {
+        padding: 30px 20px 20px;
+    }
+    
+    .how-work-item-content h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}

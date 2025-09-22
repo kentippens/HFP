@@ -1,0 +1,70 @@
+/* Portfolio Grid Fix - Ensures proper display on page load */
+.portfolio-filter .grid {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-filter .grid.isotope-initialized {
+    opacity: 1;
+}
+
+.portfolio-filter .grid-item {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+}
+
+/* Ensure grid items are visible before isotope initializes */
+.portfolio-filter .filter-items .grid-item {
+    display: block;
+    float: left;
+    width: 33.333%;
+}
+
+@media (max-width: 991.98px) {
+    .portfolio-filter .filter-items .grid-item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .portfolio-filter .filter-items .grid-item {
+        width: 100%;
+    }
+}
+
+/* Service Details Slider Hover Fix */
+.service-details .sr-details-content .sr-details-slider .bixol-service-item .bixol-service-content::before {
+    background-color: #082680;
+    background-image: none;
+}
+
+.service-details .sr-details-content .sr-details-slider .bixol-service-item:hover .bixol-service-content::before {
+    opacity: 1;
+}
+
+/* Navigation Color Override */
+.header-style-2 .header-bottom {
+    background-color: #043f88 !important;
+}
+
+.header-style-2 .desktop-menu ul li a {
+    color: #ffffff !important;
+    background-color: transparent !important;
+}
+
+.header-style-2 .desktop-menu ul li:hover a {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix submenu visibility */
+.header-style-2 .desktop-menu ul li.has-submenu ul li a {
+    color: #3a4268 !important;
+    background-color: #ffffff !important;
+}
+
+.header-style-2 .desktop-menu ul li.has-submenu ul li a:hover {
+    color: #043f88 !important;
+    background-color: #f8f9fa !important;
+}

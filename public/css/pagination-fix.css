@@ -1,0 +1,23 @@
+/* Pagination Centering Fix */
+.bixol-pagination .pagination .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.bixol-pagination .pagination .page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure icons and text are centered */
+.bixol-pagination .pagination .page-link i,
+.bixol-pagination .pagination .page-link span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

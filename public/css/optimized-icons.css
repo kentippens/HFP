@@ -1,0 +1,627 @@
+/* Optimized Icon Styles - Replaces Font Awesome */
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+.icon-sm {
+    width: 0.875em;
+    height: 0.875em;
+}
+
+.icon-lg {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.icon-xl {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* Animation support for hover effects */
+.icon-hover:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* Specific styling for different contexts */
+.breadcrumb .icon {
+    margin: 0 0.25em;
+}
+
+.btn .icon {
+    margin-right: 0.25em;
+}
+
+.social-link .icon {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+/* Contact info icons */
+.contact-info .icon {
+    width: 1.125em;
+    height: 1.125em;
+    margin-right: 0.5em;
+}
+
+/* Feature list icons */
+.feature-list .icon {
+    color: #28a745;
+    margin-right: 0.5em;
+}
+
+/* Button icons */
+.bixol-primary-btn .icon {
+    margin-left: 0.25em;
+}
+
+/* Process step icons - sized to fit within the circular background */
+.steps-column .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    margin: 0 auto 20px;
+}
+
+.steps-column .icon-wrapper span {
+    font-size: 50px !important;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps-column .icon-wrapper span svg,
+.steps-column .icon-wrapper .icon {
+    width: 50px !important;
+    height: 50px !important;
+    color: #0431b8;
+    fill: #0431b8;
+}
+
+/* Year content icon */
+.year-content .icon-wrapper .icon {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+/* About section checkmark styling */
+.home2-about-section .about-right .about-content ul li i {
+    display: inline-block;
+    transform: translateY(5px);
+    color: #0431b8;
+}
+
+.home2-about-section .about-right .about-content ul li i svg {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    display: block;
+}
+
+/* Slider button icon styling - match original structure */
+.revslider-initialised .btn.btn-plus.icon-right .icon-abs {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    background: #0431b8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 240ms linear 0ms;
+}
+
+.revslider-initialised .btn.btn-plus.icon-right .icon-abs .icon svg {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+}
+
+/* Larger size for desktop */
+@media screen and (min-width: 992px) {
+    .revslider-initialised .btn.btn-plus.icon-right .icon-abs {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .revslider-initialised .btn.btn-plus.icon-right .icon-abs .icon svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Video play button styling - match original structure */
+.revslider-initialised .ct-video-button .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.revslider-initialised .ct-video-button .icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+    margin-left: 3px;
+}
+
+@media screen and (max-width: 991px) {
+    .revslider-initialised .ct-video-button .icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .revslider-initialised .ct-video-button .icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Static Hero Section Styling */
+.hero-static-section {
+    position: relative;
+    height: 715px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .hero-static-section {
+        height: 680px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-static-section {
+        height: 600px;
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 150px;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 70px;
+    line-height: 80px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 42px;
+        line-height: 56px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-title {
+        font-size: 30px;
+        line-height: 36px;
+    }
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 28px;
+    color: #fff;
+    margin-bottom: 40px;
+    max-width: 540px;
+    font-family: 'Rubik', sans-serif;
+}
+
+@media (max-width: 767px) {
+    .hero-description {
+        font-size: 16px;
+        line-height: 26px;
+        max-width: 240px;
+    }
+}
+
+/* Hero decorative stars */
+.hero-star {
+    position: absolute;
+    z-index: 1;
+}
+
+.hero-star img {
+    width: 138px;
+    height: 118px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-star-left {
+    left: -190px;
+    bottom: 65px;
+}
+
+.hero-star-right {
+    right: -180px;
+    top: 40px;
+    animation-delay: 0.6s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(0.8) rotate(5deg);
+        opacity: 0.8;
+    }
+}
+
+/* Hero bottom wave */
+.hero-bottom-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.hero-bottom-wave img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Appointment form positioned relative to hero */
+.hero-appointment-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+/* Service icons in grid sections - default size */
+.sv-wrapper .icon,
+.sf-wrapper .icon {
+    width: 70px;
+    height: 70px;
+}
+
+/* Service slider icons */
+.srv2-icon-wrapper {
+    margin-bottom: 20px;
+    display: inline-flex;
+    width: 60px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 50%;
+}
+
+.srv2-icon-wrapper .service-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Override SVG internal colors for service icons */
+.srv2-icon-wrapper .service-icon .cls-1,
+.srv2-icon-wrapper .service-icon path.cls-1 {
+    fill: #0431b8 !important;
+}
+
+.srv2-icon-wrapper .service-icon .cls-2,
+.srv2-icon-wrapper .service-icon path.cls-2 {
+    fill: #043f88 !important;
+}
+
+/* Also target generic paths if classes aren't working */
+.srv2-icon-wrapper .service-icon path {
+    fill: #0431b8 !important;
+}
+
+/* Hover state icon styling */
+.srv2-hover-item .srv2-icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.srv2-hover-item .srv2-icon-wrapper .service-icon {
+    filter: brightness(0) invert(1);
+}
+
+
+/* Footer contact icons */
+.bixol-footer-address .footer-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+}
+
+/* Header contact icons */
+.header-contact-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+}
+
+/* Hero Services We Offer button icon */
+.hero-service-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+/* Contact page icons */
+.contact-page-icon {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Override any existing icon-wrapper sizing on contact page */
+.contact-v3-info-content .info-item .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Contact page layout fixes */
+.contact-v3-info-content .row {
+    display: flex;
+    align-items: stretch;
+}
+
+.contact-v3-info-content .info-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    padding: 30px 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.contact-v3-info-content .info-item .item-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-v3-info-content .info-item .item-content h4 {
+    margin-bottom: 15px;
+    color: #0431b8;
+    font-weight: 600;
+}
+
+.contact-v3-info-content .info-item .item-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Contact form alignment */
+.contact-v2 .row {
+    align-items: stretch;
+}
+
+.contact-v2-left,
+.contact-v2-right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.contact-v2-left .contact-left-img {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-v2-left .contact-left-img img {
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Static Hero Appointment Form Styling */
+.hero-static-section ~ .hero-appointment-wrapper .appoinment-form,
+.hero-appointment-wrapper .appoinment-form {
+    position: absolute;
+    top: -650px;
+    right: 30px;
+    display: inline-block;
+    z-index: 5;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/home2/form-bg.jpg');
+    padding: 40px 30px;
+    max-width: 380px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-appointment-wrapper .appoinment-form .appoinment-title span {
+    color: #d3d4eb;
+    font-size: 15px;
+}
+
+.hero-appointment-wrapper .appoinment-form .appoinment-title h4 {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.hero-appointment-wrapper .appoinment-form form {
+    margin-top: 20px;
+}
+
+.hero-appointment-wrapper .appoinment-form form input {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 13px 15px;
+    background-color: #22356f;
+    font-size: 14px;
+    border: 0;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.hero-appointment-wrapper .appoinment-form form input::placeholder {
+    color: #ffffff;
+}
+
+.hero-appointment-wrapper .appoinment-form form select {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #22356f;
+    border: 0;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.hero-appointment-wrapper .appoinment-form form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #22356f;
+    border: 0;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 2px;
+    resize: vertical;
+}
+
+.hero-appointment-wrapper .appoinment-form form textarea::placeholder {
+    color: #ffffff;
+}
+
+.hero-appointment-wrapper .appoinment-form form button {
+    border-radius: 30px;
+    height: 48px;
+    font-size: 14px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.hero-appointment-wrapper .appoinment-form form button span {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-appointment-wrapper .appoinment-form form button span i {
+    line-height: 15px;
+}
+
+/* Mobile and tablet responsiveness for appointment form */
+@media (max-width: 1199.98px) {
+    .hero-appointment-wrapper .appoinment-form {
+        position: relative;
+        top: auto;
+        right: auto;
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 30px 20px;
+        display: block;
+    }
+    
+    .hero-appointment-wrapper {
+        margin-top: 0;
+    }
+    
+    .hero-static-section {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-appointment-wrapper .appoinment-form {
+        padding: 20px 15px;
+        margin: 15px;
+    }
+    
+    .hero-appointment-wrapper .appoinment-form .appoinment-title h4 {
+        font-size: 18px;
+    }
+    
+    .hero-appointment-wrapper .appoinment-form form input,
+    .hero-appointment-wrapper .appoinment-form form select,
+    .hero-appointment-wrapper .appoinment-form form textarea {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .hero-appointment-wrapper .appoinment-form form button {
+        height: 44px;
+        font-size: 14px;
+        padding: 0 20px;
+    }
+    
+    .hero-appointment-wrapper .appoinment-form form button span {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Ensure about section has proper spacing after static hero */
+.home2-about-section {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+}
+
+/* Clear any potential overlapping issues */
+.hero-appointment-wrapper::after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}

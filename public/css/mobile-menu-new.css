@@ -1,0 +1,419 @@
+/* =============================================
+   Modern Mobile Menu - Industry Best Practices
+   ============================================= */
+
+/* Override old menu styles completely */
+.bixol-mobile-menu {
+    display: none !important;
+}
+
+/* Reset and Base Styles */
+.mobile-menu-wrapper {
+    display: none; /* Hidden by default, shown via JS */
+}
+
+/* Menu Container */
+.mobile-menu-wrapper.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+/* Overlay Background */
+.mobile-menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.mobile-menu-wrapper.active .mobile-menu-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Menu Panel - Slide from Right */
+.mobile-menu-panel {
+    position: absolute;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    max-width: 85vw;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mobile-menu-wrapper.active .mobile-menu-panel {
+    right: 0;
+}
+
+/* Menu Header */
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #043f88;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.mobile-logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Close Button */
+.mobile-menu-close {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #043f88 0%, #0356c7 100%);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(4, 63, 136, 0.2);
+}
+
+.mobile-menu-close span {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-close span:first-child {
+    transform: rotate(45deg);
+}
+
+.mobile-menu-close span:last-child {
+    transform: rotate(-45deg);
+}
+
+.mobile-menu-close:hover {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    transform: rotate(90deg);
+    box-shadow: 0 4px 12px rgba(247, 147, 30, 0.3);
+}
+
+/* Menu Body */
+.mobile-menu-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Call Section */
+.mobile-call-section {
+    padding: 0 20px 20px;
+    border-bottom: 2px solid #f3f4f6;
+    margin-bottom: 20px;
+}
+
+.mobile-call-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(247, 147, 30, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-call-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(247, 147, 30, 0.4);
+    background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%);
+}
+
+.call-text {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+.call-number {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Navigation */
+.mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav > ul > li {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.mobile-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    color: #082680;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.mobile-nav a:hover {
+    background: linear-gradient(90deg, rgba(34, 211, 238, 0.1) 0%, transparent 100%);
+    color: #043f88;
+    padding-left: 28px;
+}
+
+.mobile-nav li.active > a {
+    color: #043f88;
+    background: linear-gradient(90deg, rgba(4, 63, 136, 0.1) 0%, transparent 100%);
+    border-left: 3px solid #043f88;
+}
+
+/* Dropdown */
+.has-dropdown {
+    position: relative;
+}
+
+/* Remove old menu's pseudo-element */
+.mobile-menu-wrapper .has-dropdown > a::after,
+.mobile-menu-panel .has-dropdown > a::after,
+.mobile-nav .has-dropdown > a::after {
+    display: none !important;
+    content: none !important;
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+    color: #043f88;
+}
+
+.has-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+    color: #043f88;
+}
+
+.dropdown-menu {
+    display: none;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f3f4f6 100%);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-left: 3px solid #043f88;
+    margin-left: 10px;
+}
+
+.has-dropdown.open .dropdown-menu {
+    display: block;
+    max-height: 500px;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    padding-left: 35px;
+    font-size: 15px;
+    color: #082680;
+    font-weight: 400;
+    border-left: none !important;
+}
+
+.dropdown-menu a:hover {
+    padding-left: 40px;
+    color: #043f88;
+    background: linear-gradient(90deg, rgba(4, 63, 136, 0.08) 0%, transparent 100%);
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 10px 20px;
+}
+
+/* Quote Link */
+.quote-link {
+    color: #043f88 !important;
+    font-weight: 700 !important;
+    background: linear-gradient(90deg, rgba(4, 63, 136, 0.05) 0%, transparent 100%) !important;
+}
+
+.quote-link:hover {
+    background: linear-gradient(90deg, rgba(4, 63, 136, 0.15) 0%, transparent 100%) !important;
+}
+
+/* Logout Button */
+.logout-btn {
+    width: 100%;
+    text-align: left;
+    padding: 15px 40px;
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    padding-left: 45px;
+    color: #374151;
+    background-color: #ffffff;
+}
+
+/* Menu Footer */
+.mobile-menu-footer {
+    padding: 20px;
+    border-top: 2px solid #043f88;
+    background: linear-gradient(135deg, #02154e 0%, #043f88 100%);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #043f88;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    border-color: transparent;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 12px rgba(247, 147, 30, 0.3);
+}
+
+.copyright {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Prevent body scroll when menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Smooth Scrollbar for Menu Body */
+.mobile-menu-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.mobile-menu-body::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+.mobile-menu-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+}
+
+.mobile-menu-body::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Animation Classes */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .mobile-menu-panel {
+        width: 280px;
+    }
+    
+    .mobile-nav a {
+        font-size: 15px;
+        padding: 12px 15px;
+    }
+    
+    .mobile-call-btn {
+        font-size: 15px;
+        padding: 10px 16px;
+    }
+}
+
+/* Accessibility */
+.mobile-menu-wrapper:focus-within {
+    outline: none;
+}
+
+.mobile-menu-close:focus {
+    outline: 2px solid #043f88;
+    outline-offset: 2px;
+}
+
+.mobile-nav a:focus {
+    outline: 2px solid #043f88;
+    outline-offset: -2px;
+}
