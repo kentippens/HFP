@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "hexagon/fiberglass-pools",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Hexagon Fiberglass Pools - Premium fiberglass pool resurfacing, conversions, repairs, and remodeling.",
+    "keywords": ["laravel", "pool", "fiberglass", "resurfacing", "conversion", "repair"],
     "license": "MIT",
     "require": {
         "php": "^8.2",

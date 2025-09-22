@@ -1,7 +1,7 @@
-# Premier Pool Resurfacing - Laravel Application Setup
+# Hexagon Fiberglass Pools - Laravel Application Setup
 
 ## Overview
-This is a Laravel 12 application for a pool resurfacing service business. It includes a public-facing website with service pages, contact forms with reCAPTCHA protection, and a Filament admin panel for content management.
+This is a Laravel 12 application for Hexagon Fiberglass Pools, specializing in fiberglass pool resurfacing, conversions, repairs, and remodeling. It includes a public-facing website with service pages, contact forms with reCAPTCHA protection, and a Filament admin panel for content management.
 
 ## Requirements
 
@@ -61,7 +61,7 @@ Edit `.env` file with your settings:
 
 #### Application Settings
 ```env
-APP_NAME="Premier Pool Resurfacing"
+APP_NAME="Hexagon Fiberglass Pools"
 APP_ENV=local
 APP_KEY=[auto-generated]
 APP_DEBUG=true
@@ -205,7 +205,7 @@ php artisan optimize
 
 ## Default Admin Credentials
 After running `AdminUserSeeder`:
-- **Email:** admin@poolresurfacing.com
+- **Email:** admin@hexagonpools.com
 - **Password:** password123
 
 **Important:** Change these immediately after first login!

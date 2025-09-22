@@ -1,216 +1,149 @@
-# HexService Laravel Application
+# Hexagon Fiberglass Pools
 
-## Hexagon Service Solutions - Professional Building Services Website
+A modern Laravel 12 application for Hexagon Fiberglass Pools, specializing in premium fiberglass pool services including resurfacing, conversions, repairs, and remodeling.
 
-A comprehensive Laravel 12 application for Hexagon Service Solutions, providing building services including cleaning, fence installation, gutter services, and more.
+## About
 
-## 🚀 Features
+Hexagon Fiberglass Pools is a comprehensive web application that showcases our expertise in:
+- **Fiberglass Pool Resurfacing** - Transform your existing pool with durable fiberglass technology
+- **Pool Conversions to Fiberglass** - Convert traditional pools to modern fiberglass
+- **Pool Repair** - Professional fiberglass pool repair services
+- **Pool Remodeling** - Complete pool renovation and modernization
 
-- **Service Management**: Complete service catalog with parent-child relationships
-- **Blog System**: Full-featured blog with categories, SEO optimization, and rich text editing
-- **Contact Forms**: Advanced contact form handling with database storage and validation
-- **Admin Panel**: Filament-powered admin dashboard for content management
-- **SEO Optimization**: Meta tags, JSON-LD structured data, sitemap generation
-- **Security**: Enhanced security features including rate limiting, XSS protection, and secure authentication
-- **Performance**: Optimized images, caching, and lazy loading
+## Features
 
-## 📋 Requirements
+### Public Website
+- Modern, responsive design optimized for all devices
+- Service showcase pages with detailed information
+- Contact forms with Google reCAPTCHA v2 Invisible protection
+- SEO-optimized content and meta tags
+- Fast page load times with optimized assets
 
-- PHP 8.3+
-- Composer 2.8+
-- Node.js 20+
-- MySQL 8.0+
-- Nginx or Apache
+### Admin Panel
+- Built with Filament v3 for modern administration
+- Content management system for services
+- Contact form submission management
+- User and role management
+- Blog/news management capabilities
 
-## 🛠️ Installation
+### Technical Features
+- Laravel 12 with PHP 8.2+ support
+- MySQL database with optimized queries
+- Bootstrap-based responsive frontend
+- Google reCAPTCHA integration for spam protection
+- Role-based access control (RBAC) system
+- Secure authentication and authorization
 
-1. Clone the repository:
+## Quick Start
+
 ```bash
-git clone https://github.com/kentippens/HexService-Laravel.git
-cd HexService-Laravel
-```
+# Clone the repository
+git clone https://github.com/kentippens/HFP.git
+cd HFP
 
-2. Install PHP dependencies:
-```bash
+# Install dependencies
 composer install
-```
-
-3. Install Node dependencies:
-```bash
 npm install
-```
 
-4. Copy environment file and configure:
-```bash
+# Configure environment
 cp .env.example .env
 php artisan key:generate
-```
 
-5. Configure your database in `.env`:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=hexservices
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
+# Set up database
+php artisan migrate
+php artisan db:seed
 
-6. Run migrations and seeders:
-```bash
-php artisan migrate --seed
-```
-
-7. Create storage symlink:
-```bash
-php artisan storage:link
-```
-
-8. Build frontend assets:
-```bash
+# Build assets
 npm run build
+
+# Create storage link
+php artisan storage:link
+
+# Start development server
+php artisan serve
 ```
 
-9. Set proper permissions:
-```bash
-sudo chown -R www-data:www-data storage bootstrap/cache
-sudo chmod -R 775 storage bootstrap/cache
-```
+For detailed installation instructions, see [SETUP.md](SETUP.md)
 
-## 🌐 Production Deployment
+## Requirements
 
-### SSL Configuration
-The application is configured for Cloudflare Full (Strict) SSL/TLS mode with Let's Encrypt certificates.
+- PHP >= 8.2
+- Composer >= 2.0
+- Node.js >= 20.x
+- MySQL >= 8.0
 
-### Nginx Configuration
-Example configuration is available in the project. Key points:
-- SSL/TLS with strong ciphers
-- Cloudflare IP forwarding
-- Security headers
-- Gzip compression
-- Static asset caching
+## Documentation
 
-### Environment Variables
-Key production settings:
-```env
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://hexagonservicesolutions.com
-SESSION_SECURE_COOKIE=true
-```
+- [Setup Guide](SETUP.md) - Complete installation and configuration instructions
+- [Laravel Documentation](https://laravel.com/docs) - Laravel framework documentation
+- [Filament Documentation](https://filamentphp.com/docs) - Admin panel documentation
 
-## 🔒 Security Features
+## Services Focus
 
-- Rate limiting on forms and API endpoints
-- XSS protection and content sanitization
-- CSRF protection
-- SQL injection prevention
-- Secure password policies
-- Session encryption
-- Security headers
+### Fiberglass Pool Resurfacing
+Our flagship service - transforming existing pools with cutting-edge fiberglass technology for:
+- Superior durability (25+ year lifespan)
+- Smooth, non-porous surface
+- Reduced maintenance requirements
+- Chemical resistance
+- Algae prevention
 
-## 📝 Admin Panel
+### Pool Conversions to Fiberglass
+Convert your traditional concrete, gunite, or vinyl liner pool to modern fiberglass:
+- Complete structural transformation
+- Enhanced energy efficiency
+- Lower long-term costs
+- Improved aesthetics
+- Faster installation
 
-Access the admin panel at `/admin`
+### Pool Repair
+Professional repair services for all types of pool damage:
+- Crack repair
+- Surface restoration
+- Structural fixes
+- Leak detection and repair
+- Equipment replacement
 
-Features:
-- Service management
-- Blog post creation and editing
-- Contact form submissions
-- User management
-- SEO configuration
-- Analytics tracking scripts
+### Pool Remodeling
+Complete pool renovation services:
+- Design updates
+- Feature additions
+- Deck and coping work
+- Lighting upgrades
+- Equipment modernization
 
-## 🧪 Testing
+## Technology Stack
 
-Run the test suite:
-```bash
-php artisan test
-```
+- **Framework:** Laravel 12
+- **PHP Version:** 8.2+
+- **Database:** MySQL 8.0
+- **Frontend:** Bootstrap 5, Vanilla JavaScript
+- **Admin Panel:** Filament v3
+- **Package Manager:** Composer, NPM
+- **Build Tools:** Vite
 
-Test blog functionality:
-```bash
-php artisan blog:test
-```
+## Security Features
 
-## 📁 Project Structure
+- Environment-based configuration
+- CSRF protection on all forms
+- XSS prevention with input sanitization
+- SQL injection protection via Eloquent ORM
+- Google reCAPTCHA v2 Invisible on all contact forms
+- Secure password hashing with bcrypt
+- Role-based access control
 
-```
-├── app/                  # Application logic
-│   ├── Console/         # Console commands
-│   ├── Filament/        # Admin panel resources
-│   ├── Http/            # Controllers, middleware
-│   ├── Models/          # Eloquent models
-│   └── Services/        # Business logic
-├── database/            # Migrations and seeders
-├── public/              # Public assets
-├── resources/           # Views and raw assets
-├── routes/              # Application routes
-├── storage/             # File storage
-└── tests/               # Test files
-```
+## Contact
 
-## 🔧 Maintenance Commands
+For more information about Hexagon Fiberglass Pools services, please visit our website or contact us through the contact form.
 
-Clear all caches:
-```bash
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
-```
+## Repository
 
-Optimize for production:
-```bash
-php artisan optimize
-php artisan config:cache
-php artisan route:cache
-```
+- **GitHub:** https://github.com/kentippens/HFP.git
 
-## 📊 Database Schema
+## License
 
-Key tables:
-- `services` - Service catalog
-- `blog_posts` - Blog articles
-- `blog_categories` - Blog categories
-- `contact_submissions` - Form submissions
-- `core_pages` - Static pages
-- `users` - User accounts
-
-## 🐛 Troubleshooting
-
-### 500 Errors
-Check Laravel logs:
-```bash
-tail -f storage/logs/laravel.log
-```
-
-### Permission Issues
-Reset permissions:
-```bash
-sudo chown -R www-data:www-data storage bootstrap/cache
-sudo chmod -R 775 storage bootstrap/cache
-```
-
-### Database Issues
-Check connection:
-```bash
-php artisan db:show
-```
-
-## 📄 License
-
-This project is proprietary software for Hexagon Service Solutions.
-
-## 👥 Contributors
-
-- Hexagon Service Solutions Team
-
-## 📞 Support
-
-For support, email: support@hexagonservicesolutions.com
+This project is proprietary software. All rights reserved.
 
 ---
 
-**Last Updated**: August 2025
-**Laravel Version**: 12.19.3
-**PHP Version**: 8.3.24
+© 2024 Hexagon Fiberglass Pools. Specializing in fiberglass pool resurfacing, conversions, repairs, and remodeling.
