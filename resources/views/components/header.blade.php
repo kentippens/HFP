@@ -57,7 +57,7 @@
                                     <a href="{{ route('silo.pool_repair_service') }}">Pool Repair</a>
                                 </li>
                                 <li class="has-submenu">
-                                    <a href="#">Areas</a>
+                                    <a href="#">Areas Served</a>
                                     <ul>
                                         <li><a href="#">Texas</a></li>
                                     </ul>
@@ -449,7 +449,7 @@
             <a href="{{ route('silo.pool_repair_service') }}">Repair</a>
         </li>
         <li class="has-submenu">
-            <a href="#">Areas</a>
+            <a href="#">Areas Served</a>
             <ul>
                 <li><a href="#">Texas</a></li>
             </ul>
