@@ -157,8 +157,8 @@
                 <p>Contact our experts today for professional {{ strtolower($silo->name) }} services.</p>
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a href="tel:972-702-7586" class="btn btn-light btn-lg">
-                    <i class="fas fa-phone"></i> Call 972-702-7586
+                <a href="tel:972-789-2983" class="btn btn-light btn-lg">
+                    <i class="fas fa-phone"></i> Call 972-789-2983
                 </a>
             </div>
         </div>

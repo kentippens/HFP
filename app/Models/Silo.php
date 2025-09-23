@@ -285,7 +285,7 @@ class Silo extends Model
             'provider' => [
                 '@type' => 'LocalBusiness',
                 'name' => config('company.name', 'Hexagon Service Solutions'),
-                'telephone' => config('company.phone', '972-702-7586'),
+                'telephone' => config('company.phone', '972-789-2983'),
                 'email' => config('company.email', 'hello@hexagonservicesolutions.com'),
                 'address' => [
                     '@type' => 'PostalAddress',

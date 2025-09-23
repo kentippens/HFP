@@ -18,9 +18,9 @@
     <span class="breadcrumb-object"><img src="{{ asset('images/home1/slider-object.png') }}" alt=""></span>
     <div class="container">
         <div class="breadcrumb-content">
-            <h1>Pool Resurfacing</h1>
+            <h1>Pool Repair Service</h1>
             <a href="{{ route('home') }}">Home @icon("fas fa-angle-double-right")</a>
-            <span>Pool Resurfacing</span>
+            <span>Pool Repair Service</span>
         </div>
     </div>
 </div>
@@ -33,8 +33,8 @@
         <div class="intro-section mb-5">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="mb-4">Pool Resurfacing with 25-Year Warranty – North & Central Texas' Permanent Solution</h1>
-                    <p class="lead"><strong>Stop the endless cycle of replastering. One-time pool resurfacing with exclusive Fibre Tech™ technology saves Dallas-Fort Worth homeowners $22,500 over 20 years.</strong></p>
+                    <h1 class="mb-4">Pool Repair | Fix Cracks & Stop Leaks | Permanent Solutions</h1>
+                    <p class="lead"><strong>Stop Pool Damage Before It Gets Worse</strong> – Expert Structural Repairs That Last</p>
                 </div>
             </div>
         </div>
@@ -44,29 +44,25 @@
             <!-- Main Body Content -->
             <div class="col-lg-8">
                 <div class="main-content">
-                    <h2>What Is Pool Resurfacing? Understanding Your Options in Texas</h2>
-                    <p>Pool resurfacing is the process of applying new surface material to a deteriorating pool interior. In North Texas, harsh weather and clay soil movement mean pools require resurfacing every 7-10 years using traditional methods like plaster, marcite, or pebble finishes.</p>
+                    <h2>Your Pool's Structural Problems Need Professional Repair. We're the Permanent Solution.</h2>
+                    <p>That crack you've been watching isn't just cosmetic. In North Texas clay soil, minor damage becomes major structural failure in just one season. Water loss, equipment strain, and safety risks compound daily.</p>
 
-                    <p><strong>Traditional pool resurfacing is temporary.</strong> Every replastering costs $8,000-$15,000 and fails again within a decade.</p>
+                    <p>As North Texas's exclusive Fibre Tech dealer, we deliver permanent structural repairs that others can't—backed by the industry's only 25-year transferable warranty.</p>
 
-                    <h3>The Pool Resurfacing Problem in Dallas-Fort Worth</h3>
-                    <p>North Texas pools face unique challenges:</p>
-                    <ul>
-                        <li><strong>Temperature extremes:</strong> 100°F+ summers, freezing winters cause surface cracking</li>
-                        <li><strong>Clay soil movement:</strong> Creates structural stress requiring frequent repairs</li>
-                        <li><strong>Hard water:</strong> Accelerates surface deterioration and staining</li>
-                        <li><strong>UV exposure:</strong> Breaks down traditional surfaces 30% faster than national average</li>
+                    <div class="alert alert-info">
+                        <strong>Schedule Your Free Structural Assessment:</strong> Call <a href="tel:972-789-2983">(972) 789-2983</a> or <a href="#get-quote">Book Online →</a>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li>✅ Expert structural repair specialists</li>
+                        <li>✅ Insurance documentation specialists</li>
+                        <li>✅ Exclusive Fibre Tech technology</li>
+                        <li>✅ Dallas-owned since 1998</li>
                     </ul>
-                    <p><strong>Result:</strong> The average Texas homeowner spends <strong>$43,900</strong> on pool resurfacing over 20 years.</p>
-
-                    <h3>The Permanent Alternative: Hexagon Fiberglass Pool Resurfacing</h3>
-                    <p>As North & Central Texas' exclusive Fibre Tech™ dealer, Hexagon Fiberglass Pools offers a revolutionary pool resurfacing solution. Instead of applying another temporary surface, we permanently convert your pool to fiberglass with a <strong>25-year warranty backed by both Fibre Tech™ and Hexagon Fiberglass Pools</strong>.</p>
-
-                    <p class="text-center"><strong style="font-size: 1.2rem;">One Resurfacing. One Warranty. Forever Done.</strong></p>
 
                     <hr class="my-5">
 
-                    <h2>Pool Resurfacing Cost: Complete 20-Year Analysis</h2>
+                    <h2>Complete Pool Repair Services</h2>
 
                     <h3>How Much Does Pool Resurfacing Cost in Dallas-Fort Worth?</h3>
                     <p>Pool resurfacing costs vary based on material choice and pool size. Here's what North Texas homeowners typically pay:</p>

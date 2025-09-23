@@ -83,9 +83,9 @@ Route::get('/pool-remodeling/{path?}', [SiloController::class, 'show'])
     ->name('silo.pool_remodeling')
     ->where('path', '.*');
 
-// Pool Repair routes
-Route::get('/pool-repair/{path?}', [SiloController::class, 'show'])
-    ->name('silo.pool_repair')
+// Pool Repair Service routes
+Route::get('/pool-repair-service/{path?}', [SiloController::class, 'show'])
+    ->name('silo.pool_repair_service')
     ->where('path', '.*');
 
 // ============================================================================

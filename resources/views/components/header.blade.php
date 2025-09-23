@@ -3,13 +3,13 @@
     <div class="info-bar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-9">
+                <div class="col-lg-10 col-md-10">
                     <div class="info-left">
-                        <span><img src="{{ asset('images/icons/contact/phone-call.svg') }}" alt="Phone" class="header-contact-icon"><strong>Call for Help: </strong><a href="tel:972-702-7586" style="color: #ffffff;">972-702-7586</a></span>
-                        <span><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="header-contact-icon"><strong>E-Mail: </strong><a href="mailto:hello@hexagonservicesolutions.com" style="color: #ffffff;">hello@hexagonservicesolutions</a></span>
+                        <span><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="header-contact-icon"><strong>Email: </strong><a href="mailto:hello@hexagonservicesolutions.com" style="color: #ffffff;">hello@hexagonservicesolutions.com</a></span>
+                        <span class="dealer-badge"><i class="fas fa-certificate" style="color: #ffd700;"></i> <strong>Exclusive North & Central Texas Fibre Tech™ Dealer</strong></span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-2 col-md-2">
                     <div class="header-social">
                         <a href="https://www.facebook.com/hexagonservicesolutions">@icon('fa-facebook-f')</a>
                         <a href="#">@icon('fa-twitter')</a>
@@ -53,11 +53,14 @@
                                 <li class="{{ request()->is('pool-remodeling*') ? 'active' : '' }}">
                                     <a href="{{ route('silo.pool_remodeling') }}">Pool Remodeling</a>
                                 </li>
-                                <li class="{{ request()->is('pool-repair*') ? 'active' : '' }}">
-                                    <a href="{{ route('silo.pool_repair') }}">Pool Repair</a>
+                                <li class="{{ request()->is('pool-repair-service*') ? 'active' : '' }}">
+                                    <a href="{{ route('silo.pool_repair_service') }}">Pool Repair</a>
                                 </li>
-                                <li>
+                                <li class="has-submenu">
                                     <a href="#">Areas</a>
+                                    <ul>
+                                        <li><a href="#">Texas</a></li>
+                                    </ul>
                                 </li>
                                 <li class="{{ request()->routeIs('contact*') ? 'active' : '' }}">
                                     <a href="{{ route('contact.index') }}">Contact</a>
@@ -92,11 +95,11 @@
                 <div class="col-lg-3 col-11">
                     <div class="header-right">
                         <!-- Phone CTA Button -->
-                        <a href="tel:972-702-7586" class="phone-cta-button">
+                        <a href="tel:972-789-2983" class="phone-cta-button">
                             <i class="fas fa-phone-alt"></i>
                             <div class="cta-content">
                                 <span class="cta-text">Call Now</span>
-                                <span class="cta-number">972-702-7586</span>
+                                <span class="cta-number">972-789-2983</span>
                             </div>
                         </a>
                         <div class="bixol-mobile-hamburger">
@@ -202,7 +205,78 @@
     }
 }
 
+/* Header Top Bar - Single Line Layout */
+.info-bar .info-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.info-bar .info-left span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.info-bar .info-left strong {
+    margin-right: 5px;
+    font-size: 0.85em;
+}
+
+.info-bar .info-left a {
+    font-size: 0.85em;
+}
+
+/* Dealer Badge Styling */
+.dealer-badge {
+    background: rgba(255, 215, 0, 0.15);
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dealer-badge strong {
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    font-size: 0.85em;
+    margin-right: 0;
+}
+
+.dealer-badge i {
+    margin-right: 5px;
+    animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
 /* Responsive adjustments */
+@media (max-width: 1399px) {
+    .info-bar .info-left {
+        font-size: 0.9em;
+    }
+
+    .dealer-badge {
+        margin-left: 10px;
+        padding: 2px 8px;
+    }
+}
+
 @media (max-width: 1199px) {
     .phone-cta-button {
         padding: 8px 16px;
@@ -371,11 +445,14 @@
         <li class="{{ request()->is('pool-remodeling*') ? 'active' : '' }}">
             <a href="{{ route('silo.pool_remodeling') }}">Pool Remodeling</a>
         </li>
-        <li class="{{ request()->is('pool-repair*') ? 'active' : '' }}">
-            <a href="{{ route('silo.pool_repair') }}">Repair</a>
+        <li class="{{ request()->is('pool-repair-service*') ? 'active' : '' }}">
+            <a href="{{ route('silo.pool_repair_service') }}">Repair</a>
         </li>
-        <li>
+        <li class="has-submenu">
             <a href="#">Areas</a>
+            <ul>
+                <li><a href="#">Texas</a></li>
+            </ul>
         </li>
         <li class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
             <a href="{{ route('blog.index') }}">Blog</a>

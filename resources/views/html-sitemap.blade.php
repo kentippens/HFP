@@ -143,7 +143,7 @@
                                 <ul class="sitemap-list contact-info">
                                     <li>
                                         <strong>Phone:</strong> 
-                                        <a href="tel:972-702-7586">972-702-7586</a>
+                                        <a href="tel:972-789-2983">972-789-2983</a>
                                     </li>
                                     <li>
                                         <strong>Email:</strong> 

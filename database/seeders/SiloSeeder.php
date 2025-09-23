@@ -49,7 +49,7 @@ class SiloSeeder extends Seeder
 
         $poolRepair = Silo::create([
             'name' => 'Pool Repair',
-            'slug' => 'pool-repair',
+            'slug' => 'pool-repair-service',
             'description' => 'Fast and reliable pool repair services for all types of pool problems.',
             'content' => '<p>Keep your pool in perfect condition with our expert repair services. We handle everything from minor fixes to major repairs.</p>',
             'meta_title' => 'Pool Repair Services | Emergency & Routine Pool Repairs',

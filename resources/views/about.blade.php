@@ -202,7 +202,7 @@
                                 </div>
                                 <div class="contact-content">
                                     <h5>Phone Number: </h5>
-                                    <span><strong> Office</strong>: <a href="tel:9727027586">972-702-7586</a></span>                                    
+                                    <span><strong> Office</strong>: <a href="tel:9727892983">972-789-2983</a></span>                                    
                                 </div>
                             </div>
                         </div>

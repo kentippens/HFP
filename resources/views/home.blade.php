@@ -485,7 +485,7 @@
                         <div class="git-bottom">
                             <div class="phon-area">
                                 <span class="git-title">Phone Support:</span>
-                                <a href="tel:9727027586"><span><i class="fas fa-phone-alt"></i></span>972-702-7586</a>
+                                <a href="tel:9727892983"><span><i class="fas fa-phone-alt"></i></span>972-789-2983</a>
                             </div>
                             <div class="git-txt">
                                 or

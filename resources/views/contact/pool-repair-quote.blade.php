@@ -108,7 +108,7 @@
                     <div class="area-icon">📍</div>
                     <h4>Dallas Office</h4>
                     <p>Serving Dallas-Fort Worth Metroplex</p>
-                    <a href="tel:972-702-7586" class="area-phone">(972) 702-7586</a>
+                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
             <div class="col-md-3 col-6">
@@ -116,7 +116,7 @@
                     <div class="area-icon">📍</div>
                     <h4>San Antonio Office</h4>
                     <p>Serving San Antonio & Hill Country</p>
-                    <a href="tel:972-702-7586" class="area-phone">(972) 702-7586</a>
+                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
             <div class="col-md-3 col-6">
@@ -124,7 +124,7 @@
                     <div class="area-icon">📍</div>
                     <h4>Austin Office</h4>
                     <p>Serving Austin & Surrounding Areas</p>
-                    <a href="tel:972-702-7586" class="area-phone">(972) 702-7586</a>
+                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
             <div class="col-md-3 col-6">
@@ -132,7 +132,7 @@
                     <div class="area-icon">📍</div>
                     <h4>Houston Office</h4>
                     <p>Serving Greater Houston Area</p>
-                    <a href="tel:972-702-7586" class="area-phone">(972) 702-7586</a>
+                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
                     <div class="area-icon">📍</div>
                     <h4>Oklahoma Office</h4>
                     <p>Serving Oklahoma City & Tulsa</p>
-                    <a href="tel:972-702-7586" class="area-phone">(972) 702-7586</a>
+                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
             <div class="col-md-3 col-6">
@@ -151,7 +151,7 @@
                     <div class="area-icon">📍</div>
                     <h4>Houston Office</h4>
                     <p>Serving Greater Houston Area</p>
-                    <a href="tel:972-702-7586" class="area-phone">(972) 702-7586</a>
+                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
         </div>
