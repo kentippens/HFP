@@ -201,7 +201,7 @@
                         <div class="item-content">
                             <h4>Office Address:</h4>
                             <p>603 Munger Ave<br>
-                                Suite 100-243<br>
+                                Suite 100-243A<br>
                                 Dallas, Texas 75202<br>
                             </p>
                         </div>
@@ -214,7 +214,7 @@
                         </div>
                         <div class="item-content">
                             <h4>E-Mail:</h4>
-                            <p><a href="mailto:hello@hexagonservicesolution.com">hello@<br>hexagonservicesolution.com</a></p>                            
+                            <p><a href="mailto:pools@hexagonservicesolutions.com">pools@<br>hexagonservicesolutions.com</a></p>                            
                         </div>
                     </div>
                 </div>

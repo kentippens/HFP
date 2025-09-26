@@ -152,7 +152,7 @@ class ContactController extends Controller
                 }
             }],
             'address' => ['nullable', 'email:rfc', 'max:255'],
-            'service' => 'required|string|in:request-callback,pool-resurfacing-conversion,pool-repair,pool-remodeling',
+            'service' => 'required|string|in:request-callback,pool-resurfacing-conversion,pool-repair,pool-remodeling,tile-replacement,coping-installation,gelcoat-refinishing',
             'g-recaptcha-response' => [config('recaptcha.enabled') ? 'required' : 'nullable', new Recaptcha()],
             'message' => ['nullable', 'string', 'max:1000', 'min:10', function ($attribute, $value, $fail) {
                 if (!empty($value) && strlen(trim($value)) < 10) {
@@ -230,7 +230,7 @@ class ContactController extends Controller
                 }
             }],
             'address' => ['nullable', 'email:rfc', 'max:255'],
-            'service' => 'required|string|in:request-callback,pool-resurfacing-conversion,pool-repair,pool-remodeling',
+            'service' => 'required|string|in:request-callback,pool-resurfacing-conversion,pool-repair,pool-remodeling,tile-replacement,coping-installation,gelcoat-refinishing',
             'g-recaptcha-response' => [config('recaptcha.enabled') ? 'required' : 'nullable', new Recaptcha()],
             'message' => ['nullable', 'string', 'max:1000', 'min:10', function ($attribute, $value, $fail) {
                 if (!empty($value) && strlen(trim($value)) < 10) {

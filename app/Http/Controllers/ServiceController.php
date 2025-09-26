@@ -9,18 +9,44 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        // Get only top-level active services for the main listing
-        $services = Service::active()
-            ->topLevel()
-            ->with('activeChildren')
-            ->ordered()
-            ->get();
-            
-        $seoData = $this->getSeoData('services', [
-            'meta_title' => 'Our Services',
-            'meta_description' => 'Explore our comprehensive cleaning services for homes and offices.',
+        // Define the core services with their root-level routes
+        $coreServices = collect([
+            (object)[
+                'name' => 'Pool Resurfacing',
+                'slug' => 'pool-resurfacing',
+                'url' => route('silo.pool_resurfacing'),
+                'short_description' => 'Transform your pool with our premium resurfacing solutions. Long-lasting, beautiful finishes backed by a 25-year warranty.',
+                'icon' => 'swimming-pool.svg'
+            ],
+            (object)[
+                'name' => 'Pool Conversions',
+                'slug' => 'pool-conversions',
+                'url' => route('silo.pool_conversions'),
+                'short_description' => 'Convert your traditional pool to modern fiberglass. Upgrade to a low-maintenance, energy-efficient swimming experience.',
+                'icon' => 'swimming-pool.svg'
+            ],
+            (object)[
+                'name' => 'Pool Remodeling',
+                'slug' => 'pool-remodeling',
+                'url' => route('silo.pool_remodeling'),
+                'short_description' => 'Complete pool remodeling services including tile, coping, and equipment upgrades for a total pool transformation.',
+                'icon' => 'swimming-pool.svg'
+            ],
+            (object)[
+                'name' => 'Pool Repair',
+                'slug' => 'pool-repair-service',
+                'url' => route('silo.pool_repair_service'),
+                'short_description' => 'Expert pool repair services for cracks, leaks, and structural issues. Permanent solutions with warranty protection.',
+                'icon' => 'swimming-pool.svg'
+            ]
         ]);
-        
+
+        $services = $coreServices;
+        $seoData = $this->getSeoData('services', [
+            'meta_title' => 'Our Services | Pool Resurfacing, Conversions, Remodeling & Repair',
+            'meta_description' => 'Professional pool services including resurfacing, conversions, remodeling, and repair. 25-year warranty. Serving Dallas-Fort Worth.',
+        ]);
+
         return view('services.index', compact('services', 'seoData'));
     }
 

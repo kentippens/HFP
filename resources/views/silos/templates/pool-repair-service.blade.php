@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Pool Resurfacing Dallas TX | 25-Year Warranty | Save $22,500')
-@section('meta_description', 'Pool resurfacing with exclusive Fibre Tech 25-year warranty. Transform any pool to fiberglass in 5-7 days. No excavation. North & Central Texas. Free quote.')
+@section('title', 'Pool Repair | Fix Cracks & Stop Leaks | Permanent Solutions')
+@section('meta_description', 'Expert Pool Repair in Texas. Fix Structural Cracks, Gunite Damage & Concrete Cancer. 25-Year Warranty. Free Estimates. Call (972) 789-2983.')
 @section('meta_robots', $silo->meta_robots ?? 'index, follow')
 
 @if($silo->canonical_url)
@@ -48,11 +48,11 @@
                     <p>That crack you've been watching isn't just cosmetic. In North Texas clay soil, minor damage becomes major structural failure in just one season. Water loss, equipment strain, and safety risks compound daily.</p>
 
                     <p>As North Texas's exclusive Fibre Tech dealer, we deliver permanent structural repairs that others can't—backed by the industry's only 25-year transferable warranty.</p>
-
+                    <br>
                     <div class="alert alert-info">
-                        <strong>Schedule Your Free Structural Assessment:</strong> Call <a href="tel:972-789-2983">(972) 789-2983</a> or <a href="#get-quote">Book Online →</a>
+                        <strong>Schedule Your Free Structural Assessment:</strong> Call <a href="tel:972-789-2983">(972) 789-2983</a>
                     </div>
-
+                    <br>
                     <ul class="feature-list">
                         <li>✅ Expert structural repair specialists</li>
                         <li>✅ Insurance documentation specialists</li>
@@ -109,7 +109,7 @@
                                     <td>Torque Lock Staples</td>
                                     <td>Recurring/expanding cracks</td>
                                     <td>$3,000-6,000</td>
-                                    <td>5 years</td>
+                                    <td>10 years</td>
                                 </tr>
                                 <tr class="table-info">
                                     <td><strong>Fiberglass Conversion</strong></td>
@@ -142,7 +142,7 @@
                         <li>Premium plaster finish</li>
                         <li>Proper curing and startup</li>
                     </ol>
-                    <p><strong>Investment:</strong> $6,000-15,000 depending on pool size and damage extent</p>
+                    <p><strong>Investment:</strong> Call to schedule a  Pool Assessment | <a href="tel:9727892983">972-789-2983</a></p>
 
                     <hr class="my-5">
 
@@ -166,14 +166,38 @@
                         <li>• Restore proper expansion joints (often missing)</li>
                         <li>• Waterproof membrane application</li>
                         <li>• New tile and coping installation</li>
-                    </ul>
+                    </ul><br>
                     <p>This complex repair requires expertise most companies lack. We're one of only three contractors in Dallas properly equipped for bond beam reconstruction.</p>
-
                     <hr class="my-5">
 
                     <h3>Concrete Cancer (Alkali-Silica Reaction)</h3>
-                    <p><strong>The progressive disease destroying older pools</strong></p>
-                    <p>Concrete cancer occurs when moisture penetrates concrete, causing rebar to rust and expand. The expansion force—7x stronger than concrete—causes progressive failure that accelerates exponentially.</p>
+                    <p><strong>Chemical deterioration affecting aging concrete pools</strong></p>
+                    <p>Alkali-Silica Reaction (ASR) occurs when alkali in cement reacts with silica in concrete aggregates, forming an expansive gel. This gel absorbs moisture and expands, creating internal pressure that progressively cracks concrete from within.</p>
+
+                    <h4>Identification:</h4>
+                    <ul>
+                        <li>• Map-pattern cracking across concrete surfaces</li>
+                        <li>• Concrete expansion and displacement</li>
+                        <li>• Gel-like deposits in cracks and joints</li>
+                        <li>• Pop-outs and surface scaling</li>
+                        <li>• Discoloration and dark staining</li>
+                        <li>• Progressive widening of existing cracks</li>
+
+                    </ul>
+
+                    <h4>Risk Factors:</h4>
+                    <ul>
+                        <li><strong>Environmental</strong> High moisture, freeze-thaw cycles, chemical exposure</li>
+                        <li><strong>Material</strong> Reactive aggregates, high-alkali cement</li>
+                        <li><strong>Age</strong> Most common in structures 10+ years old</li>
+                    </ul>
+                    <br>
+                    <p class="alert alert-warning"><em><strong>ASR cannot be reversed</strong>. However, progression can be significantly slowed through moisture management and protective measures. Professional structural assessment determines appropriate long-term strategies.</em></p>
+                    <hr class="my-5">
+
+                    <h3>Rebar Corrosion in Pool Structures</h3>
+                    <p><strong>Progressive deterioration affecting older concrete pools</strong></p>
+                    <p>Rebar corrosion occurs when moisture penetrates concrete, causing steel reinforcement to rust and expand. This creates internal pressure that cracks concrete and compromises structural integrity over time.</p>
 
                     <h4>Identification:</h4>
                     <ul>
@@ -182,13 +206,15 @@
                         <li>• Exposed, corroding rebar</li>
                         <li>• Map cracking around rust points</li>
                         <li>• White calcium deposits (efflorescence)</li>
+                        <li>• Hollow sounds when tapping concrete</li>
+
                     </ul>
 
                     <h4>Treatment Protocol:</h4>
                     <ul>
-                        <li><strong>Early Stage</strong> ($2,500-5,000): Remove affected concrete, treat rebar, rebuild</li>
-                        <li><strong>Advanced Stage</strong> ($5,000-12,000): Major reconstruction required</li>
-                        <li><strong>Permanent Cure</strong> ($8,000-15,000): Fiberglass encapsulation stops it forever</li>
+                        <li><strong>Early Stage</strong> Targeted repairs, rebar treatment, protective coatings</li>
+                        <li><strong>Advanced Stage</strong> Extensive reconstruction of compromised sections</li>
+                        <li><strong>Permanent Cure</strong> Barrier systems like fiberglass overlays for enhanced moisture resistance</li>
                     </ul>
                     <p class="alert alert-warning"><em>Warning: Delays cost 20% more every 6 months as damage spreads</em></p>
 
@@ -245,7 +271,7 @@
 
                     <hr class="my-5">
 
-                    <h2>Why North Texas Pools Need Structural Repair</h2>
+                    <h2>What Causes Structural Repairs in Texas Pools</h2>
 
                     <h3>The Perfect Storm of Damage</h3>
 
@@ -290,7 +316,7 @@
                         <li>• Detailed repair plan: No charge</li>
                     </ul>
 
-                    <h4>Repair Investments</h4>
+                    <h4>Typical Repair Investments</h4>
                     <div class="table-responsive mb-4">
                         <table class="table table-striped">
                             <thead>
@@ -340,30 +366,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-
-                    <hr class="my-5">
-
-                    <h2>Proven Results from Dallas Neighbors</h2>
-
-                    <div class="testimonial-section">
-                        <div class="testimonial">
-                            <h4>"Saved our pool and $40,000"</h4>
-                            <p>"Three companies recommended complete replacement. Hexagon's structural repair with Torque Lock staples fixed everything for $5,500. Two years later, still perfect."</p>
-                            <p class="text-muted">— <em>Michael Richardson, Highland Park</em></p>
-                        </div>
-
-                        <div class="testimonial">
-                            <h4>"Finally fixed after 3 failed attempts"</h4>
-                            <p>"Other companies just patched over concrete cancer. Hexagon explained the real problem and fixed it permanently with fiberglass. Should have called them first."</p>
-                            <p class="text-muted">— <em>Tom Harrison, Richardson</em></p>
-                        </div>
-
-                        <div class="testimonial">
-                            <h4>"Insurance covered everything"</h4>
-                            <p>"Their documentation was so thorough, insurance approved our $9,200 claim immediately. Other companies couldn't even explain what was wrong."</p>
-                            <p class="text-muted">— <em>Jennifer Kim, Frisco</em></p>
-                        </div>
+                        <p><em>*Pool complexity and other factors affect total price. </em></p>
                     </div>
 
                     <hr class="my-5">
@@ -372,7 +375,7 @@
 
                     <h3>How do I know if my crack is structural?</h3>
                     <h4>Structural cracks:</h4>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>• Run through plaster AND gunite</li>
                         <li>• Wider than 1/8 inch</li>
                         <li>• Show displacement or offset</li>
@@ -382,7 +385,7 @@
                     </ul>
 
                     <h4>Cosmetic cracks:</h4>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>• Only in plaster surface</li>
                         <li>• Hairline width</li>
                         <li>• No water loss</li>
@@ -395,7 +398,7 @@
 
                     <h3>How long do repairs take?</h3>
                     <h4>Typical timeline:</h4>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>• Day 1: Assessment and quote</li>
                         <li>• Day 2-3: Preparation and drainage (if needed)</li>
                         <li>• Day 3-7: Structural repair work</li>
@@ -406,7 +409,7 @@
 
                     <h3>Will repairs last in Texas soil?</h3>
                     <p>Yes—when done correctly. We engineer every repair specifically for North Texas conditions:</p>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>• Deep-set anchors for soil movement</li>
                         <li>• Flexible joint compounds</li>
                         <li>• Proper drainage solutions</li>
@@ -416,7 +419,7 @@
 
                     <h3>Is this covered by insurance?</h3>
                     <p>Often, yes. We document:</p>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>• Storm and freeze damage</li>
                         <li>• Tree root damage</li>
                         <li>• "Sudden failure" situations</li>
@@ -429,15 +432,15 @@
                     <h2>The Cost of Waiting</h2>
 
                     <h3>Every Month of Delay Costs More</h3>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li><strong>30 days:</strong> 20% more damage, $500-1,000 additional cost</li>
                         <li><strong>90 days:</strong> Damage doubles, $2,000-5,000 additional cost</li>
                         <li><strong>6 months:</strong> Structural compromise, $5,000-10,000 additional cost</li>
                         <li><strong>1 year:</strong> Often requires complete reconstruction</li>
                     </ul>
-
+                    <br>
                     <p>Plus daily losses:</p>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>• Water: 100-500 gallons ($5-25/day)</li>
                         <li>• Chemicals: Wasted in leaking water ($3-10/day)</li>
                         <li>• Energy: Pumps running longer ($5-15/day)</li>
@@ -445,6 +448,50 @@
                     </ul>
 
                     <p class="alert alert-danger"><strong>Bottom line:</strong> Today's $2,000 repair becomes next year's $10,000 reconstruction.</p>
+
+                    <hr class="my-5">
+
+                    <h2>Why Hexagon Fiberglass Pools?</h2>
+
+                    <h3>North & Central Texas Exclusive Fibre Tech™ Dealer</h3>
+
+                    <div class="row why-hexagon-section">
+                        <div class="col-md-6">
+                            <h4 style="color: #043f88;">Exclusive Dealer</h4>
+                            <ul class="feature-list">
+                                <li>• Only authorized Fibre Tech™ installer from Dallas to Austin</li>
+                                <li>• Factory-trained and certified</li>
+                                <li>• Direct manufacturer support</li>
+                                <li>• Protected warranty coverage</li>
+                            </ul>
+
+                            <h4 style="color: #043f88;">Industry Leadership</h4>
+                            <ul class="feature-list">
+                                <li>• CPO Certified professionals</li>
+                                <li>• Pool & Hot Tub Alliance member</li>
+                                <li>• Texas License</li>
+                                <li>• $2M liability insurance</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 style="color: #043f88;">Local Expertise</h4>
+                            <ul class="feature-list">
+                                <li>• 173+ successful pool resurfacings</li>
+                                <li>• Dallas-based, family-owned</li>
+                                <li>• Understand Texas pool challenges</li>
+                                <li>• Experienced with local permits</li>
+                            </ul>
+
+                            <h4 style="color: #043f88;">Proven Results</h4>
+                            <ul class="feature-list">
+                                <li>• 98% customer satisfaction</li>
+                                <li>• 5.0 star average rating</li>
+                                <li>• 75% referral business</li>
+                                <li>• Zero warranty claims for failure</li>
+                            </ul>
+                        </div>
+                    </div>
+
                     @if($silo->content)
                         <!-- Dynamic content from database -->
                         {!! $silo->content !!}

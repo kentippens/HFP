@@ -456,12 +456,12 @@
                     Dallas, Texas 75202</p>
                     
                     <p><strong>Email:</strong> <a href="mailto:privacy@hexagonservicesolutions.com">privacy@hexagonservicesolutions.com</a><br>
-                    <strong>Phone:</strong> <a href="tel:9727027586">(972) 702-7586</a><br>
-                    <strong>General Support:</strong> <a href="mailto:hello@hexagonservicesolutions.com">hello@hexagonservicesolutions.com</a></p>
-                    
+                    <strong>Phone:</strong> <a href="tel:9727892983">(972) 789-2983</a><br>
+                    <strong>General Support:</strong> <a href="mailto:pools@hexagonservicesolutions.com">pools@hexagonservicesolutions.com</a></p>
+
                     <p><strong>Business Hours:</strong><br>
-                    Monday - Friday: 9:00 AM - 6:30 PM CST<br>
-                    Saturday: 9:00 AM - 12:00 PM CST<br>
+                    Monday - Friday: 9:00 AM - 4:00 PM CST<br>
+                    Saturday: Closed<br>
                     Sunday: Closed</p>
 
                     <p><strong>Response Time:</strong><br>

@@ -66,22 +66,14 @@
                     <!-- Service Card Start -->
                     <div class="service-card-featured">
                         @php
-                            // Use homepage_image if set, otherwise fall back to regular image
-                            try {
-                                $imageUrl = $service->homepage_image_url;
-                            } catch (\Exception $e) {
-                                $imageUrl = asset('images/services/placeholder-service.jpg');
-                                \Log::error('Error displaying service image', [
-                                    'service' => $service->name,
-                                    'error' => $e->getMessage()
-                                ]);
-                            }
+                            // Use provided image or fallback to placeholder
+                            $imageUrl = isset($service->image) ? asset($service->image) : asset('images/services/placeholder-service.jpg');
                         @endphp
                         <div class="service-card-image" style="background-image: url('{{ $imageUrl }}');">
                             <div class="service-overlay"></div>
                             <div class="service-card-content">
                                 <h4 class="service-title">{{ $service->name }}</h4>
-                                <a href="{{ route('services.show', $service->slug) }}" class="service-arrow">
+                                <a href="{{ route($service->route) }}" class="service-arrow">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                     </svg>
@@ -122,7 +114,7 @@
             <div class="col-lg-12">
                 <!-- Section Title Start -->
                 <div class="section-title section-title-center">
-                    <h3 class="how-subtitle">
+                    <h3 class="how-subtitle" style="color: white;">
                         <span class="star-icon">✦</span>
                         <span>How We Do It</span>
                     </h3>
@@ -260,7 +252,7 @@
                             <div class="pmv-content">
                                 <h4>The Hexagon Promise</h4>
                                 <p>Do It Right The First Time. We put your satisfaction first by delivering excellent service. If our work doesn't meet your expectations, we'll return to re-clean the area at no extra cost.</p>
-                                <a href="{{ route('about') }}" class="bixol-primary-btn">View terms of services</a>
+                                {{-- <a href="{{ route('about') }}" class="bixol-primary-btn">View terms of services</a> --}}
                             </div>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2">
@@ -276,7 +268,7 @@
                             <div class="pmv-content">
                                 <h4>Customer Service Excellence</h4>
                                 <p>Our mission is to deliver comprehensive, environmentally responsible cleaning solutions that consistently surpass client expectations. We are dedicated to fostering healthier environments for our clients while upholding the utmost standards of professionalism and reliability in all our engagements.</p>
-                                <a href="{{ route('about') }}" class="bixol-primary-btn">Learn more about us</a>
+                                {{-- <a href="{{ route('about') }}" class="bixol-primary-btn">Learn more about us</a> --}}
                             </div>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2">
@@ -493,7 +485,7 @@
                             </div>
                             <div class="mail-area">
                                 <span class="git-title">E-Mail Support:</span>
-                                <a href="mailto:hello@hexagonservicesolutons.com"><span><i class="fas fa-envelope"></i></span>hello@<br>hexagonservicesolutons.com</a>
+                                <a href="mailto:pools@hexagonservicesolutions.com"><span><i class="fas fa-envelope"></i></span>pools@<br>hexagonservicesolutions.com</a>
                             </div>
                         </div>
                     </div>

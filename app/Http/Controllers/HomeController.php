@@ -6,6 +6,7 @@ use App\Models\BlogPost;
 use App\Models\Service;
 use App\Models\CorePage;
 use App\Models\LandingPage;
+use App\Models\Silo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,12 +14,49 @@ class HomeController extends Controller
     public function index()
     {
         $recentPosts = BlogPost::published()->recent()->take(3)->get();
-        $featuredServices = Service::active()->ordered()->take(4)->get();
+
+        // Get the 4 core services as silos
+        $coreServiceData = [
+            [
+                'name' => 'Pool Resurfacing',
+                'slug' => 'pool-resurfacing',
+                'route' => 'silo.pool_resurfacing',
+                'description' => 'Transform your pool with our premium resurfacing solutions. Long-lasting, beautiful finishes backed by a 25-year warranty.',
+                'image' => 'images/services/pool-resurfacing.jpg'
+            ],
+            [
+                'name' => 'Pool Conversions',
+                'slug' => 'pool-conversions',
+                'route' => 'silo.pool_conversions',
+                'description' => 'Convert your traditional pool to modern fiberglass. Upgrade to a low-maintenance, energy-efficient swimming experience.',
+                'image' => 'images/services/pool-conversions.jpg'
+            ],
+            [
+                'name' => 'Pool Remodeling',
+                'slug' => 'pool-remodeling',
+                'route' => 'silo.pool_remodeling',
+                'description' => 'Complete pool remodeling services including tile, coping, and equipment upgrades for a total pool transformation.',
+                'image' => 'images/services/pool-remodeling.jpg'
+            ],
+            [
+                'name' => 'Pool Repair',
+                'slug' => 'pool-repair-service',
+                'route' => 'silo.pool_repair_service',
+                'description' => 'Expert pool repair services for cracks, leaks, and structural issues. Permanent solutions with warranty protection.',
+                'image' => 'images/services/pool-repair.jpg'
+            ]
+        ];
+
+        // Convert to collection of objects for consistency with template
+        $featuredServices = collect($coreServiceData)->map(function ($service) {
+            return (object) $service;
+        });
+
         $seoData = $this->getSeoData('homepage', [
             'meta_title' => 'Home - Professional Cleaning Services',
             'meta_description' => 'Professional cleaning services for homes and offices. Quality service with experienced staff.',
         ]);
-        
+
         return view('home', compact('recentPosts', 'featuredServices', 'seoData'));
     }
 
@@ -28,13 +66,39 @@ class HomeController extends Controller
             'meta_title' => 'About Premier Pool Resurfacing | Expert Pool Renovation Services',
             'meta_description' => 'Learn about our pool resurfacing company with over 15 years of experience. Licensed, insured, and committed to excellence.',
         ]);
-        
-        // Get active services for the featured services section
-        $featuredServices = Service::active()
-            ->ordered()
-            ->take(4)
-            ->get();
-        
+
+        // Get the 4 core services as objects for the featured services section
+        $coreServiceData = [
+            [
+                'name' => 'Pool Resurfacing',
+                'slug' => 'pool-resurfacing',
+                'url' => route('silo.pool_resurfacing'),
+                'short_description' => 'Transform your pool with our premium resurfacing solutions. Long-lasting, beautiful finishes backed by a 25-year warranty.',
+            ],
+            [
+                'name' => 'Pool Conversions',
+                'slug' => 'pool-conversions',
+                'url' => route('silo.pool_conversions'),
+                'short_description' => 'Convert your traditional pool to modern fiberglass. Upgrade to a low-maintenance, energy-efficient swimming experience.',
+            ],
+            [
+                'name' => 'Pool Remodeling',
+                'slug' => 'pool-remodeling',
+                'url' => route('silo.pool_remodeling'),
+                'short_description' => 'Complete pool remodeling services including tile, coping, and equipment upgrades for a total pool transformation.',
+            ],
+            [
+                'name' => 'Pool Repair',
+                'slug' => 'pool-repair-service',
+                'url' => route('silo.pool_repair_service'),
+                'short_description' => 'Expert pool repair services for cracks, leaks, and structural issues. Permanent solutions with warranty protection.',
+            ]
+        ];
+
+        $featuredServices = collect($coreServiceData)->map(function ($service) {
+            return (object) $service;
+        });
+
         return view('about', compact('seoData', 'featuredServices'));
     }
 
@@ -75,6 +139,54 @@ class HomeController extends Controller
         ]);
         
         return view('crystal-clear-guarantee', compact('seoData'));
+    }
+
+    /**
+     * Display the Texas state page
+     */
+    public function texas()
+    {
+        $seoData = $this->getSeoData('texas', [
+            'meta_title' => 'Pool Resurfacing & Remodeling Services in Texas | Hexagon Fiberglass Pools',
+            'meta_description' => 'Professional pool resurfacing, remodeling, and repair services across Texas. Serving Dallas-Fort Worth, Austin, Houston, and San Antonio. 25-year warranty. Free quotes.',
+            'canonical_url' => url('/texas'),
+        ]);
+
+        // Get major Texas cities we serve
+        $majorCities = [
+            'Dallas-Fort Worth' => [
+                'name' => 'Dallas-Fort Worth',
+                'population' => '7.6 million',
+                'pools' => '450,000+',
+                'description' => 'The Metroplex is our primary service area with same-day consultations.'
+            ],
+            'Austin' => [
+                'name' => 'Austin',
+                'population' => '2.3 million',
+                'pools' => '125,000+',
+                'description' => 'Central Texas hub with year-round pool season.'
+            ],
+            'San Antonio' => [
+                'name' => 'San Antonio',
+                'population' => '2.5 million',
+                'pools' => '150,000+',
+                'description' => 'Extended service area with scheduled installations.'
+            ],
+            'Houston' => [
+                'name' => 'Houston',
+                'population' => '7.1 million',
+                'pools' => '400,000+',
+                'description' => 'Partner network for comprehensive coverage.'
+            ]
+        ];
+
+        // Get core services for the page
+        $coreServices = Service::where('is_active', true)
+            ->whereIn('slug', ['pool-resurfacing', 'pool-conversions', 'pool-remodeling', 'pool-repair'])
+            ->orderBy('order_index')
+            ->get();
+
+        return view('texas', compact('seoData', 'majorCities', 'coreServices'));
     }
 
     public function htmlSitemap()

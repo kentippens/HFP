@@ -67,20 +67,9 @@
                             <img src="{{ $iconPath }}" alt="{{ $service->name }}" class="service-icon">
                         </div>
                         <div class="bixol-sr-content">
-                            <a href="{{ route('services.show', $service->full_slug) }}"><h6>{{ $service->name }}</h6></a>
-                            <p>{{ Str::limit(strip_tags($service->short_description ?: $service->description), 80) }}</p>
-                            @if($service->activeChildren->count() > 0)
-                                <div class="sub-services-links" style="margin: 10px 0; font-size: 13px;">
-                                    <span style="color: #666;">Sub-services: </span>
-                                    @foreach($service->activeChildren->take(3) as $child)
-                                        <a href="{{ route('services.show', $child->full_slug) }}" style="color: #02154e; text-decoration: none;">{{ $child->name }}</a>@if(!$loop->last), @endif
-                                    @endforeach
-                                    @if($service->activeChildren->count() > 3)
-                                        <span style="color: #666;">...</span>
-                                    @endif
-                                </div>
-                            @endif
-                            <a href="{{ route('services.show', $service->full_slug) }}" class="bixol-readmore-btn">Read More</a>
+                            <a href="{{ $service->url }}"><h6>{{ $service->name }}</h6></a>
+                            <p>{{ Str::limit($service->short_description, 80) }}</p>
+                            <a href="{{ $service->url }}" class="bixol-readmore-btn">Read More</a>
                         </div>
                         <div class="bixol-sr-hover">
                             <div class="img-wrapper">
@@ -94,9 +83,9 @@
                                 <span class="bixol-icon-shadow"></span>
                             </div>
                             <div class="bixol-sr-content">
-                                <a href="{{ route('services.show', $service->full_slug) }}"><h6>{{ $service->name }}</h6></a>
-                                <p>{{ Str::limit(strip_tags($service->description), 120) }}</p>
-                                <a href="{{ route('services.show', $service->full_slug) }}" class="bixol-readmore-btn">Read more</a>
+                                <a href="{{ $service->url }}"><h6>{{ $service->name }}</h6></a>
+                                <p>{{ Str::limit($service->short_description, 120) }}</p>
+                                <a href="{{ $service->url }}" class="bixol-readmore-btn">Read more</a>
                             </div>
                         </div>
                     </div>

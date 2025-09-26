@@ -279,12 +279,12 @@
                     603 Munger Ave, Suite 100-243<br>
                     Dallas, Texas 75202</p>
                     
-                    <p><strong>Email:</strong> <a href="mailto:hello@hexagonservicesolutions.com">hello@hexagonservicesolutions.com</a><br>
-                    <strong>Phone:</strong> <a href="tel:9727027586">(972) 702-7586</a></p>
-                    
+                    <p><strong>Email:</strong> <a href="mailto:pools@hexagonservicesolutions.com">pools@hexagonservicesolutions.com</a><br>
+                    <strong>Phone:</strong> <a href="tel:9727892983">(972) 789-2983</a></p>
+
                     <p><strong>Business Hours:</strong><br>
-                    Monday - Friday: 9:00 AM - 6:30 PM<br>
-                    Saturday: 9:00 AM - 12:00 PM<br>
+                    Monday - Friday: 9:00 AM - 4:00 PM<br>
+                    Saturday: Closed<br>
                     Sunday: Closed</p>
                 </div>
 

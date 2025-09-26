@@ -91,11 +91,23 @@
                     <li class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
                         <a href="{{ route('blog.index') }}">Blog</a>
                     </li>
-                    
-                    <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
-                        <a href="{{ route('about') }}">About</a>
+
+                    <li class="has-dropdown {{ request()->routeIs('texas') ? 'active' : '' }}">
+                        <a href="#" class="dropdown-toggle">
+                            Areas Served
+                            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('texas') }}">Texas</a></li>
+                        </ul>
                     </li>
-                    
+
+                    {{-- <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                        <a href="{{ route('about') }}">About</a>
+                    </li> --}}
+
                     <li class="{{ request()->routeIs('contact*') ? 'active' : '' }}">
                         <a href="{{ route('contact.index') }}" class="quote-link">Get A Free Quote</a>
                     </li>

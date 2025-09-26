@@ -165,11 +165,11 @@
                         <span><i class="flaticon-clean"></i></span>
                     </div>
                     <h5>{{ $service->name }}</h5>
-                    <p>{{ Str::limit(strip_tags($service->short_description ?: $service->description), 100) }}</p>
+                    <p>{{ Str::limit($service->short_description, 100) }}</p>
                     <div class="abv2-hv-item" data-background="{{ asset('images/about/item-bg.jpg') }}">
-                        <a href="{{ route('services.show', $service->slug) }}"><h5>{{ $service->name }}</h5></a>
-                        <p>{{ Str::limit(strip_tags($service->short_description ?: $service->description), 150) }}</p>
-                        <a href="{{ route('services.show', $service->slug) }}">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{ $service->url }}"><h5>{{ $service->name }}</h5></a>
+                        <p>{{ Str::limit($service->short_description, 150) }}</p>
+                        <a href="{{ $service->url }}">Read More <i class="fas fa-arrow-right"></i></a>
                         <span class="hv-item-count">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="contact-content">
                                     <h5>Email Address: </h5>                                    
-                                    <span class="text-grey"><a href="mailto:hello@hexagonservicesolutions.com">hello@<br>hexagonservicesolutions.com</a></span>
+                                    <span class="text-grey"><a href="mailto:pools@hexagonservicesolutions.com">pools@<br>hexagonservicesolutions.com</a></span>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@
                                     <h5>Office Address: </h5>
                                     <span>
                                         603 Munger Ave<br>
-                                        Suite 100-243<br>
+                                        Suite 100-243A<br>
                                         Dallas, Texas 75202
                                     </span>                                    
                                 </div>
@@ -239,8 +239,8 @@
                                 </div>
                                 <div class="contact-content">
                                     <h5>Business Hours: </h5>
-                                    <span><strong>Mon.-Fri.</strong> 9:00 AM - 6:30 PM</span>                                    
-                                    <span><strong>Sat.</strong> 9:00 AM - 12:00 PM</span>
+                                    <span><strong>Mon.-Fri.</strong> 9:00 AM - 4:00 PM</span>
+                                    <span><strong>Sat.</strong> Closed</span>
                                     <span><strong>Sun.</strong> Closed</span>
                                 </div>
                             </div>

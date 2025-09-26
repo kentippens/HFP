@@ -36,8 +36,8 @@ if (config('app.debug')) {
     })->name('error.check');
 }
 
-// About Us
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+// About Us - Temporarily deactivated for future work
+// Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 // Pool Repair Quote - Display form and handle submission
 Route::get('/pool-repair-quote', [ContactController::class, 'index'])->name('contact.index');
@@ -50,6 +50,9 @@ Route::get('/investor-relations', [ContactController::class, 'investorRelations'
 Route::post('/investor-relations', [ContactController::class, 'storeInvestorInquiry'])
     ->middleware(['throttle:contact-form', 'throttle:contact-form-daily'])
     ->name('investor.store');
+
+// Texas State Page
+Route::get('/texas', [HomeController::class, 'texas'])->name('texas');
 
 // ============================================================================
 // AUTHENTICATION ROUTES
@@ -93,20 +96,9 @@ Route::get('/pool-repair-service/{path?}', [SiloController::class, 'show'])
 // Prefix: /services
 // ============================================================================
 
-Route::prefix('services')->name('services.')->group(function () {
-    // Services listing page
-    // URL: /services
-    Route::get('/', [ServiceController::class, 'index'])->name('index');
-    
-    // Service detail pages with support for nested sub-services
-    // This route captures all paths like:
-    // - /services/house-cleaning
-    // - /services/house-cleaning/pet-house-cleaning
-    // - /services/house-cleaning/pet-house-cleaning/deep-clean
-    Route::get('/{path}', [ServiceController::class, 'show'])
-        ->name('show')
-        ->where('path', '[a-z0-9\-]+(/[a-z0-9\-]+)*');
-});
+// Services listing page only - no individual service pages under /services
+// URL: /services
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 
 // ============================================================================
 // BLOG SECTION

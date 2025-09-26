@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10">
                     <div class="info-left">
-                        <span><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="header-contact-icon"><strong>Email: </strong><a href="mailto:hello@hexagonservicesolutions.com" style="color: #ffffff;">hello@hexagonservicesolutions.com</a></span>
+                        <span><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="header-contact-icon"><strong>Email: </strong><a href="mailto:pools@hexagonservicesolutions.com" style="color: #ffffff;">pools@hexagonservicesolutions.com</a></span>
                         <span class="dealer-badge"><i class="fas fa-certificate" style="color: #ffd700;"></i> <strong>Exclusive North & Central Texas Fibre Tech™ Dealer</strong></span>
                     </div>
                 </div>
@@ -33,19 +33,8 @@
                     <div class="desktop-menu">
                         <nav>
                             <ul>
-                                <li class="has-submenu {{ request()->is('pool-resurfacing*') ? 'active' : '' }}">
+                                <li class="{{ request()->is('pool-resurfacing*') ? 'active' : '' }}">
                                     <a href="{{ route('silo.pool_resurfacing') }}">Pool Resurfacing</a>
-                                    <ul>
-                                        @if($services->count() > 0)
-                                            @foreach($services as $service)
-                                                <li><a href="{{ route('services.show', $service->full_slug) }}">{{ $service->name }}</a></li>
-                                            @endforeach
-                                            <li class="menu-divider"></li>
-                                            <li><a href="{{ route('services.index') }}">View All Services</a></li>
-                                        @else
-                                            <li><a href="{{ route('services.index') }}">All Services</a></li>
-                                        @endif
-                                    </ul>
                                 </li>
                                 <li class="{{ request()->is('pool-conversions*') ? 'active' : '' }}">
                                     <a href="{{ route('silo.pool_conversions') }}">Pool Conversions</a>
@@ -59,7 +48,7 @@
                                 <li class="has-submenu">
                                     <a href="#">Areas Served</a>
                                     <ul>
-                                        <li><a href="#">Texas</a></li>
+                                        <li><a href="{{ route('texas') }}">Texas</a></li>
                                     </ul>
                                 </li>
                                 <li class="{{ request()->routeIs('contact*') ? 'active' : '' }}">
@@ -425,19 +414,8 @@
         <img src="{{ asset('images/logo/HFP-Logo-SQ.svg') }}" alt="{{ config('app.name') }}" class="mobile-logo">
     </a>
     <ul>
-        <li class="has-submenu {{ request()->is('pool-resurfacing*') ? 'active' : '' }}">
+        <li class="{{ request()->is('pool-resurfacing*') ? 'active' : '' }}">
             <a href="{{ route('silo.pool_resurfacing') }}">Pool Resurfacing</a>
-            <ul>
-                @if($services->count() > 0)
-                    @foreach($services as $service)
-                        <li><a href="{{ route('services.show', $service->full_slug) }}">{{ $service->name }}</a></li>
-                    @endforeach
-                    <li class="menu-divider"></li>
-                    <li><a href="{{ route('services.index') }}">View All Services</a></li>
-                @else
-                    <li><a href="{{ route('services.index') }}">All Services</a></li>
-                @endif
-            </ul>
         </li>
         <li class="{{ request()->is('pool-conversions*') ? 'active' : '' }}">
             <a href="{{ route('silo.pool_conversions') }}">Pool Conversions</a>

@@ -38,10 +38,25 @@
                                 </h3>
                                 <ul class="sitemap-list">
                                     <li><a href="{{ route('home') }}">Home</a></li>
-                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    {{-- <li><a href="{{ route('about') }}">About Us</a></li> --}}
                                     <li><a href="{{ route('contact.index') }}">Get Pool Repair Quote</a></li>
                                     <li><a href="{{ route('investor.relations') }}">Investor Relations</a></li>
                                     <li><a href="{{ route('crystal-clear-guarantee') }}">Crystal Clear Guarantee</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Pool Services Silos -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="sitemap-group">
+                                <h3 class="sitemap-heading">
+                                    @icon('fas fa-swimming-pool') Pool Services
+                                </h3>
+                                <ul class="sitemap-list">
+                                    <li><a href="{{ route('silo.pool_resurfacing') }}">Pool Resurfacing</a></li>
+                                    <li><a href="{{ route('silo.pool_conversions') }}">Pool Conversions</a></li>
+                                    <li><a href="{{ route('silo.pool_remodeling') }}">Pool Remodeling</a></li>
+                                    <li><a href="{{ route('silo.pool_repair_service') }}">Pool Repair Service</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -50,28 +65,10 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="sitemap-group">
                                 <h3 class="sitemap-heading">
-                                    @icon('fas fa-swimming-pool') Our Services
+                                    @icon('fas fa-tools') All Services
                                 </h3>
                                 <ul class="sitemap-list">
-                                    <li><a href="{{ route('services.index') }}">All Services</a></li>
-                                    @foreach($services as $service)
-                                        <li>
-                                            <a href="{{ route('services.show', $service->slug) }}">
-                                                {{ $service->name }}
-                                            </a>
-                                            @if($service->children && $service->children->count() > 0)
-                                                <ul class="sitemap-sublist">
-                                                    @foreach($service->children as $child)
-                                                        <li>
-                                                            <a href="{{ route('services.show', $child->full_slug) }}">
-                                                                {{ $child->name }}
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            @endif
-                                        </li>
-                                    @endforeach
+                                    <li><a href="{{ route('services.index') }}">View All Services</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -147,12 +144,12 @@
                                     </li>
                                     <li>
                                         <strong>Email:</strong> 
-                                        <a href="mailto:hello@hexagonservicesolutions.com">hello@hexagonservicesolutions.com</a>
+                                        <a href="mailto:pools@hexagonservicesolutions.com">pools@hexagonservicesolutions.com</a>
                                     </li>
                                     <li>
-                                        <strong>Hours:</strong> 
-                                        Mon-Fri: 8:00 AM - 6:00 PM<br>
-                                        Sat: 9:00 AM - 4:00 PM<br>
+                                        <strong>Hours:</strong>
+                                        Mon-Fri: 9:00 AM - 4:00 PM<br>
+                                        Sat: Closed<br>
                                         Sun: Closed
                                     </li>
                                 </ul>

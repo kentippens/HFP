@@ -10,11 +10,11 @@
                 <div class="bixol-footer-widget">
                     <h4>Open Hours</h4>
                     <div class="footer-office-time">
-                        <span>Mon - Fri: 9 AM - 6:30 PM</span>
-                        <span>Sat: 9 AM - 12 PM</span>
+                        <span>Mon - Fri: 9 AM - 4 PM</span>
+                        <span>Saturday: CLOSED</span>
                         <span>Sunday: CLOSED</span>
                     </div>
-                    <p class="mt-3">DFW's Premier Pool Resurfacing Company</p>
+                    <p class="mt-3">DFW's Premier Fiberglass Pool Resurfacing & Conversion Company</p>
                 </div>
             </div>
             <!-- Quick Links - Middle Left -->
@@ -23,9 +23,8 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="{{ route('services.index') }}" style="color: #ffffff;">Our Services</a></li>
-                        <li><a href="{{ route('about') }}" style="color: #ffffff;">About Us</a></li>
+                        {{-- <li><a href="{{ route('about') }}" style="color: #ffffff;">About Us</a></li> --}}
                         <li><a href="{{ route('blog.index') }}" style="color: #ffffff;">Blog</a></li>
-                        <li><a href="{{ route('contact.index') }}" style="color: #ffffff;">Contact Us</a></li>
                         <li><a href="/pool-repair-quote" style="color: #ffffff;">Get Free Quote</a></li>
                     </ul>
                 </div>
@@ -56,9 +55,9 @@
                     <h4>Official Contact</h4>
                     <div class="bixol-footer-address">
                         <ul>
-                            <li><img src="{{ asset('images/icons/contact/location.svg') }}" alt="Location" class="footer-icon"><span style="color: #ffffff;">603 Munger Ave <br>Suite 100-243 <br>Dallas, Texas 75202</span></li>
+                            <li><img src="{{ asset('images/icons/contact/location.svg') }}" alt="Location" class="footer-icon"><span style="color: #ffffff;">603 Munger Ave <br>Suite 100-243A <br>Dallas, Texas 75202</span></li>
                             <li><img src="{{ asset('images/icons/contact/calling.svg') }}" alt="Phone" class="footer-icon"><a href="tel:9727892983" style="color: #ffffff;">972-789-2983</a></li>
-                            <li><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="footer-icon"><a href="mailto:hello@hexagonservicesolutons.com" style="color: #ffffff;" >hello@hexagonservicesolutons.com</a></li>
+                            <li><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="footer-icon"><a href="mailto:pools@hexagonservicesolutions.com" style="color: #ffffff;" >pools@hexagonservicesolutions.com</a></li>
                         </ul>
                     </div>
                 </div>

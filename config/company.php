@@ -21,7 +21,7 @@ return [
     
     'phone' => env('COMPANY_PHONE', ''),
     
-    'email' => env('COMPANY_EMAIL', 'info@premierpoolresurfacing.com'),
+    'email' => env('COMPANY_EMAIL', 'pools@hexagonservicesolutions.com'),
     
     /*
     |--------------------------------------------------------------------------

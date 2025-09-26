@@ -286,10 +286,10 @@ class Silo extends Model
                 '@type' => 'LocalBusiness',
                 'name' => config('company.name', 'Hexagon Service Solutions'),
                 'telephone' => config('company.phone', '972-789-2983'),
-                'email' => config('company.email', 'hello@hexagonservicesolutions.com'),
+                'email' => config('company.email', 'pools@hexagonservicesolutions.com'),
                 'address' => [
                     '@type' => 'PostalAddress',
-                    'streetAddress' => config('company.address', '603 Munger Ave Suite 100-243'),
+                    'streetAddress' => config('company.address', '603 Munger Ave Suite 100-243A'),
                     'addressLocality' => config('company.city', 'Dallas'),
                     'addressRegion' => config('company.state', 'TX'),
                     'postalCode' => config('company.zip', '75202'),

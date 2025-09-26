@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pool Resurfacing Dallas TX | 25-Year Warranty | Save $22,500')
+@section('title', 'Pool Resurfacing Experts | 25-Year Warranty | Save $22,500')
 @section('meta_description', 'Pool resurfacing with exclusive Fibre Tech 25-year warranty. Transform any pool to fiberglass in 5-7 days. No excavation. North & Central Texas. Free quote.')
 @section('meta_robots', $silo->meta_robots ?? 'index, follow')
 
@@ -46,12 +46,12 @@
                 <div class="main-content">
                     <h2>What Is Pool Resurfacing? Understanding Your Options in Texas</h2>
                     <p>Pool resurfacing is the process of applying new surface material to a deteriorating pool interior. In North Texas, harsh weather and clay soil movement mean pools require resurfacing every 7-10 years using traditional methods like plaster, marcite, or pebble finishes.</p>
-
+                    <br>
                     <p><strong>Traditional pool resurfacing is temporary.</strong> Every replastering costs $8,000-$15,000 and fails again within a decade.</p>
 
                     <h3>The Pool Resurfacing Problem in Dallas-Fort Worth</h3>
                     <p>North Texas pools face unique challenges:</p>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li><strong>Temperature extremes:</strong> 100°F+ summers, freezing winters cause surface cracking</li>
                         <li><strong>Clay soil movement:</strong> Creates structural stress requiring frequent repairs</li>
                         <li><strong>Hard water:</strong> Accelerates surface deterioration and staining</li>
@@ -62,7 +62,7 @@
                     <h3>The Permanent Alternative: Hexagon Fiberglass Pool Resurfacing</h3>
                     <p>As North & Central Texas' exclusive Fibre Tech™ dealer, Hexagon Fiberglass Pools offers a revolutionary pool resurfacing solution. Instead of applying another temporary surface, we permanently convert your pool to fiberglass with a <strong>25-year warranty backed by both Fibre Tech™ and Hexagon Fiberglass Pools</strong>.</p>
 
-                    <p class="text-center"><strong style="font-size: 1.2rem;">One Resurfacing. One Warranty. Forever Done.</strong></p>
+                    <p class="text-center"><strong style="font-size: 1.2rem;">One Resurfacing. One Warranty. One Choice.</strong></p>
 
                     <hr class="my-5">
 
@@ -134,14 +134,14 @@
                     <p>Beyond the resurfacing itself, consider these recurring expenses:</p>
 
                     <h4>Every 2-3 Years:</h4>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>Acid washing: $500-$800</li>
                         <li>Spot repairs: $300-$500</li>
                         <li>Extra chemicals for porous surfaces: $400/year</li>
                     </ul>
 
                     <h4>Every Resurfacing Cycle:</h4>
-                    <ul>
+                    <ul style="margin-left: 1.5%; padding: 5px;">
                         <li>Water replacement: $200-$400</li>
                         <li>2-3 weeks pool downtime</li>
                         <li>Landscape repair from equipment</li>
@@ -184,7 +184,7 @@
 
                     <h3>Traditional Pool Resurfacing Options (Temporary Solutions)</h3>
 
-                    <h4>1. Plaster Pool Resurfacing</h4>
+                    <h4><strong>1. Plaster Pool Resurfacing</strong></h4>
                     <p>The most economical initial option, plaster resurfacing involves applying white Portland cement mixed with marble dust.</p>
 
                     <div class="pros-cons">
@@ -210,7 +210,7 @@
                         <p><strong>Best for:</strong> Budget-conscious homeowners planning to sell within 5 years</p>
                     </div>
 
-                    <h4>2. Pebble Pool Resurfacing</h4>
+                    <h4><strong>2. Pebble Pool Resurfacing</strong></h4>
                     <p>Aggregate finishes combine small pebbles with cement for improved durability.</p>
 
                     <div class="pros-cons">
@@ -236,7 +236,7 @@
                         <p><strong>Best for:</strong> Homeowners prioritizing longevity over comfort</p>
                     </div>
 
-                    <h4>3. Gunite Pool Resurfacing</h4>
+                    <h4><strong>3. Gunite Pool Resurfacing</strong></h4>
                     <p>Pneumatically applied concrete mixture for structural and surface renovation.</p>
 
                     <div class="pros-cons">
@@ -298,7 +298,7 @@
 
                     <div class="process-timeline">
                         <h4>Week 1: Demolition</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Drain pool completely</li>
                             <li>Chip out old plaster (extremely loud)</li>
                             <li>Haul away debris</li>
@@ -306,7 +306,7 @@
                         </ul>
 
                         <h4>Week 2: Preparation</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Repair cracks temporarily</li>
                             <li>Apply bond coat</li>
                             <li>Install new plaster/pebble</li>
@@ -314,7 +314,7 @@
                         </ul>
 
                         <h4>Week 3: Finishing</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Fill pool slowly</li>
                             <li>Balance chemistry</li>
                             <li>Clean up damage to yard</li>
@@ -326,7 +326,7 @@
 
                     <div class="process-timeline highlight">
                         <h4>Day 1: Assessment & Protection</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Comprehensive inspection</li>
                             <li>Moisture and adhesion testing</li>
                             <li>Identify all cracks and damage</li>
@@ -337,7 +337,7 @@
 
                         <h4>Day 2: Surface Preparation</h4>
                         <p><strong>Without Excavation or Demolition:</strong></p>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Profile surface for optimal adhesion</li>
                             <li>Crack Repair</li>
                             <li>Zero damage to surrounding area</li>
@@ -345,11 +345,11 @@
 
                         <h4>Days 3-4: Fibre Tech™ Application</h4>
                         <p><strong>Exclusive Multi-Layer Process:</strong></p>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Install using patented techniques</li>
                         </ul>
                         <p><strong>Quality Control:</strong></p>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Thickness testing at 25+ points</li>
                             <li>Detection for voids</li>
                             <li>Surface smoothness verification</li>
@@ -357,7 +357,7 @@
                         </ul>
 
                         <h4>Day 5: Curing & Finishing</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Controlled curing environment</li>
                             <li>Sand to perfect smoothness</li>
                             <li>Polish to glass-like finish</li>
@@ -366,7 +366,7 @@
                         </ul>
 
                         <h4>Day 6: Final Inspection</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Complete surface examination</li>
                             <li>Leak test all penetrations</li>
                             <li>Verify warranty compliance</li>
@@ -375,7 +375,7 @@
                         </ul>
 
                         <h4>Day 7: Completion</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Start water filling process (then hand over to homeowner)</li>
                             <li>Provide warranty documentation</li>
                             <li>Final walkthrough</li>
@@ -393,7 +393,7 @@
 
                     <div class="failure-points">
                         <h4>1. Material Porosity</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Plaster and concrete are naturally porous</li>
                             <li>Water penetrates, causing deterioration</li>
                             <li>Chemicals get absorbed, weakening structure</li>
@@ -401,7 +401,7 @@
                         <p><strong>Hexagon Solution:</strong> Non-porous fiberglass surface</p>
 
                         <h4>2. Rigid Materials Can't Flex</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Texas clay soil expands/contracts</li>
                             <li>Rigid plaster cracks under movement</li>
                             <li>Cracks grow larger each season</li>
@@ -409,7 +409,7 @@
                         <p><strong>Hexagon Solution:</strong> Flexible material adapts to ground movement</p>
 
                         <h4>3. Chemical Degradation</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Chlorine attacks plaster constantly</li>
                             <li>Salt systems accelerate deterioration</li>
                             <li>pH fluctuations damage surface</li>
@@ -417,7 +417,7 @@
                         <p><strong>Hexagon Solution:</strong> Chemically inert fiberglass resists all pool chemicals</p>
 
                         <h4>4. Temperature Stress</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>100°F+ surface temperatures</li>
                             <li>Freezing winter conditions</li>
                             <li>Thermal expansion causes cracking</li>
@@ -425,7 +425,7 @@
                         <p><strong>Hexagon Solution:</strong> Engineered for -40°F to 200°F</p>
 
                         <h4>5. Poor Installation</h4>
-                        <ul>
+                        <ul style="margin-left: 1.5%; padding: 5px;">
                             <li>Improper mixing ratios</li>
                             <li>Rushed application</li>
                             <li>Inadequate curing time</li>
@@ -504,15 +504,7 @@
                                 <li>• Longview Pool Resurfacing</li>
                                 <li>• Sherman Pool Resurfacing</li>
                             </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Future Expansion Planned:</h5>
-                            <ul class="service-area-list">
-                                <li>• Oklahoma</li>
-                                <li>• Louisiana</li>
-                                <li>• Arkansas</li>
-                            </ul>
-                        </div>
+                        </div>                        
                     </div>
 
                     <p class="alert alert-info"><strong>Note:</strong> The Houston area is serviced by a different Fibre Tech™ dealer. We focus exclusively on North & Central Texas.</p>
@@ -525,7 +517,7 @@
 
                     <div class="faq-section">
                         <h5>Q: How often do pools need resurfacing?</h5>
-                        <p>Traditional surfaces need resurfacing every 5-15 years depending on material. Plaster lasts 5-7 years, pebble 10-15 years in Texas climate. Our fiberglass resurfacing comes with a 25-year warranty and is designed to last decades beyond that.</p>
+                        <p>Traditional surfaces need resurfacing every 5-15 years depending on material. Plaster lasts 5-7 years, pebble 10-15 years in Texas climate. Our fiberglass resurfacing comes with a <strong>25-Year Warranty</strong> and is designed to last decades beyond that.</p>
 
                         <h5>Q: How long does pool resurfacing take?</h5>
                         <p>Traditional resurfacing takes 2-3 weeks, including drying time. Our conversion completes in just 5-7 days total, with less mess and no excavation. If there is rain or other inclement weather, this may push the project duration out. If that's the case, we'll communicate with you about timeline adjustments.</p>
@@ -638,7 +630,7 @@
 
                     <div class="row why-hexagon-section">
                         <div class="col-md-6">
-                            <h4>Exclusive Dealer</h4>
+                            <h4 style="color: #043f88;">Exclusive Dealer</h4>
                             <ul class="feature-list">
                                 <li>• Only authorized Fibre Tech™ installer from Dallas to Austin</li>
                                 <li>• Factory-trained and certified</li>
@@ -646,7 +638,7 @@
                                 <li>• Protected warranty coverage</li>
                             </ul>
 
-                            <h4>Industry Leadership</h4>
+                            <h4 style="color: #043f88;">Industry Leadership</h4>
                             <ul class="feature-list">
                                 <li>• CPO Certified professionals</li>
                                 <li>• Pool & Hot Tub Alliance member</li>
@@ -655,7 +647,7 @@
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <h4>Local Expertise</h4>
+                            <h4 style="color: #043f88;">Local Expertise</h4>
                             <ul class="feature-list">
                                 <li>• 173+ successful pool resurfacings</li>
                                 <li>• Dallas-based, family-owned</li>
@@ -663,7 +655,7 @@
                                 <li>• Experienced with local permits</li>
                             </ul>
 
-                            <h4>Proven Results</h4>
+                            <h4 style="color: #043f88;">Proven Results</h4>
                             <ul class="feature-list">
                                 <li>• 98% customer satisfaction</li>
                                 <li>• 5.0 star average rating</li>
