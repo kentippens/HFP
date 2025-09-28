@@ -32,7 +32,10 @@ mix.styles([
     'public/css/mobile-menu-new.css',
     'public/css/how-it-works.css',
     'public/css/pagination-fix.css',
-    'public/css/blog-details-fix.css'
+    'public/css/blog-details-fix.css',
+    'public/css/lazy-loading.css',
+    'public/css/layout-fixes.css',
+    'public/css/accessibility.css'
 ], 'public/css/app.min.css');
 
 // Process extracted inline styles
@@ -56,7 +59,9 @@ mix.scripts([
     'public/js/main.js',
     'public/js/mobile-menu-new.js',
     'public/js/form-validation.js',
-    'public/js/inline-replacements.js'
+    'public/js/inline-replacements.js',
+    'public/js/lazy-loading.js',
+    'public/js/accessibility.js'
 ], 'public/js/app.min.js');
 
 // Process images
