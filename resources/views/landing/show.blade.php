@@ -15,7 +15,7 @@
 @if($page->custom_css)
 @push('styles')
 <style>
-{!! $page->custom_css !!}
+{{ $page->custom_css }}
 </style>
 @endpush
 @endif
@@ -24,7 +24,7 @@
 
 <!-- Landing Page Content -->
 <div class="landing-page-content">
-    {!! $page->content !!}
+    {!! \App\Helpers\HtmlHelper::safe($page->content, 'admin') !!}
 </div>
 
 @endsection
@@ -32,7 +32,7 @@
 @if($page->custom_js)
 @push('scripts')
 <script>
-{!! $page->custom_js !!}
+{{ $page->custom_js }}
 </script>
 @endpush
 @endif

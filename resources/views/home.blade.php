@@ -69,7 +69,7 @@
                             // Use provided image or fallback to placeholder
                             $imageUrl = isset($service->image) ? asset($service->image) : asset('images/services/placeholder-service.jpg');
                         @endphp
-                        <div class="service-card-image" style="background-image: url('{{ $imageUrl }}');">
+                        <div class="service-card-image" data-bg-image="{{ $imageUrl }}">
                             <div class="service-overlay"></div>
                             <div class="service-card-content">
                                 <h4 class="service-title">{{ $service->name }}</h4>
@@ -114,7 +114,7 @@
             <div class="col-lg-12">
                 <!-- Section Title Start -->
                 <div class="section-title section-title-center">
-                    <h3 class="how-subtitle" style="color: white;">
+                    <h3 class="how-subtitle how-subtitle-white">
                         <span class="star-icon">✦</span>
                         <span>How We Do It</span>
                     </h3>
@@ -307,9 +307,9 @@
             <div class="col-lg-6 offset-lg-6">
                 <div class="faq-content">
                     <div class="bixol-title-area">
-                        <span class="bixol-subtitle" style="color: #FFFF">FAQ</span>
-                        <h3><span style="color: #FFFF"><strong>Common Questions Answered:</strong></span><span><strong>Our FAQs.</strong></span></h3>
-                        <p style="color: #FFFF">Find answers to the most common questions about our cleaning services and policies.</p>
+                        <span class="bixol-subtitle faq-subtitle">FAQ</span>
+                        <h3><span class="faq-title"><strong>Common Questions Answered:</strong></span><span><strong>Our FAQs.</strong></span></h3>
+                        <p class="faq-description">Find answers to the most common questions about our cleaning services and policies.</p>
                     </div>
                     <div class="faq-wrapper">
                         <div class="accordion" id="faq-accordion">
@@ -503,177 +503,6 @@
 
 @endsection
 
-@push('styles')
-<style>
-/* Local Trust Signals */
-.local-trust-signals {
-    background: #ffffff;
-    border-bottom: 1px solid #e8e8e8;
-}
-
-.trust-signals-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 10px 0;
-}
-
-.trust-signal-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 1 auto;
-}
-
-.trust-logo {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(0);
-    transition: all 0.3s ease;
-}
-
-.trust-logo:hover {
-    transform: scale(1.05);
-}
-
-.wwp-logo {
-    height: 95px;
-}
-
-.flag-logo {
-    height: 70px;
-    width: auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.chamber-logo {
-    height: 65px;
-}
-
-.phta-logo {
-    height: 110px;
-}
-
-.food-bank-logo {
-    height: 80px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .trust-signals-wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 20px 0;
-        justify-items: center;
-    }
-    
-    .trust-signal-item {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .trust-signal-item:nth-child(1) {
-        grid-column: 1 / 2;
-        grid-row: 2;
-    }
-    
-    .trust-signal-item:nth-child(2) {
-        grid-column: 2 / 3;
-        grid-row: 2;
-    }
-    
-    .trust-signal-item:nth-child(3) {
-        grid-column: 1 / 2;
-        grid-row: 1;
-    }
-    
-    .trust-signal-item:nth-child(4) {
-        grid-column: 2 / 3;
-        grid-row: 1;
-    }
-    
-    .trust-signal-item:nth-child(5) {
-        grid-column: 1 / 2;
-        grid-row: 3;
-    }
-    
-    .trust-signal-item:nth-child(6) {
-        grid-column: 2 / 3;
-        grid-row: 3;
-    }
-    
-    .trust-logo {
-        height: 50px;
-    }
-    
-    .chamber-logo {
-        height: 55px;
-    }
-    
-    .phta-logo {
-        height: 90px;
-    }
-    
-    .wwp-logo {
-        height: 75px;
-    }
-    
-    .flag-logo {
-        height: 55px;
-    }
-    
-    .food-bank-logo {
-        height: 65px;
-    }
-}
-
-@media (max-width: 480px) {
-    .trust-signals-wrapper {
-        gap: 15px;
-        padding: 15px 0;
-    }
-    
-    .trust-logo {
-        height: 45px;
-    }
-    
-    .chamber-logo {
-        height: 50px;
-    }
-    
-    .phta-logo {
-        height: 75px;
-    }
-    
-    .wwp-logo {
-        height: 65px;
-    }
-    
-    .flag-logo {
-        height: 45px;
-    }
-    
-    .food-bank-logo {
-        height: 55px;
-    }
-}
-
-/* Section Divider */
-.section-divider {
-    padding: 30px 0;
-}
-
-.divider-line {
-    margin: 0;
-    border: 0;
-    border-top: 2px solid #e8e8e8;
-    opacity: 1;
-}
-</style>
-@endpush
+{{-- Inline styles moved to resources/css/pages/home.css and compiled to public/css/pages.min.css --}}
 
 

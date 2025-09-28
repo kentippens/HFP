@@ -136,11 +136,11 @@
                                 </div>
                                 
                                 {{-- You can still include the database content if desired --}}
-                                {!! $service->description !!}
+                                {!! \App\Helpers\HtmlHelper::safe($service->description, 'services') !!}
                             </div>
                         @else
                             {{-- Default content for other services --}}
-                            {!! $service->description ?: '<p>Professional service with experienced staff and quality results.</p>' !!}
+                            {!! \App\Helpers\HtmlHelper::safe($service->description ?: '<p>Professional service with experienced staff and quality results.</p>', 'services') !!}
                         @endif
                     </div>
 

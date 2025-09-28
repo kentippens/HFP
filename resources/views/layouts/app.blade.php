@@ -38,26 +38,44 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    {{-- Replaced heavy font files with optimized icons --}}
-    <link rel="stylesheet" href="{{ asset('css/optimized-icons.css') }}">
+    @if(file_exists(public_path('mix-manifest.json')))
+        <!-- Compiled CSS with version hashing -->
+        <link rel="stylesheet" href="{{ mix('css/app.min.css') }}">
+    @elseif(file_exists(public_path('css/app.min.css')))
+        <!-- Compiled CSS - All vendor and custom styles minified -->
+        <link rel="stylesheet" href="{{ asset('css/app.min.css') }}?v={{ filemtime(public_path('css/app.min.css')) }}">
+    @else
+        <!-- Fallback to individual files if compiled version not available -->
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/optimized-icons.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/odometer-theme-car.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/portfolio-fix.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/pool-theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/pool-services.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/phone-cta.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/how-it-works.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/pagination-fix.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/blog-details-fix.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/lazy-loading.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/layout-fixes.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/accessibility.css') }}">
+    @endif
+
+    <!-- External Font Awesome - kept separate for CDN benefits -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/odometer-theme-car.css') }}">
+
+    <!-- Page-specific styles (extracted from inline) -->
+    @if(file_exists(public_path('mix-manifest.json')))
+        <link rel="stylesheet" href="{{ mix('css/pages.min.css') }}">
+    @elseif(file_exists(public_path('css/pages.min.css')))
+        <link rel="stylesheet" href="{{ asset('css/pages.min.css') }}?v={{ filemtime(public_path('css/pages.min.css')) }}">
+    @endif
+
     @stack('styles')
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/portfolio-fix.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/pool-theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/pool-services.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/phone-cta.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/mobile-menu-new.css') }}?v={{ time() }}"> --}}
-    <link rel="stylesheet" href="{{ asset('css/how-it-works.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/pagination-fix.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/blog-details-fix.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/lazy-loading.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/layout-fixes.css') }}">
     
     <!-- JSON-LD Structured Data -->
     @hasSection('json_ld')
@@ -82,6 +100,9 @@
 </head>
 
 <body class="@yield('body_class', '')">
+    <!-- Skip to main content link for screen readers -->
+    <a href="#main-content" class="skip-link sr-only-focusable">Skip to main content</a>
+
     <!-- Tracking Scripts - Body Start -->
     @if(isset($trackingScripts['body_start']))
         @foreach($trackingScripts['body_start'] as $script)
@@ -97,7 +118,7 @@
     @include('components.header')
 
     <!-- Main Content -->
-    <main>
+    <main id="main-content">
         @yield('content')
     </main>
 
@@ -105,22 +126,33 @@
     @include('components.footer')
 
     <!-- Javascript Files -->
-    <script src="{{ asset('js/vendor/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/slick.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/easing.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/wow.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/before-after.js') }}"></script>
-    <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/odometer.min.js') }}"></script>
-    <script src="{{ asset('js/vendor/isotope.pkgd.js') }}"></script>
-    <script src="{{ asset('js/vendor/piechart.js') }}"></script>
-    <script src="{{ asset('js/vendor/appear.js') }}"></script>
+    @if(file_exists(public_path('mix-manifest.json')))
+        <!-- Compiled JavaScript with version hashing -->
+        <script src="{{ mix('js/app.min.js') }}"></script>
+    @elseif(file_exists(public_path('js/app.min.js')))
+        <!-- Compiled JavaScript - All vendor and custom scripts minified -->
+        <script src="{{ asset('js/app.min.js') }}?v={{ filemtime(public_path('js/app.min.js')) }}"></script>
+    @else
+        <!-- Fallback to individual files if compiled version not available -->
+        <script src="{{ asset('js/vendor/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/slick.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/easing.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/wow.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/before-after.js') }}"></script>
+        <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/odometer.min.js') }}"></script>
+        <script src="{{ asset('js/vendor/isotope.pkgd.js') }}"></script>
+        <script src="{{ asset('js/vendor/piechart.js') }}"></script>
+        <script src="{{ asset('js/vendor/appear.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{ asset('js/form-validation.js') }}"></script>
+        <script src="{{ asset('js/lazy-loading.js') }}"></script>
+        <script src="{{ asset('js/inline-replacements.js') }}"></script>
+        <script src="{{ asset('js/accessibility.js') }}"></script>
+    @endif
+
     @stack('scripts')
-    <script src="{{ asset('js/main.js') }}?v={{ time() }}"></script>
-    {{-- <script src="{{ asset('js/mobile-menu-new.js') }}?v={{ time() }}"></script> --}}
-    <script src="{{ asset('js/form-validation.js') }}?v={{ time() }}"></script>
-    <script src="{{ asset('js/lazy-loading.js') }}"></script>
     
     <!-- Additional Scripts -->
     @yield('scripts')

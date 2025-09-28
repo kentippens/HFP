@@ -75,7 +75,7 @@
             <div class="row mt-5">
                 <div class="col-lg-12">
                     <div class="silo-content">
-                        {!! $silo->content !!}
+                        {!! \App\Helpers\HtmlHelper::safe($silo->content, 'admin') !!}
                     </div>
                 </div>
             </div>

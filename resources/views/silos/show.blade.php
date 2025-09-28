@@ -55,7 +55,7 @@
 
                 @if($silo->content)
                     <div class="silo-content">
-                        {!! $silo->content !!}
+                        {!! \App\Helpers\HtmlHelper::safe($silo->content, 'admin') !!}
                     </div>
                 @endif
 

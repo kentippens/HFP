@@ -45,6 +45,14 @@ Route::post('/pool-repair-quote', [ContactController::class, 'store'])
     ->middleware(['throttle:contact-form', 'throttle:contact-form-daily'])
     ->name('contact.store');
 
+// Accessible Contact Form Test (temporary - for testing accessibility improvements)
+if (config('app.debug')) {
+    Route::get('/contact-accessible', function() {
+        $seoData = null; // Or fetch from database if needed
+        return view('contact.accessible-form', compact('seoData'));
+    })->name('contact.accessible');
+}
+
 // Investor Relations
 Route::get('/investor-relations', [ContactController::class, 'investorRelations'])->name('investor.relations');
 Route::post('/investor-relations', [ContactController::class, 'storeInvestorInquiry'])

@@ -494,7 +494,7 @@
 
                     @if($silo->content)
                         <!-- Dynamic content from database -->
-                        {!! $silo->content !!}
+                        {!! \App\Helpers\HtmlHelper::safe($silo->content, 'admin') !!}
                     @endif
                 </div>
             </div>

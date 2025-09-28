@@ -6,4 +6,5 @@ return [
     App\Providers\RateLimitServiceProvider::class,
     App\Providers\SecurityServiceProvider::class,
     App\Providers\ViewServiceProvider::class,
+    App\Providers\ViewOptimizationServiceProvider::class,
 ];

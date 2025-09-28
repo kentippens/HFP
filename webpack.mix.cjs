@@ -35,6 +35,11 @@ mix.styles([
     'public/css/blog-details-fix.css'
 ], 'public/css/app.min.css');
 
+// Process extracted inline styles
+mix.styles([
+    'resources/css/pages/home.css'
+], 'public/css/pages.min.css');
+
 // Combine and minify JavaScript files
 mix.scripts([
     'public/js/vendor/jquery-3.6.0.min.js',
@@ -50,7 +55,8 @@ mix.scripts([
     'public/js/vendor/appear.js',
     'public/js/main.js',
     'public/js/mobile-menu-new.js',
-    'public/js/form-validation.js'
+    'public/js/form-validation.js',
+    'public/js/inline-replacements.js'
 ], 'public/js/app.min.js');
 
 // Process images

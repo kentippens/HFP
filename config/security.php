@@ -62,14 +62,107 @@ return [
     */
 
     'headers' => [
-        'strict_transport_security' => env('HSTS_ENABLED', true),
-        'hsts_max_age' => env('HSTS_MAX_AGE', 31536000), // 1 year
-        'hsts_include_subdomains' => env('HSTS_INCLUDE_SUBDOMAINS', true),
-        'x_frame_options' => 'SAMEORIGIN',
-        'x_content_type_options' => 'nosniff',
-        'x_xss_protection' => '1; mode=block',
-        'referrer_policy' => 'strict-origin-when-cross-origin',
-        'permissions_policy' => 'camera=(), microphone=(), geolocation=()',
+        'enabled' => env('SECURITY_HEADERS_ENABLED', true),
+
+        // Basic Security Headers
+        'x_xss_protection' => true,
+        'x_frame_options' => env('SECURITY_FRAME_OPTIONS', 'SAMEORIGIN'),
+        'x_content_type_options' => true,
+        'referrer_policy' => env('SECURITY_REFERRER_POLICY', 'strict-origin-when-cross-origin'),
+        'remove_x_powered_by' => true,
+        'remove_server' => true,
+
+        // Cross-Origin Policies
+        'cross_origin_embedder_policy' => env('SECURITY_COEP', 'unsafe-none'),
+        'cross_origin_opener_policy' => env('SECURITY_COOP', 'same-origin'),
+        'cross_origin_resource_policy' => env('SECURITY_CORP', 'same-origin'),
+
+        // Strict Transport Security (HSTS)
+        'strict_transport_security' => [
+            'enabled' => env('SECURITY_HSTS_ENABLED', true),
+            'max_age' => env('SECURITY_HSTS_MAX_AGE', 31536000),
+            'include_subdomains' => env('SECURITY_HSTS_SUBDOMAINS', true),
+            'preload' => env('SECURITY_HSTS_PRELOAD', false),
+        ],
+
+        // Certificate Transparency
+        'expect_ct' => [
+            'enabled' => env('SECURITY_EXPECT_CT_ENABLED', false),
+            'max_age' => env('SECURITY_EXPECT_CT_MAX_AGE', 86400),
+            'enforce' => env('SECURITY_EXPECT_CT_ENFORCE', false),
+            'report_uri' => env('SECURITY_EXPECT_CT_REPORT_URI'),
+        ],
+
+        // Permissions Policy
+        'permissions_policy' => [
+            'accelerometer' => '()',
+            'camera' => '()',
+            'geolocation' => '()',
+            'gyroscope' => '()',
+            'magnetometer' => '()',
+            'microphone' => '()',
+            'payment' => '()',
+            'usb' => '()',
+            'interest-cohort' => '()',
+            'fullscreen' => '(self)',
+            'picture-in-picture' => '(self)',
+        ],
+
+        // Content Security Policy (CSP)
+        'content_security_policy' => [
+            'enabled' => env('SECURITY_CSP_ENABLED', true),
+            'report_only' => env('SECURITY_CSP_REPORT_ONLY', false),
+            'use_nonce' => env('SECURITY_CSP_USE_NONCE', false),
+            'report_uri' => env('SECURITY_CSP_REPORT_URI'),
+            'report_to' => env('SECURITY_CSP_REPORT_TO'),
+
+            'directives' => [
+                'default-src' => "'self'",
+                'script-src' => "'self' 'unsafe-inline' 'unsafe-eval' " .
+                    "https://cdn.jsdelivr.net " .
+                    "https://cdnjs.cloudflare.com " .
+                    "https://www.googletagmanager.com " .
+                    "https://www.google-analytics.com " .
+                    "https://maps.googleapis.com " .
+                    "https://www.clarity.ms " .
+                    "https://cdn.ckeditor.com " .
+                    "https://www.gstatic.com",
+                'style-src' => "'self' 'unsafe-inline' " .
+                    "https://cdn.jsdelivr.net " .
+                    "https://cdnjs.cloudflare.com " .
+                    "https://fonts.googleapis.com",
+                'img-src' => "'self' data: https: http: blob:",
+                'font-src' => "'self' data: " .
+                    "https://fonts.gstatic.com " .
+                    "https://cdnjs.cloudflare.com " .
+                    "https://cdn.jsdelivr.net",
+                'connect-src' => "'self' " .
+                    "https://www.google-analytics.com " .
+                    "https://analytics.google.com " .
+                    "https://www.clarity.ms " .
+                    "wss://livewire.test " .
+                    "ws://localhost:*",
+                'media-src' => "'self' https: blob:",
+                'object-src' => "'none'",
+                'child-src' => "'self' " .
+                    "https://www.youtube.com " .
+                    "https://www.youtube-nocookie.com " .
+                    "https://player.vimeo.com " .
+                    "https://maps.google.com " .
+                    "https://www.google.com",
+                'frame-src' => "'self' " .
+                    "https://www.youtube.com " .
+                    "https://www.youtube-nocookie.com " .
+                    "https://player.vimeo.com " .
+                    "https://maps.google.com " .
+                    "https://www.google.com",
+                'frame-ancestors' => "'self'",
+                'form-action' => "'self'",
+                'base-uri' => "'self'",
+                'manifest-src' => "'self'",
+                'worker-src' => "'self' blob:",
+            ],
+        ],
     ],
 
     /*

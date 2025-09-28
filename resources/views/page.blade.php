@@ -38,7 +38,7 @@
                 <div class="content-wrapper">
                     {{-- Display content if available from a content field --}}
                     @if(isset($corePage->content))
-                        {!! $corePage->content !!}
+                        {!! \App\Helpers\HtmlHelper::safe($corePage->content, 'admin') !!}
                     @else
                         <p>Content for this page is coming soon.</p>
                     @endif
