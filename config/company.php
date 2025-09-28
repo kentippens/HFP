@@ -11,17 +11,17 @@ return [
     |
     */
     
-    'name' => env('COMPANY_NAME', 'Premier Pool Resurfacing'),
-    
-    'short_name' => env('COMPANY_SHORT_NAME', 'PPR'),
-    
-    'meta_suffix' => env('COMPANY_META_SUFFIX', 'PPR'),
+    'name' => env('COMPANY_NAME', 'Hexagon Fiberglass Pools'),
+
+    'short_name' => env('COMPANY_SHORT_NAME', 'HFP'),
+
+    'meta_suffix' => env('COMPANY_META_SUFFIX', 'HFP'),
     
     'address' => env('COMPANY_ADDRESS', ''),
     
     'phone' => env('COMPANY_PHONE', ''),
     
-    'email' => env('COMPANY_EMAIL', 'pools@hexagonservicesolutions.com'),
+    'email' => env('COMPANY_EMAIL', 'pools@hexagonfiberglasspools.com'),
     
     /*
     |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ return [
     */
     
     'seo' => [
-        'default_meta_title_suffix' => ' | Premier Pool Resurfacing',
+        'default_meta_title_suffix' => ' | Hexagon Fiberglass Pools',
         'blog_meta_title_suffix' => ' | Pool Care Blog',
         'use_short_name_in_meta' => false,
     ],

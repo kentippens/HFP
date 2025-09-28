@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Privacy Policy')
-@section('meta_description', 'Learn how Hexagon Service Solutions collects, uses, and protects your personal information in compliance with CCPA, GDPR, and modern privacy standards.')
+@section('meta_description', 'Learn how Hexagon Fiberglass Pools collects, uses, and protects your personal information in compliance with CCPA, GDPR, and modern privacy standards.')
 @section('meta_robots', 'index, follow')
 
 @section('content')
@@ -119,12 +119,12 @@
                 
                 <div class="last-updated">
                     <strong>Effective Date:</strong> January 21, 2025<br>
-                    <strong>Last Updated:</strong> August 1, 2025
+                    <strong>Last Updated:</strong> September 28, 2025
                 </div>
 
                 <h1>Privacy Policy</h1>
 
-                <p>Hexagon Service Solutions ("we," "our," "us," or the "Company") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>hexagonservicesolutions.com</strong> (the "Site") or use our home services.</p>
+                <p>Hexagon Fiberglass Pools ("we," "our," "us," or the "Company") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <strong>hexagonfiberglasspools.com</strong> (the "Site") or use our pool resurfacing and renovation services.</p>
 
                 <p>This Privacy Policy complies with applicable data protection laws including the California Consumer Privacy Act (CCPA), General Data Protection Regulation (GDPR), and other privacy regulations.</p>
 
@@ -144,11 +144,12 @@
                 <h3>1.1 Information You Provide Directly</h3>
                 <p>We collect information you voluntarily provide when you:</p>
                 <ul>
-                    <li>Request a quote or schedule services</li>
+                    <li>Request a quote for pool resurfacing, conversion, or repair services</li>
+                    <li>Schedule pool consultations and service appointments</li>
                     <li>Create an account or customer profile</li>
                     <li>Contact us via phone, email, or contact forms</li>
-                    <li>Subscribe to our newsletter or marketing communications</li>
-                    <li>Submit reviews or testimonials</li>
+                    <li>Subscribe to our newsletter or pool care communications</li>
+                    <li>Submit reviews or testimonials about our pool services</li>
                     <li>Apply for employment or investment opportunities</li>
                     <li>Participate in surveys or promotions</li>
                 </ul>
@@ -168,11 +169,11 @@
                         </tr>
                         <tr>
                             <td><strong>Customer Records</strong></td>
-                            <td>Service history, preferences, property details</td>
+                            <td>Pool service history, preferences, property and pool details</td>
                         </tr>
                         <tr>
                             <td><strong>Commercial Information</strong></td>
-                            <td>Services purchased, quotes requested, payment history</td>
+                            <td>Pool services purchased, quotes requested, payment history</td>
                         </tr>
                         <tr>
                             <td><strong>Internet Activity</strong></td>
@@ -180,7 +181,7 @@
                         </tr>
                         <tr>
                             <td><strong>Geolocation Data</strong></td>
-                            <td>Service address, approximate location from IP address</td>
+                            <td>Pool service address, approximate location from IP address</td>
                         </tr>
                         <tr>
                             <td><strong>Professional Information</strong></td>
@@ -202,12 +203,12 @@
 
                 <h3>2.1 Primary Purposes</h3>
                 <ul>
-                    <li><strong>Service Delivery:</strong> Schedule and provide our home services</li>
-                    <li><strong>Customer Support:</strong> Respond to inquiries and resolve issues</li>
-                    <li><strong>Account Management:</strong> Maintain customer profiles and service history</li>
-                    <li><strong>Communications:</strong> Send service confirmations, updates, and notices</li>
+                    <li><strong>Service Delivery:</strong> Schedule and provide pool resurfacing, conversion, remodeling, and repair services</li>
+                    <li><strong>Customer Support:</strong> Respond to pool service inquiries and resolve issues</li>
+                    <li><strong>Account Management:</strong> Maintain customer profiles and pool service history</li>
+                    <li><strong>Communications:</strong> Send service confirmations, pool care tips, updates, and notices</li>
                     <li><strong>Payment Processing:</strong> Process transactions and maintain records</li>
-                    <li><strong>Quality Assurance:</strong> Improve our services based on feedback</li>
+                    <li><strong>Quality Assurance:</strong> Improve our pool services based on feedback and warranty claims</li>
                 </ul>
 
                 <h3>2.2 Legal Bases for Processing (GDPR)</h3>
@@ -250,7 +251,7 @@
                             <tr>
                                 <td><strong>Business Partners</strong></td>
                                 <td>Joint services or referrals</td>
-                                <td>Affiliated contractors (with consent)</td>
+                                <td>Pool equipment suppliers, specialized contractors (with consent)</td>
                             </tr>
                             <tr>
                                 <td><strong>Legal Authorities</strong></td>
@@ -298,9 +299,9 @@
                 <h3>4.3 How to Exercise Your Rights</h3>
                 <p>To exercise any of these rights:</p>
                 <ul>
-                    <li><strong>Email:</strong> privacy@hexagonservicesolutions.com</li>
-                    <li><strong>Phone:</strong> (972) 702-7586</li>
-                    <li><strong>Mail:</strong> 603 Munger Ave, Suite 100-243, Dallas, TX 75202</li>
+                    <li><strong>Email:</strong> privacy@hexagonfiberglasspools.com</li>
+                    <li><strong>Phone:</strong> (972) 789-2983</li>
+                    <li><strong>Mail:</strong> Hexagon Fiberglass Pools Privacy Officer, Texas Headquarters</li>
                 </ul>
                 <p>We will respond to your request within 30 days (45 days for complex requests).</p>
 
@@ -339,8 +340,8 @@
                             <td>Duration of relationship + 7 years</td>
                         </tr>
                         <tr>
-                            <td>Service Records</td>
-                            <td>7 years after service completion</td>
+                            <td>Pool Service Records</td>
+                            <td>25+ years (to support warranty claims)</td>
                         </tr>
                         <tr>
                             <td>Marketing Preferences</td>
@@ -450,17 +451,16 @@
                 <div class="contact-info">
                     <h3>Privacy Contact Information</h3>
                     
-                    <p><strong>Hexagon Service Solutions</strong><br>
+                    <p><strong>Hexagon Fiberglass Pools</strong><br>
                     Attn: Privacy Officer<br>
-                    603 Munger Ave, Suite 100-243<br>
-                    Dallas, Texas 75202</p>
+                    Texas Headquarters</p>
                     
-                    <p><strong>Email:</strong> <a href="mailto:privacy@hexagonservicesolutions.com">privacy@hexagonservicesolutions.com</a><br>
+                    <p><strong>Email:</strong> <a href="mailto:privacy@hexagonfiberglasspools.com">privacy@hexagonfiberglasspools.com</a><br>
                     <strong>Phone:</strong> <a href="tel:9727892983">(972) 789-2983</a><br>
-                    <strong>General Support:</strong> <a href="mailto:pools@hexagonservicesolutions.com">pools@hexagonservicesolutions.com</a></p>
+                    <strong>General Support:</strong> <a href="mailto:pools@hexagonfiberglasspools.com">pools@hexagonfiberglasspools.com</a></p>
 
                     <p><strong>Business Hours:</strong><br>
-                    Monday - Friday: 9:00 AM - 4:00 PM CST<br>
+                    Monday - Friday: 9:00 AM - 4:00 PM<br>
                     Saturday: Closed<br>
                     Sunday: Closed</p>
 

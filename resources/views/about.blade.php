@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="contact-content">
                                     <h5>Email Address: </h5>                                    
-                                    <span class="text-grey"><a href="mailto:pools@hexagonservicesolutions.com">pools@<br>hexagonservicesolutions.com</a></span>
+                                    <span class="text-grey"><a href="mailto:pools@hexagonfiberglasspools.com">pools@<br>hexagonfiberglasspools.com</a></span>
                                 </div>
                             </div>
                         </div>

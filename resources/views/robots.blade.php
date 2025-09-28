@@ -225,7 +225,6 @@ Allow: /blog
 Allow: /blog/*
 Allow: /contact
 Allow: /about
-Allow: /crystal-clear-guarantee
 Allow: /lp/*
 
 # Block staging/development if accidentally exposed

@@ -192,7 +192,7 @@
                         </div>
                         <div class="item-content">
                             <h3>E-Mail:</h3>
-                            <p><a href="mailto:pools@hexagonservicesolutions.com" aria-label="Send email to pools@hexagonservicesolutions.com">pools@<br>hexagonservicesolutions.com</a></p>
+                            <p><a href="mailto:pools@hexagonfiberglasspools.com" aria-label="Send email to pools@hexagonfiberglasspools.com">pools@<br>hexagonfiberglasspools.com</a></p>
                         </div>
                     </div>
                 </div>

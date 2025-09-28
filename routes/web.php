@@ -194,8 +194,6 @@ Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy
 // Terms of Service
 Route::get('/terms-of-service', [HomeController::class, 'terms'])->name('terms');
 
-// Crystal Clear Guarantee
-Route::get('/crystal-clear-guarantee', [HomeController::class, 'crystalClearGuarantee'])->name('crystal-clear-guarantee');
 
 // Test route for mobile menu
 Route::get('/test-mobile', function () {

@@ -57,7 +57,7 @@
                         <ul>
                             <li><img src="{{ asset('images/icons/contact/location.svg') }}" alt="Location" class="footer-icon"><span style="color: #ffffff;">603 Munger Ave <br>Suite 100-243A <br>Dallas, Texas 75202</span></li>
                             <li><img src="{{ asset('images/icons/contact/calling.svg') }}" alt="Phone" class="footer-icon"><a href="tel:9727892983" style="color: #ffffff;">972-789-2983</a></li>
-                            <li><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="footer-icon"><a href="mailto:pools@hexagonservicesolutions.com" style="color: #ffffff;" >pools@hexagonservicesolutions.com</a></li>
+                            <li><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="footer-icon"><a href="mailto:pools@hexagonfiberglasspools.com" style="color: #ffffff;" >pools@hexagonfiberglasspools.com</a></li>
                         </ul>
                     </div>
                 </div>

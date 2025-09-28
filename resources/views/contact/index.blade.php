@@ -214,7 +214,7 @@
                         </div>
                         <div class="item-content">
                             <h4>E-Mail:</h4>
-                            <p><a href="mailto:pools@hexagonservicesolutions.com">pools@<br>hexagonservicesolutions.com</a></p>                            
+                            <p><a href="mailto:pools@hexagonfiberglasspools.com">pools@<br>hexagonfiberglasspools.com</a></p>                            
                         </div>
                     </div>
                 </div>

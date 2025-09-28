@@ -111,7 +111,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'pools@hexagonservicesolutions.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'pools@hexagonfiberglasspools.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 

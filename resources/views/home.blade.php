@@ -485,7 +485,7 @@
                             </div>
                             <div class="mail-area">
                                 <span class="git-title">E-Mail Support:</span>
-                                <a href="mailto:pools@hexagonservicesolutions.com"><span><i class="fas fa-envelope"></i></span>pools@<br>hexagonservicesolutions.com</a>
+                                <a href="mailto:pools@hexagonfiberglasspools.com"><span><i class="fas fa-envelope"></i></span>pools@<br>hexagonfiberglasspools.com</a>
                             </div>
                         </div>
                     </div>

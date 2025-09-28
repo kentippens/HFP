@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10">
                     <div class="info-left">
-                        <span><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="header-contact-icon"><strong>Email: </strong><a href="mailto:pools@hexagonservicesolutions.com" style="color: #ffffff;">pools@hexagonservicesolutions.com</a></span>
+                        <span><img src="{{ asset('images/icons/contact/mail.svg') }}" alt="Email" class="header-contact-icon"><strong>Email: </strong><a href="mailto:pools@hexagonfiberglasspools.com" style="color: #ffffff;">pools@hexagonfiberglasspools.com</a></span>
                         <span class="dealer-badge"><i class="fas fa-certificate" style="color: #ffd700;"></i> <strong>Exclusive North & Central Texas Fibre Tech™ Dealer</strong></span>
                     </div>
                 </div>

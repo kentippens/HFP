@@ -5,8 +5,8 @@
         <div class="hero-content">
             <h1 class="hero-title">Texas #1 Pool Resurfacing & Conversion Company</h1>
             <p class="hero-description">Transform your property with our comprehensive service solutions. From pristine House and Pool Cleaning to Professional Vinyl Fence and Gutter Installations, we deliver quality results that enhance your home and give you back your valuable time.</p>
-            <a href="{{ route('services.index') }}" class="btn btn-plus btn-plus-primary btn-plus-round">
-                Services We Offer
+            <a href="/pool-repair-quote" class="btn btn-plus btn-plus-primary btn-plus-round">
+                Let's Transform Your Pool
             </a>
         </div>
     </div>

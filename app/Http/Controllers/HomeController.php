@@ -63,7 +63,7 @@ class HomeController extends Controller
     public function about()
     {
         $seoData = $this->getSeoData('about', [
-            'meta_title' => 'About Premier Pool Resurfacing | Expert Pool Renovation Services',
+            'meta_title' => 'About Hexagon Fiberglass Pools | Expert Pool Renovation Services',
             'meta_description' => 'Learn about our pool resurfacing company with over 15 years of experience. Licensed, insured, and committed to excellence.',
         ]);
 
@@ -131,15 +131,6 @@ class HomeController extends Controller
         return view('terms');
     }
     
-    public function crystalClearGuarantee()
-    {
-        $seoData = $this->getSeoData('crystal-clear-guarantee', [
-            'meta_title' => 'Crystal Clear Guarantee',
-            'meta_description' => 'Our 100% satisfaction guarantee ensures quality service every time.',
-        ]);
-        
-        return view('crystal-clear-guarantee', compact('seoData'));
-    }
 
     /**
      * Display the Texas state page

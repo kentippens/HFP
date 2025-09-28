@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Terms of Service')
-@section('meta_description', 'Read our terms of service to understand the conditions and agreements for using our professional home services including cleaning, pool maintenance, and home improvement.')
+@section('meta_description', 'Read our terms of service to understand the conditions and agreements for using Hexagon Fiberglass Pools professional pool resurfacing, conversion, and repair services.')
 @section('meta_robots', 'index, follow')
 
 @section('content')
@@ -70,6 +70,17 @@
         color: #02154e;
         margin-top: 0;
     }
+    .warranty-box {
+        background: #f3e5f5;
+        padding: 25px;
+        border-radius: 8px;
+        margin: 30px 0;
+        border-left: 4px solid #6a1b9a;
+    }
+    .warranty-box h3 {
+        color: #02154e;
+        margin-top: 0;
+    }
 </style>
 
 <!-- Breadcrumb Area -->
@@ -89,36 +100,37 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                
+
                 <div class="last-updated">
-                    <strong>Last Updated:</strong> January 21, 2025
+                    <strong>Last Updated:</strong> September 28, 2025
                 </div>
 
                 <h1>Terms of Service</h1>
 
-                <p>Welcome to Hexagon Service Solutions. These Terms of Service ("Terms") govern your use of our professional home services and website. By scheduling services with us or using our website, you agree to be bound by these Terms.</p>
+                <p>Welcome to Hexagon Fiberglass Pools. These Terms of Service ("Terms") govern your use of our professional pool services and website. By scheduling services with us or using our website, you agree to be bound by these Terms.</p>
 
                 <h2>1. Service Agreement</h2>
 
                 <h3>Service Scope</h3>
-                <p>Hexagon Service Solutions provides professional home services including but not limited to:</p>
+                <p>Hexagon Fiberglass Pools specializes in advanced pool technology and services including:</p>
                 <ul>
-                    <li>Residential house cleaning</li>
-                    <li>Pool cleaning and maintenance (bi-weekly service plans)</li>
-                    <li>Vinyl fence installation</li>
-                    <li>Gutter and leaf guard installation</li>
-                    <li>Christmas light installation (seasonal)</li>
-                    <li>Deep cleaning services</li>
-                    <li>Move-in/move-out cleaning</li>
+                    <li>Fiberglass pool resurfacing with 25+ year warranty</li>
+                    <li>Pool conversions (vinyl to fiberglass, concrete to fiberglass)</li>
+                    <li>Complete pool remodeling and renovation</li>
+                    <li>Structural pool repairs (cracks, leaks, equipment)</li>
+                    <li>Tile and coping replacement</li>
+                    <li>Pool deck resurfacing</li>
+                    <li>Equipment upgrades and automation</li>
+                    <li>Pool inspections and assessments</li>
                 </ul>
 
                 <h3>Service Scheduling</h3>
-                <p>Services may be scheduled through our website, phone, or email. All service appointments are subject to availability and confirmation from our team.</p>
+                <p>Services may be scheduled through our website, phone, or email. All service appointments are subject to availability and confirmation from our team. Project timelines will be provided during consultation and may vary based on scope and weather conditions.</p>
 
-                <div class="guarantee-box">
-                    <h3>The Hexagon Guarantee™</h3>
-                    <p><strong>Right the 1st Time. Every Time.</strong></p>
-                    <p>We put your satisfaction first by delivering excellent service. If our work doesn't meet your expectations, we'll return to re-clean the area at no extra cost within 24 hours of the original service.</p>
+                <div class="warranty-box">
+                    <h3>Industry-Leading 25+ Year Warranty</h3>
+                    <p><strong>The Strongest Protection in Pool Resurfacing</strong></p>
+                    <p>Our fiberglass resurfacing comes with an unprecedented 25+ year warranty against delamination, cracking, and structural failure. This warranty demonstrates our confidence in our advanced fiberglass technology and commitment to lasting quality.</p>
                 </div>
 
                 <h2>2. Pricing and Payment</h2>
@@ -126,169 +138,204 @@
                 <h3>Service Rates</h3>
                 <p>Our pricing is based on factors including:</p>
                 <ul>
-                    <li>Type and scope of service (cleaning, pool maintenance, installation, etc.)</li>
-                    <li>Property size and condition</li>
-                    <li>Frequency of service (one-time, recurring, seasonal)</li>
-                    <li>Materials required (chemicals, fencing materials, gutters, etc.)</li>
-                    <li>Special requirements or add-on services</li>
+                    <li>Pool size and dimensions (surface area, depth, perimeter)</li>
+                    <li>Current pool condition and required preparation work</li>
+                    <li>Type of service (resurfacing, conversion, repair, remodeling)</li>
+                    <li>Materials selected (fiberglass type, tile options, equipment grade)</li>
+                    <li>Access requirements and site conditions</li>
+                    <li>Additional features (water features, lighting, automation)</li>
                 </ul>
 
                 <h3>Payment Terms</h3>
                 <ul>
-                    <li>Payment is due upon completion of services unless other arrangements are made</li>
-                    <li>We accept cash, check, and major credit cards</li>
-                    <li>Late payment fees may apply to overdue accounts</li>
-                    <li>Prices quoted are valid for 30 days unless otherwise specified</li>
+                    <li>Projects typically require a 30-50% deposit to schedule</li>
+                    <li>Progress payments may be required for larger projects</li>
+                    <li>Final payment due upon project completion</li>
+                    <li>We accept cash, check, wire transfer, and major credit cards</li>
+                    <li>Financing options available for qualified customers</li>
+                    <li>Written estimates valid for 30 days unless otherwise specified</li>
                 </ul>
 
-                <h3>Cancellation Policy</h3>
-                <p>Service cancellations must be made at least 24 hours in advance. Cancellations made with less than 24 hours notice may be subject to a cancellation fee.</p>
+                <h3>Project Changes</h3>
+                <p>Any changes to the original scope of work must be agreed upon in writing. Additional charges may apply for change orders or unforeseen conditions discovered during the project.</p>
 
                 <h2>3. Client Responsibilities</h2>
 
-                <p>To ensure the best service experience, clients are responsible for:</p>
+                <p>To ensure successful project completion, clients are responsible for:</p>
                 <ul>
-                    <li>Providing safe and reasonable access to all areas to be cleaned</li>
-                    <li>Securing or removing valuable, fragile, or personal items</li>
-                    <li>Notifying us of any pets, security systems, or special considerations</li>
-                    <li>Providing accurate contact information and property details</li>
-                    <li>Being present during the initial service or providing access instructions</li>
-                    <li>Reporting any concerns or issues within 24 hours of service completion</li>
+                    <li>Providing clear access to the pool area and work site</li>
+                    <li>Ensuring pool is drained when required (we can arrange this service)</li>
+                    <li>Obtaining necessary HOA or municipal permits where applicable</li>
+                    <li>Maintaining proper water levels during curing period</li>
+                    <li>Following all post-service care instructions</li>
+                    <li>Keeping pets and children away from work areas</li>
+                    <li>Providing access to water and electricity as needed</li>
                 </ul>
 
-                <h2>4. Liability and Insurance</h2>
+                <h2>4. Warranty and Guarantees</h2>
+
+                <h3>25+ Year Fiberglass Warranty</h3>
+                <p>Our industry-leading warranty covers:</p>
+                <ul>
+                    <li>Delamination of fiberglass surface</li>
+                    <li>Structural cracking or failure</li>
+                    <li>Color fading beyond normal wear</li>
+                    <li>Manufacturing defects in materials</li>
+                </ul>
+
+                <h3>Workmanship Guarantee</h3>
+                <p>In addition to material warranties, we provide:</p>
+                <ul>
+                    <li>5-year workmanship warranty on all installations</li>
+                    <li>1-year warranty on repair services</li>
+                    <li>30-day satisfaction guarantee on completed work</li>
+                </ul>
+
+                <h3>Warranty Exclusions</h3>
+                <p>Warranties do not cover damage caused by:</p>
+                <ul>
+                    <li>Improper chemical balance or maintenance</li>
+                    <li>Acts of nature (earthquakes, floods, freeze damage)</li>
+                    <li>Structural movement or settling of property</li>
+                    <li>Unauthorized repairs or modifications</li>
+                    <li>Normal wear and tear</li>
+                </ul>
+
+                <h2>5. Liability and Insurance</h2>
 
                 <h3>Our Coverage</h3>
-                <p>Hexagon Service Solutions is fully bonded and insured. Our insurance coverage includes:</p>
+                <p>Hexagon Fiberglass Pools maintains comprehensive insurance including:</p>
                 <ul>
-                    <li>General liability insurance</li>
-                    <li>Worker's compensation coverage</li>
-                    <li>Bonding for employee protection</li>
+                    <li>General liability insurance ($2 million coverage)</li>
+                    <li>Professional liability coverage</li>
+                    <li>Worker's compensation for all employees</li>
+                    <li>Commercial vehicle insurance</li>
+                    <li>Bonding as required by state regulations</li>
                 </ul>
 
-                <h3>Limitation of Liability</h3>
-                <p>Our liability is limited to the cost of the service provided. We are not responsible for:</p>
+                <h3>Property Protection</h3>
+                <p>We take extensive precautions to protect your property during our work. This includes:</p>
                 <ul>
-                    <li>Pre-existing damage to property or items</li>
-                    <li>Damage to items not properly secured by the client</li>
-                    <li>Damage caused by pets or third parties</li>
-                    <li>Indirect, consequential, or incidental damages</li>
+                    <li>Protective coverings for surrounding areas</li>
+                    <li>Careful equipment operation and placement</li>
+                    <li>Daily cleanup and site maintenance</li>
+                    <li>Restoration of landscaping disturbed by our work</li>
                 </ul>
 
-                <h3>Damage Claims</h3>
-                <p>Any damage claims must be reported within 24 hours of service completion. Claims will be investigated and resolved in accordance with our insurance policies.</p>
+                <h2>6. Project Timeline and Completion</h2>
 
-                <h2>5. Service Standards and Expectations</h2>
-
-                <h3>Quality Commitment</h3>
-                <p>We are committed to providing professional, reliable home services that meet or exceed industry standards. Our team members are thoroughly vetted, trained, and equipped with professional-grade supplies and equipment appropriate for each service type.</p>
-
-                <h3>Eco-Friendly Practices</h3>
-                <p>We use environmentally responsible products whenever possible and follow sustainable practices across all our services to protect both your health and the environment.</p>
-
-                <h3>Service Adjustments</h3>
-                <p>Service details may be adjusted based on property conditions, client preferences, or safety considerations. Any significant changes will be communicated and agreed upon before implementation.</p>
-
-                <h2>6. Service-Specific Terms</h2>
-
-                <h3>Pool Cleaning and Maintenance</h3>
+                <h3>Typical Project Durations</h3>
                 <ul>
-                    <li>Bi-weekly service plans include all necessary chemicals</li>
-                    <li>10-point water testing performed at each visit</li>
-                    <li>Equipment inspection and maintenance recommendations provided</li>
-                    <li>Crystal Clear Guarantee applies - we'll return within 48 hours if water clarity issues arise</li>
-                    <li>Service reports with photos provided after each visit</li>
-                    <li>Client must maintain proper water levels between visits</li>
+                    <li>Fiberglass resurfacing: 3-5 days</li>
+                    <li>Pool conversions: 1-2 weeks</li>
+                    <li>Complete remodeling: 2-4 weeks</li>
+                    <li>Structural repairs: 1-5 days depending on scope</li>
                 </ul>
 
-                <h3>Vinyl Fence Installation</h3>
+                <h3>Weather and Delays</h3>
+                <p>Project timelines may be affected by:</p>
                 <ul>
-                    <li>All installations include property line verification</li>
-                    <li>Client responsible for HOA approval where applicable</li>
-                    <li>Underground utility marking required before installation</li>
-                    <li>Warranty terms vary by manufacturer - details provided with quote</li>
-                    <li>Installation timeline subject to weather conditions</li>
+                    <li>Inclement weather (rain, extreme temperatures)</li>
+                    <li>Unexpected structural issues discovered during work</li>
+                    <li>Permit or inspection delays</li>
+                    <li>Material availability (rare but possible)</li>
                 </ul>
 
-                <h3>Gutter and Leaf Guard Installation</h3>
+                <h2>7. Chemical and Maintenance Requirements</h2>
+
+                <h3>Post-Service Care</h3>
+                <p>Following our fiberglass installation, specific care requirements include:</p>
                 <ul>
-                    <li>Free inspection and measurement before final quote</li>
-                    <li>Removal of old gutters included when applicable</li>
-                    <li>Proper drainage and downspout placement included</li>
-                    <li>Manufacturer warranties apply to materials</li>
-                    <li>Installation warranty provided for workmanship</li>
+                    <li>Initial 30-day startup procedure (detailed instructions provided)</li>
+                    <li>Proper chemical balance maintenance (pH 7.2-7.6)</li>
+                    <li>Regular brushing during first month</li>
+                    <li>Avoiding harsh chemicals or abrasive cleaning tools</li>
                 </ul>
 
-                <h3>Christmas Light Installation</h3>
+                <h3>Ongoing Maintenance</h3>
+                <p>To maintain warranty coverage, pools must receive:</p>
                 <ul>
-                    <li>Seasonal service available October through January</li>
-                    <li>Installation includes lights, extension cords, and timers</li>
-                    <li>Client may provide own lights or rent from us</li>
-                    <li>Takedown service included in seasonal packages</li>
-                    <li>Storage options available for client-owned decorations</li>
-                    <li>Service scheduling subject to weather conditions</li>
+                    <li>Regular chemical testing and balancing</li>
+                    <li>Professional inspection annually (we offer this service)</li>
+                    <li>Prompt attention to any surface concerns</li>
                 </ul>
 
-                <h2>7. Privacy and Confidentiality</h2>
+                <h2>8. Environmental Considerations</h2>
 
-                <p>We respect your privacy and maintain strict confidentiality regarding your property and personal information. Our employees are trained to:</p>
+                <p>Hexagon Fiberglass Pools is committed to environmental responsibility:</p>
                 <ul>
-                    <li>Maintain professional boundaries and discretion</li>
-                    <li>Protect your personal property and information</li>
-                    <li>Follow security protocols and access procedures</li>
+                    <li>Proper disposal of all removed materials</li>
+                    <li>Use of eco-friendly products where possible</li>
+                    <li>Water conservation practices during service</li>
+                    <li>Compliance with all environmental regulations</li>
+                    <li>Recycling of applicable materials</li>
                 </ul>
 
-                <h2>8. Service Area and Travel</h2>
+                <h2>9. Service Area</h2>
 
-                <p>We primarily serve the DFW metroplex. Services beyond our standard service area may be available with an additional travel fee. Please contact us to discuss service availability in your area.</p>
-
-                <h2>9. Dispute Resolution</h2>
-
-                <p>We are committed to resolving any service issues promptly and fairly. Our dispute resolution process includes:</p>
+                <p>We proudly serve all of Texas with primary service areas including:</p>
                 <ul>
-                    <li>Direct communication with our customer service team</li>
-                    <li>Investigation and assessment of the concern</li>
-                    <li>Appropriate remedial action, including re-cleaning if necessary</li>
-                    <li>Follow-up to ensure satisfaction</li>
+                    <li>Dallas-Fort Worth Metroplex</li>
+                    <li>Houston and surrounding areas</li>
+                    <li>Austin and Central Texas</li>
+                    <li>San Antonio region</li>
+                </ul>
+                <p>Travel fees may apply for projects outside primary service areas. Contact us to discuss service availability in your location.</p>
+
+                <h2>10. Dispute Resolution</h2>
+
+                <p>We are committed to complete customer satisfaction. Our resolution process includes:</p>
+                <ul>
+                    <li>Direct communication with project managers</li>
+                    <li>On-site inspection of any concerns</li>
+                    <li>Prompt remedial action when warranted</li>
+                    <li>Mediation services if necessary</li>
+                    <li>All disputes governed by Texas law</li>
                 </ul>
 
-                <h2>10. Termination of Service</h2>
+                <h2>11. Cancellation Policy</h2>
 
-                <p>Either party may terminate ongoing service agreements with reasonable notice. We reserve the right to discontinue service for:</p>
+                <p>Project cancellations are subject to the following terms:</p>
                 <ul>
-                    <li>Non-payment or repeated late payments</li>
-                    <li>Unsafe working conditions</li>
-                    <li>Violation of these terms</li>
-                    <li>Inappropriate behavior toward our staff</li>
+                    <li>Cancellation before material order: Full deposit refund</li>
+                    <li>Cancellation after material order: Deposit applied to material costs</li>
+                    <li>Cancellation after work begins: Payment for work completed plus materials</li>
+                    <li>Weather-related delays are not considered cancellations</li>
                 </ul>
 
-                <h2>11. Changes to Terms</h2>
+                <h2>12. Intellectual Property</h2>
 
-                <p>We may update these Terms of Service from time to time to reflect changes in our services or legal requirements. Updated terms will be posted on our website with a new "Last Updated" date. Continued use of our services constitutes acceptance of any changes.</p>
+                <p>Hexagon Fiberglass Pools' proprietary fiberglass technology, processes, and methods are protected intellectual property. Clients agree not to disclose, reproduce, or allow third parties to copy our techniques and processes.</p>
 
-                <h2>12. Governing Law</h2>
+                <h2>13. Changes to Terms</h2>
 
-                <p>These Terms are governed by the laws of the State of Texas. Any disputes will be resolved in the appropriate courts of Dallas County, Texas.</p>
+                <p>We may update these Terms of Service periodically to reflect changes in our services, technology, or legal requirements. Updated terms will be posted on our website with a new "Last Updated" date. Continued use of our services constitutes acceptance of any changes.</p>
 
-                <h2>13. Contact Information</h2>
+                <h2>14. Governing Law</h2>
+
+                <p>These Terms are governed by the laws of the State of Texas. Any disputes will be resolved in the appropriate courts of the county where the service was performed.</p>
+
+                <h2>15. Contact Information</h2>
 
                 <div class="contact-info">
-                    <p>If you have any questions about these Terms of Service or our home services, please contact us:</p>
-                    
-                    <p><strong>Hexagon Service Solutions</strong><br>
-                    603 Munger Ave, Suite 100-243<br>
-                    Dallas, Texas 75202</p>
-                    
-                    <p><strong>Email:</strong> <a href="mailto:pools@hexagonservicesolutions.com">pools@hexagonservicesolutions.com</a><br>
+                    <p>For questions about these Terms of Service or our pool services, please contact us:</p>
+
+                    <p><strong>Hexagon Fiberglass Pools</strong><br>
+                    Texas Headquarters</p>
+
+                    <p><strong>Email:</strong> <a href="mailto:pools@hexagonfiberglasspools.com">pools@hexagonfiberglasspools.com</a><br>
                     <strong>Phone:</strong> <a href="tel:9727892983">(972) 789-2983</a></p>
 
                     <p><strong>Business Hours:</strong><br>
                     Monday - Friday: 9:00 AM - 4:00 PM<br>
                     Saturday: Closed<br>
                     Sunday: Closed</p>
+
+                    <p><strong>Emergency Service:</strong><br>
+                    Available for urgent pool repairs - additional fees may apply</p>
                 </div>
 
-                <p><em>By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</em></p>
+                <p><em>By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. Thank you for choosing Hexagon Fiberglass Pools for your pool renovation needs.</em></p>
 
             </div>
         </div>

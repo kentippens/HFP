@@ -41,7 +41,6 @@
                                     {{-- <li><a href="{{ route('about') }}">About Us</a></li> --}}
                                     <li><a href="{{ route('contact.index') }}">Get Pool Repair Quote</a></li>
                                     <li><a href="{{ route('investor.relations') }}">Investor Relations</a></li>
-                                    <li><a href="{{ route('crystal-clear-guarantee') }}">Crystal Clear Guarantee</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -144,7 +143,7 @@
                                     </li>
                                     <li>
                                         <strong>Email:</strong> 
-                                        <a href="mailto:pools@hexagonservicesolutions.com">pools@hexagonservicesolutions.com</a>
+                                        <a href="mailto:pools@hexagonfiberglasspools.com">pools@hexagonfiberglasspools.com</a>
                                     </li>
                                     <li>
                                         <strong>Hours:</strong>

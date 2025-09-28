@@ -39,18 +39,12 @@ return [
     */
     
     'active_services' => [
-        'house-cleaning',
-        'commercial-cleaning',
-        'carpet-cleaning',
-        'deep-cleaning',
-        'window-cleaning',
-        'post-construction-cleaning',
-        'pool-cleaning',
-        'gutter-leafguard-installation',
-        'christmas-light-installation',
-        'vinyl-fence-installation',
+        'pool-resurfacing',
+        'pool-conversions',
+        'pool-remodeling',
+        'pool-repair-service',
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Service Order Configuration
@@ -59,20 +53,14 @@ return [
     | Define the default order for services.
     |
     */
-    
+
     'service_order' => [
-        'house-cleaning' => 1,
-        'commercial-cleaning' => 2,
-        'carpet-cleaning' => 3,
-        'deep-cleaning' => 4,
-        'window-cleaning' => 5,
-        'post-construction-cleaning' => 6,
-        'pool-cleaning' => 7,
-        'gutter-leafguard-installation' => 8,
-        'christmas-light-installation' => 9,
-        'vinyl-fence-installation' => 10,
+        'pool-resurfacing' => 1,
+        'pool-conversions' => 2,
+        'pool-remodeling' => 3,
+        'pool-repair-service' => 4,
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Service Image Mapping
@@ -81,17 +69,11 @@ return [
     | Maps service slugs to their image indices.
     |
     */
-    
+
     'image_mapping' => [
-        'house-cleaning' => 1,
-        'commercial-cleaning' => 2,
-        'carpet-cleaning' => 3,
-        'deep-cleaning' => 4,
-        'window-cleaning' => 5,
-        'post-construction-cleaning' => 6,
-        'pool-cleaning' => 7,
-        'gutter-leafguard-installation' => 8,
-        'christmas-light-installation' => 9,
-        'vinyl-fence-installation' => 10,
+        'pool-resurfacing' => 1,
+        'pool-conversions' => 2,
+        'pool-remodeling' => 3,
+        'pool-repair-service' => 4,
     ],
 ];
