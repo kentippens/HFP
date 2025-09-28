@@ -69,7 +69,7 @@ php artisan storage:link
 php artisan serve
 ```
 
-For detailed installation instructions, see [SETUP.md](SETUP.md)
+For detailed installation instructions, see [SETUP.md](Documentation/SETUP.md)
 
 ## Requirements
 
@@ -80,11 +80,19 @@ For detailed installation instructions, see [SETUP.md](SETUP.md)
 
 ## Documentation
 
-- [Setup Guide](SETUP.md) - Complete installation and configuration instructions
-- [Accessibility Implementation](ACCESSIBILITY_IMPLEMENTATION.md) - Comprehensive accessibility features and guidelines
-- [Security Implementation](SECURITY_IMPLEMENTATION.md) - Security features and best practices
+- [Setup Guide](Documentation/SETUP.md) - Complete installation and configuration instructions
+- [Accessibility Implementation](Documentation/ACCESSIBILITY_IMPLEMENTATION.md) - Comprehensive accessibility features and guidelines
+- [Security Implementation](Documentation/SECURITY_IMPLEMENTATION.md) - Security features and best practices
 - [Laravel Documentation](https://laravel.com/docs) - Laravel framework documentation
 - [Filament Documentation](https://filamentphp.com/docs) - Admin panel documentation
+
+### Additional Documentation
+- [Local Installation Guide](Documentation/LOCAL-INSTALLATION-GUIDE.md) - Local development setup
+- [Security Headers Documentation](Documentation/SECURITY_HEADERS_DOCUMENTATION.md) - Security headers configuration
+- [Template Optimization Guide](Documentation/TEMPLATE_OPTIMIZATION_GUIDE.md) - Template performance best practices
+- [HTML Purification Implementation](Documentation/HTML_PURIFICATION_IMPLEMENTATION.md) - XSS prevention details
+- [Safe Seeding Guide](Documentation/SAFE_SEEDING_GUIDE.md) - Database seeding best practices
+- [Restore Instructions](Documentation/RESTORE-INSTRUCTIONS.md) - Backup and restore procedures
 
 ## Services Focus
 

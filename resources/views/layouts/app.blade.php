@@ -37,6 +37,11 @@
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Nunito+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- CSS Files -->
     @if(file_exists(public_path('mix-manifest.json')))
         <!-- Compiled CSS with version hashing -->
@@ -66,7 +71,7 @@
     @endif
 
     <!-- External Font Awesome - kept separate for CDN benefits -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Page-specific styles (extracted from inline) -->
     @if(file_exists(public_path('mix-manifest.json')))
