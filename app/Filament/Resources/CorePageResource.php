@@ -7,11 +7,15 @@ use App\Filament\Resources\CorePageResource\RelationManagers;
 use App\Models\CorePage;
 use App\Rules\ValidJsonLd;
 use App\Rules\ValidCanonicalUrl;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -19,19 +23,31 @@ class CorePageResource extends Resource
 {
     protected static ?string $model = CorePage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    
-    protected static ?string $navigationLabel = 'Core Pages';
-    
-    protected static ?string $navigationGroup = 'Content Management';
-    
-    protected static ?int $navigationSort = 10;
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-document-text';
+    }
 
-    public static function form(Form $form): Form
+    public static function getNavigationLabel(): string
+    {
+        return 'Core Pages';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Content Management';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 10;
+    }
+
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Page Information')
+                Schemas\Components\Section::make('Page Information')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
@@ -54,7 +70,7 @@ class CorePageResource extends Resource
                             ->helperText('Whether this page should appear in sitemap.xml'),
                     ])
                     ->columns(2),
-                Forms\Components\Section::make('SEO Settings')
+                Schemas\Components\Section::make('SEO Settings')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
                             ->maxLength(255)
@@ -125,7 +141,7 @@ class CorePageResource extends Resource
                                 }
                                 return $state;
                             })
-                            ->afterStateUpdated(function ($state, Forms\Set $set, $get) {
+                            ->afterStateUpdated(function ($state, Schemas\Set $set, $get) {
                                 if (empty($state)) {
                                     return;
                                 }
@@ -150,7 +166,7 @@ class CorePageResource extends Resource
                             ->suffixIconColor('primary')
                             ->rules(['nullable', new ValidCanonicalUrl()])
                             ->live(onBlur: true)
-                            ->afterStateUpdated(function ($state, Forms\Set $set) {
+                            ->afterStateUpdated(function ($state, Schemas\Set $set) {
                                 if (!empty($state)) {
                                     // Auto-format the URL
                                     $trimmed = trim($state);
@@ -244,11 +260,11 @@ class CorePageResource extends Resource
                     ->label('Active Status'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('name', 'asc');

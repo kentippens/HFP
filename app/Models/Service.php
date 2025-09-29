@@ -10,10 +10,11 @@ use App\Rules\ValidJsonLd;
 use App\Rules\PreventCircularServiceReference;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\SanitizesHtml;
+use App\Traits\LogsActivity;
 
 class Service extends Model
 {
-    use HasFactory, HasSlug, SanitizesHtml;
+    use HasFactory, HasSlug, SanitizesHtml, LogsActivity;
 
     /**
      * The "booted" method of the model.
@@ -121,6 +122,15 @@ class Service extends Model
      * Purifier configuration to use
      */
     protected $purifierConfig = 'services';
+
+    /**
+     * Activity log configuration.
+     */
+    protected $activityLogOptions = [
+        'identifier' => 'name',
+        'log_name' => 'service',
+        'except' => ['updated_at', 'created_at'],
+    ];
 
     // Auto-generate slugs from title
     public function getSlugOptions(): SlugOptions

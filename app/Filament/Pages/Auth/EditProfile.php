@@ -3,11 +3,11 @@
 namespace App\Filament\Pages\Auth;
 
 use App\Rules\SecurePassword;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Hash;
@@ -18,11 +18,24 @@ class EditProfile extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationGroup = 'Account';
-    protected static ?int $navigationSort = 1;
-    protected static string $view = 'filament.pages.auth.edit-profile';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-user';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Account';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
+    }
+    protected string $view = 'filament.pages.auth.edit-profile';
+
     protected static ?string $slug = 'edit-profile';
+
     protected static ?string $title = 'Edit Profile';
 
     public ?array $profileData = [];
@@ -36,7 +49,7 @@ class EditProfile extends Page implements HasForms
         ];
     }
 
-    public function profileForm(Form $form): Form
+    public function profileForm(Schema $form): Schema
     {
         return $form
             ->schema([
@@ -56,7 +69,7 @@ class EditProfile extends Page implements HasForms
             ->statePath('profileData');
     }
 
-    public function passwordForm(Form $form): Form
+    public function passwordForm(Schema $form): Schema
     {
         return $form
             ->schema([

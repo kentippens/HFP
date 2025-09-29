@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Models\Service;
 use App\Observers\ServiceObserver;
+use App\Listeners\LogAuthentication;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Event;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,7 +26,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Register Service Observer
         Service::observe(ServiceObserver::class);
-        
+
+        // Register authentication event subscriber
+        Event::subscribe(LogAuthentication::class);
+
         // Custom Blade directive for optimized icons
         \Blade::directive('icon', function ($expression) {
             return "<?php echo view('components.icons', ['class' => $expression])->render(); ?>";

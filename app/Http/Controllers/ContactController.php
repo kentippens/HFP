@@ -27,8 +27,9 @@ class ContactController extends Controller
             // Determine form type and set appropriate validation rules
             $isHomepageForm = $request->has('type') && $request->type === 'appointment';
             $isNewsletterForm = $request->has('type') && $request->type === 'newsletter';
+            $isPoolQuoteForm = $request->has('type') && $request->type === 'pool_resurfacing_quote';
             $isServiceForm = $request->has('fname');
-            $isContactForm = $request->has('name') && ! $isHomepageForm && ! $isServiceForm;
+            $isContactForm = $request->has('name') && ! $isHomepageForm && ! $isServiceForm && ! $isPoolQuoteForm;
 
             if ($isHomepageForm) {
                 $rules = $this->getHomepageFormRules();
@@ -36,6 +37,10 @@ class ContactController extends Controller
             } elseif ($isNewsletterForm) {
                 $rules = $this->getNewsletterFormRules();
                 $messages = $this->getNewsletterFormMessages();
+            } elseif ($isPoolQuoteForm) {
+                // Pool quote form uses similar rules to contact page but without reCAPTCHA if not configured
+                $rules = $this->getPoolQuoteFormRules();
+                $messages = $this->getContactPageFormMessages();
             } elseif ($isServiceForm) {
                 $rules = $this->getServiceFormRules();
                 $messages = $this->getServiceFormMessages();
@@ -58,6 +63,8 @@ class ContactController extends Controller
                 $formType = 'homepage';
             } elseif ($isNewsletterForm) {
                 $formType = 'newsletter';
+            } elseif ($isPoolQuoteForm) {
+                $formType = 'pool_quote';
             } elseif ($isServiceForm) {
                 $formType = 'service';
             }
@@ -277,6 +284,32 @@ class ContactController extends Controller
             'email.email' => 'Please enter a valid email address.',
             'message.required' => 'Please enter a message.',
             'message.min' => 'Message must be at least 10 characters.',
+        ];
+    }
+
+    private function getPoolQuoteFormRules(): array
+    {
+        $recaptchaEnabled = config('recaptcha.enabled') && !empty(config('recaptcha.site_key'));
+
+        return [
+            'name' => ['required', 'string', 'max:255', 'min:2', 'regex:/^[a-zA-Z\s\'\-]+$/'],
+            'phone' => ['required', 'string', 'max:20', 'min:10', function ($attribute, $value, $fail) {
+                // Remove all non-numeric characters to check
+                $numbersOnly = preg_replace('/[^0-9]/', '', $value);
+
+                // Check minimum digits
+                if (strlen($numbersOnly) < 10) {
+                    $fail('Phone number must be at least 10 digits.');
+                }
+            }],
+            'address' => ['nullable', 'email:rfc', 'max:255'],
+            'service' => 'required|string|in:request-callback,pool-resurfacing-conversion,pool-repair,pool-remodeling,tile-replacement,coping-installation,gelcoat-refinishing',
+            'g-recaptcha-response' => [$recaptchaEnabled ? 'required' : 'nullable', new Recaptcha()],
+            'message' => ['nullable', 'string', 'max:1000', 'min:10', function ($attribute, $value, $fail) {
+                if (!empty($value) && strlen(trim($value)) < 10) {
+                    $fail('Message must be at least 10 characters if provided.');
+                }
+            }],
         ];
     }
 

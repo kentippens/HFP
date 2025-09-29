@@ -5,11 +5,16 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BlogCategoryResource\Pages;
 use App\Filament\Resources\BlogCategoryResource\RelationManagers;
 use App\Models\BlogCategory;
-use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas;
+use Filament\Forms;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -17,26 +22,38 @@ class BlogCategoryResource extends Resource
 {
     protected static ?string $model = BlogCategory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-tag';
+    }
     
-    protected static ?string $navigationLabel = 'Categories';
+    public static function getNavigationLabel(): string
+    {
+        return 'Categories';
+    }
     
-    protected static ?string $navigationGroup = 'Blog Management';
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Blog Management';
+    }
     
-    protected static ?int $navigationSort = 1;
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
+    }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Category Information')
+                Schemas\Components\Section::make('Category Information')
                     ->description('Basic category details')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
                             ->maxLength(255)
                             ->reactive()
-                            ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Str::slug($state)))
+                            ->afterStateUpdated(fn ($state, Schemas\Set $set) => $set('slug', \Str::slug($state)))
                             ->label('Category Name'),
                         Forms\Components\TextInput::make('slug')
                             ->required()
@@ -50,7 +67,7 @@ class BlogCategoryResource extends Resource
                             ->helperText('A brief description of what this category covers'),
                     ])->columns(1),
                     
-                Forms\Components\Section::make('SEO Settings')
+                Schemas\Components\Section::make('SEO Settings')
                     ->description('Search engine optimization')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
@@ -63,7 +80,7 @@ class BlogCategoryResource extends Resource
                             ->helperText('Maximum 160 characters'),
                     ])->collapsible(),
                     
-                Forms\Components\Section::make('Settings')
+                Schemas\Components\Section::make('Settings')
                     ->schema([
                         Forms\Components\Toggle::make('is_active')
                             ->required()
@@ -121,8 +138,8 @@ class BlogCategoryResource extends Resource
                     ->native(false),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()
+                EditAction::make(),
+                DeleteAction::make()
                     ->before(function (BlogCategory $record) {
                         if ($record->posts()->exists()) {
                             \Filament\Notifications\Notification::make()
@@ -136,8 +153,8 @@ class BlogCategoryResource extends Resource
                     }),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()
+                BulkActionGroup::make([
+                    DeleteBulkAction::make()
                         ->before(function ($records) {
                             foreach ($records as $record) {
                                 if ($record->posts()->exists()) {

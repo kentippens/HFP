@@ -6,11 +6,18 @@ use App\Filament\Resources\TrackingScriptResource\Pages;
 use App\Filament\Resources\TrackingScriptResource\RelationManagers;
 use App\Models\TrackingScript;
 use App\Services\TrackingScriptService;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\Action;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\BulkAction;
+use Filament\Actions\DeleteBulkAction;
 use Filament\Notifications\Notification;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -20,17 +27,35 @@ class TrackingScriptResource extends Resource
 {
     protected static ?string $model = TrackingScript::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-code-bracket';
-    
-    protected static ?string $navigationGroup = 'Project Management';
-    
-    protected static ?string $navigationLabel = 'Tracking Scripts';
-    
-    protected static ?string $modelLabel = 'Tracking Script';
-    
-    protected static ?string $pluralModelLabel = 'Tracking Scripts';
-    
-    protected static ?int $navigationSort = 1;
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-code-bracket';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Project Management';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Tracking Scripts';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Tracking Script';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Tracking Scripts';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -42,11 +67,11 @@ class TrackingScriptResource extends Resource
         return static::getModel()::active()->count() > 0 ? 'success' : 'warning';
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Script Information')
+                Schemas\Components\Section::make('Script Information')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->label('Script Name')
@@ -65,7 +90,7 @@ class TrackingScriptResource extends Resource
                     ])
                     ->columns(2),
                 
-                Forms\Components\Section::make('Script Code')
+                Schemas\Components\Section::make('Script Code')
                     ->schema([
                         Forms\Components\Textarea::make('script_content')
                             ->label('Script Content')
@@ -83,7 +108,7 @@ class TrackingScriptResource extends Resource
                             ->helperText('Paste the complete tracking script code here, including <script> tags'),
                     ]),
                 
-                Forms\Components\Section::make('Settings')
+                Schemas\Components\Section::make('Settings')
                     ->schema([
                         Forms\Components\Toggle::make('is_active')
                             ->label('Active')
@@ -139,8 +164,8 @@ class TrackingScriptResource extends Resource
                     ->boolean(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\Action::make('validate')
+                EditAction::make(),
+                Action::make('validate')
                     ->label('Validate')
                     ->icon('heroicon-o-shield-check')
                     ->color('info')
@@ -160,7 +185,7 @@ class TrackingScriptResource extends Resource
                                 ->send();
                         }
                     }),
-                Tables\Actions\Action::make('clear_cache')
+                Action::make('clear_cache')
                     ->label('Clear Cache')
                     ->icon('heroicon-o-arrow-path')
                     ->color('warning')
@@ -172,11 +197,11 @@ class TrackingScriptResource extends Resource
                             ->success()
                             ->send();
                     }),
-                Tables\Actions\DeleteAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\BulkAction::make('validate_all')
+                BulkActionGroup::make([
+                    BulkAction::make('validate_all')
                         ->label('Validate All')
                         ->icon('heroicon-o-shield-check')
                         ->color('info')
@@ -203,7 +228,7 @@ class TrackingScriptResource extends Resource
                                 ->color($color)
                                 ->send();
                         }),
-                    Tables\Actions\BulkAction::make('toggle_active')
+                    BulkAction::make('toggle_active')
                         ->label('Toggle Active')
                         ->icon('heroicon-o-power')
                         ->color('warning')
@@ -220,7 +245,7 @@ class TrackingScriptResource extends Resource
                                 ->success()
                                 ->send();
                         }),
-                    Tables\Actions\DeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('name', 'asc');

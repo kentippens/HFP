@@ -1,4 +1,4 @@
-@if(config('recaptcha.enabled'))
+@if(config('recaptcha.enabled') && !empty(config('recaptcha.site_key')))
     @php
         $formId = $formId ?? 'contact-form-' . uniqid();
         $buttonText = $buttonText ?? 'Get A Quote';

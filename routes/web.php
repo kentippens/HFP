@@ -162,10 +162,7 @@ Route::prefix('lp')->name('landing.')->group(function () {
 // ADMIN/API ROUTES
 // ============================================================================
 
-// CKEditor image upload (admin only with security)
-Route::middleware(['auth', App\Http\Middleware\CKEditorSecurity::class])
-    ->post('/admin/ckeditor/upload', [App\Http\Controllers\Admin\CKEditorController::class, 'upload'])
-    ->name('admin.ckeditor.upload');
+// Note: CKEditor removed in favor of native Filament RichEditor
 
 // Tracking script error reporting
 Route::post('/api/tracking-script-errors', [TrackingScriptErrorController::class, 'report'])

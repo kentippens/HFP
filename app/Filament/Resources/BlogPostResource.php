@@ -7,38 +7,54 @@ use App\Filament\Resources\BlogPostResource\RelationManagers;
 use App\Models\BlogPost;
 use App\Models\BlogCategory;
 use App\Rules\ValidJsonLd;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Kahusoftware\FilamentCkeditorField\CKEditor;
 
 class BlogPostResource extends Resource
 {
     protected static ?string $model = BlogPost::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    
-    protected static ?string $navigationLabel = 'Blog Posts';
-    
-    protected static ?string $navigationGroup = 'Blog Management';
-    
-    protected static ?int $navigationSort = 2;
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-document-text';
+    }
 
-    public static function form(Form $form): Form
+    public static function getNavigationLabel(): string
+    {
+        return 'Blog Posts';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Blog Management';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 2;
+    }
+
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()
+                Schemas\Components\Section::make()
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
                             ->maxLength(255)
                             ->reactive()
-                            ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Str::slug($state))),
+                            ->afterStateUpdated(fn ($state, Schemas\Set $set) => $set('slug', \Str::slug($state))),
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
@@ -54,7 +70,7 @@ class BlogPostResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->reactive()
-                                    ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Str::slug($state))),
+                                    ->afterStateUpdated(fn ($state, Schemas\Set $set) => $set('slug', \Str::slug($state))),
                                 Forms\Components\TextInput::make('slug')
                                     ->required()
                                     ->maxLength(255)
@@ -74,12 +90,11 @@ class BlogPostResource extends Resource
                             ->required()
                             ->default('Hexagon Team')
                             ->maxLength(255),
-                        CkEditor::make('content')
+                        Forms\Components\RichEditor::make('content')
                             ->required()
                             ->columnSpanFull()
                             ->label('Blog Content')
-                            ->helperText('Use the rich text editor to create engaging blog content. Images, links, and formatting are supported. Images must be under 5MB and in JPEG, PNG, GIF, or WebP format.')
-                            ->uploadUrl(route('admin.ckeditor.upload'))
+                            ->helperText('Use the rich text editor to create engaging blog content. Images, links, and formatting are supported.')
                             ->placeholder('Start writing your blog post here...')
                             ->rules([
                                 'required',
@@ -92,9 +107,9 @@ class BlogPostResource extends Resource
                                 'min' => 'Blog content must be at least 50 characters long.',
                                 'max' => 'Blog content cannot exceed 50,000 characters.',
                             ])
-                            ->extraAttributes([
-                                'style' => 'min-height: 500px;'
-                            ]),
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('blog')
+                            ->fileAttachmentsVisibility('public'),
                         Forms\Components\Textarea::make('excerpt')
                             ->rows(3)
                             ->columnSpanFull(),
@@ -135,7 +150,7 @@ class BlogPostResource extends Resource
                             ])
                             ->nullable(),
                     ]),
-                Forms\Components\Section::make('SEO Settings')
+                Schemas\Components\Section::make('SEO Settings')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
                             ->maxLength(255)
@@ -206,7 +221,7 @@ class BlogPostResource extends Resource
                                 }
                                 return $state;
                             })
-                            ->afterStateUpdated(function ($state, Forms\Set $set, $get) {
+                            ->afterStateUpdated(function ($state, Schemas\Set $set, $get) {
                                 if (empty($state)) {
                                     return;
                                 }
@@ -239,7 +254,7 @@ class BlogPostResource extends Resource
                             ->helperText('Whether this blog post should appear in sitemap.xml'),
                     ])
                     ->columns(1),
-                Forms\Components\Section::make('Publishing')
+                Schemas\Components\Section::make('Publishing')
                     ->schema([
                         Forms\Components\Toggle::make('is_published')
                             ->required()
@@ -354,12 +369,12 @@ class BlogPostResource extends Resource
                     ->label('Published Status'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\ViewAction::make(),
+                EditAction::make(),
+                ViewAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('published_at', 'desc');

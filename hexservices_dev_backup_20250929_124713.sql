@@ -16,6 +16,48 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `activity_logs`
+--
+
+DROP TABLE IF EXISTS `activity_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `activity_logs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `log_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject_id` bigint unsigned DEFAULT NULL,
+  `event` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `causer_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `causer_id` bigint unsigned DEFAULT NULL,
+  `properties` json DEFAULT NULL,
+  `changes` json DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
+  `batch_uuid` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `activity_logs_subject_type_subject_id_index` (`subject_type`,`subject_id`),
+  KEY `activity_logs_causer_type_causer_id_index` (`causer_type`,`causer_id`),
+  KEY `activity_logs_created_at_index` (`created_at`),
+  KEY `activity_logs_subject_type_subject_id_log_name_index` (`subject_type`,`subject_id`,`log_name`),
+  KEY `activity_logs_causer_type_causer_id_log_name_index` (`causer_type`,`causer_id`,`log_name`),
+  KEY `activity_logs_log_name_index` (`log_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity_logs`
+--
+
+LOCK TABLES `activity_logs` WRITE;
+/*!40000 ALTER TABLE `activity_logs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `activity_logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `blog_categories`
 --
 
@@ -38,7 +80,7 @@ CREATE TABLE `blog_categories` (
   KEY `blog_categories_slug_index` (`slug`),
   KEY `blog_categories_is_active_index` (`is_active`),
   KEY `blog_categories_order_index_index` (`order_index`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,6 +89,7 @@ CREATE TABLE `blog_categories` (
 
 LOCK TABLES `blog_categories` WRITE;
 /*!40000 ALTER TABLE `blog_categories` DISABLE KEYS */;
+INSERT INTO `blog_categories` VALUES (1,'Pool Resurfacing','pool-resurfacing','Expert guides on fiberglass, plaster, and pebble pool resurfacing techniques','Pool Resurfacing Tips & Guides | Premier Pool Resurfacing','Learn about pool resurfacing options, costs, and professional techniques from industry experts.',1,1,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(2,'Pool Conversions','pool-conversions','Converting vinyl liner and concrete pools to modern fiberglass','Pool Conversion Guides | Fiberglass Pool Conversions','Everything about converting traditional pools to durable fiberglass pool systems.',1,2,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(3,'Pool Remodeling','pool-remodeling','Pool renovation ideas, design trends, and remodeling projects','Pool Remodeling Ideas & Inspiration | Pool Renovation','Discover pool remodeling ideas, latest design trends, and renovation tips.',1,3,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(4,'Pool Repair','pool-repair','Pool repair solutions for cracks, leaks, and structural issues','Pool Repair Solutions & Tips | Expert Pool Repair','Professional pool repair advice for cracks, leaks, equipment, and structural problems.',1,4,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(5,'Pool Maintenance','pool-maintenance','Pool care tips, maintenance schedules, and water chemistry','Pool Maintenance Guide | Pool Care Tips','Essential pool maintenance tips, cleaning schedules, and water chemistry guides.',1,5,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(6,'Fiberglass Pools','fiberglass-pools','Benefits, installation, and care of fiberglass pool systems','Fiberglass Pool Guide | Benefits & Installation','Learn about fiberglass pool advantages, installation process, and long-term benefits.',1,6,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(7,'Pool Design','pool-design','Pool design trends, features, and landscaping ideas','Pool Design Ideas & Trends | Modern Pool Features','Explore modern pool design trends, water features, and landscaping ideas.',1,7,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(8,'Pool Safety','pool-safety','Pool safety equipment, regulations, and best practices','Pool Safety Guide | Safety Equipment & Tips','Important pool safety information, equipment recommendations, and compliance guidelines.',1,8,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(9,'Industry News','industry-news','Latest news and updates from the pool industry','Pool Industry News & Updates | Pool Trends','Stay updated with the latest pool industry news, innovations, and market trends.',1,9,'2025-09-28 10:40:15','2025-09-28 10:40:15'),(10,'General','general','General updates and company announcements','Company Updates | Premier Pool Resurfacing News','General news, updates, and announcements from Premier Pool Resurfacing.',1,10,'2025-09-28 10:40:15','2025-09-28 10:40:15');
 /*!40000 ALTER TABLE `blog_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,7 +229,7 @@ CREATE TABLE `contact_submissions` (
   KEY `contact_submissions_email_index` (`email`),
   KEY `contact_submissions_phone_index` (`phone`),
   KEY `contact_submissions_service_index` (`service`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,7 +238,7 @@ CREATE TABLE `contact_submissions` (
 
 LOCK TABLES `contact_submissions` WRITE;
 /*!40000 ALTER TABLE `contact_submissions` DISABLE KEYS */;
-INSERT INTO `contact_submissions` VALUES (1,NULL,NULL,'test@example.com','555-1234',NULL,'Testing unified contact form','pool-resurfacing-conversion','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:55:44','2025-09-22 21:55:44'),(2,NULL,NULL,'request_callback@test.com','555-2508',NULL,'Testing request-callback option','request-callback','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(3,NULL,NULL,'pool_resurfacing_conversion@test.com','555-9554',NULL,'Testing pool-resurfacing-conversion option','pool-resurfacing-conversion','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(4,NULL,NULL,'pool_repair@test.com','555-4442',NULL,'Testing pool-repair option','pool-repair','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(5,NULL,NULL,'pool_remodeling@test.com','555-5262',NULL,'Testing pool-remodeling option','pool-remodeling','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20');
+INSERT INTO `contact_submissions` VALUES (1,NULL,NULL,'test@example.com','555-1234',NULL,'Testing unified contact form','pool-resurfacing-conversion','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:55:44','2025-09-22 21:55:44'),(2,NULL,NULL,'request_callback@test.com','555-2508',NULL,'Testing request-callback option','request-callback','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(3,NULL,NULL,'pool_resurfacing_conversion@test.com','555-9554',NULL,'Testing pool-resurfacing-conversion option','pool-resurfacing-conversion','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(4,NULL,NULL,'pool_repair@test.com','555-4442',NULL,'Testing pool-repair option','pool-repair','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(5,NULL,NULL,'pool_remodeling@test.com','555-5262',NULL,'Testing pool-remodeling option','pool-remodeling','contact_page',NULL,'127.0.0.1','Test',NULL,0,'2025-09-22 21:56:20','2025-09-22 21:56:20'),(6,'Jake','','Takpper@gmail.com','469-555-9563',NULL,NULL,'Investor Inquiry: Strategic Partnership','investor_relations_page','http://localhost:8002/investor-relations','127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36','2025-09-28 11:03:57',0,'2025-09-28 11:03:57','2025-09-28 11:03:57'),(8,'Peter','','no-email@localhost','972-156-3636',NULL,NULL,'request-callback','contact_page','http://localhost:8002/pool-repair-quote','127.0.0.1','Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0','2025-09-29 22:04:40',0,'2025-09-29 22:04:40','2025-09-29 22:04:40');
 /*!40000 ALTER TABLE `contact_submissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,8 +277,70 @@ CREATE TABLE `core_pages` (
 
 LOCK TABLES `core_pages` WRITE;
 /*!40000 ALTER TABLE `core_pages` DISABLE KEYS */;
-INSERT INTO `core_pages` VALUES ('01993f83-b99a-7306-8f1d-7fa0a1f7eab6','Blog','blog','Blog - Latest News & Tips from Our Cleaning Experts','Stay updated with the latest cleaning tips, industry news, and expert advice from our professional cleaning team.','index, follow',NULL,'http://localhost/localhost/blog',1,1,'2025-09-13 01:00:21','2025-09-13 01:00:21');
 /*!40000 ALTER TABLE `core_pages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `exports`
+--
+
+DROP TABLE IF EXISTS `exports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `exports` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `completed_at` timestamp NULL DEFAULT NULL,
+  `file_disk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `exporter` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `processed_rows` int unsigned NOT NULL DEFAULT '0',
+  `total_rows` int unsigned NOT NULL,
+  `successful_rows` int unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `exports_user_id_foreign` (`user_id`),
+  CONSTRAINT `exports_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `exports`
+--
+
+LOCK TABLES `exports` WRITE;
+/*!40000 ALTER TABLE `exports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `exports` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `failed_import_rows`
+--
+
+DROP TABLE IF EXISTS `failed_import_rows`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `failed_import_rows` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `data` json NOT NULL,
+  `import_id` bigint unsigned NOT NULL,
+  `validation_error` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `failed_import_rows_import_id_foreign` (`import_id`),
+  CONSTRAINT `failed_import_rows_import_id_foreign` FOREIGN KEY (`import_id`) REFERENCES `imports` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `failed_import_rows`
+--
+
+LOCK TABLES `failed_import_rows` WRITE;
+/*!40000 ALTER TABLE `failed_import_rows` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_import_rows` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -293,6 +398,40 @@ CREATE TABLE `failed_login_attempts` (
 LOCK TABLES `failed_login_attempts` WRITE;
 /*!40000 ALTER TABLE `failed_login_attempts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_login_attempts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `imports`
+--
+
+DROP TABLE IF EXISTS `imports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `imports` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `completed_at` timestamp NULL DEFAULT NULL,
+  `file_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `importer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `processed_rows` int unsigned NOT NULL DEFAULT '0',
+  `total_rows` int unsigned NOT NULL,
+  `successful_rows` int unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `imports_user_id_foreign` (`user_id`),
+  CONSTRAINT `imports_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `imports`
+--
+
+LOCK TABLES `imports` WRITE;
+/*!40000 ALTER TABLE `imports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imports` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -448,7 +587,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -457,7 +596,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2025_07_04_162307_create_services_table',1),(5,'2025_07_04_162315_create_blog_posts_table',1),(6,'2025_07_04_162315_create_contact_submissions_table',1),(7,'2025_07_04_162315_create_landing_pages_table',1),(8,'2025_07_06_184030_add_category_to_blog_posts_table',1),(9,'2025_07_07_010039_add_thumbnail_to_blog_posts_table',1),(10,'2025_07_07_025852_create_core_pages_table',1),(11,'2025_07_07_033141_add_canonical_url_to_core_pages_table',1),(12,'2025_07_07_035643_add_include_in_sitemap_to_core_pages_table',1),(13,'2025_07_07_040426_add_meta_robots_to_core_pages_table',1),(14,'2025_07_07_042145_add_json_ld_to_core_pages_table',1),(15,'2025_07_08_032227_add_seo_fields_to_services_table',1),(16,'2025_07_08_032420_add_seo_fields_to_blog_posts_table',1),(17,'2025_07_08_032543_add_seo_fields_to_landing_pages_table',1),(18,'2025_07_08_070239_add_first_name_last_name_to_contact_submissions_table',1),(19,'2025_07_08_072450_make_message_nullable_in_contact_submissions_table',1),(20,'2025_07_08_074015_add_service_and_source_uri_to_contact_submissions_table',1),(21,'2025_07_08_090601_add_blog_page_to_core_pages_table',1),(22,'2025_07_08_165211_create_tracking_scripts_table',1),(23,'2025_07_09_170153_create_failed_login_attempts_table',1),(24,'2025_07_09_171043_create_invitation_tokens_table',1),(25,'2025_07_22_220535_add_breadcrumb_image_to_services_table',1),(26,'2025_07_27_034847_add_parent_id_to_services_table',1),(27,'2025_07_27_040406_update_services_unique_constraint',1),(28,'2025_08_04_033118_standardize_database_columns',1),(29,'2025_08_04_033255_fix_invitation_tokens_final',1),(30,'2025_08_04_035411_add_is_active_to_core_pages_table',1),(31,'2025_08_04_035817_add_short_description_to_services_table',1),(32,'2025_08_04_041358_fix_blog_posts_columns',1),(33,'2025_08_04_062312_add_missing_columns_to_contact_submissions_table',1),(34,'2025_08_05_133808_add_password_security_fields_to_users_table',1),(35,'2025_08_05_133828_create_password_histories_table',1),(36,'2025_08_05_134833_create_notifications_table',1),(37,'2025_08_05_140759_create_blog_categories_table',1),(38,'2025_08_05_140816_add_category_id_to_blog_posts_table',1),(39,'2025_08_05_141500_migrate_blog_posts_categories',1),(40,'2025_08_05_213239_add_is_admin_to_users_table',1),(41,'2025_08_05_215821_standardize_service_image_paths',1),(42,'2025_08_05_220517_standardize_all_metadata',1),(43,'2025_08_05_221321_revert_metadata_to_hss',1),(44,'2025_08_05_221715_remove_meta_keywords_from_all_tables',1),(45,'2025_08_26_042405_add_featured_image_and_thumbnail_to_blog_posts_table',1),(46,'2025_08_27_061501_add_homepage_image_to_services_table',1),(47,'2025_09_08_180702_add_features_benefits_overview_to_services_table',1),(48,'2025_09_09_170916_create_roles_table',1),(49,'2025_09_09_170920_create_permissions_table',1),(50,'2025_09_09_170938_create_role_user_table',1),(51,'2025_09_09_170942_create_permission_role_table',1),(52,'2025_09_09_170946_create_permission_user_table',1),(53,'2025_09_09_172413_add_performance_indexes_to_database',1),(54,'2025_09_09_173127_convert_blog_posts_author_to_foreign_key',1),(55,'2025_09_12_194909_create_silos_table',1);
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2025_07_04_162307_create_services_table',1),(5,'2025_07_04_162315_create_blog_posts_table',1),(6,'2025_07_04_162315_create_contact_submissions_table',1),(7,'2025_07_04_162315_create_landing_pages_table',1),(8,'2025_07_06_184030_add_category_to_blog_posts_table',1),(9,'2025_07_07_010039_add_thumbnail_to_blog_posts_table',1),(10,'2025_07_07_025852_create_core_pages_table',1),(11,'2025_07_07_033141_add_canonical_url_to_core_pages_table',1),(12,'2025_07_07_035643_add_include_in_sitemap_to_core_pages_table',1),(13,'2025_07_07_040426_add_meta_robots_to_core_pages_table',1),(14,'2025_07_07_042145_add_json_ld_to_core_pages_table',1),(15,'2025_07_08_032227_add_seo_fields_to_services_table',1),(16,'2025_07_08_032420_add_seo_fields_to_blog_posts_table',1),(17,'2025_07_08_032543_add_seo_fields_to_landing_pages_table',1),(18,'2025_07_08_070239_add_first_name_last_name_to_contact_submissions_table',1),(19,'2025_07_08_072450_make_message_nullable_in_contact_submissions_table',1),(20,'2025_07_08_074015_add_service_and_source_uri_to_contact_submissions_table',1),(21,'2025_07_08_090601_add_blog_page_to_core_pages_table',1),(22,'2025_07_08_165211_create_tracking_scripts_table',1),(23,'2025_07_09_170153_create_failed_login_attempts_table',1),(24,'2025_07_09_171043_create_invitation_tokens_table',1),(25,'2025_07_22_220535_add_breadcrumb_image_to_services_table',1),(26,'2025_07_27_034847_add_parent_id_to_services_table',1),(27,'2025_07_27_040406_update_services_unique_constraint',1),(28,'2025_08_04_033118_standardize_database_columns',1),(29,'2025_08_04_033255_fix_invitation_tokens_final',1),(30,'2025_08_04_035411_add_is_active_to_core_pages_table',1),(31,'2025_08_04_035817_add_short_description_to_services_table',1),(32,'2025_08_04_041358_fix_blog_posts_columns',1),(33,'2025_08_04_062312_add_missing_columns_to_contact_submissions_table',1),(34,'2025_08_05_133808_add_password_security_fields_to_users_table',1),(35,'2025_08_05_133828_create_password_histories_table',1),(36,'2025_08_05_134833_create_notifications_table',1),(37,'2025_08_05_140759_create_blog_categories_table',1),(38,'2025_08_05_140816_add_category_id_to_blog_posts_table',1),(39,'2025_08_05_141500_migrate_blog_posts_categories',1),(40,'2025_08_05_213239_add_is_admin_to_users_table',1),(41,'2025_08_05_215821_standardize_service_image_paths',1),(42,'2025_08_05_220517_standardize_all_metadata',1),(43,'2025_08_05_221321_revert_metadata_to_hss',1),(44,'2025_08_05_221715_remove_meta_keywords_from_all_tables',1),(45,'2025_08_26_042405_add_featured_image_and_thumbnail_to_blog_posts_table',1),(46,'2025_08_27_061501_add_homepage_image_to_services_table',1),(47,'2025_09_08_180702_add_features_benefits_overview_to_services_table',1),(48,'2025_09_09_170916_create_roles_table',1),(49,'2025_09_09_170920_create_permissions_table',1),(50,'2025_09_09_170938_create_role_user_table',1),(51,'2025_09_09_170942_create_permission_role_table',1),(52,'2025_09_09_170946_create_permission_user_table',1),(53,'2025_09_09_172413_add_performance_indexes_to_database',1),(54,'2025_09_09_173127_convert_blog_posts_author_to_foreign_key',1),(55,'2025_09_12_194909_create_silos_table',1),(59,'2025_09_29_154811_create_imports_table',2),(60,'2025_09_29_154812_create_exports_table',2),(61,'2025_09_29_154813_create_failed_import_rows_table',2),(62,'2025_09_29_create_activity_logs_table',3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -909,7 +1048,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Hexagon Team','author@hexagonservicesolutions.com',0,NULL,'$2y$12$.ej8GvUgL0VC4lIe6J/p3O3xArpTCmS2mou8Leyqe/XgO22kzAqii',NULL,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL,'2025-09-13 01:00:42','2025-09-13 01:00:42'),(2,'Admin User','admin@hexagonservicesolutions.com',1,NULL,'$2y$12$5qoFpQ3JZZrCBziGNi0/iOXbfxdbucocR1SvLPe5eA2znKdsWxQFG',NULL,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL,'2025-09-22 06:43:04','2025-09-22 06:43:05'),(3,'Ken Tippens','ken.tippens@outlook.com',1,NULL,'$2y$12$KX3bDivZJ8vic1KSVZe9uOOvyJnnM3lA5zTjjfYH3u4Ig27wbMfu2',NULL,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL,'2025-09-22 06:43:05','2025-09-22 06:43:05');
+INSERT INTO `users` VALUES (1,'Hexagon Team','author@hexagonservicesolutions.com',0,NULL,'$2y$12$.ej8GvUgL0VC4lIe6J/p3O3xArpTCmS2mou8Leyqe/XgO22kzAqii',NULL,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL,'2025-09-13 01:00:42','2025-09-13 01:00:42'),(2,'Admin User','admin@hexagonservicesolutions.com',1,NULL,'$2y$12$HOqqryztKu8.SHhK6nA0AOYiN9r1edWOTqjerpqKa7DdyzASlXrjG',NULL,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL,'2025-09-22 06:43:04','2025-09-28 11:46:35'),(3,'Ken Tippens','ken.tippens@outlook.com',1,NULL,'$2y$12$KX3bDivZJ8vic1KSVZe9uOOvyJnnM3lA5zTjjfYH3u4Ig27wbMfu2',NULL,0,0,NULL,0,NULL,NULL,NULL,NULL,NULL,'2025-09-22 06:43:05','2025-09-22 06:43:05');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -922,4 +1061,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-28  0:26:16
+-- Dump completed on 2025-09-29 12:47:13

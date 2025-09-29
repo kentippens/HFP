@@ -7,11 +7,16 @@ use App\Filament\Resources\ServiceResource\RelationManagers;
 use App\Models\Service;
 use App\Rules\ValidJsonLd;
 use App\Rules\PreventCircularServiceReference;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -19,17 +24,31 @@ class ServiceResource extends Resource
 {
     protected static ?string $model = Service::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
-    
-    protected static ?string $navigationLabel = 'Services';
-    
-    protected static ?int $navigationSort = 1;
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-cog-6-tooth';
+    }
 
-    public static function form(Form $form): Form
+    public static function getNavigationLabel(): string
+    {
+        return 'Services';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Content Management';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 20;
+    }
+
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()
+                Schemas\Components\Section::make()
                     ->schema([
                         Forms\Components\Select::make('parent_id')
                             ->label('Parent Service')
@@ -62,7 +81,7 @@ class ServiceResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->reactive()
-                            ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Str::slug($state))),
+                            ->afterStateUpdated(fn ($state, Schemas\Set $set) => $set('slug', \Str::slug($state))),
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
@@ -101,7 +120,7 @@ class ServiceResource extends Resource
                             ->nullable()
                             ->helperText('Background image for breadcrumb area (Max 512KB, will be resized to 1920x600)'),
                     ]),
-                Forms\Components\Section::make('SEO Settings')
+                Schemas\Components\Section::make('SEO Settings')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
                             ->maxLength(255)
@@ -183,7 +202,7 @@ class ServiceResource extends Resource
                             ->suffixIconColor('primary'),
                     ])
                     ->columns(1),
-                Forms\Components\Section::make('Settings')
+                Schemas\Components\Section::make('Settings')
                     ->schema([
                         Forms\Components\Toggle::make('is_active')
                             ->required()
@@ -298,12 +317,12 @@ class ServiceResource extends Resource
                     ->label('Active Status'),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('order_index', 'asc')

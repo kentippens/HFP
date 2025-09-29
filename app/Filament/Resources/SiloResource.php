@@ -6,34 +6,55 @@ use App\Filament\Resources\SiloResource\Pages;
 use App\Filament\Resources\SiloResource\RelationManagers;
 use App\Models\Silo;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use Filament\Forms\Set;
-use Filament\Forms\Get;
+use Filament\Schemas\Set;
+use Filament\Schemas\Get;
 
 class SiloResource extends Resource
 {
     protected static ?string $model = Silo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
-    
-    protected static ?string $navigationGroup = 'Content Management';
-    
-    protected static ?int $navigationSort = 2;
-    
-    protected static ?string $navigationLabel = 'Silos';
-    
-    protected static ?string $pluralLabel = 'Silos';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-building-storefront';
+    }
 
-    public static function form(Form $form): Form
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Content Management';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 40;
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Silos';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Silos';
+    }
+
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Basic Information')
+                Schemas\Components\Section::make('Basic Information')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
@@ -84,7 +105,7 @@ class SiloResource extends Resource
                     ])
                     ->columns(2),
                     
-                Forms\Components\Section::make('Content')
+                Schemas\Components\Section::make('Content')
                     ->schema([
                         Forms\Components\RichEditor::make('content')
                             ->columnSpanFull()
@@ -110,7 +131,7 @@ class SiloResource extends Resource
                             ->columnSpanFull(),
                     ]),
                     
-                Forms\Components\Section::make('Features & Benefits')
+                Schemas\Components\Section::make('Features & Benefits')
                     ->schema([
                         Forms\Components\Repeater::make('features')
                             ->schema([
@@ -135,7 +156,7 @@ class SiloResource extends Resource
                             ->itemLabel(fn (array $state): ?string => $state['title'] ?? null),
                     ]),
                     
-                Forms\Components\Section::make('Images')
+                Schemas\Components\Section::make('Images')
                     ->schema([
                         Forms\Components\FileUpload::make('featured_image')
                             ->image()
@@ -151,7 +172,7 @@ class SiloResource extends Resource
                     ])
                     ->columns(2),
                     
-                Forms\Components\Section::make('SEO')
+                Schemas\Components\Section::make('SEO')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
                             ->maxLength(255)
@@ -197,7 +218,7 @@ class SiloResource extends Resource
                     ->columns(2)
                     ->collapsed(),
                     
-                Forms\Components\Section::make('Settings')
+                Schemas\Components\Section::make('Settings')
                     ->schema([
                         Forms\Components\Toggle::make('is_active')
                             ->default(true)
@@ -268,13 +289,13 @@ class SiloResource extends Resource
                     ->falseLabel('Inactive Only'),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->defaultSort('sort_order', 'asc')

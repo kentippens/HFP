@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SanitizesHtml;
+use App\Traits\LogsActivity;
 
 class ContactSubmission extends Model
 {
-    use HasFactory, SanitizesHtml;
+    use HasFactory, SanitizesHtml, LogsActivity;
 
     /**
      * Fields that should be sanitized as HTML
@@ -24,6 +25,16 @@ class ContactSubmission extends Model
      * Purifier config to use for this model
      */
     protected $purifierConfig = 'strict'; // Use strict config for user input
+
+    /**
+     * Activity log configuration.
+     */
+    protected $activityLogOptions = [
+        'identifier' => 'email',
+        'log_name' => 'contact',
+        'events' => ['created', 'updated'],
+        'except' => ['updated_at', 'created_at', 'user_agent', 'ip_address'],
+    ];
 
     protected $fillable = [
         'first_name',

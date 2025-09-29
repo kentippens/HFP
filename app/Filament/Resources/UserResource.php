@@ -6,11 +6,19 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use App\Rules\SecurePassword;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\Action;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\BulkAction;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
@@ -22,19 +30,31 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    
-    protected static ?string $navigationLabel = 'Users';
-    
-    protected static ?string $navigationGroup = 'User Management';
-    
-    protected static ?int $navigationSort = 10;
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-users';
+    }
 
-    public static function form(Form $form): Form
+    public static function getNavigationLabel(): string
+    {
+        return 'Users';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'User Management';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 10;
+    }
+
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('User Information')
+                Schemas\Components\Section::make('User Information')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
@@ -58,7 +78,7 @@ class UserResource extends Resource
                             ]),
                     ])->columns(2),
                     
-                Forms\Components\Section::make('Password')
+                Schemas\Components\Section::make('Password')
                     ->schema([
                         Forms\Components\TextInput::make('password')
                             ->password()
@@ -92,7 +112,7 @@ class UserResource extends Resource
                     ])->columns(2)
                     ->hiddenOn('view'),
                     
-                Forms\Components\Section::make('Account Status')
+                Schemas\Components\Section::make('Account Status')
                     ->schema([
                         Forms\Components\DateTimePicker::make('email_verified_at')
                             ->label('Email Verified At')
@@ -110,7 +130,7 @@ class UserResource extends Resource
                     ])->columns(2)
                     ->hiddenOn('create'),
                     
-                Forms\Components\Section::make('Login History')
+                Schemas\Components\Section::make('Login History')
                     ->schema([
                         Forms\Components\DateTimePicker::make('last_login_at')
                             ->disabled()
@@ -187,8 +207,8 @@ class UserResource extends Resource
                     ),
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make()
+                ViewAction::make(),
+                EditAction::make()
                     ->mutateFormDataUsing(function (array $data): array {
                         // Remove password fields if they're empty
                         if (empty($data['password'])) {
@@ -208,7 +228,7 @@ class UserResource extends Resource
                             ->title('Update failed')
                             ->body('There was an error updating the user. Please check the form for errors.')
                     ),
-                Tables\Actions\Action::make('unlock')
+                Action::make('unlock')
                     ->label('Unlock')
                     ->icon('heroicon-o-lock-open')
                     ->color('success')
@@ -234,7 +254,7 @@ class UserResource extends Resource
                                 ->send();
                         }
                     }),
-                Tables\Actions\Action::make('forcePasswordChange')
+                Action::make('forcePasswordChange')
                     ->label('Force Password Change')
                     ->icon('heroicon-o-key')
                     ->color('warning')
@@ -260,7 +280,7 @@ class UserResource extends Resource
                                 ->send();
                         }
                     }),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->requiresConfirmation()
                     ->modalHeading('Delete user')
                     ->modalDescription('Are you sure you want to delete this user? This action cannot be undone.')
@@ -272,8 +292,8 @@ class UserResource extends Resource
                     ),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\BulkAction::make('unlock')
+                BulkActionGroup::make([
+                    BulkAction::make('unlock')
                         ->label('Unlock Selected')
                         ->icon('heroicon-o-lock-open')
                         ->color('success')
@@ -297,7 +317,7 @@ class UserResource extends Resource
                                 ->body("{$count} user(s) have been unlocked.")
                                 ->send();
                         }),
-                    Tables\Actions\DeleteBulkAction::make()
+                    DeleteBulkAction::make()
                         ->requiresConfirmation(),
                 ]),
             ])

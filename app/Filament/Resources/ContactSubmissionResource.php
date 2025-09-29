@@ -4,25 +4,45 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ContactSubmissionResource\Pages;
 use App\Models\ContactSubmission;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\BulkAction;
+use Filament\Actions\DeleteBulkAction;
 
 class ContactSubmissionResource extends Resource
 {
     protected static ?string $model = ContactSubmission::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-envelope';
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-envelope';
+    }
 
-    protected static ?string $navigationLabel = 'Contact Submissions';
+    public static function getNavigationLabel(): string
+    {
+        return 'Contact Submissions';
+    }
 
-    protected static ?string $modelLabel = 'Contact Submission';
+    public static function getModelLabel(): string
+    {
+        return 'Contact Submission';
+    }
 
-    protected static ?string $pluralModelLabel = 'Contact Submissions';
+    public static function getPluralModelLabel(): string
+    {
+        return 'Contact Submissions';
+    }
 
-    protected static ?int $navigationSort = 3;
+    public static function getNavigationSort(): ?int
+    {
+        return 3;
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -515,11 +535,11 @@ class ContactSubmissionResource extends Resource
         return $number;
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Contact Information')
+                Schemas\Components\Section::make('Contact Information')
                     ->schema([
                         Forms\Components\TextInput::make('first_name')
                             ->label('First Name')
@@ -538,7 +558,7 @@ class ContactSubmissionResource extends Resource
                             ->maxLength(255),
                     ])->columns(2),
 
-                Forms\Components\Section::make('Submission Details')
+                Schemas\Components\Section::make('Submission Details')
                     ->schema([
                         Forms\Components\TextInput::make('source')
                             ->label('Source')
@@ -558,7 +578,7 @@ class ContactSubmissionResource extends Resource
                             ->required(),
                     ])->columns(2),
 
-                Forms\Components\Section::make('Technical Information')
+                Schemas\Components\Section::make('Technical Information')
                     ->schema([
                         Forms\Components\TextInput::make('ip_address')
                             ->label('IP Address')
@@ -620,65 +640,6 @@ class ContactSubmissionResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('created_at', 'desc')
-            ->headerActions([
-                Tables\Actions\Action::make('export')
-                    ->label('Export CSV')
-                    ->icon('heroicon-o-arrow-down-tray')
-                    ->color('success')
-                    ->action(function (Tables\Table $table) {
-                        try {
-                            // Validate export preconditions
-                            self::validateExportPreconditions();
-
-                            // Get the filtered query from the table with error handling
-                            $query = self::getFilteredQuerySafely($table);
-                            
-                            // Check if query would return too many records
-                            $recordCount = $query->count();
-                            self::validateRecordCount($recordCount);
-                            
-                            // Apply the same ordering as the table and fetch data
-                            $submissions = $query->orderBy('created_at', 'desc')->get();
-                            
-                            // Validate the fetched data
-                            self::validateExportData($submissions);
-                            
-                            // Get active filter information for filename
-                            $filterInfo = self::getActiveFilterInfoSafely($table);
-                            $filename = self::generateSafeFilename($filterInfo);
-
-                            return response()->streamDownload(function () use ($submissions, $table, $recordCount) {
-                                self::generateCsvContent($submissions, $table, $recordCount);
-                            }, $filename, [
-                                'Content-Type' => 'text/csv',
-                                'Content-Disposition' => 'attachment; filename="'.$filename.'"',
-                                'Cache-Control' => 'no-cache, no-store, must-revalidate',
-                                'Pragma' => 'no-cache',
-                                'Expires' => '0',
-                            ]);
-                            
-                        } catch (\Exception $e) {
-                            // Log the error for debugging
-                            \Log::error('CSV Export failed', [
-                                'error' => $e->getMessage(),
-                                'trace' => $e->getTraceAsString(),
-                                'user_id' => auth()->id(),
-                                'timestamp' => now()->toISOString(),
-                            ]);
-
-                            // Show user-friendly error notification
-                            \Filament\Notifications\Notification::make()
-                                ->title('Export Failed')
-                                ->body('Unable to generate the CSV export. Please try again or contact support if the problem persists.')
-                                ->danger()
-                                ->persistent()
-                                ->send();
-
-                            // Return empty response to prevent further errors
-                            return response('', 500);
-                        }
-                    }),
-            ])
             ->filters([
                 Tables\Filters\Filter::make('today')
                     ->label('Today Only')
@@ -700,39 +661,27 @@ class ContactSubmissionResource extends Resource
                     ->label('Read Status'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\BulkAction::make('markAsRead')
+                BulkActionGroup::make([
+                    BulkAction::make('markAsRead')
                         ->label('Mark as Read')
-                        ->icon('heroicon-o-check-circle')
+                        ->icon('heroicon-o-eye')
                         ->color('success')
                         ->action(function ($records) {
-                            $records->each(function ($record) {
-                                $record->update(['is_read' => true]);
-                            });
+                            $records->each->update(['is_read' => true]);
                         })
-                        ->requiresConfirmation()
-                        ->modalHeading('Mark submissions as read')
-                        ->modalDescription('Are you sure you want to mark the selected submissions as read?')
-                        ->modalSubmitActionLabel('Mark as Read')
-                        ->successNotificationTitle('Submissions marked as read'),
-                    Tables\Actions\BulkAction::make('markAsUnread')
+                        ->deselectRecordsAfterCompletion(),
+                    BulkAction::make('markAsUnread')
                         ->label('Mark as Unread')
-                        ->icon('heroicon-o-x-circle')
+                        ->icon('heroicon-o-eye-slash')
                         ->color('warning')
                         ->action(function ($records) {
-                            $records->each(function ($record) {
-                                $record->update(['is_read' => false]);
-                            });
+                            $records->each->update(['is_read' => false]);
                         })
-                        ->requiresConfirmation()
-                        ->modalHeading('Mark submissions as unread')
-                        ->modalDescription('Are you sure you want to mark the selected submissions as unread?')
-                        ->modalSubmitActionLabel('Mark as Unread')
-                        ->successNotificationTitle('Submissions marked as unread'),
-                    Tables\Actions\DeleteBulkAction::make(),
+                        ->deselectRecordsAfterCompletion(),
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

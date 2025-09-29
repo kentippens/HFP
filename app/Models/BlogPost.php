@@ -10,10 +10,11 @@ use Spatie\Sluggable\SlugOptions;
 use App\Rules\ValidJsonLd;
 use App\Models\User;
 use App\Traits\SanitizesHtml;
+use App\Traits\LogsActivity;
 
 class BlogPost extends Model
 {
-    use HasFactory, HasSlug, SanitizesHtml;
+    use HasFactory, HasSlug, SanitizesHtml, LogsActivity;
 
     /**
      * Fields that should be sanitized as HTML
@@ -29,6 +30,15 @@ class BlogPost extends Model
      * Purifier config to use for this model
      */
     protected $purifierConfig = 'admin'; // Admin config for blog posts (more permissive)
+
+    /**
+     * Activity log configuration.
+     */
+    protected $activityLogOptions = [
+        'identifier' => 'name',
+        'log_name' => 'blog',
+        'except' => ['updated_at', 'created_at'],
+    ];
 
     // Meta robots options
     public const META_ROBOTS_OPTIONS = [

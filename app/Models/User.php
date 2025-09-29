@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Hash;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use App\Traits\HasRoles;
+use App\Traits\LogsActivity;
 use App\Models\BlogPost;
 
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -70,6 +71,15 @@ class User extends Authenticatable implements FilamentUser
             'last_login_at' => 'datetime',
         ];
     }
+
+    /**
+     * Activity log configuration.
+     */
+    protected $activityLogOptions = [
+        'identifier' => 'name',
+        'log_name' => 'user',
+        'except' => ['password', 'remember_token', 'two_factor_secret', 'two_factor_recovery_codes', 'updated_at', 'created_at'],
+    ];
 
     /**
      * Password history relationship

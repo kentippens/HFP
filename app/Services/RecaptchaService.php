@@ -16,8 +16,8 @@ class RecaptchaService
      */
     public function verify(?string $response, ?string $ip = null): bool
     {
-        // If reCAPTCHA is disabled, always return true
-        if (!config('recaptcha.enabled')) {
+        // If reCAPTCHA is disabled or not properly configured, always return true
+        if (!config('recaptcha.enabled') || empty(config('recaptcha.site_key')) || empty(config('recaptcha.secret_key'))) {
             return true;
         }
 

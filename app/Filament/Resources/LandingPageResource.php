@@ -6,11 +6,15 @@ use App\Filament\Resources\LandingPageResource\Pages;
 use App\Filament\Resources\LandingPageResource\RelationManagers;
 use App\Models\LandingPage;
 use App\Rules\ValidJsonLd;
+use Filament\Schemas;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -18,26 +22,38 @@ class LandingPageResource extends Resource
 {
     protected static ?string $model = LandingPage::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    
-    protected static ?string $navigationLabel = 'Landing Pages';
-    
-    protected static ?string $navigationGroup = 'Content Management';
-    
-    protected static ?int $navigationSort = 30;
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-rectangle-stack';
+    }
 
-    public static function form(Form $form): Form
+    public static function getNavigationLabel(): string
+    {
+        return 'Landing Pages';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Content Management';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 30;
+    }
+
+    public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Page Information')
+                Schemas\Components\Section::make('Page Information')
                     ->schema([
                         Forms\Components\TextInput::make('name')
                             ->required()
                             ->maxLength(255)
                             ->label('Page Title')
                             ->reactive()
-                            ->afterStateUpdated(fn ($state, Forms\Set $set) => $set('slug', \Str::slug($state))),
+                            ->afterStateUpdated(fn ($state, Schemas\Set $set) => $set('slug', \Str::slug($state))),
                         Forms\Components\TextInput::make('slug')
                             ->required()
                             ->maxLength(255)
@@ -57,7 +73,7 @@ class LandingPageResource extends Resource
                             ->label('Active'),
                     ])
                     ->columns(2),
-                Forms\Components\Section::make('SEO Settings')
+                Schemas\Components\Section::make('SEO Settings')
                     ->schema([
                         Forms\Components\TextInput::make('meta_title')
                             ->maxLength(255)
@@ -128,7 +144,7 @@ class LandingPageResource extends Resource
                                 }
                                 return $state;
                             })
-                            ->afterStateUpdated(function ($state, Forms\Set $set, $get) {
+                            ->afterStateUpdated(function ($state, Schemas\Set $set, $get) {
                                 if (empty($state)) {
                                     return;
                                 }
@@ -158,7 +174,7 @@ class LandingPageResource extends Resource
                             ->helperText('Whether this landing page should appear in sitemap.xml'),
                     ])
                     ->columns(1),
-                Forms\Components\Section::make('Custom Code')
+                Schemas\Components\Section::make('Custom Code')
                     ->schema([
                         Forms\Components\Textarea::make('custom_css')
                             ->label('Custom CSS')
@@ -266,11 +282,11 @@ class LandingPageResource extends Resource
                     ->label('Active Status'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
