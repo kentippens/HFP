@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Models\ActivityLog;
+
 use App\Filament\Resources\ActivityLogResource\Pages;
 use App\Models\Activity;
 use Filament\Tables;
@@ -273,4 +275,33 @@ class ActivityLogResource extends Resource
 
         return $failedLogins > 0 ? 'danger' : 'primary';
     }
-}
+
+
+    /**
+     * Determine if the user can view any records.
+     */
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->hasPermission('logs.view') ?? false;
+    }
+
+    /**
+     * Determine if the user can view the record.
+     */
+    public static function canView($record): bool
+    {
+        return auth()->user()?->hasPermission('logs.view') ?? false;
+    }
+
+    /**
+     * ActivityLogs are read-only - edit and delete return false
+     */
+    public static function canEdit($record): bool
+    {
+        return false;
+    }
+
+    public static function canDelete($record): bool
+    {
+        return false;
+    }}

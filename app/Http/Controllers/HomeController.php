@@ -13,7 +13,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $recentPosts = BlogPost::published()->recent()->take(3)->get();
+        $recentPosts = BlogPost::with(['blogCategory', 'author'])
+            ->published()
+            ->recent()
+            ->take(3)
+            ->get();
 
         // Get the 4 core services as silos
         $coreServiceData = [

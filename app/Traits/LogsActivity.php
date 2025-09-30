@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 trait LogsActivity
 {
     /**
+     * Store for temporary old attributes
+     */
+    protected $temporaryOldAttributes = [];
+
+    /**
      * Boot the trait and register model events.
      */
     public static function bootLogsActivity(): void
@@ -22,18 +27,19 @@ trait LogsActivity
         // Log when a model is updated
         static::updating(function (Model $model) {
             if ($model->shouldLogActivity('updating')) {
-                $model->oldAttributes = $model->getOriginal();
+                // Store old attributes in a non-database property
+                $model->temporaryOldAttributes = $model->getOriginal();
             }
         });
 
         static::updated(function (Model $model) {
-            if ($model->shouldLogActivity('updated') && isset($model->oldAttributes)) {
+            if ($model->shouldLogActivity('updated') && !empty($model->temporaryOldAttributes)) {
                 ActivityLogger::logUpdated(
                     $model,
-                    $model->oldAttributes,
+                    $model->temporaryOldAttributes,
                     $model->getActivityDescription('updated')
                 );
-                unset($model->oldAttributes);
+                $model->temporaryOldAttributes = [];
             }
         });
 

@@ -19,7 +19,7 @@
     {{-- Main Service Description --}}
     <section class="service-description mt-20" aria-label="Service Description">
         @if($service->description)
-            {!! $service->description !!}
+            {!! \App\Helpers\HtmlHelper::safe($service->description, 'services') !!}
         @else
             <p>{{ $service->short_description ?? 'Contact us to learn more about our ' . $service->name . ' services.' }}</p>
         @endif
@@ -60,7 +60,7 @@
         
         @if($service->overview)
         <div class="service-overview mt-20">
-            {!! $service->overview !!}
+            {!! \App\Helpers\HtmlHelper::safe($service->overview, 'services') !!}
         </div>
         @endif
 

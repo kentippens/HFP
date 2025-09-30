@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets;
 
 use App\Models\ContactSubmission;
+use App\Traits\HandlesWidgetErrors;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Actions\Action;
@@ -11,6 +12,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 class RecentContactSubmissionsWidget extends BaseWidget
 {
+    use HandlesWidgetErrors;
+
     protected static ?int $sort = 2;
 
     protected int | string | array $columnSpan = 'full';
@@ -27,13 +30,16 @@ class RecentContactSubmissionsWidget extends BaseWidget
 
     public function table(Table $table): Table
     {
-        return $table
-            ->query(
-                ContactSubmission::query()
+        return $this->measureOperation('buildTable', function () use ($table) {
+            // Use safe query with error handling
+            $query = $this->safeQuery(function () {
+                return ContactSubmission::query()
                     ->where('is_read', false)
                     ->orderBy('created_at', 'desc')
-                    ->limit(10)
-            )
+                    ->limit(10);
+            }, null, 0); // No caching for table queries to ensure real-time data
+
+            return $table->query($query)
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Name')
@@ -110,15 +116,24 @@ class RecentContactSubmissionsWidget extends BaseWidget
                     ->label('Mark Read')
                     ->icon('heroicon-m-check')
                     ->requiresConfirmation()
-                    ->action(fn (ContactSubmission $record) => $record->update(['is_read' => true]))
+                    ->action(function (ContactSubmission $record) {
+                        return $this->safeQuery(function () use ($record) {
+                            $record->update(['is_read' => true]);
+                            // Clear relevant caches after marking as read
+                            $this->clearWidgetCache('*unread*');
+                            $this->clearWidgetCache('*today*');
+                            return true;
+                        });
+                    })
                     ->visible(fn (ContactSubmission $record): bool => !$record->is_read)
                     ->color('success'),
             ])
-            ->striped()
-            ->paginated([5, 10])
-            ->poll('10s')
-            ->emptyStateHeading('No unread submissions')
-            ->emptyStateDescription('All contact submissions have been reviewed')
-            ->emptyStateIcon('heroicon-o-check-circle');
+                ->striped()
+                ->paginated([5, 10])
+                ->poll('10s')
+                ->emptyStateHeading('No unread submissions')
+                ->emptyStateDescription('All contact submissions have been reviewed')
+                ->emptyStateIcon('heroicon-o-check-circle');
+        });
     }
 }

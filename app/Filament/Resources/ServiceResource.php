@@ -17,8 +17,14 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Collection;
+use App\Services\ActivityLogger;
+use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ServiceResource extends Resource
 {
@@ -322,6 +328,214 @@ class ServiceResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
+                    BulkAction::make('activate')
+                        ->label('Activate')
+                        ->icon('heroicon-o-check-circle')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $successCount = 0;
+                            $failedCount = 0;
+                            $errors = [];
+
+                            DB::beginTransaction();
+                            try {
+                                foreach ($records as $record) {
+                                    try {
+                                        $record->update(['is_active' => true]);
+                                        $successCount++;
+                                    } catch (\Exception $e) {
+                                        $failedCount++;
+                                        $errors[] = "Service '{$record->name}': " . $e->getMessage();
+                                        Log::error('Bulk activate service failed', [
+                                            'service_id' => $record->id,
+                                            'error' => $e->getMessage()
+                                        ]);
+                                    }
+                                }
+
+                                if ($failedCount === 0) {
+                                    DB::commit();
+
+                                    ActivityLogger::log()
+                                        ->useLog('bulk')
+                                        ->event('bulk_activate')
+                                        ->withDescription(":causer activated {$successCount} services")
+                                        ->save();
+
+                                    Notification::make()
+                                        ->title('Services Activated')
+                                        ->body("Successfully activated {$successCount} service(s).")
+                                        ->success()
+                                        ->send();
+                                } else {
+                                    DB::rollBack();
+
+                                    Notification::make()
+                                        ->title('Bulk Activation Failed')
+                                        ->body("Failed to activate services. Errors: " . implode(', ', $errors))
+                                        ->danger()
+                                        ->send();
+                                }
+                            } catch (\Exception $e) {
+                                DB::rollBack();
+
+                                Log::error('Bulk activate services failed completely', [
+                                    'error' => $e->getMessage(),
+                                    'trace' => $e->getTraceAsString()
+                                ]);
+
+                                Notification::make()
+                                    ->title('Operation Failed')
+                                    ->body('An unexpected error occurred: ' . $e->getMessage())
+                                    ->danger()
+                                    ->send();
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('deactivate')
+                        ->label('Deactivate')
+                        ->icon('heroicon-o-x-circle')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $count = 0;
+                            foreach ($records as $record) {
+                                $record->update(['is_active' => false]);
+                                $count++;
+                            }
+                            ActivityLogger::log()
+                                ->useLog('bulk')
+                                ->event('bulk_deactivate')
+                                ->withDescription(":causer deactivated {$count} services")
+                                ->save();
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('include_in_sitemap')
+                        ->label('Include in Sitemap')
+                        ->icon('heroicon-o-globe-alt')
+                        ->color('info')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $records->each(fn ($record) => $record->update(['include_in_sitemap' => true]));
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('exclude_from_sitemap')
+                        ->label('Exclude from Sitemap')
+                        ->icon('heroicon-o-eye-slash')
+                        ->color('gray')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $records->each(fn ($record) => $record->update(['include_in_sitemap' => false]));
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_meta_robots')
+                        ->label('Update Meta Robots')
+                        ->icon('heroicon-o-magnifying-glass')
+                        ->form([
+                            Forms\Components\Select::make('meta_robots')
+                                ->label('Meta Robots')
+                                ->options(\App\Models\Service::META_ROBOTS_OPTIONS)
+                                ->required(),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            $records->each(fn ($record) => $record->update(['meta_robots' => $data['meta_robots']]));
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_order')
+                        ->label('Update Display Order')
+                        ->icon('heroicon-o-list-bullet')
+                        ->form([
+                            Forms\Components\TextInput::make('order_index')
+                                ->label('Starting Order Number')
+                                ->numeric()
+                                ->required()
+                                ->default(1)
+                                ->minValue(0),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            $order = $data['order_index'];
+                            foreach ($records as $record) {
+                                $record->update(['order_index' => $order]);
+                                $order++;
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('duplicate')
+                        ->label('Duplicate')
+                        ->icon('heroicon-o-document-duplicate')
+                        ->color('secondary')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            foreach ($records as $record) {
+                                $duplicate = $record->replicate();
+                                $duplicate->name = $record->name . ' (Copy)';
+                                $duplicate->slug = $record->slug . '-copy-' . time();
+                                $duplicate->is_active = false;
+                                $duplicate->save();
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('export')
+                        ->label('Export to CSV')
+                        ->icon('heroicon-o-arrow-down-tray')
+                        ->color('primary')
+                        ->action(function (Collection $records): \Symfony\Component\HttpFoundation\StreamedResponse {
+                            $fileName = 'services-export-' . date('Y-m-d-His') . '.csv';
+
+                            return response()->streamDownload(function () use ($records) {
+                                $handle = fopen('php://output', 'w');
+
+                                // Add CSV headers
+                                fputcsv($handle, [
+                                    'ID',
+                                    'Name',
+                                    'Slug',
+                                    'Parent Service',
+                                    'Short Description',
+                                    'Active',
+                                    'In Sitemap',
+                                    'Meta Title',
+                                    'Meta Description',
+                                    'Meta Robots',
+                                    'Order',
+                                    'Created At',
+                                    'Updated At',
+                                ]);
+
+                                // Add data rows
+                                foreach ($records as $service) {
+                                    fputcsv($handle, [
+                                        $service->id,
+                                        $service->name,
+                                        $service->slug,
+                                        $service->parent?->name ?? '',
+                                        $service->short_description ?? '',
+                                        $service->is_active ? 'Yes' : 'No',
+                                        $service->include_in_sitemap ? 'Yes' : 'No',
+                                        $service->meta_title ?? '',
+                                        $service->meta_description ?? '',
+                                        $service->meta_robots ?? '',
+                                        $service->order_index,
+                                        $service->created_at,
+                                        $service->updated_at,
+                                    ]);
+                                }
+
+                                fclose($handle);
+
+                                ActivityLogger::logExport('services', $records->count());
+                            }, $fileName);
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
                     DeleteBulkAction::make(),
                 ]),
             ])
@@ -343,5 +557,45 @@ class ServiceResource extends Resource
             'create' => Pages\CreateService::route('/create'),
             'edit' => Pages\EditService::route('/{record}/edit'),
         ];
+    }
+
+    /**
+     * Determine if the user can view any services.
+     */
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('viewAny', Service::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can create services.
+     */
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create', Service::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can edit the service.
+     */
+    public static function canEdit($record): bool
+    {
+        return auth()->user()?->can('update', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can delete the service.
+     */
+    public static function canDelete($record): bool
+    {
+        return auth()->user()?->can('delete', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can view the service.
+     */
+    public static function canView($record): bool
+    {
+        return auth()->user()?->can('view', $record) ?? false;
     }
 }

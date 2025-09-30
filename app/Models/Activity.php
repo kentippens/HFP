@@ -140,7 +140,8 @@ class Activity extends Model
      */
     public function getOldValues(): array
     {
-        return $this->changes['old'] ?? [];
+        $changes = $this->getChangesAttribute($this->attributes['changes'] ?? null);
+        return $changes['old'] ?? [];
     }
 
     /**
@@ -148,7 +149,8 @@ class Activity extends Model
      */
     public function getNewValues(): array
     {
-        return $this->changes['attributes'] ?? [];
+        $changes = $this->getChangesAttribute($this->attributes['changes'] ?? null);
+        return $changes['attributes'] ?? [];
     }
 
     /**
@@ -156,7 +158,8 @@ class Activity extends Model
      */
     public function hasRecordedChanges(): bool
     {
-        return !empty($this->changes);
+        $changes = $this->getChangesAttribute($this->attributes['changes'] ?? null);
+        return !empty($changes) && (!empty($changes['old']) || !empty($changes['attributes']));
     }
 
     /**

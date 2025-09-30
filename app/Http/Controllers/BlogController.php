@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        $query = BlogPost::with('blogCategory')->published()->recent();
+        $query = BlogPost::with(['blogCategory', 'author'])->published()->recent();
 
         // Handle search
         if ($request->has('search')) {
@@ -64,7 +64,7 @@ class BlogController extends Controller
 
     public function show($slug)
     {
-        $post = BlogPost::with('blogCategory')->where('slug', $slug)->published()->firstOrFail();
+        $post = BlogPost::with(['blogCategory', 'author'])->where('slug', $slug)->published()->firstOrFail();
 
         // Get previous and next posts
         $previousPost = BlogPost::published()
@@ -141,7 +141,7 @@ class BlogController extends Controller
             abort(404);
         }
         
-        $posts = BlogPost::with('blogCategory')->published()
+        $posts = BlogPost::with(['blogCategory', 'author'])->published()
             ->where('category_id', $categoryModel->id)
             ->recent()
             ->paginate(5);
@@ -162,7 +162,7 @@ class BlogController extends Controller
 
     public function archive($year, $month = null)
     {
-        $query = BlogPost::with('blogCategory')->published()
+        $query = BlogPost::with(['blogCategory', 'author'])->published()
             ->whereYear('published_at', $year);
 
         if ($month) {

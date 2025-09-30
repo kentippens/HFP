@@ -45,7 +45,7 @@
                             data-frame_1="oZ:-50;e:power4.inOut;st:1000;sp:1750;sR:1000;"
                             data-frame_999="o:0;st:w;sR:6250;"
                             style="z-index:10;font-family:'Poppins';"
-                        >{!! $slide['heading'] ?? 'We are Professional<br />Cleaning Services' !!}
+                        >{!! \App\Helpers\HtmlHelper::safe($slide['heading'] ?? 'We are Professional<br />Cleaning Services', 'admin') !!}
                         </rs-layer>
                         
                         @if($slide['description'] ?? false)

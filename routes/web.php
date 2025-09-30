@@ -23,6 +23,44 @@ use App\Http\Controllers\HealthCheckController;
 */
 
 // ============================================================================
+// DOCUMENTATION DOWNLOADS
+// ============================================================================
+
+// Serve markdown templates and documentation
+Route::get('/blog-post-markdown-template.md', function() {
+    $path = base_path('blog-post-markdown-template.md');
+    if (file_exists($path)) {
+        return response()->file($path, [
+            'Content-Type' => 'text/markdown; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="blog-post-markdown-template.md"',
+        ]);
+    }
+    abort(404);
+})->name('download.markdown.template');
+
+Route::get('/blog-post-markdown-minimal.md', function() {
+    $path = base_path('blog-post-markdown-minimal.md');
+    if (file_exists($path)) {
+        return response()->file($path, [
+            'Content-Type' => 'text/markdown; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="blog-post-markdown-minimal.md"',
+        ]);
+    }
+    abort(404);
+})->name('download.markdown.minimal');
+
+Route::get('/BLOG_IMPORT_GUIDE.md', function() {
+    $path = base_path('BLOG_IMPORT_GUIDE.md');
+    if (file_exists($path)) {
+        return response()->file($path, [
+            'Content-Type' => 'text/markdown; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="BLOG_IMPORT_GUIDE.md"',
+        ]);
+    }
+    abort(404);
+})->name('download.import.guide');
+
+// ============================================================================
 // CORE PAGES
 // ============================================================================
 

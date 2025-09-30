@@ -4,12 +4,15 @@ namespace App\Filament\Widgets;
 
 use App\Models\ContactSubmission;
 use App\Models\Service;
+use App\Traits\HandlesWidgetErrors;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class ServicePopularityWidget extends ChartWidget
 {
+    use HandlesWidgetErrors;
+
     protected static ?int $sort = 3;
 
     protected ?string $heading = 'Service Request Distribution';
@@ -27,50 +30,58 @@ class ServicePopularityWidget extends ChartWidget
 
     protected function getData(): array
     {
-        $startDate = Carbon::now()->subDays(30);
+        return $this->measureOperation('getServicePopularityData', function () {
+            return $this->getCachedStat('service_popularity', function () {
+                $startDate = Carbon::now()->subDays(30);
 
-        // Get service request counts from contact submissions
-        $serviceRequests = ContactSubmission::where('created_at', '>=', $startDate)
-            ->whereNotNull('service')
-            ->select('service', DB::raw('count(*) as count'))
-            ->groupBy('service')
-            ->orderByDesc('count')
-            ->limit(10)
-            ->get();
+                // Get service request counts from contact submissions with error handling
+                $serviceRequests = $this->safeQuery(function () use ($startDate) {
+                    return ContactSubmission::where('created_at', '>=', $startDate)
+                        ->whereNotNull('service')
+                        ->select('service', DB::raw('count(*) as count'))
+                        ->groupBy('service')
+                        ->orderByDesc('count')
+                        ->limit(10)
+                        ->get();
+                }, null, 0, collect());
 
-        $labels = [];
-        $data = [];
-        $backgroundColors = [];
+                $labels = [];
+                $data = [];
+                $backgroundColors = [];
 
-        foreach ($serviceRequests as $request) {
-            // Format service name for display
-            $serviceName = $this->formatServiceName($request->service);
-            $labels[] = $serviceName;
-            $data[] = $request->count;
+                if ($serviceRequests && $serviceRequests->isNotEmpty()) {
+                    foreach ($serviceRequests as $request) {
+                        // Format service name for display
+                        $serviceName = $this->formatServiceName($request->service);
+                        $labels[] = $serviceName;
+                        $data[] = $request->count;
 
-            // Assign colors based on service type
-            $backgroundColors[] = $this->getServiceColor($request->service);
-        }
+                        // Assign colors based on service type
+                        $backgroundColors[] = $this->getServiceColor($request->service);
+                    }
+                }
 
-        // If no data, show placeholder
-        if (empty($data)) {
-            $labels = ['No requests yet'];
-            $data = [0];
-            $backgroundColors = ['#9CA3AF'];
-        }
+                // If no data, show placeholder
+                if (empty($data)) {
+                    $labels = ['No requests yet'];
+                    $data = [0];
+                    $backgroundColors = ['#9CA3AF'];
+                }
 
-        return [
-            'datasets' => [
-                [
-                    'label' => 'Service Requests',
-                    'data' => $data,
-                    'backgroundColor' => $backgroundColors,
-                    'borderColor' => $backgroundColors,
-                    'borderWidth' => 1,
-                ],
-            ],
-            'labels' => $labels,
-        ];
+                return [
+                    'datasets' => [
+                        [
+                            'label' => 'Service Requests',
+                            'data' => $data,
+                            'backgroundColor' => $backgroundColors,
+                            'borderColor' => $backgroundColors,
+                            'borderWidth' => 1,
+                        ],
+                    ],
+                    'labels' => $labels,
+                ];
+            }, 1800); // Cache for 30 minutes since this data changes less frequently
+        });
     }
 
     protected function getOptions(): array

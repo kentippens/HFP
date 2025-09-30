@@ -11,10 +11,19 @@ use App\Rules\ValidJsonLd;
 use App\Models\User;
 use App\Traits\SanitizesHtml;
 use App\Traits\LogsActivity;
+use App\Traits\EagerLoadsRelationships;
+use App\Exceptions\BlogWorkflowException;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class BlogPost extends Model
 {
-    use HasFactory, HasSlug, SanitizesHtml, LogsActivity;
+    use HasFactory, HasSlug, SanitizesHtml, LogsActivity, EagerLoadsRelationships;
+
+    /**
+     * The relationships that should be eager loaded by default.
+     */
+    protected $withDefault = ['blogCategory', 'author'];
 
     /**
      * Fields that should be sanitized as HTML
@@ -40,6 +49,27 @@ class BlogPost extends Model
         'except' => ['updated_at', 'created_at'],
     ];
 
+    // Status constants for workflow
+    public const STATUS_DRAFT = 'draft';
+    public const STATUS_REVIEW = 'review';
+    public const STATUS_PUBLISHED = 'published';
+    public const STATUS_ARCHIVED = 'archived';
+
+    public const STATUSES = [
+        self::STATUS_DRAFT => 'Draft',
+        self::STATUS_REVIEW => 'Under Review',
+        self::STATUS_PUBLISHED => 'Published',
+        self::STATUS_ARCHIVED => 'Archived',
+    ];
+
+    // Status transitions
+    public const STATUS_TRANSITIONS = [
+        self::STATUS_DRAFT => [self::STATUS_REVIEW, self::STATUS_ARCHIVED],
+        self::STATUS_REVIEW => [self::STATUS_DRAFT, self::STATUS_PUBLISHED, self::STATUS_ARCHIVED],
+        self::STATUS_PUBLISHED => [self::STATUS_DRAFT, self::STATUS_ARCHIVED],
+        self::STATUS_ARCHIVED => [self::STATUS_DRAFT],
+    ];
+
     // Meta robots options
     public const META_ROBOTS_OPTIONS = [
         'index, follow' => 'Index, Follow (Default)',
@@ -62,6 +92,7 @@ class BlogPost extends Model
         'author',        // Keep for backward compatibility during migration
         'author_id',     // New foreign key field
         'author_legacy', // For storing old author name after migration
+        'reviewer_id',   // Track who reviewed the post
         'featured_image',
         'thumbnail',
         'meta_title',
@@ -71,7 +102,13 @@ class BlogPost extends Model
         'canonical_url',
         'include_in_sitemap',
         'is_published',
+        'status',
+        'review_notes',
+        'version',
         'published_at',
+        'submitted_for_review_at',
+        'reviewed_at',
+        'archived_at',
         'order_index'
     ];
 
@@ -79,7 +116,11 @@ class BlogPost extends Model
         'is_published' => 'boolean',
         'include_in_sitemap' => 'boolean',
         'published_at' => 'datetime',
-        'json_ld' => 'array'
+        'submitted_for_review_at' => 'datetime',
+        'reviewed_at' => 'datetime',
+        'archived_at' => 'datetime',
+        'json_ld' => 'array',
+        'version' => 'integer'
     ];
 
     // Auto-generate slugs from title
@@ -112,6 +153,179 @@ class BlogPost extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    /**
+     * Get the reviewer (user) who reviewed the blog post.
+     */
+    public function reviewer(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'reviewer_id');
+    }
+
+    /**
+     * Workflow methods
+     */
+    public function canTransitionTo($status): bool
+    {
+        if (!array_key_exists($status, self::STATUSES)) {
+            return false;
+        }
+
+        $currentTransitions = self::STATUS_TRANSITIONS[$this->status] ?? [];
+        return in_array($status, $currentTransitions);
+    }
+
+    public function transitionTo($status, $userId = null, $notes = null): bool
+    {
+        if (!$this->canTransitionTo($status)) {
+            throw BlogWorkflowException::invalidTransition($this->status, $status, $this->id);
+        }
+
+        DB::beginTransaction();
+        try {
+            $updates = ['status' => $status];
+
+            // Handle specific status transitions
+            switch ($status) {
+                case self::STATUS_REVIEW:
+                    $updates['submitted_for_review_at'] = now();
+                    Log::info("Blog post {$this->id} submitted for review");
+                    break;
+
+                case self::STATUS_PUBLISHED:
+                    if (!$userId) {
+                        throw BlogWorkflowException::missingReviewer();
+                    }
+                    $updates['reviewed_at'] = now();
+                    $updates['reviewer_id'] = $userId;
+                    $updates['is_published'] = true;
+                    if (!$this->published_at) {
+                        $updates['published_at'] = now();
+                    }
+                    Log::info("Blog post {$this->id} published by user {$userId}");
+                    break;
+
+                case self::STATUS_ARCHIVED:
+                    $updates['archived_at'] = now();
+                    $updates['is_published'] = false;
+                    Log::info("Blog post {$this->id} archived");
+                    break;
+
+                case self::STATUS_DRAFT:
+                    // When moving back to draft, increment version
+                    $updates['version'] = $this->version + 1;
+                    if ($this->status === self::STATUS_REVIEW) {
+                        $updates['review_notes'] = $notes;
+                    }
+                    Log::info("Blog post {$this->id} moved back to draft, version {$updates['version']}");
+                    break;
+
+                default:
+                    throw BlogWorkflowException::invalidStatus($status);
+            }
+
+            $result = $this->update($updates);
+
+            if (!$result) {
+                throw BlogWorkflowException::transitionFailed('Database update failed');
+            }
+
+            DB::commit();
+            return true;
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error("Blog workflow transition failed for post {$this->id}: " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function submitForReview(): bool
+    {
+        return $this->transitionTo(self::STATUS_REVIEW);
+    }
+
+    public function approve($reviewerId, $notes = null): bool
+    {
+        // Validate reviewer ID
+        if (!$reviewerId) {
+            throw BlogWorkflowException::missingReviewer();
+        }
+
+        // Check current status
+        if ($this->status !== self::STATUS_REVIEW) {
+            throw BlogWorkflowException::invalidTransition($this->status, self::STATUS_PUBLISHED, $this->id);
+        }
+
+        $this->review_notes = $notes;
+        return $this->transitionTo(self::STATUS_PUBLISHED, $reviewerId, $notes);
+    }
+
+    public function reject($reviewerId, $notes): bool
+    {
+        // Validate inputs
+        if (!$reviewerId) {
+            throw BlogWorkflowException::missingReviewer();
+        }
+        if (empty($notes)) {
+            throw BlogWorkflowException::missingReviewNotes();
+        }
+
+        // Check current status
+        if ($this->status !== self::STATUS_REVIEW) {
+            throw BlogWorkflowException::invalidTransition($this->status, self::STATUS_DRAFT, $this->id);
+        }
+
+        DB::beginTransaction();
+        try {
+            $this->reviewer_id = $reviewerId;
+            $this->review_notes = $notes;
+            $this->reviewed_at = now();
+            $this->save();
+
+            $result = $this->transitionTo(self::STATUS_DRAFT, $reviewerId, $notes);
+
+            DB::commit();
+            return $result;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
+    public function archive(): bool
+    {
+        return $this->transitionTo(self::STATUS_ARCHIVED);
+    }
+
+    public function getStatusLabelAttribute(): string
+    {
+        return self::STATUSES[$this->status] ?? 'Unknown';
+    }
+
+    public function getStatusColorAttribute(): string
+    {
+        return match($this->status) {
+            self::STATUS_DRAFT => 'gray',
+            self::STATUS_REVIEW => 'warning',
+            self::STATUS_PUBLISHED => 'success',
+            self::STATUS_ARCHIVED => 'danger',
+            default => 'secondary'
+        };
+    }
+
+    /**
+     * Get the content as HTML (converts markdown if needed)
+     */
+    public function getContentHtmlAttribute(): string
+    {
+        if (empty($this->content)) {
+            return '';
+        }
+
+        $markdownService = app(\App\Services\MarkdownService::class);
+        return $markdownService->toHtml($this->content);
     }
 
     /**
@@ -214,8 +428,33 @@ class BlogPost extends Model
     // Scopes
     public function scopePublished($query)
     {
-        return $query->where('is_published', true)
+        return $query->where('status', self::STATUS_PUBLISHED)
                     ->whereNotNull('published_at');
+    }
+
+    public function scopeDraft($query)
+    {
+        return $query->where('status', self::STATUS_DRAFT);
+    }
+
+    public function scopeInReview($query)
+    {
+        return $query->where('status', self::STATUS_REVIEW);
+    }
+
+    public function scopeArchived($query)
+    {
+        return $query->where('status', self::STATUS_ARCHIVED);
+    }
+
+    public function scopeByStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
+
+    public function scopeNotArchived($query)
+    {
+        return $query->where('status', '!=', self::STATUS_ARCHIVED);
     }
 
     public function scopeRecent($query)
@@ -240,11 +479,15 @@ class BlogPost extends Model
             if (str_starts_with($this->featured_image, 'blog/')) {
                 return asset('storage/' . $this->featured_image);
             }
-            // Otherwise assume it's in public/images/blog
+            // Check if it already includes images/blog prefix
+            if (str_starts_with($this->featured_image, 'images/blog/')) {
+                return asset($this->featured_image);
+            }
+            // Otherwise assume it's just the filename
             return asset('images/blog/' . $this->featured_image);
         }
-        
-        return asset('images/blog/single-1.jpg');
+
+        return null;
     }
 
     // Accessor for thumbnail URL
@@ -259,12 +502,16 @@ class BlogPost extends Model
             if (str_starts_with($this->thumbnail, 'blog/')) {
                 return asset('storage/' . $this->thumbnail);
             }
-            // Otherwise assume it's in public/images/blog
+            // Check if it already includes images/blog prefix
+            if (str_starts_with($this->thumbnail, 'images/blog/')) {
+                return asset($this->thumbnail);
+            }
+            // Otherwise assume it's just the filename
             return asset('images/blog/' . $this->thumbnail);
         }
-        
-        // Fallback to featured image if no thumbnail
-        return $this->featured_image_url;
+
+        // Return null if no thumbnail
+        return null;
     }
 
     // Accessor to clean content from Filament's image metadata
@@ -343,12 +590,18 @@ class BlogPost extends Model
     public static function rules($id = null)
     {
         return [
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:blog_posts,slug' . ($id ? ',' . $id : ''),
-            'content' => 'nullable|string',
+            'content' => 'required|string|min:50',
             'excerpt' => 'nullable|string|max:500',
             'category' => 'nullable|string|max:100',
+            'category_id' => 'nullable|exists:blog_categories,id',
             'author' => 'nullable|string|max:100',
+            'author_id' => 'required|exists:users,id',
+            'reviewer_id' => 'nullable|exists:users,id',
+            'status' => 'required|in:' . implode(',', array_keys(self::STATUSES)),
+            'review_notes' => 'nullable|string|max:1000',
+            'version' => 'integer|min:1',
             'featured_image' => 'nullable|string|max:255',
             'thumbnail' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
@@ -358,7 +611,10 @@ class BlogPost extends Model
             'canonical_url' => 'nullable|string|max:255|regex:/^(https?:\/\/|\/)/i',
             'include_in_sitemap' => 'boolean',
             'is_published' => 'boolean',
-            'published_at' => 'nullable|date'
+            'published_at' => 'nullable|date',
+            'submitted_for_review_at' => 'nullable|date',
+            'reviewed_at' => 'nullable|date',
+            'archived_at' => 'nullable|date'
         ];
     }
 

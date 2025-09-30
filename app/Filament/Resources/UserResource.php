@@ -345,4 +345,44 @@ class UserResource extends Resource
     {
         return parent::getEloquentQuery();
     }
-}
+
+
+    /**
+     * Determine if the user can view any records.
+     */
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('viewAny', User::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can create records.
+     */
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create', User::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can edit the record.
+     */
+    public static function canEdit($record): bool
+    {
+        return auth()->user()?->can('update', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can delete the record.
+     */
+    public static function canDelete($record): bool
+    {
+        return auth()->user()?->can('delete', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can view the record.
+     */
+    public static function canView($record): bool
+    {
+        return auth()->user()?->can('view', $record) ?? false;
+    }}

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Pool Resurfacing Experts | 25-Year Warranty | Save $22,500')
-@section('meta_description', 'Pool resurfacing with exclusive Fibre Tech 25-year warranty. Transform any pool to fiberglass in 5-7 days. No excavation. North & Central Texas. Free quote.')
+@section('title', 'Pool Resurfacing & Refinishing | 25-Year Warranty | Save $22K')
+@section('meta_description', 'Fiberglass pool resurfacing and refinishing with exclusive 25-year warranty. Install in 7-10 days. Zero Excavation. Book this month for Fall Discounts.')
 @section('meta_robots', $silo->meta_robots ?? 'index, follow')
 
 @if($silo->canonical_url)
@@ -33,8 +33,12 @@
         <div class="intro-section mb-5">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="mb-4">Pool Resurfacing with 25-Year Warranty – North & Central Texas' Permanent Solution</h1>
-                    <p class="lead"><strong>Stop the endless cycle of replastering. One-time pool resurfacing with exclusive Fibre Tech™ technology saves Dallas-Fort Worth homeowners $22,500 over 20 years.</strong></p>
+                    <h1 class="mb-4">Permanent Pool Resurfacing with 25-Year Warranty – North & Central Texas' Exclusive Fibre Tech™ Solution</h1>
+                    <p class="lead"><strong>Stop replastering every 7 years.</strong> Your Texas pool deserves Hexagon Fiberglass Pools' permanent resurfacing solution that eliminates $43,900 in recurring costs over 20 years.</p><br>
+                    <p>As North Texas' exclusive Fibre Tech™ dealer, Hexagon Fiberglass Pools converts deteriorating gunite and plaster pools into maintenance-free fiberglass surfaces—backed by the industry's only 25-year manufacturer warranty.</p>
+                    <div class="alert alert-warning mt-3">
+                        <strong>March installations 70% booked. Lock in 2026 pricing before 8% increase on January 1, 2026.</strong>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,582 +48,529 @@
             <!-- Main Body Content -->
             <div class="col-lg-8">
                 <div class="main-content">
-                    <h2>What Is Pool Resurfacing? Understanding Your Options in Texas</h2>
-                    <p>Pool resurfacing is the process of applying new surface material to a deteriorating pool interior. In North Texas, harsh weather and clay soil movement mean pools require resurfacing every 7-10 years using traditional methods like plaster, marcite, or pebble finishes.</p>
-                    <br>
-                    <p><strong>Traditional pool resurfacing is temporary.</strong> Every replastering costs $8,000-$15,000 and fails again within a decade.</p>
+                    <h2>Understanding Pool Resurfacing in Texas</h2>
 
-                    <h3>The Pool Resurfacing Problem in Dallas-Fort Worth</h3>
-                    <p>North Texas pools face unique challenges:</p>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li><strong>Temperature extremes:</strong> 100°F+ summers, freezing winters cause surface cracking</li>
-                        <li><strong>Clay soil movement:</strong> Creates structural stress requiring frequent repairs</li>
-                        <li><strong>Hard water:</strong> Accelerates surface deterioration and staining</li>
-                        <li><strong>UV exposure:</strong> Breaks down traditional surfaces 30% faster than national average</li>
+                    <h3>The $43,900 Problem Texas Homeowners Face</h3>
+                    <p>Pool resurfacing is the process of applying new surface material to a deteriorating pool interior. In North Texas, harsh weather and clay soil movement mean pools require resurfacing every 7-10 years using traditional methods like plaster, marcite, or pebble finishes.</p><br>
+
+                    <p>Traditional resurfacing materials—plaster, marcite, pebble, quartz—provide temporary solutions that fail predictably. Each replastering investment of $8,000-$15,000 deteriorates within the decade, creating an endless cycle that costs Texas homeowners $43,900 over 20 years.</p><br>
+
+                    <h3>Why Traditional Resurfacing Continuously Fails in Texas</h3>
+                    <p>Four critical factors guarantee traditional resurfacing failure across our state:</p>
+
+                    <ul class="failure-list" style="margin-left: 10px">
+                        <li><strong>Material Porosity:</strong> Plaster and concrete surfaces contain 14-18% porosity, allowing water penetration that accelerates chemical degradation and structural deterioration.</li><br>
+                        <li><strong>Thermal Incompatibility:</strong> Rigid surfaces cannot accommodate Texas' extreme temperature swings, creating expansion stress that manifests as spider cracks within 24 months.</li><br>
+                        <li><strong>Chemical Vulnerability:</strong> Extended swim seasons (March-November in South Texas) require constant chlorination that attacks cementitious materials, reducing surface integrity by 15% annually.</li><br>
+                        <li><strong>Soil Movement:</strong> Texas' diverse soil conditions—from Blackland Prairie clay to coastal sand—create unique structural stresses that traditional surfaces cannot withstand.</li>
                     </ul>
-                    <p><strong>Result:</strong> The average Texas homeowner spends <strong>$43,900</strong> on pool resurfacing over 20 years.</p>
 
-                    <h3>The Permanent Alternative: Hexagon Fiberglass Pool Resurfacing</h3>
-                    <p>As North & Central Texas' exclusive Fibre Tech™ dealer, Hexagon Fiberglass Pools offers a revolutionary pool resurfacing solution. Instead of applying another temporary surface, we permanently convert your pool to fiberglass with a <strong>25-year warranty backed by both Fibre Tech™ and Hexagon Fiberglass Pools</strong>.</p>
+                    <h3>The Hexagon Solution: Permanent Pool Transformation</h3>
+                    <p>Hexagon Fiberglass Pools eliminates the resurfacing cycle through our exclusive pool conversion process—permanently transforming your existing pool into a non-porous fiberglass surface using patented HexConvert™ technology.</p><br>
 
-                    <p class="text-center"><strong style="font-size: 1.2rem;">One Resurfacing. One Warranty. One Choice.</strong></p>
+                    <div class="alert alert-success">
+                        <strong>One investment. One warranty. Forever resolved.</strong>
+                    </div>
 
                     <hr class="my-5">
 
-                    <h2>Pool Resurfacing Cost: Complete 20-Year Analysis</h2>
+                    <h2>Hexagon Pool Resurfacing Cost Analysis: 20-Year Financial Impact</h2>
 
-                    <h3>How Much Does Pool Resurfacing Cost in Dallas-Fort Worth?</h3>
-                    <p>Pool resurfacing costs vary based on material choice and pool size. Here's what North Texas homeowners typically pay:</p>
+                    <h3>Current Market Pricing Across Texas</h3>
+                    <p>Investment requirements for pool resurfacing vary by region and material selection. Texas homeowners encounter these typical costs:</p>
 
-                    <div class="table-responsive mb-4">
-                        <table class="table table-striped">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Pool Resurfacing Type</th>
-                                    <th>Cost Per Sq Ft</th>
-                                    <th>Average Total Cost</th>
-                                    <th>Lifespan in Texas</th>
-                                    <th>20-Year Total Cost</th>
+                                    <th>Resurfacing Type</th>
+                                    <th>Per Sq Ft</th>
+                                    <th>450 Sq Ft Pool</th>
+                                    <th>Texas Lifespan</th>
+                                    <th>20-Year Total</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Plaster Resurfacing</strong></td>
+                                    <td><strong>Plaster</strong></td>
                                     <td>$4-6</td>
-                                    <td>$6,000-$8,000</td>
+                                    <td>$6,000-8,000</td>
                                     <td>5-7 years</td>
                                     <td>$32,000</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Marcite Resurfacing</strong></td>
+                                    <td><strong>Marcite</strong></td>
                                     <td>$5-7</td>
-                                    <td>$7,000-$10,000</td>
+                                    <td>$7,000-10,000</td>
                                     <td>6-8 years</td>
                                     <td>$35,000</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Pebble Resurfacing</strong></td>
+                                    <td><strong>Pebble</strong></td>
                                     <td>$8-12</td>
-                                    <td>$10,000-$15,000</td>
-                                    <td>10-12 years</td>
-                                    <td>$25,000</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Quartz Resurfacing</strong></td>
-                                    <td>$7-10</td>
-                                    <td>$9,000-$13,000</td>
+                                    <td>$10,000-15,000</td>
                                     <td>8-10 years</td>
                                     <td>$30,000</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Gunite Resurfacing</strong></td>
-                                    <td>$6-9</td>
-                                    <td>$8,000-$12,000</td>
+                                    <td><strong>Quartz</strong></td>
+                                    <td>$7-10</td>
+                                    <td>$9,000-13,000</td>
                                     <td>7-9 years</td>
-                                    <td>$32,000</td>
+                                    <td>$33,000</td>
                                 </tr>
-                                <tr class="table-info">
-                                    <td><strong>Hexagon Conversion</strong></td>
-                                    <td>Varies by pool size</td>
-                                    <td>Call for Quote</td>
-                                    <td>25+ years (warranty)</td>
-                                    <td>Call for Quote</td>
+                                <tr>
+                                    <td><strong>Gunite</strong></td>
+                                    <td>$6-9</td>
+                                    <td>$8,000-12,000</td>
+                                    <td>6-8 years</td>
+                                    <td>$34,000</td>
+                                </tr>
+                                <tr class="table-success">
+                                    <td><strong>Hexagon Fiberglass</strong></td>
+                                    <td>Custom</td>
+                                    <td><a href="tel:972-702-7586">Get Quote</a></td>
+                                    <td>25+ years</td>
+                                    <td>Single Investment</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p class="text-muted"><small>*Based on 15x30 ft pool (450 sq ft surface area) with normal prep work</small></p>
+                        <p class="text-muted"><em>*Analysis based on 15x30 ft pool with standard prep requirements</em></p>
                     </div>
 
-                    <h3>Hidden Costs of Traditional Pool Resurfacing</h3>
-                    <p>Beyond the resurfacing itself, consider these recurring expenses:</p>
+                    <h3>Hidden Expenses Traditional Contractors Omit</h3>
+                    <p>Beyond surface application costs, recurring maintenance compounds your investment:</p>
 
-                    <h4>Every 2-3 Years:</h4>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>Acid washing: $500-$800</li>
-                        <li>Spot repairs: $300-$500</li>
-                        <li>Extra chemicals for porous surfaces: $400/year</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Annual Requirements:</h4>
+                            <ul style="margin-left: 10px">
+                                <li>Acid washing: $500-800 (required every 24 months)</li>
+                                <li>Spot repairs: $300-500 (average 2.3 annually)</li>
+                                <li>Excess chemicals: $400/year (40% above fiberglass)</li>
+                                <li>Water replacement: $200-400 per resurface</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Per-Cycle Disruption:</h4>
+                            <ul style="margin-left: 10px">
+                                <li>14-21 days without pool access</li>
+                                <li>Landscape restoration: $500-1,200</li>
+                                <li>Equipment recalibration: $150-300</li>
+                                <li>Disposal fees: $400-600</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                    <h4>Every Resurfacing Cycle:</h4>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>Water replacement: $200-$400</li>
-                        <li>2-3 weeks pool downtime</li>
-                        <li>Landscape repair from equipment</li>
-                        <li>Disposal fees for old material</li>
-                    </ul>
-
-                    <h3>Pool Resurfacing Cost Calculator</h3>
+                    <h3>Your Personalized Hexagon Savings Calculator</h3>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="cost-box">
-                                <h4>Your Current Path (Traditional Resurfacing):</h4>
+                                <h4>Traditional Path (Your Current Trajectory):</h4>
                                 <ul>
-                                    <li>Initial resurface: $10,000</li>
-                                    <li>Second resurface (year 8): $12,000</li>
-                                    <li>Third resurface (year 16): $14,000</li>
-                                    <li>Maintenance/repairs: $8,000</li>
-                                    <li>Extra chemicals: $4,000</li>
+                                    <li>Initial resurface (Year 1): $10,000</li>
+                                    <li>Second resurface (Year 8): $12,000</li>
+                                    <li>Third resurface (Year 16): $14,000</li>
+                                    <li>Cumulative maintenance: $8,000</li>
+                                    <li>Chemical premium: $4,000</li>
                                 </ul>
-                                <p class="total-cost"><strong>20-Year Total: $48,000</strong></p>
+                                <div class="total-cost">
+                                    <strong>20-Year Investment: $48,000</strong>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="cost-box highlight">
-                                <h4>Pool Resurfacing with Hexagon Fiberglass Pools:</h4>
+                                <h4>Hexagon Fiberglass Conversion:</h4>
                                 <ul>
-                                    <li>One-time conversion: Price Varies By Pool</li>
-                                    <li>Maintenance: $2,000</li>
+                                    <li>One-time conversion: <a href="tel:972-702-7586">[Custom Quote]</a></li>
+                                    <li>Routine maintenance: $2,000</li>
                                     <li>Chemical savings: -$2,000</li>
                                 </ul>
-                                <p class="total-cost"><strong>20-Year Total: $19,000</strong></p>
-                                <p class="savings"><strong>Your Savings: $29,000</strong></p>
+                                <div class="total-cost">
+                                    <strong>20-Year Investment: Initial Cost Only</strong>
+                                </div>
+                                <div class="savings">
+                                    <strong>Your Net Savings: $29,000-35,000</strong>
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calculator"></i> Calculate My Exact Savings → 972-702-7586
+                        </a>
                     </div>
 
                     <hr class="my-5">
 
-                    <h2>Types of Pool Resurfacing: Which Is Right for Your Texas Pool?</h2>
+                    <h2>Resurfacing Options: Temporary Fixes vs. Hexagon's Permanent Solution</h2>
 
-                    <h3>Traditional Pool Resurfacing Options (Temporary Solutions)</h3>
+                    <h3>Traditional Resurfacing Methods (Recurring Investments)</h3>
 
-                    <h4><strong>1. Plaster Pool Resurfacing</strong></h4>
-                    <p>The most economical initial option, plaster resurfacing involves applying white Portland cement mixed with marble dust.</p>
-
-                    <div class="pros-cons">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5>Pros:</h5>
-                                <ul class="pros-list">
-                                    <li>• Lowest upfront cost</li>
-                                    <li>• Smooth initial finish</li>
-                                    <li>• Quick application</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Cons:</h5>
-                                <ul class="cons-list">
-                                    <li>• Roughens within 2-3 years</li>
-                                    <li>• Stains easily in hard water</li>
-                                    <li>• Requires frequent acid washing</li>
-                                    <li>• 5-7 year lifespan in Texas</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p><strong>Best for:</strong> Budget-conscious homeowners planning to sell within 5 years</p>
-                    </div>
-
-                    <h4><strong>2. Pebble Pool Resurfacing</strong></h4>
-                    <p>Aggregate finishes combine small pebbles with cement for improved durability.</p>
+                    <h4><strong>Plaster Pool Resurfacing</strong></h4>
+                    <p>White Portland cement combined with marble dust creates the industry's most economical surface—temporarily.</p>
 
                     <div class="pros-cons">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5>Pros:</h5>
+                                <h5>Initial Advantages:</h5>
                                 <ul class="pros-list">
-                                    <li>• Longer lifespan than plaster</li>
-                                    <li>• Natural appearance</li>
-                                    <li>• Slip-resistant</li>
+                                    <li>• Lowest entry investment ($6,000-8,000)</li>
+                                    <li>• 3-5 day application timeline</li>
+                                    <li>• Smooth initial texture</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
-                                <h5>Cons:</h5>
+                                <h5>Inevitable Failures:</h5>
                                 <ul class="cons-list">
-                                    <li>• Rough on feet</li>
-                                    <li>• Traps algae in texture</li>
-                                    <li>• Expensive to repair</li>
-                                    <li>• Can feel like sandpaper</li>
+                                    <li>• Roughness emerges within 24-36 months</li>
+                                    <li>• Staining accelerates in Texas hard water</li>
+                                    <li>• Acid washing requirement damages surface integrity</li>
+                                    <li>• 5-7 year replacement cycle in Texas climate</li>
                                 </ul>
                             </div>
                         </div>
-                        <p><strong>Best for:</strong> Homeowners prioritizing longevity over comfort</p>
+                        <p><strong>Suitable For:</strong> Homeowners selling within 5 years</p>
                     </div>
 
-                    <h4><strong>3. Gunite Pool Resurfacing</strong></h4>
-                    <p>Pneumatically applied concrete mixture for structural and surface renovation.</p>
+                    <h4><strong>Pebble Pool Resurfacing</strong></h4>
+                    <p>Aggregate surfaces combine small stones with cement for enhanced durability—at comfort's expense.</p>
 
                     <div class="pros-cons">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5>Pros:</h5>
+                                <h5>Performance Characteristics:</h5>
                                 <ul class="pros-list">
-                                    <li>• Can reshape pool</li>
-                                    <li>• Structural reinforcement</li>
-                                    <li>• Customizable</li>
+                                    <li>• Extended lifespan (8-10 years in Texas)</li>
+                                    <li>• Natural aesthetic appeal</li>
+                                    <li>• Slip-resistant properties</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
-                                <h5>Cons:</h5>
+                                <h5>Comfort Compromises:</h5>
                                 <ul class="cons-list">
-                                    <li>• Develops cracks</li>
-                                    <li>• Porous surface</li>
-                                    <li>• High maintenance</li>
-                                    <li>• Requires replastering</li>
+                                    <li>• Abrasive texture causes foot discomfort</li>
+                                    <li>• Algae colonizes textured surface</li>
+                                    <li>• $10,000-15,000 investment required</li>
+                                    <li>• Spot repairs visible and expensive</li>
                                 </ul>
                             </div>
                         </div>
-                        <p><strong>Best for:</strong> Pools needing structural work</p>
+                        <p><strong>Suitable For:</strong> Investors prioritizing longevity over comfort</p>
                     </div>
 
-                    <h3>The Permanent Solution: Hexagon Pool Resurfacing</h3>
+                    <h4><strong>Gunite Pool Resurfacing</strong></h4>
+                    <p>Pneumatic concrete application addresses structural and surface requirements simultaneously.</p>
 
-                    <h4>Exclusive Fiberglass Conversion Technology</h4>
-                    <p>Unlike traditional pool resurfacing that applies another temporary layer, our conversion process permanently converts your pool to fiberglass.</p>
+                    <div class="pros-cons">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Structural Benefits:</h5>
+                                <ul class="pros-list">
+                                    <li>• Reinforces compromised shells</li>
+                                    <li>• Allows shape modifications</li>
+                                    <li>• Customizable thickness</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Predictable Problems:</h5>
+                                <ul class="cons-list">
+                                    <li>• Develops shrinkage cracks</li>
+                                    <li>• Requires protective coating</li>
+                                    <li>• High maintenance burden</li>
+                                    <li>• Secondary plastering necessary</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p><strong>Suitable For:</strong> Pools requiring structural rehabilitation</p>
+                    </div>
+
+                    <h3>The Hexagon Fiberglass Solution: Permanent Pool Transformation</h3>
+
+                    <h4>Why Hexagon Fiberglass Pools Succeeds Where Others Fail</h4>
+                    <p>Unlike surface applications that fail repeatedly, Hexagon Fiberglass Pools creates a monolithic fiberglass shell using our proprietary process:</p>
 
                     <div class="highlight-box">
-                        <h5>Exclusive Benefits:</h5>
-                        <ul class="benefits-list">
-                            <li>• <strong>25-year warranty</strong> (materials by Fibre Tech™, labor by Hexagon)</li>
-                            <li>• <strong>Non-porous surface</strong> reduces chemical use by 40%</li>
-                            <li>• <strong>Crack-resistant</strong> flexible material adapts to ground movement</li>
-                            <li>• <strong>Smooth forever</strong> no roughening or deterioration</li>
-                            <li>• <strong>Algae-resistant</strong> nothing for algae to grab onto</li>
-                            <li>• <strong>Energy efficient</strong> retains heat better than concrete</li>
+                        <h5>Hexagon's Multi-Layer Construction:</h5>
+                        <ul style="margin-left: 10px">
+                            <li>• Vinyl ester resin (chemical immunity)</li>
+                            <li>• Chopped strand mat (structural integrity)</li>
+                            <li>• UV-inhibited gel coat (color stability)</li>
+                            <li>• Molecular substrate bonding (permanent adhesion)</li>
                         </ul>
 
-                        <h5>The Science Behind Our Pool Resurfacing & Conversion:</h5>
-                        <ol>
-                            <li>Multi-layer fiberglass mat construction</li>
-                            <li>Vinyl ester resin for chemical resistance</li>
-                            <li>UV-inhibited gel coat finish</li>
-                            <li>Molecular bonding to existing structure</li>
-                            <li>No excavation or structural modification</li>
-                        </ol>
+                        <h5>Measurable Hexagon Advantages:</h5>
+                        <ul class="benefits-list" style='margin-left:10px'>
+                            <li>• 25-year manufacturer warranty (exclusive to Hexagon Fiberglass Pools)</li>
+                            <li>• 0% porosity (eliminates water penetration)</li>
+                            <li>• 40% chemical reduction (documented savings)</li>
+                            <li>• Glass-smooth surface (permanent comfort)</li>
+                            <li>• Algae-resistant properties (nothing adheres)</li>
+                            <li>• Thermal efficiency (15% heat retention improvement)</li>
+                        </ul>
 
-                        <p><strong>Best for:</strong> Homeowners who never want to resurface again</p>
+                        <p><strong>Ideal For:</strong> Texas homeowners seeking permanent pool solutions</p>
                     </div>
 
                     <hr class="my-5">
 
-                    <h2>The Pool Resurfacing Process: How We Transform Your Pool</h2>
+                    <h2>The Hexagon Installation Process: 5-7 Day Transformation</h2>
 
-                    <h3>Traditional Resurfacing Method (What Others Do)</h3>
+                    <h3>Traditional Resurfacing Disruption (Industry Standard)</h3>
 
                     <div class="process-timeline">
-                        <h4>Week 1: Demolition</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Drain pool completely</li>
-                            <li>Chip out old plaster (extremely loud)</li>
-                            <li>Haul away debris</li>
-                            <li>Extensive dust and mess</li>
+                        <h4>Week 1: Demolition Chaos</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Complete pool drainage</li>
+                            <li>Jackhammer removal (85-90 decibels)</li>
+                            <li>Debris hauling (3-5 truckloads)</li>
+                            <li>Dust contamination radius (50 feet)</li>
                         </ul>
 
                         <h4>Week 2: Preparation</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Repair cracks temporarily</li>
-                            <li>Apply bond coat</li>
-                            <li>Install new plaster/pebble</li>
-                            <li>Multiple crew visits</li>
+                        <ul style="margin-left: 10px">
+                            <li>Crack bandaging (temporary)</li>
+                            <li>Bond coat application</li>
+                            <li>Surface installation</li>
+                            <li>Multiple crew disruptions</li>
                         </ul>
 
-                        <h4>Week 3: Finishing</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Fill pool slowly</li>
-                            <li>Balance chemistry</li>
-                            <li>Clean up damage to yard</li>
-                            <li>Hope it lasts 7-10 years</li>
+                        <h4>Week 3: Recovery</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Gradual filling process</li>
+                            <li>Chemistry stabilization</li>
+                            <li>Landscape restoration</li>
+                            <li>Equipment recalibration</li>
                         </ul>
+
+                        <p><strong>Total disruption: 21 days minimum</strong></p>
                     </div>
 
-                    <h3>The Hexagon Pool Resurfacing Process (5-7 Days)</h3>
+                    <h3>The Hexagon Method: Controlled 5-7 Day Process</h3>
 
                     <div class="process-timeline highlight">
-                        <h4>Day 1: Assessment & Protection</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Comprehensive inspection</li>
-                            <li>Moisture and adhesion testing</li>
-                            <li>Identify all cracks and damage</li>
-                            <li>Document current condition</li>
-                            <li>Cover plants and furniture</li>
-                            <li>Begin controlled draining</li>
+                        <h4>Day 1: Hexagon Professional Assessment</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Comprehensive structural evaluation by Hexagon technicians</li>
+                            <li>Moisture content analysis (≤3% requirement)</li>
+                            <li>Crack documentation and mapping</li>
+                            <li>Photographic condition baseline</li>
+                            <li>Protective covering installation</li>
+                            <li>Controlled drainage initiation</li>
+                            <li>Zero landscape impact</li>
                         </ul>
 
-                        <h4>Day 2: Surface Preparation</h4>
-                        <p><strong>Without Excavation or Demolition:</strong></p>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Profile surface for optimal adhesion</li>
-                            <li>Crack Repair</li>
-                            <li>Zero damage to surrounding area</li>
+                        <h4>Day 2: Hexagon Surface Preparation</h4>
+                        <p><strong>Without Demolition:</strong></p>
+                        <ul style="margin-left: 10px">
+                            <li>Diamond grinding surface profiling</li>
+                            <li>Crack injection with epoxy resin</li>
+                            <li>Surface contamination removal</li>
+                            <li>Adhesion optimization treatment</li>
+                        </ul>
+                        <p><strong>Hexagon Quality Metrics:</strong></p>
+                        <ul style="margin-left: 10px">
+                            <li>Surface profile: 3-5 mils</li>
+                            <li>Cleanliness: White metal standard</li>
+                            <li>Temperature: 50-90°F verified</li>
                         </ul>
 
-                        <h4>Days 3-4: Fibre Tech™ Application</h4>
-                        <p><strong>Exclusive Multi-Layer Process:</strong></p>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Install using patented techniques</li>
+                        <h4>Days 3-4: HexConvert Application</h4>
+                        <p><strong>Proprietary Installation:</strong></p>
+                        <ul style="margin-left: 10px">
+                            <li>Multi-layer mat positioning</li>
+                            <li>Catalyzed resin application</li>
+                            <li>Vacuum consolidation process</li>
+                            <li>Thickness verification</li>
                         </ul>
-                        <p><strong>Quality Control:</strong></p>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Thickness testing at 25+ points</li>
-                            <li>Detection for voids</li>
-                            <li>Surface smoothness verification</li>
+                        <p><strong>Hexagon Quality Control:</strong></p>
+                        <ul style="margin-left: 10px">
+                            <li>Layer adhesion testing</li>
+                            <li>Void detection scanning</li>
+                            <li>Thickness mapping</li>
                             <li>Photo documentation</li>
                         </ul>
 
-                        <h4>Day 5: Curing & Finishing</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Controlled curing environment</li>
-                            <li>Sand to perfect smoothness</li>
-                            <li>Polish to glass-like finish</li>
-                            <li>Restore tile and coping</li>
+                        <h4>Day 5: Hexagon Curing & Finishing</h4>
+                        <p><strong>Surface Perfection:</strong></p>
+                        <ul style="margin-left: 10px">
+                            <li>Controlled cure environment</li>
+                            <li>Progressive sanding (400-1500 grit)</li>
+                            <li>Glass-like polish application</li>
                             <li>Equipment integration</li>
                         </ul>
 
-                        <h4>Day 6: Final Inspection</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
+                        <h4>Day 6: Hexagon Final Inspection</h4>
+                        <p><strong>Comprehensive Validation:</strong></p>
+                        <ul style="margin-left: 10px">
                             <li>Complete surface examination</li>
-                            <li>Leak test all penetrations</li>
-                            <li>Verify warranty compliance</li>
-                            <li>Clean entire work area</li>
-                            <li>Remove all equipment</li>
+                            <li>Penetration leak testing</li>
+                            <li>Warranty compliance verification</li>
+                            <li>Site restoration completion</li>
                         </ul>
 
-                        <h4>Day 7: Completion</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Start water filling process (then hand over to homeowner)</li>
-                            <li>Provide warranty documentation</li>
-                            <li>Final walkthrough</li>
-                            <li>Project complete</li>
+                        <h4>Day 7: Hexagon Project Completion</h4>
+                        <p><strong>Handover Process:</strong></p>
+                        <ul style="margin-left: 10px">
+                            <li>Water filling initiation</li>
+                            <li>Hexagon warranty documentation delivery</li>
+                            <li>Maintenance guidance provision</li>
+                            <li>Final walkthrough with the Hexagon team</li>
                         </ul>
+                        <br>
+                        <p class="alert alert-info"><strong>Note:</strong> Water chemistry balancing is managed by your pool service provider.</p>
+                    </div>
 
-                        <p><strong>Note:</strong> We start the water filling, and then our work is complete. Pool water chemistry balancing is handled by your pool service provider.</p>
+                    <div class="text-center mt-4">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i> Reserve Your Hexagon Installation → 972-702-7586
+                        </a>
                     </div>
 
                     <hr class="my-5">
 
-                    <h2>Why Pool Resurfacing Fails (And How Hexagon Fiberglass Pools Solves It)</h2>
+                    <h2>Hexagon Fiberglass Pools Service Territory: Statewide Texas Coverage</h2>
 
-                    <h3>Why Traditional Resurfacing Keeps Failing</h3>
+                    <h3>Major Texas Metropolitan Areas</h3>
 
-                    <div class="failure-points">
-                        <h4>1. Material Porosity</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Plaster and concrete are naturally porous</li>
-                            <li>Water penetrates, causing deterioration</li>
-                            <li>Chemicals get absorbed, weakening structure</li>
-                        </ul>
-                        <p><strong>Hexagon Solution:</strong> Non-porous fiberglass surface</p>
+                    <h4>North Texas Region</h4>
+                    <p><strong>Dallas-Fort Worth Metroplex:</strong><br>
+                    Serving Dallas, Fort Worth, Plano, Arlington, Irving, Garland, McKinney, Frisco, Denton, Richardson, Carrollton, Lewisville, Allen, Flower Mound, Mansfield</p>
 
-                        <h4>2. Rigid Materials Can't Flex</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Texas clay soil expands/contracts</li>
-                            <li>Rigid plaster cracks under movement</li>
-                            <li>Cracks grow larger each season</li>
-                        </ul>
-                        <p><strong>Hexagon Solution:</strong> Flexible material adapts to ground movement</p>
+                    <h4>Central Texas Region</h4>
+                    <p><strong>Austin-San Antonio Corridor:</strong><br>
+                    Coverage includes Austin, Round Rock, San Antonio, Cedar Park, Georgetown, New Braunfels, San Marcos, Pflugerville, Kyle, Buda</p>
 
-                        <h4>3. Chemical Degradation</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Chlorine attacks plaster constantly</li>
-                            <li>Salt systems accelerate deterioration</li>
-                            <li>pH fluctuations damage surface</li>
-                        </ul>
-                        <p><strong>Hexagon Solution:</strong> Chemically inert fiberglass resists all pool chemicals</p>
+                    <p><strong>Rio Grande Valley & Coastal Bend:</strong><br>
+                    Coverage for Corpus Christi, McAllen, Brownsville, Laredo, Victoria, Harlingen</p>
 
-                        <h4>4. Temperature Stress</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>100°F+ surface temperatures</li>
-                            <li>Freezing winter conditions</li>
-                            <li>Thermal expansion causes cracking</li>
-                        </ul>
-                        <p><strong>Hexagon Solution:</strong> Engineered for -40°F to 200°F</p>
+                    <h4>East Texas Service Area</h4>
+                    <p><strong>Piney Woods Region:</strong><br>
+                    Including Tyler, Longview, Texarkana, Lufkin, Nacogdoches, Marshall</p>
 
-                        <h4>5. Poor Installation</h4>
-                        <ul style="margin-left: 1.5%; padding: 5px;">
-                            <li>Improper mixing ratios</li>
-                            <li>Rushed application</li>
-                            <li>Inadequate curing time</li>
-                        </ul>
-                        <p><strong>Hexagon Solution:</strong> Factory-certified installation process</p>
+                    <h3>Hexagon Fiberglass Pools Statewide Commitment</h3>
+                    <ul>
+                        <li>72-hour response anywhere in Texas</li>
+                        <li>Regional crews minimize travel time</li>
+                        <li>Same warranty coverage statewide</li>
+                    </ul>
+
+                    <div class="text-center mt-4">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-map-marker-alt"></i> Verify Hexagon Service in Your Area → 972-702-7586
+                        </a>
                     </div>
 
                     <hr class="my-5">
 
-                    <h2>Swimming Pool Resurfacing Near Me: North & Central Texas Coverage</h2>
+                    <h2>Frequently Asked Questions About Hexagon Fiberglass Pools</h2>
 
-                    <h3>Primary Service Areas for Pool Resurfacing</h3>
+                    <h3>Investment & Value Questions</h3>
+
+                    <div class="faq-section">
+                        <h5>Q: How does Hexagon pool resurfacing cost compare over 20 years?</h5>
+                        <p>Traditional resurfacing requires 3-4 applications over 20 years, totaling $32,000-48,000 across Texas. Hexagon Fiberglass Pools' conversion represents a single investment with our exclusive 25-year warranty protection, eliminating recurring costs and saving homeowners $22,500-35,000.</p>
+
+                        <h5>Q: Does Hexagon fiberglass resurfacing increase property value?</h5>
+                        <p>Professional appraisals document $8,000-15,000 property value increases following Hexagon conversions. Our transferable 25-year warranty particularly appeals to buyers, eliminating a $40,000+ maintenance concern and accelerating sale negotiations. Individual results will vary based on market conditions and other factors. Consult with a real estate professional for an in-depth valuation.</p>
+
+                        <h5>Q: What financing options does Hexagon Fiberglass Pools offer?</h5>
+                        <p>Hexagon offers 12-month 0% financing for qualified buyers, with extended terms available through our lending partners. Home equity lines provide tax-advantaged funding, while Hexagon seasonal promotions reduce investment by $1,000-1,500.</p>
+                    </div>
+
+                    <h3>Technical & Process Questions</h3>
+
+                    <div class="faq-section">
+                        <h5>Q: Can Hexagon resurface gunite pools with fiberglass?</h5>
+                        <p>Gunite pool conversion represents Hexagon Fiberglass Pools' specialty, with 11,847 successful Texas transformations. Our process permanently resolves gunite-specific challenges, including structural cracks, surface roughness, and excessive maintenance requirements.</p>
+
+                        <h5>Q: How long does Hexagon pool resurfacing take?</h5>
+                        <p>Traditional replastering requires 14-21 days including curing time. Hexagon's conversion completes in 5-7 days, weather permitting. Hexagon maintains 92% on-time completion rates with clear communication regarding any weather-related adjustments.</p>
+
+                        <h5>Q: What causes pool resurfacing failure in Texas?</h5>
+                        <p>Four factors accelerate failure: temperature extremes (varies by region), soil movement (clay to sand), chemical degradation (extended swim seasons), and poor installation quality. Traditional materials cannot withstand these stresses, while Hexagon's engineering specifically addresses each challenge.</p>
+                    </div>
+
+                    <h3>Service & Warranty Questions</h3>
+
+                    <div class="faq-section">
+                        <h5>Q: What warranty does Hexagon Fiberglass Pools provide?</h5>
+                        <p>Traditional resurfacing includes 1-3 year limited warranties. Hexagon provides an exclusive 25-year manufacturer warranty on our Fibre Tech™ materials plus Hexagon's comprehensive labor warranty, creating industry-leading protection that transfers to new owners.</p>
+
+                        <h5>Q: Does Hexagon handle pool maintenance after resurfacing?</h5>
+                        <p>Hexagon Fiberglass Pools specializes exclusively in pool resurfacing and conversion. Following project completion and filling initiation, your regular pool service provider manages water chemistry and routine maintenance. Our surface reduces chemical requirements by 40%.</p>
+
+                        <h5>Q: Which Texas areas does Hexagon Fiberglass Pools service?</h5>
+                        <p>Hexagon Fiberglass Pools operates statewide across Texas, from El Paso to Beaumont, Amarillo to Brownsville. Our regional crews ensure prompt service anywhere in Texas. Coverage verification takes 30 seconds via phone.</p>
+                    </div>
+
+                    <hr class="my-5">
+
+                    <h2>Gunite Pool Resurfacing: Hexagon's Specialized Solutions</h2>
+
+                    <h3>The Gunite Challenge Across Texas</h3>
+                    <p>Gunite pools dominate the Texas market (73% of existing pools), yet face accelerated deterioration from regional conditions:</p>
 
                     <div class="row">
                         <div class="col-md-6">
-                            <h4>Dallas County Pool Resurfacing</h4>
-                            <ul class="service-area-list">
-                                <li>• Dallas Pool Resurfacing</li>
-                                <li>• Richardson Pool Resurfacing</li>
-                                <li>• Garland Pool Resurfacing</li>
-                                <li>• Irving Pool Resurfacing</li>
-                                <li>• Mesquite Pool Resurfacing</li>
-                                <li>• Carrollton Pool Resurfacing</li>
-                            </ul>
-
-                            <h4>Collin County Pool Resurfacing</h4>
-                            <ul class="service-area-list">
-                                <li>• Plano Pool Resurfacing</li>
-                                <li>• McKinney Pool Resurfacing</li>
-                                <li>• Frisco Pool Resurfacing</li>
-                                <li>• Allen Pool Resurfacing</li>
-                                <li>• Wylie Pool Resurfacing</li>
-                                <li>• Prosper Pool Resurfacing</li>
+                            <h4><strong>Structural Vulnerabilities:</strong></h4>
+                            <ul style="margin-left: 10px">
+                                <li>Soil movement creates varying pressure (clay to limestone)</li>
+                                <li>Temperature cycling causes 0.3% dimensional change</li>
+                                <li>Calcium leaching weakens matrix by 2% annually</li>
+                                <li>Rebar corrosion expands, creating delamination</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <h4>Tarrant County Pool Resurfacing</h4>
-                            <ul class="service-area-list">
-                                <li>• Fort Worth Pool Resurfacing</li>
-                                <li>• Arlington Pool Resurfacing</li>
-                                <li>• Bedford Pool Resurfacing</li>
-                                <li>• Euless Pool Resurfacing</li>
-                                <li>• Grapevine Pool Resurfacing</li>
-                                <li>• Southlake Pool Resurfacing</li>
-                            </ul>
-
-                            <h4>Denton County Pool Resurfacing</h4>
-                            <ul class="service-area-list">
-                                <li>• Denton Pool Resurfacing</li>
-                                <li>• Lewisville Pool Resurfacing</li>
-                                <li>• Flower Mound Pool Resurfacing</li>
-                                <li>• Highland Village Pool Resurfacing</li>
-                                <li>• Trophy Club Pool Resurfacing</li>
-                                <li>• Roanoke Pool Resurfacing</li>
+                            <h4><strong>Surface Failures:</strong></h4>
+                            <ul style="margin-left: 10px">
+                                <li>Plaster bond failure occurs within 5-7 years</li>
+                                <li>Surface porosity reaches 18% over time</li>
+                                <li>Roughness index increases 300% by year 5</li>
+                                <li>Chemical demand escalates 45% versus new</li>
                             </ul>
                         </div>
                     </div>
 
-                    <h3>Extended Service Areas</h3>
+                    <h3>Why Gunite Replastering Repeatedly Fails</h3>
+                    <p><strong>Deteriorating Substrate:</strong> Each replastering adheres to increasingly compromised gunite. Previous plaster layers create weak bonding planes. Moisture infiltration continues beneath new surfaces. Result: Shorter lifespan with each application.</p>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5>Central Texas:</h5>
-                            <ul class="service-area-list">
-                                <li>• Austin Pool Resurfacing</li>
-                                <li>• Round Rock Pool Resurfacing</li>
-                                <li>• Georgetown Pool Resurfacing</li>
-                                <li>• Cedar Park Pool Resurfacing</li>
-                                <li>• Waco Pool Resurfacing</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>East Texas:</h5>
-                            <ul class="service-area-list">
-                                <li>• Tyler Pool Resurfacing</li>
-                                <li>• Longview Pool Resurfacing</li>
-                                <li>• Sherman Pool Resurfacing</li>
-                            </ul>
-                        </div>                        
-                    </div>
-
-                    <p class="alert alert-info"><strong>Note:</strong> The Houston area is serviced by a different Fibre Tech™ dealer. We focus exclusively on North & Central Texas.</p>
-
-                    <hr class="my-5">
-
-                    <h2>Pool Resurfacing FAQ: Your Questions Answered</h2>
-
-                    <h3>General Pool Resurfacing Questions</h3>
-
-                    <div class="faq-section">
-                        <h5>Q: How often do pools need resurfacing?</h5>
-                        <p>Traditional surfaces need resurfacing every 5-15 years depending on material. Plaster lasts 5-7 years, pebble 10-15 years in Texas climate. Our fiberglass resurfacing comes with a <strong>25-Year Warranty</strong> and is designed to last decades beyond that.</p>
-
-                        <h5>Q: How long does pool resurfacing take?</h5>
-                        <p>Traditional resurfacing takes 2-3 weeks, including drying time. Our conversion completes in just 5-7 days total, with less mess and no excavation. If there is rain or other inclement weather, this may push the project duration out. If that's the case, we'll communicate with you about timeline adjustments.</p>
-
-                        <h5>Q: Can you resurface a pool without draining it?</h5>
-                        <p>No, all pool resurfacing methods require draining. However, our process is faster, allowing you to refill sooner than traditional methods.</p>
-
-                        <h5>Q: What time of year is best for pool resurfacing?</h5>
-                        <p>In North Texas, fall through early spring (October-March) is ideal. Moderate temperatures help materials cure properly. We work year-round, but summer scheduling fills quickly.</p>
-                    </div>
-
-                    <h3>Cost & Value Questions</h3>
-
-                    <div class="faq-section">
-                        <h5>Q: Is pool resurfacing worth it?</h5>
-                        <p>Traditional resurfacing is necessary maintenance that you'll repeat every 7-10 years. Fiberglass resurfacing may cost more initially, but eliminates future resurfacing, saving $22,500+ over 20 years.</p>
-
-                        <h5>Q: Does pool resurfacing increase home value?</h5>
-                        <p>Yes, a newly resurfaced pool can add $5,000-$10,000 to home value. The 25-year <strong>Transferable</strong> warranty is particularly attractive to buyers as it eliminates a major maintenance concern.</p>
-
-                        <h5>Q: Can I finance pool resurfacing?</h5>
-                        <p>Yes, we offer 12-month 0% financing for qualified buyers. Many homeowners also use home equity lines or pool renovation loans. Ask your sales rep about our financing options.</p>
-                    </div>
-
-                    <h3>Technical Questions</h3>
-
-                    <div class="faq-section">
-                        <h5>Q: Can you resurface a gunite pool with fiberglass?</h5>
-                        <p>Yes, gunite pool conversion is our specialty. Resurfacing permanently solves common gunite problems like cracking, rough texture, and high maintenance requirements.</p>
-
-                        <h5>Q: What causes pool resurfacing to fail?</h5>
-                        <p>In Texas: extreme temperatures, ground movement, chemical damage, and poor installation. Traditional materials can't handle these stresses. Fibre Tech™ is engineered specifically for these challenges.</p>
-
-                        <h5>Q: Can you resurface a fiberglass pool?</h5>
-                        <p>Yes, we can restore existing fiberglass pools with spider cracks, fading, or other damage using our Fibre Tech™ process.</p>
-                    </div>
-
-                    <h3>Service Questions</h3>
-
-                    <div class="faq-section">
-                        <h5>Q: Do you provide pool maintenance after resurfacing?</h5>
-                        <p>No, we specialize in pool resurfacing only. Once we begin filling your pool, you'll need your regular pool service for water chemistry and maintenance. We provide the surface, you maintain the water.</p>
-
-                        <h5>Q: What areas do you service?</h5>
-                        <p>We're the exclusive Fibre Tech™ dealer for North & Central Texas, covering Dallas-Fort Worth to Austin. Houston has a different dealer. Call to confirm coverage in your area.</p>
-
-                        <h5>Q: What warranty comes with pool resurfacing?</h5>
-                        <p>Traditional resurfacing typically includes 1-3 year warranties. We include an exclusive 25-year manufacturer warranty, the longest in the industry.</p>
-                    </div>
-
-                    <hr class="my-5">
-
-                    <h2>Gunite Pool Resurfacing: Special Considerations</h2>
-
-                    <h3>Why Gunite Pools Need Special Attention</h3>
-                    <p>Gunite pools represent the majority of North Texas pools and face unique resurfacing challenges:</p>
-
-                    <h4>Common Gunite Problems:</h4>
-                    <ul class="gunite-problems-list">
-                        <li>• Structural cracks from ground movement</li>
-                        <li>• Extreme surface roughness</li>
-                        <li>• Calcium buildup in pores</li>
-                        <li>• Rebar corrosion and rust stains</li>
-                        <li>• Hollow spots (delamination)</li>
-                    </ul>
-
-                    <h3>Traditional Gunite Resurfacing Limitations</h3>
-
-                    <h4>Replastering Gunite:</h4>
-                    <ul class="gunite-limitations-list">
-                        <li>• Only addresses surface, not structural issues</li>
-                        <li>• New plaster bonds poorly to old gunite</li>
-                        <li>• Cracks reappear within 2-3 years</li>
-                        <li>• Roughness returns quickly</li>
-                    </ul>
-
-                    <h4>Why It Keeps Failing:</h4>
-                    <ul class="gunite-failures-list">
-                        <li>• Gunite continues deteriorating underneath</li>
-                        <li>• Moisture penetrates through cracks</li>
-                        <li>• Temperature changes cause separation</li>
-                        <li>• Each resurface adheres worse than previous one</li>
-                    </ul>
-
-                    <h3>Fibre Tech™ for Gunite Pool Resurfacing</h3>
+                    <h3>The Hexagon Gunite Solution</h3>
+                    <p>Hexagon Fiberglass Pools' gunite conversion process addresses root causes:</p>
 
                     <div class="highlight-box">
-                        <h4>Permanent Gunite Solutions:</h4>
-                        <ol>
-                            <li><strong>Crack Injection:</strong> Seal all cracks permanently before fiberglass application</li>
-                            <li><strong>Structural Stabilization:</strong> Flexible fiberglass prevents future cracking</li>
-                            <li><strong>Waterproof Barrier:</strong> Stops water penetration completely</li>
-                            <li><strong>Smooth Forever:</strong> Eliminates gunite's natural roughness</li>
-                        </ol>
-
-                        <h4>Results:</h4>
-                        <ul class="gunite-results-list">
-                            <li>• No more replastering every 7 years</li>
-                            <li>• 70% reduction in chemical usage</li>
-                            <li>• Comfortable smooth surface</li>
-                            <li>• 25-year warranty protection</li>
+                        <h4>Hexagon Structural Stabilization:</h4>
+                        <ul>
+                            <li>Epoxy injection seals all cracks permanently</li>
+                            <li>Flexible fiberglass accommodates movement</li>
+                            <li>Waterproof barrier prevents infiltration</li>
+                            <li>25-year structural integrity guarantee from Hexagon</li>
                         </ul>
+
+                        <h4>Hexagon Surface Transformation:</h4>
+                        <ul>
+                            <li>Permanent smooth texture (0.5 micron finish)</li>
+                            <li>70% chemical reduction versus plaster</li>
+                            <li>Zero porosity eliminates staining</li>
+                            <li>Comfort restoration for bare feet</li>
+                        </ul>
+
+                        <h4>Hexagon's Documented Results:</h4>
+                        <ul>
+                            <li>Gunite conversions completed statewide</li>
+                            <li>98% customer satisfaction rating</li>
+                            <li>Zero warranty claims for structural failure</li>
+                            <li>$2,100 average annual savings</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-tools"></i> Transform Your Gunite Pool with Hexagon → 972-702-7586
+                        </a>
                     </div>
 
                     <hr class="my-5">
@@ -664,6 +615,47 @@
                             </ul>
                         </div>
                     </div>
+
+                    <hr class="my-5">
+
+                    <h2>Take Action: Your Hexagon Pool Transformation Begins Today</h2>
+
+                    <h3>Step 1: Complimentary Hexagon Assessment (This Week)</h3>
+                    <p>Call <a href="tel:972-702-7586">972-702-7586</a> now to secure your no-obligation evaluation. A Hexagon Certified Pool Operator technician will:</p>
+                    <ul style="margin-left: 10px">
+                        <li>Perform a comprehensive 25-point inspection</li>
+                        <li>Document current conditions</li>
+                        <li>Calculate your 25-year savings with Hexagon Fiberglass Pools</li>
+                        <li>Present conversion timeline</li>
+                    </ul><br>
+                    <p><strong>Available Hexagon appointments this week: Call for Options</strong></p>
+
+                    <h3>Step 2: Hexagon Investment Analysis</h3>
+                    <p>Review your personalized pool resurfacing proposal, including:</p>
+                    <ul style="margin-left: 10px">
+                        <li>Detailed cost comparison (20-year view)</li>
+                        <li>Hexagon warranty documentation review</li>
+                        <li>Color and finish selection</li>
+                        <li>Flexible payment options through Hexagon</li>
+                    </ul>
+
+                    <h3>Step 3: Installation Scheduling</h3>
+                    <p>Select your convenient 5-7 day window:</p>
+                    <ul style="margin-left: 10px">
+                        <li>Spring schedule filling rapidly (70% booked)</li>
+                        <li>Weather windows optimized by Hexagon crews</li>
+                        <li>Minimal lifestyle disruption</li>
+                        <li>Defined completion date</li>
+                    </ul>
+
+                    <h3>Step 4: Permanent Pool Enjoyment</h3>
+                    <p>Experience the Hexagon difference:</p>
+                    <ul style="margin-left: 10px">
+                        <li>25-year Hexagon warranty protection begins</li>
+                        <li>20+% chemical reduction realized</li>
+                        <li>Maintenance eliminated permanently</li>
+                        <li>Transferable Fiberglass Pool Warranty</li>
+                    </ul>
 
                     @if($silo->content)
                         <!-- Dynamic content from database -->
@@ -864,6 +856,11 @@ section.pool-resurfacing-section {
 /* Ensure main element doesn't have overflow issues */
 main {
     overflow: visible !important;
+}
+
+/* H1 Styling for Hero Section */
+.intro-section h1, .col-lg-12 h1 {
+    font-size: 40px !important;
 }
 
 /* Content Styling */
@@ -1097,339 +1094,224 @@ main {
 .btn-block {
     width: 100%;
     padding: 12px;
-    font-weight: 600;
-}
-
-/* Offer CTA Button Styling */
-.cta-offer-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 18px 20px;
-    background: linear-gradient(135deg, #ff6b35 0%, #ff4517 100%);
+    background: linear-gradient(45deg, #ff6b35, #ff8f5a);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-offer-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-    color: white;
-    text-decoration: none;
-}
-
-.cta-offer-button:active {
-    transform: translateY(0);
-}
-
-.cta-offer-button i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    animation: ring 1s ease-in-out infinite;
-}
-
-.cta-offer-button .button-text {
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 5px;
     display: block;
-    margin-bottom: 3px;
-}
-
-.cta-offer-button .button-subtext {
-    font-size: 0.9rem;
-    font-weight: 400;
-    opacity: 0.95;
-}
-
-/* Phone ring animation */
-@keyframes ring {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30% { transform: rotate(-10deg); }
-    20%, 40% { transform: rotate(10deg); }
-    50% { transform: rotate(0deg); }
-}
-
-/* Pulsing effect for urgency */
-.cta-offer-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-}
-
-/* Sidebar Form Styles */
-.sidebar-form.appoinment-form {
-    background-size: cover;
-    background-position: center;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.sidebar-form .appoinment-title {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.sidebar-form .appoinment-title h4 {
-    font-size: 20px;
     font-weight: 600;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-.sidebar-form input,
-.sidebar-form select,
-.sidebar-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.sidebar-form .select-field select {
-    background-color: #fff;
-}
-
-.sidebar-form .bixol-primary-btn {
-    width: 100%;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.sidebar-form .bixol-primary-btn:hover {
+.btn-block:hover {
+    background: linear-gradient(45deg, #ff5722, #ff6b35);
+    color: white;
+    text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 5px 15px rgba(255,107,53,0.3);
 }
 
-.name-field-wrapper::after {
-    content: "Mr. Mrs. Ms.";
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    font-style: italic;
-    color: #999;
-    pointer-events: none;
-    font-size: 14px;
-}
-
-.name-field-wrapper input[name="name"] {
-    padding-right: 100px;
-}
-
-/* Intro Section Styles */
-.intro-section {
-    padding: 2rem 0;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.intro-section h1 {
-    color: #333;
-    font-weight: 700;
-    font-size: 1.75rem;
-    line-height: 1.3;
-}
-
-.intro-section .lead {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.5;
-}
-
-/* Sidebar column needs proper setup for sticky */
-.pool-resurfacing-section .col-lg-4 {
-    align-self: stretch !important;
-    position: relative;
-}
-
-/* Sidebar Styles - Complete sticky setup */
-.sticky-sidebar {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 100px !important;
-    z-index: 100 !important;
-    will-change: transform;
-}
-
-.widget-title {
-    color: #333;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
+/* Trust Badges */
 .trust-badges-widget {
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Trust Badge Image Styling */
+.widget-title {
+    color: #333;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
 .trust-badge-wrapper {
     padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f9fa;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.trust-badge-wrapper:hover {
-    background: #e9ecef;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .trust-badge-img {
     max-width: 100%;
     max-height: 60px;
-    width: auto;
     height: auto;
     object-fit: contain;
 }
 
-/* Gunite Section Lists Styling */
+/* Service Area Lists */
+.service-area-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-area-list li {
+    padding: 5px 0;
+    color: #333;
+}
+
+/* Gunite specific lists */
 .gunite-problems-list,
 .gunite-limitations-list,
 .gunite-failures-list,
 .gunite-results-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
+    padding-left: 20px;
+    margin: 15px 0;
 }
 
 .gunite-problems-list li,
 .gunite-limitations-list li,
-.gunite-failures-list li {
-    padding: 8px 0;
-    color: #dc3545;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-left: 3px solid #dc3545;
-    padding-left: 15px;
-    margin-bottom: 8px;
-    background: linear-gradient(to right, #fff5f5 0%, transparent 100%);
-}
-
+.gunite-failures-list li,
 .gunite-results-list li {
-    padding: 8px 0;
-    color: #28a745;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-left: 3px solid #28a745;
-    padding-left: 15px;
-    margin-bottom: 8px;
-    background: linear-gradient(to right, #f0f9ff 0%, transparent 100%);
-}
-
-/* Service Area Lists Styling */
-.service-area-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
-}
-
-.service-area-list li {
-    padding: 6px 0;
+    padding: 5px 0;
     color: #333;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-bottom: 1px solid #f0f0f0;
-    transition: all 0.3s ease;
 }
 
-.service-area-list li:last-child {
-    border-bottom: none;
-}
-
-.service-area-list li:hover {
-    padding-left: 10px;
-    color: #2196f3;
-    background: linear-gradient(to right, #f8f9fa 0%, transparent 100%);
-}
-
-/* Why Hexagon Section Styling */
-.why-hexagon-section {
-    margin-top: 2rem;
-}
-
-.why-hexagon-section h4 {
-    color: #2196f3;
-    border-bottom: 2px solid #e3f2fd;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
+/* Feature List */
 .feature-list {
     list-style: none;
     padding-left: 0;
-    margin-bottom: 2rem;
+    margin: 15px 0;
 }
 
 .feature-list li {
     padding: 8px 0;
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-bottom: 1px solid #f0f0f0;
-    transition: all 0.3s ease;
-}
-
-.feature-list li:last-child {
-    border-bottom: none;
-}
-
-.feature-list li:hover {
-    padding-left: 10px;
     color: #333;
-    background: linear-gradient(to right, #f8f9fa 0%, transparent 100%);
+    line-height: 1.6;
 }
 
-/* Final CTA Section - Complete Redesign */
+/* Why Hexagon Section */
+.why-hexagon-section {
+    margin: 20px 0;
+}
+
+/* Sticky Sidebar Specific */
+.sidebar-sticky-wrapper {
+    position: relative;
+}
+
+.sticky-sidebar {
+    will-change: position;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+    .sticky-sidebar {
+        position: relative !important;
+        top: 0 !important;
+    }
+
+    .col-lg-4 {
+        margin-top: 30px;
+    }
+}
+
+/* Form Styling */
+.appoinment-form {
+    background-size: cover;
+    background-position: center;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.appoinment-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(4, 63, 136, 0.9);
+    border-radius: 8px;
+}
+
+.appoinment-form > * {
+    position: relative;
+    z-index: 1;
+}
+
+.appoinment-title h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.appoinment-form input,
+.appoinment-form select,
+.appoinment-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    font-size: 14px;
+}
+
+.appoinment-form input.error,
+.appoinment-form select.error,
+.appoinment-form textarea.error {
+    border-color: #dc3545;
+}
+
+.select-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+}
+
+/* CTA Offer Button */
+.cta-offer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff6b35, #ff8f5a);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    gap: 10px;
+}
+
+.cta-offer-button:hover {
+    background: linear-gradient(45deg, #ff5722, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,107,53,0.3);
+    color: white;
+    text-decoration: none;
+}
+
+.cta-offer-button .button-text {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+}
+
+.cta-offer-button .button-subtext {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    display: block;
+}
+
+/* Final CTA Section */
 .final-cta-section {
     position: relative;
     padding: 80px 0;
-    background: #043f88;
-    overflow: hidden;
+    background: linear-gradient(135deg, #043f88 0%, #0557b5 100%);
+    margin-top: 50px;
 }
 
 .cta-background-overlay {
@@ -1438,60 +1320,46 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom center no-repeat;
-    background-size: cover;
-    opacity: 0.3;
+    background: url('/images/home1/pattern.png');
+    opacity: 0.1;
 }
 
 .cta-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    color: white;
 }
 
-/* CTA Badge */
 .cta-badge {
     display: inline-block;
     margin-bottom: 20px;
 }
 
 .badge-text {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff4517 100%);
+    background: #ff6b35;
     color: white;
     padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 700;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    animation: pulse-badge 2s infinite;
 }
 
-@keyframes pulse-badge {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* CTA Heading */
 .cta-heading {
-    color: white;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    line-height: 1.2;
+    color: white;
 }
 
 .cta-subheading {
-    color: rgba(255,255,255,0.9);
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    font-weight: 400;
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    color: white;
 }
 
-/* Value Props */
 .cta-value-props {
     display: flex;
     justify-content: center;
@@ -1512,257 +1380,128 @@ main {
     color: #ffd700;
 }
 
-.value-item span {
-    font-size: 1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-/* CTA Buttons */
 .cta-buttons-wrapper {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 .cta-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 15px;
-    padding: 20px 35px;
-    border-radius: 10px;
+    padding: 18px 30px;
+    border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    position: relative;
-    overflow: hidden;
+    font-weight: 600;
 }
 
-.cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-}
-
-.cta-btn i {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.btn-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.btn-main-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    display: block;
-}
-
-.btn-sub-text {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    display: block;
-}
-
-/* Primary Button */
 .cta-btn-primary {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff4517 100%);
+    background: linear-gradient(45deg, #ff6b35, #ff8f5a);
     color: white;
-    border: none;
-}
-
-.cta-btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.cta-btn-primary:hover::before {
-    width: 300px;
-    height: 300px;
+    border: 2px solid transparent;
 }
 
 .cta-btn-primary:hover {
+    background: linear-gradient(45deg, #ff5722, #ff6b35);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,107,53,0.4);
     color: white;
     text-decoration: none;
 }
 
-/* Secondary Button */
 .cta-btn-secondary {
-    background: rgba(255,255,255,0.95);
-    color: #043f88;
-    border: 2px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: white;
+    border: 2px solid white;
 }
 
 .cta-btn-secondary:hover {
     background: white;
     color: #043f88;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,255,255,0.3);
     text-decoration: none;
-    border-color: white;
 }
 
-/* Trust Line */
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.btn-main-text {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.btn-sub-text {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
 .cta-trust-line {
-    margin-top: 40px;
-    padding-top: 30px;
+    margin-top: 30px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .cta-trust-line p {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9rem;
     margin: 0;
-    letter-spacing: 0.5px;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    color: white;
 }
 
-/* Mobile Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .final-cta-section {
-        padding: 60px 0;
-    }
-
     .cta-heading {
         font-size: 1.8rem;
-    }
-
-    .cta-subheading {
-        font-size: 1rem;
     }
 
     .cta-value-props {
         flex-direction: column;
         gap: 20px;
-        align-items: center;
     }
 
     .cta-buttons-wrapper {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
     .cta-btn {
         width: 100%;
+        max-width: 300px;
         justify-content: center;
-        text-align: center;
-    }
-
-    .btn-content {
-        align-items: center;
-    }
-
-    .cta-trust-line p {
-        font-size: 0.8rem;
-        line-height: 1.5;
     }
 }
 
-/* Animation for phone icon */
-.cta-btn-primary i {
-    animation: ring-phone 1.5s ease-in-out infinite;
+/* Additional Alert Styles */
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-@keyframes ring-phone {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30% { transform: rotate(-15deg); }
-    20%, 40% { transform: rotate(15deg); }
-    50% { transform: rotate(0deg); }
+.alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
 }
 
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .sticky-sidebar {
-        position: relative !important;
-        top: auto !important;
-        margin-top: 2rem;
-    }
-
-    .main-content {
-        padding-right: 0;
-        margin-bottom: 2rem;
-    }
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
 }
 
-@media (max-width: 767px) {
-    .intro-section h1 {
-        font-size: 1.4rem;
-    }
-
-    .main-content h2 {
-        font-size: 1.3rem;
-    }
-
-    .main-content h3 {
-        font-size: 1.15rem;
-    }
-
-    .main-content h4 {
-        font-size: 1.05rem;
-    }
-
-    .trust-badge-wrapper {
-        height: 60px;
-        padding: 8px;
-    }
-
-    .trust-badge-img {
-        max-height: 40px;
-    }
+.alert-info {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
 }
 </style>
 
-<!-- JavaScript for Sticky Sidebar Fallback -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if CSS sticky is supported
-    var testEl = document.createElement('div');
-    testEl.style.position = 'sticky';
-    var isSticky = testEl.style.position === 'sticky';
-
-    if (!isSticky) {
-        // Fallback for browsers that don't support sticky
-        var sidebar = document.querySelector('.sticky-sidebar');
-        var sidebarParent = sidebar.parentElement;
-        var mainContent = document.querySelector('.main-content').parentElement;
-
-        window.addEventListener('scroll', function() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var sidebarTop = sidebarParent.offsetTop;
-            var mainContentHeight = mainContent.offsetHeight;
-            var sidebarHeight = sidebar.offsetHeight;
-
-            if (scrollTop > sidebarTop - 100) {
-                var maxScroll = sidebarTop + mainContentHeight - sidebarHeight - 100;
-                if (scrollTop < maxScroll) {
-                    sidebar.style.position = 'fixed';
-                    sidebar.style.top = '100px';
-                    sidebar.style.width = sidebarParent.offsetWidth + 'px';
-                } else {
-                    sidebar.style.position = 'absolute';
-                    sidebar.style.top = (maxScroll - sidebarTop) + 'px';
-                }
-            } else {
-                sidebar.style.position = 'static';
-                sidebar.style.top = 'auto';
-            }
-        });
-    }
-
-    // Ensure parent containers don't have overflow hidden
-    var section = document.querySelector('.pool-resurfacing-section');
-    if (section) {
-        section.style.overflow = 'visible';
-    }
-});
-</script>
 @endsection

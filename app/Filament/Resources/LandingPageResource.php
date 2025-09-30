@@ -15,11 +15,17 @@ use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Collection;
+use App\Services\ActivityLogger;
+use App\Traits\HandlesBulkOperations;
+use Filament\Notifications\Notification;
 
 class LandingPageResource extends Resource
 {
+    use HandlesBulkOperations;
     protected static ?string $model = LandingPage::class;
 
     public static function getNavigationIcon(): ?string
@@ -286,6 +292,179 @@ class LandingPageResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
+                    BulkAction::make('activate')
+                        ->label('Activate')
+                        ->icon('heroicon-o-check-circle')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['is_active' => true],
+                                'activation',
+                                'bulk_activate'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('deactivate')
+                        ->label('Deactivate')
+                        ->icon('heroicon-o-x-circle')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['is_active' => false],
+                                'deactivation',
+                                'bulk_deactivate'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('include_in_sitemap')
+                        ->label('Include in Sitemap')
+                        ->icon('heroicon-o-globe-alt')
+                        ->color('info')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['include_in_sitemap' => true],
+                                'sitemap inclusion',
+                                'bulk_sitemap_include'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('exclude_from_sitemap')
+                        ->label('Exclude from Sitemap')
+                        ->icon('heroicon-o-eye-slash')
+                        ->color('gray')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['include_in_sitemap' => false],
+                                'sitemap exclusion',
+                                'bulk_sitemap_exclude'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_meta_robots')
+                        ->label('Update Meta Robots')
+                        ->icon('heroicon-o-magnifying-glass')
+                        ->form([
+                            Forms\Components\Select::make('meta_robots')
+                                ->label('Meta Robots')
+                                ->options(\App\Models\LandingPage::META_ROBOTS_OPTIONS)
+                                ->required(),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['meta_robots' => $data['meta_robots']],
+                                'meta robots update',
+                                'bulk_meta_robots_update'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_campaign')
+                        ->label('Update Campaign')
+                        ->icon('heroicon-o-megaphone')
+                        ->form([
+                            Forms\Components\TextInput::make('campaign_name')
+                                ->label('Campaign Name')
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('campaign_source')
+                                ->label('Campaign Source')
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('campaign_medium')
+                                ->label('Campaign Medium')
+                                ->maxLength(255),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            $updateData = array_filter($data);
+                            if (!empty($updateData)) {
+                                static::executeBulkUpdate(
+                                    $records,
+                                    $updateData,
+                                    'campaign update',
+                                    'bulk_campaign_update'
+                                );
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('duplicate')
+                        ->label('Duplicate')
+                        ->icon('heroicon-o-document-duplicate')
+                        ->color('secondary')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkDuplicate($records, ' (Copy)');
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('export')
+                        ->label('Export to CSV')
+                        ->icon('heroicon-o-arrow-down-tray')
+                        ->color('primary')
+                        ->action(function (Collection $records): \Symfony\Component\HttpFoundation\StreamedResponse {
+                            $fileName = 'landing-pages-export-' . date('Y-m-d-His') . '.csv';
+
+                            return response()->streamDownload(function () use ($records) {
+                                $handle = fopen('php://output', 'w');
+
+                                // Add CSV headers
+                                fputcsv($handle, [
+                                    'ID',
+                                    'Name',
+                                    'Slug',
+                                    'Headline',
+                                    'Subheadline',
+                                    'Campaign Name',
+                                    'Campaign Source',
+                                    'Campaign Medium',
+                                    'Active',
+                                    'In Sitemap',
+                                    'Meta Title',
+                                    'Meta Description',
+                                    'Meta Robots',
+                                    'Created At',
+                                    'Updated At',
+                                ]);
+
+                                // Add data rows
+                                foreach ($records as $page) {
+                                    fputcsv($handle, [
+                                        $page->id,
+                                        $page->name,
+                                        $page->slug,
+                                        $page->headline ?? '',
+                                        $page->subheadline ?? '',
+                                        $page->campaign_name ?? '',
+                                        $page->campaign_source ?? '',
+                                        $page->campaign_medium ?? '',
+                                        $page->is_active ? 'Yes' : 'No',
+                                        $page->include_in_sitemap ? 'Yes' : 'No',
+                                        $page->meta_title ?? '',
+                                        $page->meta_description ?? '',
+                                        $page->meta_robots ?? '',
+                                        $page->created_at,
+                                        $page->updated_at,
+                                    ]);
+                                }
+
+                                fclose($handle);
+
+                                ActivityLogger::logExport('landing pages', $records->count());
+                            }, $fileName);
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
                     DeleteBulkAction::make(),
                 ]),
             ]);
@@ -306,4 +485,44 @@ class LandingPageResource extends Resource
             'edit' => Pages\EditLandingPage::route('/{record}/edit'),
         ];
     }
-}
+
+
+    /**
+     * Determine if the user can view any records.
+     */
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('viewAny', LandingPage::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can create records.
+     */
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create', LandingPage::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can edit the record.
+     */
+    public static function canEdit($record): bool
+    {
+        return auth()->user()?->can('update', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can delete the record.
+     */
+    public static function canDelete($record): bool
+    {
+        return auth()->user()?->can('delete', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can view the record.
+     */
+    public static function canView($record): bool
+    {
+        return auth()->user()?->can('view', $record) ?? false;
+    }}

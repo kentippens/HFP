@@ -1,0 +1,40 @@
+/* Global H1 Styling for All Service Pages */
+/* Applied to pool-resurfacing, pool-conversions, pool-remodeling, pool-repair and all other service pages */
+
+/* Main H1 styling for service page headers */
+.intro-section h1,
+.col-lg-12 h1,
+.service-hero h1,
+.service-header h1,
+.page-header h1,
+.hero-section h1,
+.main-content > h1:first-child {
+    font-size: 40px !important;
+    line-height: 1.2;
+}
+
+/* Responsive H1 for mobile devices */
+@media (max-width: 768px) {
+    .intro-section h1,
+    .col-lg-12 h1,
+    .service-hero h1,
+    .service-header h1,
+    .page-header h1,
+    .hero-section h1,
+    .main-content > h1:first-child {
+        font-size: 32px !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+    .intro-section h1,
+    .col-lg-12 h1,
+    .service-hero h1,
+    .service-header h1,
+    .page-header h1,
+    .hero-section h1,
+    .main-content > h1:first-child {
+        font-size: 28px !important;
+    }
+}

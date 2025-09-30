@@ -105,19 +105,45 @@ class ActivityLogger
      */
     public function withChanges(array $old, array $new): self
     {
-        // Filter out unchanged values and ignored attributes
-        $old = $this->filterAttributes($old);
-        $new = $this->filterAttributes($new);
+        // Filter out ignored attributes
+        $filteredOld = $this->filterAttributes($old);
+        $filteredNew = $this->filterAttributes($new);
 
         if ($this->logOnlyDirty) {
-            $old = array_intersect_key($old, array_diff_assoc($new, $old));
-            $new = array_intersect_key($new, array_diff_assoc($new, $old));
-        }
+            // Only log fields that actually changed
+            $changedFields = [];
+            $oldValues = [];
+            $newValues = [];
 
-        if (!empty($old) || !empty($new)) {
+            foreach ($filteredNew as $key => $newValue) {
+                $oldValue = $filteredOld[$key] ?? null;
+                if ($oldValue !== $newValue) {
+                    $changedFields[] = $key;
+                    $oldValues[$key] = $oldValue;
+                    $newValues[$key] = $newValue;
+                }
+            }
+
+            // Also check for fields that were removed
+            foreach ($filteredOld as $key => $oldValue) {
+                if (!array_key_exists($key, $filteredNew)) {
+                    $changedFields[] = $key;
+                    $oldValues[$key] = $oldValue;
+                    $newValues[$key] = null;
+                }
+            }
+
+            if (!empty($changedFields)) {
+                $this->changes = [
+                    'old' => $oldValues,
+                    'attributes' => $newValues,
+                ];
+            }
+        } else {
+            // Log all values
             $this->changes = [
-                'old' => $old,
-                'attributes' => $new,
+                'old' => $filteredOld,
+                'attributes' => $filteredNew,
             ];
         }
 
@@ -146,40 +172,109 @@ class ActivityLogger
     }
 
     /**
-     * Save the activity log entry.
+     * Save the activity log entry with error handling.
      */
     public function save(): Activity
     {
-        // Auto-detect causer if not set
-        if (!$this->causer && Auth::check()) {
-            $this->causer = Auth::user();
+        try {
+            // Auto-detect causer if not set
+            if (!$this->causer && Auth::check()) {
+                $this->causer = Auth::user();
+            }
+
+            // Auto-generate description if not set
+            if (!$this->description) {
+                $this->description = $this->generateDescription();
+            }
+
+            // Validate data before saving
+            $this->validateActivityData();
+
+            // Create the activity log entry
+            $activity = Activity::create([
+                'log_name' => $this->logName,
+                'description' => $this->description,
+                'subject_type' => $this->subject?->getMorphClass(),
+                'subject_id' => $this->subject?->getKey(),
+                'event' => $this->event,
+                'causer_type' => $this->causer?->getMorphClass(),
+                'causer_id' => $this->causer?->getKey(),
+                'properties' => $this->properties,
+                'changes' => $this->changes,
+                'ip_address' => Request::ip(),
+                'user_agent' => Request::userAgent(),
+                'batch_uuid' => $this->getBatchUuid(),
+            ]);
+
+            // Reset the logger for next use
+            $this->reset();
+
+            return $activity;
+
+        } catch (\Exception $e) {
+            // Log the error but don't fail the main operation
+            \Log::warning('ActivityLogger: Failed to save activity log', [
+                'error' => $e->getMessage(),
+                'log_name' => $this->logName,
+                'event' => $this->event,
+                'subject' => $this->subject?->getMorphClass() . '#' . $this->subject?->getKey(),
+                'causer' => $this->causer?->getMorphClass() . '#' . $this->causer?->getKey(),
+            ]);
+
+            // Reset the logger
+            $this->reset();
+
+            // Return a dummy activity to prevent breaking the application
+            return new Activity([
+                'log_name' => $this->logName,
+                'description' => $this->description ?? 'Failed to log activity',
+                'event' => $this->event,
+                'created_at' => now(),
+            ]);
+        }
+    }
+
+    /**
+     * Validate activity data before saving.
+     */
+    protected function validateActivityData(): void
+    {
+        // Validate log name
+        if (empty($this->logName) || strlen($this->logName) > 255) {
+            throw new \InvalidArgumentException('Log name must be a non-empty string with max 255 characters');
         }
 
-        // Auto-generate description if not set
-        if (!$this->description) {
-            $this->description = $this->generateDescription();
+        // Validate description
+        if (!empty($this->description) && strlen($this->description) > 65535) {
+            throw new \InvalidArgumentException('Description exceeds maximum length of 65535 characters');
         }
 
-        // Create the activity log entry
-        $activity = Activity::create([
-            'log_name' => $this->logName,
-            'description' => $this->description,
-            'subject_type' => $this->subject?->getMorphClass(),
-            'subject_id' => $this->subject?->getKey(),
-            'event' => $this->event,
-            'causer_type' => $this->causer?->getMorphClass(),
-            'causer_id' => $this->causer?->getKey(),
-            'properties' => $this->properties,
-            'changes' => $this->changes,
-            'ip_address' => Request::ip(),
-            'user_agent' => Request::userAgent(),
-            'batch_uuid' => $this->getBatchUuid(),
-        ]);
+        // Validate event name
+        if (!empty($this->event) && strlen($this->event) > 255) {
+            throw new \InvalidArgumentException('Event name must be max 255 characters');
+        }
 
-        // Reset the logger for next use
-        $this->reset();
+        // Validate subject exists if specified
+        if ($this->subject && !$this->subject->exists) {
+            throw new \InvalidArgumentException('Subject model does not exist in database');
+        }
 
-        return $activity;
+        // Validate causer exists if specified
+        if ($this->causer && !$this->causer->exists) {
+            throw new \InvalidArgumentException('Causer model does not exist in database');
+        }
+
+        // Validate properties size
+        $propertiesJson = json_encode($this->properties);
+        if ($propertiesJson && strlen($propertiesJson) > 65535) {
+            throw new \InvalidArgumentException('Properties data exceeds maximum size of 65535 characters');
+        }
+
+        // Validate changes size
+        $changesJson = json_encode($this->changes);
+        if ($changesJson && strlen($changesJson) > 65535) {
+            throw new \InvalidArgumentException('Changes data exceeds maximum size of 65535 characters');
+        }
     }
 
     /**

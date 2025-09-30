@@ -11,10 +11,16 @@ use App\Rules\PreventCircularServiceReference;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\SanitizesHtml;
 use App\Traits\LogsActivity;
+use App\Traits\EagerLoadsRelationships;
 
 class Service extends Model
 {
-    use HasFactory, HasSlug, SanitizesHtml, LogsActivity;
+    use HasFactory, HasSlug, SanitizesHtml, LogsActivity, EagerLoadsRelationships;
+
+    /**
+     * The relationships that should be eager loaded by default.
+     */
+    protected $withDefault = ['parent', 'children'];
 
     /**
      * The "booted" method of the model.

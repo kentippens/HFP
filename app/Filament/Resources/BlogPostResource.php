@@ -17,11 +17,18 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\BulkAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Collection;
+use App\Services\ActivityLogger;
+use App\Traits\HandlesBulkOperations;
+use Filament\Notifications\Notification;
+use App\Exceptions\BlogWorkflowException;
 
 class BlogPostResource extends Resource
 {
+    use HandlesBulkOperations;
     protected static ?string $model = BlogPost::class;
 
     public static function getNavigationIcon(): ?string
@@ -256,11 +263,43 @@ class BlogPostResource extends Resource
                     ->columns(1),
                 Schemas\Components\Section::make('Publishing')
                     ->schema([
-                        Forms\Components\Toggle::make('is_published')
+                        Forms\Components\Select::make('status')
+                            ->options(BlogPost::STATUSES)
                             ->required()
-                            ->default(false),
+                            ->default(BlogPost::STATUS_DRAFT)
+                            ->reactive()
+                            ->afterStateUpdated(function ($state, Schemas\Set $set, $record) {
+                                if ($state === BlogPost::STATUS_PUBLISHED && !$record?->published_at) {
+                                    $set('published_at', now());
+                                }
+                            })
+                            ->disabled(fn ($record) => $record && !$record->canTransitionTo($record->status))
+                            ->helperText(fn ($record) => $record ? 'Current status: ' . $record->status_label : 'New posts start as drafts'),
                         Forms\Components\DateTimePicker::make('published_at')
-                            ->default(now()),
+                            ->label('Publish Date')
+                            ->visible(fn (Schemas\Get $get) => $get('status') === BlogPost::STATUS_PUBLISHED)
+                            ->required(fn (Schemas\Get $get) => $get('status') === BlogPost::STATUS_PUBLISHED),
+                        Forms\Components\Select::make('reviewer_id')
+                            ->label('Reviewer')
+                            ->relationship('reviewer', 'name')
+                            ->visible(fn (Schemas\Get $get) => in_array($get('status'), [BlogPost::STATUS_REVIEW, BlogPost::STATUS_PUBLISHED]))
+                            ->disabled(),
+                        Forms\Components\Textarea::make('review_notes')
+                            ->label('Review Notes')
+                            ->visible(fn (Schemas\Get $get) => in_array($get('status'), [BlogPost::STATUS_REVIEW, BlogPost::STATUS_PUBLISHED]))
+                            ->rows(3),
+                        Forms\Components\DateTimePicker::make('submitted_for_review_at')
+                            ->label('Submitted for Review')
+                            ->visible(fn (Schemas\Get $get) => $get('status') !== BlogPost::STATUS_DRAFT)
+                            ->disabled(),
+                        Forms\Components\DateTimePicker::make('reviewed_at')
+                            ->label('Reviewed At')
+                            ->visible(fn (Schemas\Get $get) => in_array($get('status'), [BlogPost::STATUS_PUBLISHED, BlogPost::STATUS_ARCHIVED]))
+                            ->disabled(),
+                        Forms\Components\TextInput::make('version')
+                            ->label('Version')
+                            ->disabled()
+                            ->default(1),
                     ]),
             ]);
     }
@@ -339,9 +378,14 @@ class BlogPostResource extends Resource
                     ->circular()
                     ->label('Thumbnail')
                     ->toggleable(),
-                Tables\Columns\IconColumn::make('is_published')
-                    ->boolean()
-                    ->label('Published'),
+                Tables\Columns\BadgeColumn::make('status')
+                    ->colors([
+                        'gray' => BlogPost::STATUS_DRAFT,
+                        'warning' => BlogPost::STATUS_REVIEW,
+                        'success' => BlogPost::STATUS_PUBLISHED,
+                        'danger' => BlogPost::STATUS_ARCHIVED,
+                    ])
+                    ->label('Status'),
                 Tables\Columns\IconColumn::make('include_in_sitemap')
                     ->boolean()
                     ->label('In Sitemap')
@@ -365,8 +409,9 @@ class BlogPostResource extends Resource
                     ->relationship('blogCategory', 'name')
                     ->preload()
                     ->searchable(),
-                Tables\Filters\TernaryFilter::make('is_published')
-                    ->label('Published Status'),
+                Tables\Filters\SelectFilter::make('status')
+                    ->options(BlogPost::STATUSES)
+                    ->label('Status'),
             ])
             ->actions([
                 EditAction::make(),
@@ -374,6 +419,289 @@ class BlogPostResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
+                    BulkAction::make('submit_for_review')
+                        ->label('Submit for Review')
+                        ->icon('heroicon-o-paper-airplane')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $count = 0;
+                            $errors = [];
+
+                            foreach ($records as $record) {
+                                try {
+                                    if ($record->status === BlogPost::STATUS_DRAFT && $record->submitForReview()) {
+                                        $count++;
+                                    }
+                                } catch (BlogWorkflowException $e) {
+                                    $errors[] = "Post '{$record->name}': {$e->getMessage()}";
+                                } catch (\Exception $e) {
+                                    $errors[] = "Post '{$record->name}': Unexpected error";
+                                    \Log::error("Submit for review failed for post {$record->id}: " . $e->getMessage());
+                                }
+                            }
+
+                            if ($count > 0) {
+                                Notification::make()
+                                    ->title("Submitted {$count} post(s) for review")
+                                    ->success()
+                                    ->send();
+                            }
+
+                            if (!empty($errors)) {
+                                Notification::make()
+                                    ->title('Some posts could not be submitted')
+                                    ->body(implode("\n", $errors))
+                                    ->danger()
+                                    ->send();
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('publish')
+                        ->label('Publish')
+                        ->icon('heroicon-o-check-circle')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            $count = 0;
+                            $errors = [];
+                            $reviewerId = auth()->id();
+
+                            if (!$reviewerId) {
+                                Notification::make()
+                                    ->title('Authentication required')
+                                    ->body('You must be logged in to publish posts')
+                                    ->danger()
+                                    ->send();
+                                return;
+                            }
+
+                            foreach ($records as $record) {
+                                try {
+                                    if ($record->status === BlogPost::STATUS_REVIEW && $record->approve($reviewerId)) {
+                                        $count++;
+                                    }
+                                } catch (BlogWorkflowException $e) {
+                                    $errors[] = "Post '{$record->name}': {$e->getMessage()}";
+                                } catch (\Exception $e) {
+                                    $errors[] = "Post '{$record->name}': Unexpected error";
+                                    \Log::error("Publish failed for post {$record->id}: " . $e->getMessage());
+                                }
+                            }
+
+                            if ($count > 0) {
+                                Notification::make()
+                                    ->title("Published {$count} post(s)")
+                                    ->success()
+                                    ->send();
+                            }
+
+                            if (!empty($errors)) {
+                                Notification::make()
+                                    ->title('Some posts could not be published')
+                                    ->body(implode("\n", $errors))
+                                    ->danger()
+                                    ->send();
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('archive')
+                        ->label('Archive')
+                        ->icon('heroicon-o-archive-box')
+                        ->color('danger')
+                        ->requiresConfirmation()
+                        ->modalHeading('Archive Posts')
+                        ->modalDescription('Are you sure you want to archive these posts? They will no longer be visible on the website.')
+                        ->action(function (Collection $records): void {
+                            $count = 0;
+                            $errors = [];
+
+                            foreach ($records as $record) {
+                                try {
+                                    if ($record->archive()) {
+                                        $count++;
+                                    }
+                                } catch (BlogWorkflowException $e) {
+                                    $errors[] = "Post '{$record->name}': {$e->getMessage()}";
+                                } catch (\Exception $e) {
+                                    $errors[] = "Post '{$record->name}': Unexpected error";
+                                    \Log::error("Archive failed for post {$record->id}: " . $e->getMessage());
+                                }
+                            }
+
+                            if ($count > 0) {
+                                Notification::make()
+                                    ->title("Archived {$count} post(s)")
+                                    ->success()
+                                    ->send();
+                            }
+
+                            if (!empty($errors)) {
+                                Notification::make()
+                                    ->title('Some posts could not be archived')
+                                    ->body(implode("\n", $errors))
+                                    ->danger()
+                                    ->send();
+                            }
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_category')
+                        ->label('Change Category')
+                        ->icon('heroicon-o-tag')
+                        ->form([
+                            Forms\Components\Select::make('category_id')
+                                ->label('Category')
+                                ->options(BlogCategory::pluck('name', 'id'))
+                                ->required(),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['category_id' => $data['category_id']],
+                                'category update',
+                                'bulk_category_update'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_author')
+                        ->label('Change Author')
+                        ->icon('heroicon-o-user')
+                        ->form([
+                            Forms\Components\Select::make('author_id')
+                                ->label('Author')
+                                ->relationship('author', 'name')
+                                ->searchable()
+                                ->preload()
+                                ->required(),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['author_id' => $data['author_id']],
+                                'author update',
+                                'bulk_author_update'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('include_in_sitemap')
+                        ->label('Include in Sitemap')
+                        ->icon('heroicon-o-globe-alt')
+                        ->color('info')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['include_in_sitemap' => true],
+                                'sitemap inclusion',
+                                'bulk_sitemap_include'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('exclude_from_sitemap')
+                        ->label('Exclude from Sitemap')
+                        ->icon('heroicon-o-eye-slash')
+                        ->color('gray')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['include_in_sitemap' => false],
+                                'sitemap exclusion',
+                                'bulk_sitemap_exclude'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('update_meta_robots')
+                        ->label('Update Meta Robots')
+                        ->icon('heroicon-o-magnifying-glass')
+                        ->form([
+                            Forms\Components\Select::make('meta_robots')
+                                ->label('Meta Robots')
+                                ->options(\App\Models\BlogPost::META_ROBOTS_OPTIONS)
+                                ->required(),
+                        ])
+                        ->action(function (Collection $records, array $data): void {
+                            static::executeBulkUpdate(
+                                $records,
+                                ['meta_robots' => $data['meta_robots']],
+                                'meta robots update',
+                                'bulk_meta_robots_update'
+                            );
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('duplicate')
+                        ->label('Duplicate')
+                        ->icon('heroicon-o-document-duplicate')
+                        ->color('secondary')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records): void {
+                            static::executeBulkDuplicate($records, ' (Copy)');
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
+                    BulkAction::make('export')
+                        ->label('Export to CSV')
+                        ->icon('heroicon-o-arrow-down-tray')
+                        ->color('primary')
+                        ->action(function (Collection $records): \Symfony\Component\HttpFoundation\StreamedResponse {
+                            $fileName = 'blog-posts-export-' . date('Y-m-d-His') . '.csv';
+
+                            return response()->streamDownload(function () use ($records) {
+                                $handle = fopen('php://output', 'w');
+
+                                // Add CSV headers
+                                fputcsv($handle, [
+                                    'ID',
+                                    'Title',
+                                    'Slug',
+                                    'Category',
+                                    'Author',
+                                    'Excerpt',
+                                    'Published',
+                                    'Published Date',
+                                    'In Sitemap',
+                                    'Meta Title',
+                                    'Meta Description',
+                                    'Meta Robots',
+                                    'Created At',
+                                    'Updated At',
+                                ]);
+
+                                // Add data rows
+                                foreach ($records as $post) {
+                                    fputcsv($handle, [
+                                        $post->id,
+                                        $post->name,
+                                        $post->slug,
+                                        $post->blogCategory?->name ?? $post->category ?? '',
+                                        $post->author?->name ?? $post->author ?? '',
+                                        $post->excerpt ?? '',
+                                        $post->is_published ? 'Yes' : 'No',
+                                        $post->published_at?->format('Y-m-d H:i:s') ?? '',
+                                        $post->include_in_sitemap ? 'Yes' : 'No',
+                                        $post->meta_title ?? '',
+                                        $post->meta_description ?? '',
+                                        $post->meta_robots ?? '',
+                                        $post->created_at,
+                                        $post->updated_at,
+                                    ]);
+                                }
+
+                                fclose($handle);
+
+                                ActivityLogger::logExport('blog posts', $records->count());
+                            }, $fileName);
+                        })
+                        ->deselectRecordsAfterCompletion(),
+
                     DeleteBulkAction::make(),
                 ]),
             ])
@@ -394,5 +722,66 @@ class BlogPostResource extends Resource
             'create' => Pages\CreateBlogPost::route('/create'),
             'edit' => Pages\EditBlogPost::route('/{record}/edit'),
         ];
+    }
+
+    /**
+     * Determine if the user can view any blog posts.
+     */
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('viewAny', BlogPost::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can create blog posts.
+     */
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('create', BlogPost::class) ?? false;
+    }
+
+    /**
+     * Determine if the user can edit the blog post.
+     */
+    public static function canEdit($record): bool
+    {
+        return auth()->user()?->can('update', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can delete the blog post.
+     */
+    public static function canDelete($record): bool
+    {
+        return auth()->user()?->can('delete', $record) ?? false;
+    }
+
+    /**
+     * Determine if the user can view the blog post.
+     */
+    public static function canView($record): bool
+    {
+        return auth()->user()?->can('view', $record) ?? false;
+    }
+
+    /**
+     * Apply authorization to Eloquent query.
+     */
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        // If user can only view their own posts, filter by author
+        if (auth()->user() && !auth()->user()->isAdmin() && !auth()->user()->hasRole('manager')) {
+            if (auth()->user()->hasPermission('blog.view')) {
+                // Can view all posts
+                return $query;
+            } elseif (auth()->user()->hasPermission('blog.create') || auth()->user()->hasPermission('blog.edit')) {
+                // Can only view/edit their own posts
+                return $query->where('author_id', auth()->id());
+            }
+        }
+
+        return $query;
     }
 }

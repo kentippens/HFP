@@ -80,6 +80,9 @@
         <link rel="stylesheet" href="{{ asset('css/pages.min.css') }}?v={{ filemtime(public_path('css/pages.min.css')) }}">
     @endif
 
+    <!-- Service Pages H1 Styling -->
+    <link rel="stylesheet" href="{{ asset('css/service-h1-styles.css') }}?v={{ filemtime(public_path('css/service-h1-styles.css')) }}">
+
     @stack('styles')
     
     <!-- JSON-LD Structured Data -->

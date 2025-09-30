@@ -17,11 +17,12 @@
     {{-- Service Image (if exists) --}}
     @if($service->image && $service->image_url)
     <figure class="service-image mb-4" role="img" aria-label="{{ $service->name }} service image">
-        <img src="{{ $service->image_url }}" 
-             alt="{{ $service->meta_image_alt ?? 'Image showing ' . $service->name . ' service' }}" 
+        <img src="{{ $service->image_url }}"
+             alt="{{ $service->meta_image_alt ?? 'Image showing ' . $service->name . ' service' }}"
              class="img-fluid"
              loading="lazy"
-             onerror="this.style.display='none'; this.parentElement.style.display='none';">
+             data-hide-on-error="true"
+             data-hide-parent-on-error="true">
     </figure>
     @endif
 
@@ -319,4 +320,8 @@
         }
     }
 </style>
+@endpush
+
+@push('scripts')
+<script src="{{ asset('js/image-error-handler.js') }}" defer></script>
 @endpush

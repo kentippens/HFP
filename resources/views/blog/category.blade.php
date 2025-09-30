@@ -27,6 +27,7 @@
                 <div class="blog-posts">
                     @forelse($posts as $post)
                     <div class="blog-single-post">
+                        @if($post->thumbnail_url)
                         <div class="bixol-img-wrapper">
                             <a href="{{ route('blog.show', $post->slug) }}">
                                 <img src="{{ $post->thumbnail_url }}" alt="{{ $post->name }}">
@@ -35,6 +36,7 @@
                                 <span>{{ $post->published_at->format('d M') }}</span>
                             </div>
                         </div>
+                        @endif
                         <div class="bixol-blog-content">
                             @if($post->blogCategory)
                             <a href="{{ route('blog.category', $post->blogCategory->slug) }}" class="bixol-category">{{ $post->blogCategory->name }}</a>
