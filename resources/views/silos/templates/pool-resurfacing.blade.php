@@ -36,6 +36,7 @@
                     <h1 class="mb-4">Permanent Pool Resurfacing with 25-Year Warranty – North & Central Texas' Exclusive Fibre Tech™ Solution</h1>
                     <p class="lead"><strong>Stop replastering every 7 years.</strong> Your Texas pool deserves Hexagon Fiberglass Pools' permanent resurfacing solution that eliminates $43,900 in recurring costs over 20 years.</p><br>
                     <p>As North Texas' exclusive Fibre Tech™ dealer, Hexagon Fiberglass Pools converts deteriorating gunite and plaster pools into maintenance-free fiberglass surfaces—backed by the industry's only 25-year manufacturer warranty.</p>
+                    <br>
                     <div class="alert alert-warning mt-3">
                         <strong>March installations 70% booked. Lock in 2026 pricing before 8% increase on January 1, 2026.</strong>
                     </div>

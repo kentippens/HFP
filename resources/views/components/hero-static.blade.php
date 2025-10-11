@@ -4,7 +4,7 @@
     <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">Texas #1 Pool Resurfacing & Conversion Company</h1>
-            <p class="hero-description">Transform your property with our comprehensive service solutions. From pristine House and Pool Cleaning to Professional Vinyl Fence and Gutter Installations, we deliver quality results that enhance your home and give you back your valuable time.</p>
+            <p class="hero-description">Transform your pool with Texas' premier fiberglass resurfacing experts. From complete pool conversions to expert repairs and stunning remodels, we deliver lasting quality with our advanced fiberglass technology. Serving all of Texas with <strong style="color: #ffc107; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">25+ year warranties</strong> and unmatched craftsmanship.</p>
             <a href="/pool-repair-quote" class="btn btn-plus btn-plus-primary btn-plus-round">
                 Let's Transform Your Pool
             </a>

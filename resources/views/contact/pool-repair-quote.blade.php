@@ -100,58 +100,29 @@
 <!-- Service Areas Section -->
 <section class="service-areas-section">
     <div class="container">
-        <h2 class="section-title text-center">We Service Texas & Surrounding States</h2>
-        
-        <div class="row mt-5">
-            <div class="col-md-3 col-6">
+        <h2 class="section-title text-center">Proudly Serving Texas from Our Dallas Location</h2>
+        <p class="text-center lead mb-5" style="color: #6c757d; font-size: 1.1rem;">
+            Based in Dallas, we provide professional pool resurfacing, repair, and remodeling services throughout the great state of Texas. From the Panhandle to the Gulf Coast, our team brings expert craftsmanship and decades of experience to every corner of the Lone Star State.
+        </p>
+
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-6 col-lg-4">
                 <div class="area-card">
                     <div class="area-icon">📍</div>
                     <h4>Dallas Office</h4>
-                    <p>Serving Dallas-Fort Worth Metroplex</p>
-                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="area-card">
-                    <div class="area-icon">📍</div>
-                    <h4>San Antonio Office</h4>
-                    <p>Serving San Antonio & Hill Country</p>
-                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="area-card">
-                    <div class="area-icon">📍</div>
-                    <h4>Austin Office</h4>
-                    <p>Serving Austin & Surrounding Areas</p>
-                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="area-card">
-                    <div class="area-icon">📍</div>
-                    <h4>Houston Office</h4>
-                    <p>Serving Greater Houston Area</p>
+                    <p>Proudly serving all of Texas including Dallas-Fort Worth, Houston, San Antonio, Austin, and everywhere in between</p>
                     <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
                 </div>
             </div>
         </div>
-        
-        <div class="row mt-4">
-            <div class="col-md-3 col-6">
-                <div class="area-card">
-                    <div class="area-icon">📍</div>
-                    <h4>Oklahoma Office</h4>
-                    <p>Serving Oklahoma City & Tulsa</p>
-                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="area-card">
-                    <div class="area-icon">📍</div>
-                    <h4>Houston Office</h4>
-                    <p>Serving Greater Houston Area</p>
-                    <a href="tel:972-789-2983" class="area-phone">(972) 789-2983</a>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="texas-coverage-info text-center">
+                    <h5 style="color: #2c3e50; font-weight: 600; margin-bottom: 20px;">Our Statewide Coverage</h5>
+                    <p style="color: #6c757d; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                        No matter where you are in Texas, our expert team is ready to transform your pool. We service residential and commercial properties across all major metropolitan areas including Dallas-Fort Worth, Houston, Austin, San Antonio, El Paso, Corpus Christi, and surrounding communities. Whether you need emergency repairs, complete resurfacing, or custom remodeling, we bring quality service directly to your location.
+                    </p>
                 </div>
             </div>
         </div>

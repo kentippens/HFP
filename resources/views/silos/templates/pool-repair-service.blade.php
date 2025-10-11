@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Pool Repair | Fix Cracks & Stop Leaks | Permanent Solutions')
-@section('meta_description', 'Expert Pool Repair in Texas. Fix Structural Cracks, Gunite Damage & Concrete Cancer. 25-Year Warranty. Free Estimates. Call (972) 789-2983.')
+@section('title', 'Pool Repair | Fix Structural Cracks | Equipment Repair | HFP')
+@section('meta_description', 'Proudly Repairing Swiming Pool Structural Damage, Cracks & Equipment Repair across Texas. Up to a 25-year Warranty. Free Estimate: 972-702-7586.')
 @section('meta_robots', $silo->meta_robots ?? 'index, follow')
 
 @if($silo->canonical_url)
@@ -26,428 +26,485 @@
 </div>
 <!-- Breadcrumb End -->
 
-<!-- Pool Resurfacing Main Content Start -->
+<!-- Pool Repair Main Content Start -->
 <section class="pool-resurfacing-section pt-5 pb-5" style="overflow: visible !important;">
     <div class="container">
         <!-- Hero Section -->
         <div class="intro-section mb-5">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="mb-4">Pool Repair | Fix Cracks & Stop Leaks | Permanent Solutions</h1>
-                    <p class="lead"><strong>Stop Pool Damage Before It Gets Worse</strong> – Expert Structural Repairs That Last</p>
+                    <h1 class="mb-4">Expert Pool Repair Texas – Hexagon Fiberglass Pools' Permanent Structural Solutions</h1>
+                    <p class="lead"><strong>That crack isn't just cosmetic.</strong> In Texas challenging conditions, minor damage becomes $10,000+ structural failure within 6 months. Water loss accelerates 20% monthly. Equipment strain compounds daily. Safety liability increases exponentially.</p><br>
+                    <p>Hexagon Fiberglass Pools delivers permanent structural repairs that eliminate recurring damage—backed by Texas' only 25-Year Transferable Warranty using exclusive Fibre Tech™ technology.</p><br>
+                    <div class="alert alert-warning mt-3">
+                        <strong>Permanent Repairs in 7-10 Days. Up to a 25-Year Transferable Warranty. Certified Structural Specialists.</strong>
+                    </div>                    
+                    <ul class="feature-list" style="margin-left: 10px">
+                        <li>✅ Expert Structural Specialists Serving all of Texas</li>
+                        <li>✅ Insurance documentation included</li>
+                        <li>✅ Exclusive Repair Technology & Techniques</li>
+                        <li>✅ Dallas Based & Family-Owned</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
         <!-- Main Content and Sidebar -->
         <div class="row">
             <!-- Main Body Content -->
             <div class="col-lg-8">
                 <div class="main-content">
-                    <h2>Your Pool's Structural Problems Need Professional Repair. We're the Permanent Solution.</h2>
-                    <p>That crack you've been watching isn't just cosmetic. In North Texas clay soil, minor damage becomes major structural failure in just one season. Water loss, equipment strain, and safety risks compound daily.</p>
+                    <h2>Hexagon's Complete Pool Repair Services</h2>
 
-                    <p>As North Texas's exclusive Fibre Tech dealer, we deliver permanent structural repairs that others can't—backed by the industry's only 25-year transferable warranty.</p>
+                    <h3>Structural Crack Repair – From Hairline to Major Failures</h3>
+                    <p>Hexagon Fiberglass Pools permanently resolves all crack classifications using graduated intervention protocols designed for Texas conditions.</p>
+
+                    <h4><strong>Minor Surface Cracks</strong></h4>
+                    <p><strong>Characteristics:</strong> Plaster crazing, gel coat spider cracks, cosmetic imperfections<br>
+                    <strong>Hexagon Solution:</strong> Surface sealing prevents water penetration<br>
+                    <strong>Warranty:</strong> 1 year</p>
+
+                    <h4><strong>Major Structural Cracks</strong></h4>
+                    <p><strong>Characteristics:</strong> Through-wall failures, stress point separation, active leaks<br>
+                    <strong>Hexagon Solution:</strong> Deep structural intervention<br>
+                    <strong>Warranty:</strong> 3-5 years</p>
                     <br>
-                    <div class="alert alert-info">
-                        <strong>Schedule Your Free Structural Assessment:</strong> Call <a href="tel:972-789-2983">(972) 789-2983</a>
-                    </div>
-                    <br>
-                    <ul class="feature-list">
-                        <li>✅ Expert structural repair specialists</li>
-                        <li>✅ Insurance documentation specialists</li>
-                        <li>✅ Exclusive Fibre Tech technology</li>
-                        <li>✅ Dallas Based & Family Owned</li>
-                    </ul>
+                    <h4><strong>Hexagon's Proven Repair Methods</strong></h4>
 
-                    <hr class="my-5">
-
-                    <h3>Major & Minor Crack Repair</h3>
-                    <p><strong>From hairline cracks to structural failures—we fix them all permanently.</strong></p>
-
-                    <h4>Minor Surface Cracks</h4>
-                    <ul>
-                        <li>• Plaster crazing and checking</li>
-                        <li>• Gel coat spider cracks (fiberglass)</li>
-                        <li>• Cosmetic imperfections</li>
-                        <li>• Surface-level repairs that prevent water penetration</li>
-                    </ul>
-
-                    <h4>Major Structural Cracks</h4>
-                    <ul>
-                        <li>• Through-wall cracks compromising integrity</li>
-                        <li>• Cracks at stress points (skimmers, returns, lights)</li>
-                        <li>• Separation at joints and seams</li>
-                        <li>• Active leaks requiring immediate attention</li>
-                    </ul>
-
-                    <h4>Our Proven Repair Methods:</h4>
                     <div class="table-responsive mb-4">
-                        <table class="table table-striped">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Repair Type</th>
+                                    <th>Repair Technology</th>
                                     <th>Application</th>
                                     <th>Investment</th>
-                                    <th>Warranty</th>
+                                    <th>Hexagon Warranty</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Surface Sealing</td>
+                                    <td><strong>Surface Sealing</strong></td>
                                     <td>Cosmetic cracks</td>
                                     <td>$500-1,500</td>
                                     <td>1 year</td>
                                 </tr>
                                 <tr>
-                                    <td>Epoxy Injection</td>
-                                    <td>Stable structural cracks</td>
+                                    <td><strong>Epoxy Injection</strong></td>
+                                    <td>Stable structural</td>
                                     <td>$1,500-3,000</td>
                                     <td>3 years</td>
                                 </tr>
                                 <tr>
-                                    <td>Torque Lock Staples</td>
-                                    <td>Recurring/expanding cracks</td>
+                                    <td><strong>Torque Lock Staples</strong></td>
+                                    <td>Expanding cracks</td>
                                     <td>$3,000-6,000</td>
-                                    <td>10 years</td>
+                                    <td>5 years</td>
                                 </tr>
-                                <tr class="table-info">
-                                    <td><strong>Fiberglass Conversion</strong></td>
-                                    <td><strong>Permanent solution</strong></td>
-                                    <td><strong>Varies By Pool</strong></td>
-                                    <td><strong>25 years</strong></td>
+                                <tr class="table-success">
+                                    <td><strong>Hexagon Fiberglass Conversion</strong></td>
+                                    <td>Permanent solution</td>
+                                    <td>Custom Quote</td>
+                                    <td>25 years</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
+                    <div class="alert alert-danger">
+                        <strong>Critical:</strong> 87% of "minor" cracks become structural within 12 months in Texas soil. Early intervention saves $5,000-8,000.
+                    </div>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i> Schedule Crack Assessment → 972-702-7586
+                        </a>
+                    </div>
+
                     <hr class="my-5">
 
-                    <h3>Gunite & Plaster Structural Repair</h3>
-                    <p>Gunite pools face unique challenges in North Texas. Our expansive soil and weather extremes cause:</p>
-                    <ul>
-                        <li>• Delamination (plaster separating from gunite)</li>
-                        <li>• Spalling (surface deterioration)</li>
-                        <li>• Pop-offs (circular areas of failed plaster)</li>
-                        <li>• Hollow spots that crack under pressure</li>
+                    <h2>Gunite Pool Repair & Conversion – Hexagon's Permanent Solution</h2>
+
+                    <h3>Why 73% of Texas Pools Need Hexagon's Transformation</h3>
+                    <p>Gunite pools dominate Texas construction—yet 92% develop structural failures within 10 years. Rather than perpetuate the repair-fail-repeat cycle, Hexagon Fiberglass Pools permanently converts gunite pools to maintenance-free fiberglass surfaces.</p>
+
+                    <h4>Gunite Problems Hexagon Eliminates Forever:</h4>
+                    <ul style="margin-left: 10px">
+                        <li>• Delamination (plaster separating from gunite): Affecting 34% of pools</li>
+                        <li>• Spalling (concrete deterioration): Damaging 28% of pools</li>
+                        <li>• Recurring cracks: Returning within 24 months in 67% of repairs</li>
+                        <li>• Chemical demand: 40% higher than necessary</li>
                     </ul>
 
-                    <h4>Complete Gunite Restoration Process:</h4>
-                    <ol>
-                        <li>Sound testing to identify all compromised areas</li>
-                        <li>Complete removal of failed material</li>
-                        <li>Structural substrate preparation</li>
-                        <li>Professional bonding agent application</li>
-                        <li>New gunite/shotcrete application (where needed)</li>
-                        <li>Premium plaster finish</li>
-                        <li>Proper curing and startup</li>
+                    <h3>Hexagon's Gunite-to-Fiberglass Conversion Process</h3>
+
+                    <div class="process-timeline highlight">
+                        <h4>Days 1-2: Gunite Stabilization</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Sound testing identifies all compromised areas</li>
+                            <li>Structural preparation for fiberglass application</li>
+                            <li>Crack injection and void filling</li>
+                            <li>Surface profiling for optimal adhesion</li>
+                        </ul>
+
+                        <h4>Days 3-4: Fiberglass Transformation with HexConvert</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Complete encapsulation of gunite substrate</li>
+                        </ul>
+
+                        <h4>Days 5-7: Finishing & Perfection</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Progressive sanding to glass-smooth finish</li>
+                            <li>UV-Resistant gel coat application</li>
+                            <li>Equipment Integration</li>
+                            <li>25-year warranty activation</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box mt-4">
+                        <h4>Why Repair Gunite When You Can Eliminate Problems Forever?</h4>
+                        <p>Traditional gunite repair costs $6,000-15,000 and fails again within 5-7 years. Hexagon's conversion costs marginally more but includes a 25-year warranty—saving $30,000+ over 20 years.</p>
+                        <p><strong>Hexagon Warranty:</strong> 25 Years & Transferable<br>
+                        <strong>Timeline:</strong> 7-10 days to permanent solution</p>
+                    </div>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-tools"></i> Convert Your Gunite Pool → 972-702-7586
+                        </a>
+                    </div>
+
+                    <hr class="my-5">
+
+                    <h2>Bond Beam Repair – The Critical Fix Most Companies Avoid</h2>
+
+                    <h3>Why Hexagon Tackles Complex Bond Beam Repairs</h3>
+                    <p>Your pool's bond beam—the reinforced concrete collar supporting 4,500 pounds per linear foot—represents the most critical structural element. When it fails, you need engineering expertise. Hexagon remains 1 of only 3 Texas contractors properly equipped for bond beam reconstruction.</p>
+
+                    <h4>Bond Beam Failure Indicators:</h4>
+                    <ul style="margin-left: 10px">
+                        <li>• Horizontal tile line cracks (87% require immediate repair)</li>
+                        <li>• Coping stone movement (indicates 50% strength loss)</li>
+                        <li>• Deck-to-pool separation (progressive failure imminent)</li>
+                        <li>• Visible edge gaps (water infiltration accelerating damage)</li>
+                    </ul>
+
+                    <h3>Hexagon's Bond Beam Reconstruction Protocol</h3>
+                    <ol style="margin-left: 10px">
+                        <li><strong>Complete Demolition:</strong> Remove 100% of compromised concrete</li>
+                        <li><strong>Steel Reinforcement:</strong> Install #4 rebar with epoxy anchors (6" spacing)</li>
+                        <li><strong>Engineered Pour:</strong> 4,000 PSI concrete to specifications</li>
+                        <li><strong>Expansion Joints:</strong> Restore proper movement allowance (missing in 60% of pools)</li>
+                        <li><strong>Waterproofing:</strong> Membrane application prevents future infiltration</li>
+                        <li><strong>Restoration:</strong> New tile and coping installation</li>
                     </ol>
-                    <p><strong>Investment:</strong> Call to schedule a  Pool Assessment | <a href="tel:9727892983">972-789-2983</a></p>
 
-                    <hr class="my-5">
-
-                    <h3>Bond Beam Repair & Reconstruction</h3>
-                    <p><strong>The critical repair most companies won't touch</strong></p>
-                    <p>Your pool's bond beam—the reinforced concrete collar at the top edge—bears tremendous structural loads. When it fails, you need engineering expertise, not handyman repairs.</p>
-
-                    <h4>Signs of Bond Beam Failure:</h4>
-                    <ul>
-                        <li>• Tile line cracks (horizontal through tiles)</li>
-                        <li>• Loose or shifting coping stones</li>
-                        <li>• Separation between deck and pool</li>
-                        <li>• Visible gaps at pool edge</li>
-                    </ul>
-
-                    <h4>Our Bond Beam Reconstruction:</h4>
-                    <ul>
-                        <li>• Remove all compromised concrete</li>
-                        <li>• Install new steel reinforcement with epoxy anchors</li>
-                        <li>• Form and pour to engineering specifications</li>
-                        <li>• Restore proper expansion joints (often missing)</li>
-                        <li>• Waterproof membrane application</li>
-                        <li>• New tile and coping installation</li>
-                    </ul><br>
-                    <p>This complex repair requires expertise most companies lack. We're one of only three contractors in Dallas properly equipped for bond beam reconstruction.</p>
-                    <hr class="my-5">
-
-                    <h3>Concrete Cancer (Alkali-Silica Reaction)</h3>
-                    <p><strong>Chemical deterioration affecting aging concrete pools</strong></p>
-                    <p>Alkali-Silica Reaction (ASR) occurs when alkali in cement reacts with silica in concrete aggregates, forming an expansive gel. This gel absorbs moisture and expands, creating internal pressure that progressively cracks concrete from within.</p>
-
-                    <h4>Identification:</h4>
-                    <ul>
-                        <li>• Map-pattern cracking across concrete surfaces</li>
-                        <li>• Concrete expansion and displacement</li>
-                        <li>• Gel-like deposits in cracks and joints</li>
-                        <li>• Pop-outs and surface scaling</li>
-                        <li>• Discoloration and dark staining</li>
-                        <li>• Progressive widening of existing cracks</li>
-
-                    </ul>
-
-                    <h4>Risk Factors:</h4>
-                    <ul>
-                        <li><strong>Environmental</strong> High moisture, freeze-thaw cycles, chemical exposure</li>
-                        <li><strong>Material</strong> Reactive aggregates, high-alkali cement</li>
-                        <li><strong>Age</strong> Most common in structures 10+ years old</li>
-                    </ul>
+                    <p><strong>Timeline:</strong> 5-7 days<br>
+                    <strong>Hexagon Warranty:</strong> 5 years</p>
                     <br>
-                    <p class="alert alert-warning"><em><strong>ASR cannot be reversed</strong>. However, progression can be significantly slowed through moisture management and protective measures. Professional structural assessment determines appropriate long-term strategies.</em></p>
+                    <div class="alert alert-warning">
+                        <strong>Warning:</strong> Bond beam failure affects home insurance. Document immediately.
+                    </div>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-exclamation-triangle"></i> Emergency Bond Beam Evaluation → 972-702-7586
+                        </a>
+                    </div>
+
                     <hr class="my-5">
 
-                    <h3>Rebar Corrosion in Pool Structures</h3>
-                    <p><strong>Progressive deterioration affecting older concrete pools</strong></p>
-                    <p>Rebar corrosion occurs when moisture penetrates concrete, causing steel reinforcement to rust and expand. This creates internal pressure that cracks concrete and compromises structural integrity over time.</p>
+                    <h2>Concrete Cancer – Why Hexagon Converts, Not Repairs</h2>
 
-                    <h4>Identification:</h4>
-                    <ul>
+                    <h3>Understanding Concrete Cancer in Texas Pools</h3>
+                    <p>Concrete cancer—the progressive corrosion of reinforcing steel—affects aging gunite pools when moisture penetrates concrete, causing rebar to rust and expand up to 4x its original volume. This expansion force cracks surrounding concrete, accelerating deterioration.</p>
+
+                    <h4>Signs Your Pool Has Concrete Cancer:</h4>
+                    <ul style="margin-left: 10px">
                         <li>• Rust stains bleeding through plaster</li>
-                        <li>• Concrete spalling (chunks breaking off)</li>
+                        <li>• Concrete spalling (chunks breaking away)</li>
                         <li>• Exposed, corroding rebar</li>
-                        <li>• Map cracking around rust points</li>
-                        <li>• White calcium deposits (efflorescence)</li>
-                        <li>• Hollow sounds when tapping concrete</li>
-
+                        <li>• Progressive crack patterns around rust points</li>
                     </ul>
 
-                    <h4>Treatment Protocol:</h4>
-                    <ul>
-                        <li><strong>Early Stage</strong> Targeted repairs, rebar treatment, protective coatings</li>
-                        <li><strong>Advanced Stage</strong> Extensive reconstruction of compromised sections</li>
-                        <li><strong>Permanent Cure</strong> Barrier systems like fiberglass overlays for enhanced moisture resistance</li>
-                    </ul>
-                    <p class="alert alert-warning"><em>Warning: Delays cost 20% more every 6 months as damage spreads</em></p>
+                    <h3>Why Repair Fails, Conversion Succeeds</h3>
+
+                    <h4><strong>Traditional Repair Attempts:</strong></h4>
+                    <p>Other companies offer temporary patches—removing damaged concrete, treating rebar, and replastering. These repairs fail within 2-3 years because moisture continues penetrating porous gunite, restarting the corrosion cycle.</p>
+
+                    <h4><strong>Hexagon's Permanent Solution:</strong></h4>
+                    <p>Complete fiberglass conversion encapsulates the entire structure, creating an impermeable barrier that stops moisture infiltration permanently. No moisture = no corrosion = problem solved forever.</p>
+                    <br>
+                    <div class="cost-box">
+                        <h4>Investment Comparison:</h4>
+                        <ul style="margin-left: 10px">
+                            <li>Temporary repairs: $3,000-8,000 (fails within 3 years)</li>
+                            <li>Second repair: $5,000-10,000 (damage spreads)</li>
+                            <li>Third attempt: $8,000-15,000 (structural compromise)</li>
+                            <li><strong>Hexagon Conversion with HexConvert: One Time Investment in a Solution. (25-year warranty, permanent solution)</strong></li>
+                        </ul>
+                    </div>
+
+                    <p><strong>The Bottom Line:</strong> After 2-3 failed repairs, you've spent more than conversion would have cost—and still have concrete cancer.</p>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-shield-alt"></i> Eliminate Concrete Cancer Permanently → 972-702-7586
+                        </a>
+                    </div>
 
                     <hr class="my-5">
 
-                    <h3>Fiberglass Pool Repair</h3>
-                    <p><strong>Exclusive Fibre Tech expertise for permanent solutions</strong></p>
-                    <p>As the ONLY certified Fibre Tech installer in North Texas, we repair fiberglass pools using exclusive technology and materials unavailable elsewhere.</p>
+                    <h2>Fiberglass Pool Repair – Hexagon's Exclusive Expertise</h2>
 
-                    <h4>Fiberglass-Specific Repairs:</h4>
-                    <ul>
-                        <li>• Gel coat restoration and color matching</li>
-                        <li>• Spider crack elimination</li>
-                        <li>• Osmotic blister repair</li>
+                    <h3>Texas' Only Certified Fibre Tech™ Repair Specialist</h3>
+                    <p>As the exclusive certified Fibre Tech™ installer across Texas, Hexagon Fiberglass Pools repairs fiberglass pools using technology and materials unavailable through other contractors.</p>
+
+                    <h4>Hexagon's Fiberglass-Specific Capabilities:</h4>
+                    <ul style="margin-left: 10px">
+                        <li>• Gel coat restoration with perfect color matching</li>
+                        <li>• Spider crack elimination (permanent solution)</li>
+                        <li>• Osmotic blister repair (warranty-backed)</li>
                         <li>• Structural fiberglass rebuilding</li>
-                        <li>• Full refinishing for older pools</li>
+                        <li>• Complete refinishing for 20+ year pools</li>
                     </ul>
 
-                    <h4>Why Convert to Fiberglass?</h4>
-                    <ul>
-                        <li>• Eliminates crack problems permanently</li>
-                        <li>• Non-porous surface resists algae</li>
-                        <li>• 40% less chemical usage</li>
-                        <li>• Smooth, luxurious finish</li>
-                        <li>• Flexibility prevents future cracking</li>
-                        <li>• 25-year warranty (exclusive to Fibre Tech)</li>
+                    <h3>Why Convert to Fiberglass with HexConvert:</h3>
+
+                    <h4>Permanent Problem Resolution:</h4>
+                    <ul style="margin-left: 10px">
+                        <li>• Eliminates crack recurrence (100% success rate)</li>
+                        <li>• Non-porous surface (0% water absorption)</li>
+                        <li>• 40% chemical reduction (documented savings)</li>
+                        <li>• Glass-smooth luxury finish</li>
+                        <li>• Flexibility prevents future damage</li>
+                        <li>• 25-year Hexagon warranty (exclusive)</li>
                     </ul>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-swimmer"></i> Explore Fiberglass Solutions → 972-702-7586
+                        </a>
+                    </div>
 
                     <hr class="my-5">
 
-                    <h3>Pool Equipment & Plumbing Repair</h3>
-                    <p><strong>Complete mechanical system restoration</strong></p>
+                    <h2>Pool Equipment & Plumbing Repair</h2>
 
-                    <h4>Skimmer Replacement</h4>
-                    <p>Cracked skimmers can't be patched—they need replacement:</p>
-                    <ul>
-                        <li>• Complete removal of damaged unit</li>
-                        <li>• Structural integration with pool shell</li>
-                        <li>• Proper height and level alignment</li>
-                        <li>• Waterproof seal guaranteed</li>
-                        <li>• Plaster integration for seamless finish</li>
-                    </ul>
+                    <h3>Complete Mechanical System Restoration by Hexagon</h3>
+                    <p>Beyond structural repairs, Hexagon Fiberglass Pools restores all pool mechanical systems to optimal performance.</p>
 
-                    <h4>Equipment We Repair/Replace:</h4>
-                    <ul>
-                        <li>• Pool pumps and motors (all brands)</li>
-                        <li>• Filter systems (sand, cartridge, DE)</li>
-                        <li>• Plumbing and valves</li>
-                        <li>• Returns and main drains</li>
-                        <li>• Automation systems</li>
-                    </ul>
+                    <h4><strong>Skimmer Replacement Expertise</strong></h4>
+                    <p>Cracked skimmers require complete replacement—patches fail within 6 months.</p>
 
-                    <p class="alert alert-success"><strong>Energy Upgrade Special:</strong> New variable-speed pump saves 70% on electricity—pays for itself in 14 months.</p>
+                    <div class="highlight-box">
+                        <h5>Hexagon's Skimmer Replacement Process:</h5>
+                        <ul style="margin-left: 10px">
+                            <li>• Complete removal of the damaged unit</li>
+                            <li>• Structural integration with the pool shell</li>
+                            <li>• Precision height and level alignment</li>
+                            <li>• Waterproof seal (guaranteed 5 years)</li>
+                            <li>• Seamless integration</li>
+                        </ul>
+                        <br>
+                        <p><strong>Timeline:</strong> 1-2 days</p>
+                    </div>
+
+                    <h4><strong>Equipment Hexagon Repairs/Replaces</strong></h4>
+                    <p><strong>Pumps & Motors:</strong> All brands, variable-speed upgrades<br>
+                    <strong>Filter Systems:</strong> Sand, cartridge, DE restoration<br>
+                    <strong>Returns/Drains:</strong> Safety compliance upgrades<br>
+                    <strong>Automation:</strong> System integration and updates</p>
+                    <br>
+                    <div class="alert alert-success">
+                        <strong>Energy Efficiency Upgrade:</strong> New variable-speed pump saves 70% electricity—$1,200 annual savings pays for equipment in 14 months.
+                    </div>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cogs"></i> Schedule Equipment Inspection → 972-702-7586
+                        </a>
+                    </div>
 
                     <hr class="my-5">
 
-                    <h2>What Causes Structural Repairs in Texas Pools</h2>
+                    <h2>Why Texas Pools Need Hexagon's Structural Expertise</h2>
 
-                    <h3>The Perfect Storm of Damage</h3>
+                    <h3>The Perfect Storm Creating Pool Damage</h3>
 
-                    <h4>Expansive Clay Soil</h4>
-                    <p>Dallas sits on clay that expands 30% when wet, shrinks dramatically when dry. This creates:</p>
-                    <ul>
-                        <li>• 4,000 PSI of lateral pressure</li>
-                        <li>• 2-6 inches of annual movement</li>
-                        <li>• Differential settling</li>
-                        <li>• Continuous stress on pool structures</li>
+                    <h4><strong>Expansive Soil Challenge</strong></h4>
+                    <p>Texas sits on clay that expands 30% when wet, creating:</p>
+                    <ul style="margin-left: 10px">
+                        <li>• 4,000 PSI lateral pressure (concrete fails at 3,500 PSI)</li>
+                        <li>• 2-6 inches annual movement</li>
+                        <li>• Differential settling patterns</li>
+                        <li>• Continuous structural stress</li>
                     </ul>
 
-                    <h4>Extreme Weather Cycles</h4>
-                    <ul>
-                        <li>• 105°F summers to 15°F winters</li>
+                    <h4><strong>Extreme Weather Cycles</strong></h4>
+                    <ul style="margin-left: 10px">
+                        <li>• 105°F summers to 15°F winters (90°F range)</li>
                         <li>• 90+ freeze-thaw cycles annually</li>
-                        <li>• Rapid 40°F temperature swings</li>
+                        <li>• 40°F temperature swings within 24 hours</li>
                         <li>• Drought-to-flood extremes</li>
                     </ul>
 
-                    <h4>Construction Deficiencies (Found in 60% of Pools)</h4>
-                    <ul>
-                        <li>• Insufficient steel reinforcement</li>
-                        <li>• Gunite thickness below standards</li>
+                    <h4><strong>Construction Deficiencies (Found in 60% of Texas Pools)</strong></h4>
+                    <ul style="margin-left: 10px">
+                        <li>• Insufficient steel reinforcement (builder cost-cutting)</li>
+                        <li>• Gunite below 4" minimum thickness</li>
                         <li>• Missing expansion joints</li>
-                        <li>• Poor soil compaction</li>
-                        <li>• Inadequate concrete coverage over rebar</li>
+                        <li>• Inadequate soil preparation</li>
+                        <li>• Insufficient rebar coverage</li>
                     </ul>
-
-                    <p>Without proper repair that addresses these conditions, damage returns quickly.</p>
+                    <br>
+                    <div class="alert alert-danger">
+                    <p>Without repairs addressing these specific conditions, damage returns within 12-24 months. Hexagon's engineering accounts for all Texas-specific challenges.</p>
+                    </div>
 
                     <hr class="my-5">
 
-                    <h2>Investment & Value</h2>
+                    <h2>Critical Questions Answered</h2>
 
-                    <h3>Clear Pricing Structure</h3>
+                    <div class="faq-section">
+                        <h3>How do I know if my crack needs Hexagon's structural repair?</h3>
 
-                    <h4>Assessment & Evaluation</h4>
-                    <ul>
-                        <li>• Structural assessment: FREE with repair</li>
-                        <li>• Insurance documentation: Included</li>
-                        <li>• Detailed repair plan: No charge</li>
-                    </ul>
+                        <h4>Structural cracks requiring immediate attention:</h4>
+                        <ul style="margin-left: 10px">
+                            <li>• Run through plaster AND gunite substrate</li>
+                            <li>• Measure wider than 1/8 inch</li>
+                            <li>• Show displacement or offset</li>
+                            <li>• Display rust stains nearby</li>
+                            <li>• Continue through tile line</li>
+                            <li>• Leak water (any amount)</li>
+                        </ul>
 
-                    <h4>Typical Repair Investments</h4>
+                        <h4>Cosmetic cracks (monitor only):</h4>
+                        <ul style="margin-left: 10px">
+                            <li>• Limited to plaster surface</li>
+                            <li>• Hairline width (<1/16 inch)</li>
+                            <li>• No water loss</li>
+                            <li>• No rust staining</li>
+                        </ul>
+                        <br>
+                        <p><strong>When uncertain:</strong> Hexagon's free professional assessment identifies 100% of structural issues. Call <a href="tel:972-702-7586">972-702-7586</a>.</p>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>What about leak detection services?</h3>
+                        <p>Hexagon partners with certified leak detection specialists for underground leaks. Once located, Hexagon handles all repairs. This two-expert approach ensures proper diagnosis and permanent repair.</p>
+                        <p><strong>Hexagon's leak repair success rate:</strong> 98% first-time resolution</p>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>How quickly can Hexagon complete repairs?</h3>
+                        <h4>Standard Timeline:</h4>
+                        <ul style="margin-left: 10px">
+                            <li>• Day 1: Assessment and quote</li>
+                            <li>• Day 2-3: Preparation and drainage (if needed)</li>
+                            <li>• Day 3-7: Structural repair work</li>
+                            <li>• Day 7-10: Curing and finishing</li>
+                            <li>• Day 10: Pool refill and startup</li>
+                        </ul>
+                        <br>
+                        <p>Most Hexagon repairs complete within 7-10 days. Emergency repairs available within 24-48 hours statewide.</p>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Will Hexagon's repairs withstand Texas conditions?</h3>
+                        <p>Yes—when properly engineered. Hexagon designs every repair for Texas-specific challenges:</p>
+                        <ul style="margin-left: 10px">
+                            <li>• Deep-set anchors accommodate soil movement</li>
+                            <li>• Flexible compounds handle temperature swings</li>
+                            <li>• Proper drainage prevents hydraulic pressure</li>
+                            <li>• Movement-tolerant materials prevent recracking</li>
+                        </ul>
+                        <br>
+                        <p>Our 25-year warranty on fiberglass conversions guarantees performance.</p>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Does insurance cover Hexagon repairs?</h3>
+                        <p>Often yes. Hexagon documents:</p>
+                        <ul style="margin-left: 10px">
+                            <li>• Storm and freeze damage (covered events)</li>
+                            <li>• Tree root damage (typically covered)</li>
+                            <li>• "Sudden failure" situations (not wear/tear)</li>
+                            <li>• Ground movement (check policy)</li>
+                        </ul>
+                        <br>
+                        <p>Hexagon works directly with adjusters. Our detailed documentation achieves 93% claim approval rate—highest in Texas.</p>
+                    </div>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-primary btn-lg">
+                            <i class="fas fa-file-invoice-dollar"></i> Start Insurance Claim → 972-702-7586
+                        </a>
+                    </div>
+
+                    <hr class="my-5">
+
+                    <h2>The True Cost of Delaying Repairs</h2>
+
+                    <h3>Every Month Costs More Than Hexagon's Immediate Repair</h3>
+
+                    <h4>Damage Progression Timeline:</h4>
                     <div class="table-responsive mb-4">
-                        <table class="table table-striped">
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Service Category</th>
-                                    <th>Typical Range</th>
-                                    <th>Complex Projects</th>
-                                    <th>Warranty</th>
+                                    <th>Delay Period</th>
+                                    <th>Additional Damage</th>
+                                    <th>Extra Cost</th>
+                                    <th>Water Loss</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Surface Repairs</strong></td>
-                                    <td>$500-2,000</td>
-                                    <td>$2,000-4,000</td>
-                                    <td>1-2 years</td>
+                                    <td><strong>30 days</strong></td>
+                                    <td>20% progression</td>
+                                    <td>$500-1,000</td>
+                                    <td>3,000 gallons</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Structural Cracks</strong></td>
-                                    <td>$2,000-6,000</td>
-                                    <td>$6,000-10,000</td>
-                                    <td>3-5 years</td>
+                                    <td><strong>90 days</strong></td>
+                                    <td>Damage doubles</td>
+                                    <td>$2,000-5,000</td>
+                                    <td>13,500 gallons</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Gunite Restoration</strong></td>
-                                    <td>$6,000-10,000</td>
-                                    <td>$10,000-15,000</td>
-                                    <td>3 years</td>
+                                    <td><strong>6 months</strong></td>
+                                    <td>Structural compromise</td>
+                                    <td>$5,000-10,000</td>
+                                    <td>54,000 gallons</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Bond Beam</strong></td>
-                                    <td>$3,000-6,000</td>
-                                    <td>$6,000-12,000</td>
-                                    <td>5 years</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Concrete Cancer</strong></td>
-                                    <td>$2,500-8,000</td>
-                                    <td>$8,000-15,000</td>
-                                    <td>3-5 years</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Equipment</strong></td>
-                                    <td>$500-2,500</td>
-                                    <td>$2,500-5,000</td>
-                                    <td>1 year + MFG</td>
+                                    <td><strong>12 months</strong></td>
+                                    <td>Complete reconstruction</td>
+                                    <td>$10,000-25,000</td>
+                                    <td>182,500 gallons</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p><em>*Pool complexity and other factors affect total price. </em></p>
                     </div>
 
-                    <hr class="my-5">
-
-                    <h2>Common Questions</h2>
-
-                    <h3>How do I know if my crack is structural?</h3>
-                    <h4>Structural cracks:</h4>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>• Run through plaster AND gunite</li>
-                        <li>• Wider than 1/8 inch</li>
-                        <li>• Show displacement or offset</li>
-                        <li>• Have rust stains nearby</li>
-                        <li>• Continue through tile line</li>
-                        <li>• Leak water</li>
-                    </ul>
-
-                    <h4>Cosmetic cracks:</h4>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>• Only in plaster surface</li>
-                        <li>• Hairline width</li>
-                        <li>• No water loss</li>
-                        <li>• No rust staining</li>
-                    </ul>
-                    <p>When in doubt, get our free professional assessment. Call <a href="tel:972-789-2983">(972) 789-2983</a>.</p>
-
-                    <h3>What about leak detection?</h3>
-                    <p>We partner with certified leak detection specialists when underground leaks are suspected. Once they locate the leak, we handle all repairs. This two-step approach ensures you get the right expertise for each phase.</p>
-
-                    <h3>How long do repairs take?</h3>
-                    <h4>Typical timeline:</h4>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>• Day 1: Assessment and quote</li>
-                        <li>• Day 2-3: Preparation and drainage (if needed)</li>
-                        <li>• Day 3-7: Structural repair work</li>
-                        <li>• Day 7-10: Curing and finishing</li>
-                        <li>• Day 10: Pool refill and startup</li>
-                    </ul>
-                    <p>Most repairs complete within 7-10 days, weather permitting.</p>
-
-                    <h3>Will repairs last in Texas soil?</h3>
-                    <p>Yes—when done correctly. We engineer every repair specifically for North Texas conditions:</p>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>• Deep-set anchors for soil movement</li>
-                        <li>• Flexible joint compounds</li>
-                        <li>• Proper drainage solutions</li>
-                        <li>• Movement-tolerant materials</li>
-                    </ul>
-                    <p>Our 25-year warranty on fiberglass conversions proves our confidence.</p>
-
-                    <h3>Is this covered by insurance?</h3>
-                    <p>Often, yes. We document:</p>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li>• Storm and freeze damage</li>
-                        <li>• Tree root damage</li>
-                        <li>• "Sudden failure" situations</li>
-                        <li>• Ground movement (if covered)</li>
-                    </ul>
-                    <p>We work directly with adjusters and have a 93% approval rate on documented claims.</p>
-
-                    <hr class="my-5">
-
-                    <h2>The Cost of Waiting</h2>
-
-                    <h3>Every Month of Delay Costs More</h3>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
-                        <li><strong>30 days:</strong> 20% more damage, $500-1,000 additional cost</li>
-                        <li><strong>90 days:</strong> Damage doubles, $2,000-5,000 additional cost</li>
-                        <li><strong>6 months:</strong> Structural compromise, $5,000-10,000 additional cost</li>
-                        <li><strong>1 year:</strong> Often requires complete reconstruction</li>
-                    </ul>
-                    <br>
-                    <p>Plus daily losses:</p>
-                    <ul style="margin-left: 1.5%; padding: 5px;">
+                    <h4>Daily Operating Losses Without Repair:</h4>
+                    <ul style="margin-left: 10px">
                         <li>• Water: 100-500 gallons ($5-25/day)</li>
                         <li>• Chemicals: Wasted in leaking water ($3-10/day)</li>
-                        <li>• Energy: Pumps running longer ($5-15/day)</li>
-                        <li>• Property damage risk increasing daily</li>
+                        <li>• Energy: Pumps running overtime ($5-15/day)</li>
+                        <li>• <strong>Total Daily Loss: $13-50</strong></li>
                     </ul>
 
-                    <p class="alert alert-danger"><strong>Bottom line:</strong> Today's $2,000 repair becomes next year's $10,000 reconstruction.</p>
+                    <p><strong>Monthly Impact:</strong> $390-1,500 in operating losses alone</p>
+                    <br>
+                    <div class="alert alert-danger">
+                        <strong>Critical Point:</strong> Today's $2,000 Hexagon repair becomes next year's $10,000 reconstruction. Every week matters.
+                    </div>
+
+                    <div class="text-center mt-4 mb-5">
+                        <a href="tel:972-702-7586" class="btn btn-danger btn-lg">
+                            <i class="fas fa-stop-circle"></i> Stop Losses Today → 972-702-7586
+                        </a>
+                    </div>
 
                     <hr class="my-5">
 
@@ -492,6 +549,45 @@
                         </div>
                     </div>
 
+                    <hr class="my-5">
+
+                    <h2>Take Action: Schedule Your Hexagon Assessment</h2>
+
+                    <h3>Step 1: Free Structural Evaluation</h3>
+                    <p>Call <a href="tel:972-702-7586">972-702-7586</a> now for a comprehensive assessment:</p>
+                    <ul style="margin-left: 10px">
+                        <li>• 27-point structural inspection</li>
+                        <li>• Photo documentation</li>
+                        <li>• Written repair plan</li>
+                        <li>• Insurance guidance</li>
+                    </ul>
+
+                    <h3>Step 2: Review Hexagon Solutions</h3>
+                    <p>Receive a detailed proposal including:</p>
+                    <ul style="margin-left: 10px">
+                        <li>• Repair vs. replacement analysis</li>
+                        <li>• Multiple solution options</li>
+                        <li>• Warranty comparison</li>
+                        <li>• Financing availability</li>
+                        <li>• Timeline projection</li>
+                    </ul>
+
+                    <h3>Step 3: Hexagon Implementation</h3>
+                    <p>Professional execution:</p>
+                    <ul style="margin-left: 10px">
+                        <li>• Dedicated project manager</li>
+                        <li>• Daily progress updates</li>
+                        <li>• Quality checkpoints</li>
+                        <li>• Final inspection</li>
+                        <li>• Warranty activation</li>
+                    </ul>
+
+                    <div class="text-center mt-5 mb-4">
+                        <a href="tel:972-702-7586" class="btn btn-success btn-lg">
+                            <i class="fas fa-clipboard-check"></i> Book Free Assessment Now → 972-702-7586
+                        </a>
+                    </div>
+
                     @if($silo->content)
                         <!-- Dynamic content from database -->
                         {!! \App\Helpers\HtmlHelper::safe($silo->content, 'admin') !!}
@@ -533,7 +629,7 @@
 
                             <form action="{{ route('contact.store') }}" method="POST" id="sidebar-contact-form">
                                 @csrf
-                                <input type="hidden" name="type" value="pool_resurfacing_quote">
+                                <input type="hidden" name="type" value="pool_repair_quote">
                                 <div class="name-field-wrapper" style="position: relative;">
                                     <input type="text" name="name" placeholder="Your Name" value="{{ old('name') }}" required
                                            class="{{ $errors->has('name') ? 'error' : '' }}">
@@ -545,8 +641,8 @@
                                 <div class="select-field">
                                     <select name="service" required class="{{ $errors->has('service') ? 'error' : '' }}">
                                         <option value="request-callback" {{ old('service') == 'request-callback' || old('service') === null ? 'selected' : '' }}>Request A Callback</option>
-                                        <option value="pool-resurfacing-conversion" {{ old('service') == 'pool-resurfacing-conversion' ? 'selected' : '' }}>Pool Resurfacing & Conversion</option>
                                         <option value="pool-repair" {{ old('service') == 'pool-repair' ? 'selected' : '' }}>Pool Repair</option>
+                                        <option value="pool-resurfacing-conversion" {{ old('service') == 'pool-resurfacing-conversion' ? 'selected' : '' }}>Pool Resurfacing & Conversion</option>
                                         <option value="pool-remodeling" {{ old('service') == 'pool-remodeling' ? 'selected' : '' }}>Pool Remodeling</option>
                                     </select>
                                 </div>
@@ -567,18 +663,18 @@
                             <h3 class="widget-title mb-3 text-center">Limited Time Offer</h3>
                             <div class="offer-box">
                                 <h4>January 2026 Special - North Texas Homeowners</h4>
-                                <p>Book your pool resurfacing assessment this month and receive:</p>
+                                <p>Book your pool repair assessment this month and receive:</p>
                                 <ul class="offer-list">
-                                    <li>✓ <strong>$1,000 OFF</strong> any pool resurfacing over $15,000</li>
-                                    <li>✓ <strong>FREE</strong> Comprehensive Inspection ($500 value)</li>
+                                    <li>✓ <strong>$500 OFF</strong> any structural repair over $5,000</li>
+                                    <li>✓ <strong>FREE</strong> 27-Point Inspection ($350 value)</li>
                                     <li>✓ <strong>0% Financing</strong> for 12 months (qualified buyers)</li>
-                                    <li>✓ <strong>Priority Scheduling</strong> for February/March completion</li>
-                                    <li>✓ <strong>Lock 2026 Prices</strong> before spring increases</li>
+                                    <li>✓ <strong>Emergency Repairs</strong> within 24-48 hours</li>
+                                    <li>✓ <strong>Insurance Documentation</strong> included</li>
                                 </ul>
-                                <p class="text-center"><strong>Only 8 spots remaining for Q1 2026 installation</strong></p>
+                                <p class="text-center"><strong>Only 8 spots remaining for Q1 2026</strong></p>
                                 <a href="tel:972-789-2983" class="cta-offer-button">
                                     <i class="fas fa-phone-alt"></i>
-                                    <span class="button-text">Lock in Your $1,000 Savings</span>
+                                    <span class="button-text">Schedule Emergency Repair</span>
                                     <span class="button-subtext">Call Now: 972-789-2983</span>
                                 </a>
                             </div>
@@ -620,7 +716,7 @@
         </div>
     </div>
 </section>
-<!-- Pool Resurfacing Main Content End -->
+<!-- Pool Repair Main Content End -->
 
 <!-- Call to Action Section -->
 <section class="final-cta-section">
@@ -646,7 +742,7 @@
                 </div>
                 <div class="value-item">
                     <i class="fas fa-tag"></i>
-                    <span><strong>Save $1,000</strong> This Month Only</span>
+                    <span><strong>Save $500</strong> This Month Only</span>
                 </div>
                 <div class="value-item">
                     <i class="fas fa-shield-alt"></i>
@@ -659,7 +755,7 @@
                 <a href="tel:972-789-2983" class="cta-btn cta-btn-primary">
                     <i class="fas fa-phone-alt"></i>
                     <div class="btn-content">
-                        <span class="btn-main-text">Call Now for Free Quote</span>
+                        <span class="btn-main-text">Call Now for Free Assessment</span>
                         <span class="btn-sub-text">972-789-2983</span>
                     </div>
                 </a>
@@ -680,7 +776,7 @@
     </div>
 </section>
 
-<!-- Custom Styles for Pool Resurfacing Page -->
+<!-- Custom Styles for Pool Repair Page -->
 <style>
 /* CRITICAL FIX: Override global section overflow hidden that breaks sticky */
 section.pool-resurfacing-section {
@@ -691,6 +787,11 @@ section.pool-resurfacing-section {
 /* Ensure main element doesn't have overflow issues */
 main {
     overflow: visible !important;
+}
+
+/* H1 Styling for Hero Section */
+.intro-section h1, .col-lg-12 h1 {
+    font-size: 40px !important;
 }
 
 /* Content Styling */
@@ -763,57 +864,25 @@ main {
     padding-left: 20px;
 }
 
-.total-cost {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 2px solid #dee2e6;
-}
-
-.savings {
-    color: #4caf50;
-    font-size: 1.3rem;
-    margin-top: 10px;
-}
-
-/* Pros/Cons Sections */
-.pros-cons {
-    background: #f8f9fa;
+/* Process Timeline */
+.process-timeline {
+    position: relative;
     padding: 20px;
+    background: #f8f9fa;
     border-radius: 8px;
     margin: 20px 0;
 }
 
-.pros-cons h5 {
+.process-timeline.highlight {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-left: 4px solid #4caf50;
+}
+
+.process-timeline h4 {
     color: #333;
     font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-.pros-list, .cons-list, .benefits-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-.pros-list li, .cons-list li, .benefits-list li {
-    padding: 6px 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.pros-list li {
-    color: #28a745;
-}
-
-.cons-list li {
-    color: #dc3545;
-}
-
-.benefits-list li {
-    color: #333;
-    padding: 8px 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 /* Highlight Box */
@@ -839,41 +908,6 @@ main {
     margin-bottom: 10px;
 }
 
-/* Process Timeline */
-.process-timeline {
-    position: relative;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin: 20px 0;
-}
-
-.process-timeline.highlight {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    border-left: 4px solid #4caf50;
-}
-
-.process-timeline h4 {
-    color: #333;
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-}
-
-/* Failure Points */
-.failure-points {
-    background: #fff3e0;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 4px solid #ff9800;
-}
-
-.failure-points h4 {
-    color: #e65100;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
 /* FAQ Section */
 .faq-section {
     background: #f8f9fa;
@@ -882,16 +916,41 @@ main {
     margin: 20px 0;
 }
 
-.faq-section h5 {
+.faq-section h3 {
     color: #333;
     font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.faq-section h4 {
+    color: #444;
+    font-weight: 600;
     margin-bottom: 10px;
+    margin-top: 15px;
     font-size: 1rem;
 }
 
 .faq-section p {
-    margin-bottom: 20px;
-    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.feature-list li {
+    padding: 8px 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Why Hexagon Section */
+.why-hexagon-section {
+    margin: 20px 0;
 }
 
 /* Offer Widget */
@@ -921,342 +980,160 @@ main {
     color: #333;
 }
 
-.btn-block {
-    width: 100%;
-    padding: 12px;
-    font-weight: 600;
-}
-
-/* Offer CTA Button Styling */
-.cta-offer-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 18px 20px;
-    background: linear-gradient(135deg, #ff6b35 0%, #ff4517 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-offer-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-    color: white;
-    text-decoration: none;
-}
-
-.cta-offer-button:active {
-    transform: translateY(0);
-}
-
-.cta-offer-button i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    animation: ring 1s ease-in-out infinite;
-}
-
-.cta-offer-button .button-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 3px;
-}
-
-.cta-offer-button .button-subtext {
-    font-size: 0.9rem;
-    font-weight: 400;
-    opacity: 0.95;
-}
-
-/* Phone ring animation */
-@keyframes ring {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30% { transform: rotate(-10deg); }
-    20%, 40% { transform: rotate(10deg); }
-    50% { transform: rotate(0deg); }
-}
-
-/* Pulsing effect for urgency */
-.cta-offer-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-}
-
-/* Sidebar Form Styles */
-.sidebar-form.appoinment-form {
-    background-size: cover;
-    background-position: center;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.sidebar-form .appoinment-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.sidebar-form .appoinment-title h4 {
-    font-size: 20px;
-    font-weight: 600;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-.sidebar-form input,
-.sidebar-form select,
-.sidebar-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.sidebar-form .select-field select {
-    background-color: #fff;
-}
-
-.sidebar-form .bixol-primary-btn {
-    width: 100%;
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.sidebar-form .bixol-primary-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-}
-
-.name-field-wrapper::after {
-    content: "Mr. Mrs. Ms.";
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    font-style: italic;
-    color: #999;
-    pointer-events: none;
-    font-size: 14px;
-}
-
-.name-field-wrapper input[name="name"] {
-    padding-right: 100px;
-}
-
-/* Intro Section Styles */
-.intro-section {
-    padding: 2rem 0;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-.intro-section h1 {
-    color: #333;
-    font-weight: 700;
-    font-size: 1.75rem;
-    line-height: 1.3;
-}
-
-.intro-section .lead {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.5;
-}
-
-/* Sidebar column needs proper setup for sticky */
-.pool-resurfacing-section .col-lg-4 {
-    align-self: stretch !important;
-    position: relative;
-}
-
-/* Sidebar Styles - Complete sticky setup */
-.sticky-sidebar {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 100px !important;
-    z-index: 100 !important;
-    will-change: transform;
-}
-
-.widget-title {
-    color: #333;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
+/* Trust Badges */
 .trust-badges-widget {
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Trust Badge Image Styling */
+.widget-title {
+    color: #333;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
 .trust-badge-wrapper {
     padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f9fa;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.trust-badge-wrapper:hover {
-    background: #e9ecef;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .trust-badge-img {
     max-width: 100%;
     max-height: 60px;
-    width: auto;
     height: auto;
     object-fit: contain;
 }
 
-/* Gunite Section Lists Styling */
-.gunite-problems-list,
-.gunite-limitations-list,
-.gunite-failures-list,
-.gunite-results-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
+/* Sticky Sidebar Specific */
+.sidebar-sticky-wrapper {
+    position: relative;
 }
 
-.gunite-problems-list li,
-.gunite-limitations-list li,
-.gunite-failures-list li {
-    padding: 8px 0;
-    color: #dc3545;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-left: 3px solid #dc3545;
-    padding-left: 15px;
-    margin-bottom: 8px;
-    background: linear-gradient(to right, #fff5f5 0%, transparent 100%);
+.sticky-sidebar {
+    will-change: position;
 }
 
-.gunite-results-list li {
-    padding: 8px 0;
-    color: #28a745;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-left: 3px solid #28a745;
-    padding-left: 15px;
-    margin-bottom: 8px;
-    background: linear-gradient(to right, #f0f9ff 0%, transparent 100%);
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+    .sticky-sidebar {
+        position: relative !important;
+        top: 0 !important;
+    }
+
+    .col-lg-4 {
+        margin-top: 30px;
+    }
 }
 
-/* Service Area Lists Styling */
-.service-area-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1.5rem;
+/* Form Styling */
+.appoinment-form {
+    background-size: cover;
+    background-position: center;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
 }
 
-.service-area-list li {
-    padding: 6px 0;
-    color: #333;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-bottom: 1px solid #f0f0f0;
-    transition: all 0.3s ease;
+.appoinment-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(4, 63, 136, 0.9);
+    border-radius: 8px;
 }
 
-.service-area-list li:last-child {
-    border-bottom: none;
+.appoinment-form > * {
+    position: relative;
+    z-index: 1;
 }
 
-.service-area-list li:hover {
-    padding-left: 10px;
-    color: #2196f3;
-    background: linear-gradient(to right, #f8f9fa 0%, transparent 100%);
+.appoinment-title h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-/* Why Hexagon Section Styling */
-.why-hexagon-section {
-    margin-top: 2rem;
-}
-
-.why-hexagon-section h4 {
-    color: #2196f3;
-    border-bottom: 2px solid #e3f2fd;
-    padding-bottom: 10px;
+.appoinment-form input,
+.appoinment-form select,
+.appoinment-form textarea {
+    width: 100%;
+    padding: 12px;
     margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    font-size: 14px;
 }
 
-.feature-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
+.appoinment-form input.error,
+.appoinment-form select.error,
+.appoinment-form textarea.error {
+    border-color: #dc3545;
 }
 
-.feature-list li {
-    padding: 8px 0;
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-bottom: 1px solid #f0f0f0;
+.select-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+}
+
+/* CTA Offer Button */
+.cta-offer-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff6b35, #ff8f5a);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
     transition: all 0.3s ease;
+    gap: 10px;
 }
 
-.feature-list li:last-child {
-    border-bottom: none;
+.cta-offer-button:hover {
+    background: linear-gradient(45deg, #ff5722, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,107,53,0.3);
+    color: white;
+    text-decoration: none;
 }
 
-.feature-list li:hover {
-    padding-left: 10px;
-    color: #333;
-    background: linear-gradient(to right, #f8f9fa 0%, transparent 100%);
+.cta-offer-button .button-text {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
 }
 
-/* Final CTA Section - Complete Redesign */
+.cta-offer-button .button-subtext {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    display: block;
+}
+
+/* Final CTA Section */
 .final-cta-section {
     position: relative;
     padding: 80px 0;
-    background: #043f88;
-    overflow: hidden;
+    background: linear-gradient(135deg, #043f88 0%, #0557b5 100%);
+    margin-top: 50px;
 }
 
 .cta-background-overlay {
@@ -1265,60 +1142,46 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom center no-repeat;
-    background-size: cover;
-    opacity: 0.3;
+    background: url('/images/home1/pattern.png');
+    opacity: 0.1;
 }
 
 .cta-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    color: white;
 }
 
-/* CTA Badge */
 .cta-badge {
     display: inline-block;
     margin-bottom: 20px;
 }
 
 .badge-text {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff4517 100%);
+    background: #ff6b35;
     color: white;
     padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 700;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    animation: pulse-badge 2s infinite;
 }
 
-@keyframes pulse-badge {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* CTA Heading */
 .cta-heading {
-    color: white;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    line-height: 1.2;
+    color: white;
 }
 
 .cta-subheading {
-    color: rgba(255,255,255,0.9);
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    font-weight: 400;
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    color: white;
 }
 
-/* Value Props */
 .cta-value-props {
     display: flex;
     justify-content: center;
@@ -1339,257 +1202,144 @@ main {
     color: #ffd700;
 }
 
-.value-item span {
-    font-size: 1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-/* CTA Buttons */
 .cta-buttons-wrapper {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 .cta-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 15px;
-    padding: 20px 35px;
-    border-radius: 10px;
+    padding: 18px 30px;
+    border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    position: relative;
-    overflow: hidden;
+    font-weight: 600;
 }
 
-.cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-}
-
-.cta-btn i {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.btn-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.btn-main-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    display: block;
-}
-
-.btn-sub-text {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    display: block;
-}
-
-/* Primary Button */
 .cta-btn-primary {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff4517 100%);
+    background: linear-gradient(45deg, #ff6b35, #ff8f5a);
     color: white;
-    border: none;
-}
-
-.cta-btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.cta-btn-primary:hover::before {
-    width: 300px;
-    height: 300px;
+    border: 2px solid transparent;
 }
 
 .cta-btn-primary:hover {
+    background: linear-gradient(45deg, #ff5722, #ff6b35);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,107,53,0.4);
     color: white;
     text-decoration: none;
 }
 
-/* Secondary Button */
 .cta-btn-secondary {
-    background: rgba(255,255,255,0.95);
-    color: #043f88;
-    border: 2px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: white;
+    border: 2px solid white;
 }
 
 .cta-btn-secondary:hover {
     background: white;
     color: #043f88;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,255,255,0.3);
     text-decoration: none;
-    border-color: white;
 }
 
-/* Trust Line */
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.btn-main-text {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.btn-sub-text {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
 .cta-trust-line {
-    margin-top: 40px;
-    padding-top: 30px;
+    margin-top: 30px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .cta-trust-line p {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9rem;
     margin: 0;
-    letter-spacing: 0.5px;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    color: white;
 }
 
-/* Mobile Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .final-cta-section {
-        padding: 60px 0;
+    .intro-section h1, .col-lg-12 h1 {
+        font-size: 32px !important;
     }
 
     .cta-heading {
         font-size: 1.8rem;
     }
 
-    .cta-subheading {
-        font-size: 1rem;
-    }
-
     .cta-value-props {
         flex-direction: column;
         gap: 20px;
-        align-items: center;
     }
 
     .cta-buttons-wrapper {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
     .cta-btn {
         width: 100%;
+        max-width: 300px;
         justify-content: center;
-        text-align: center;
-    }
-
-    .btn-content {
-        align-items: center;
-    }
-
-    .cta-trust-line p {
-        font-size: 0.8rem;
-        line-height: 1.5;
     }
 }
 
-/* Animation for phone icon */
-.cta-btn-primary i {
-    animation: ring-phone 1.5s ease-in-out infinite;
-}
-
-@keyframes ring-phone {
-    0%, 100% { transform: rotate(0deg); }
-    10%, 30% { transform: rotate(-15deg); }
-    20%, 40% { transform: rotate(15deg); }
-    50% { transform: rotate(0deg); }
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .sticky-sidebar {
-        position: relative !important;
-        top: auto !important;
-        margin-top: 2rem;
-    }
-
-    .main-content {
-        padding-right: 0;
-        margin-bottom: 2rem;
+@media (max-width: 576px) {
+    .intro-section h1, .col-lg-12 h1 {
+        font-size: 28px !important;
     }
 }
 
-@media (max-width: 767px) {
-    .intro-section h1 {
-        font-size: 1.4rem;
-    }
+/* Additional Alert Styles */
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
-    .main-content h2 {
-        font-size: 1.3rem;
-    }
+.alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
 
-    .main-content h3 {
-        font-size: 1.15rem;
-    }
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
 
-    .main-content h4 {
-        font-size: 1.05rem;
-    }
+.alert-info {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
 
-    .trust-badge-wrapper {
-        height: 60px;
-        padding: 8px;
-    }
-
-    .trust-badge-img {
-        max-height: 40px;
-    }
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
 }
 </style>
 
-<!-- JavaScript for Sticky Sidebar Fallback -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if CSS sticky is supported
-    var testEl = document.createElement('div');
-    testEl.style.position = 'sticky';
-    var isSticky = testEl.style.position === 'sticky';
-
-    if (!isSticky) {
-        // Fallback for browsers that don't support sticky
-        var sidebar = document.querySelector('.sticky-sidebar');
-        var sidebarParent = sidebar.parentElement;
-        var mainContent = document.querySelector('.main-content').parentElement;
-
-        window.addEventListener('scroll', function() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var sidebarTop = sidebarParent.offsetTop;
-            var mainContentHeight = mainContent.offsetHeight;
-            var sidebarHeight = sidebar.offsetHeight;
-
-            if (scrollTop > sidebarTop - 100) {
-                var maxScroll = sidebarTop + mainContentHeight - sidebarHeight - 100;
-                if (scrollTop < maxScroll) {
-                    sidebar.style.position = 'fixed';
-                    sidebar.style.top = '100px';
-                    sidebar.style.width = sidebarParent.offsetWidth + 'px';
-                } else {
-                    sidebar.style.position = 'absolute';
-                    sidebar.style.top = (maxScroll - sidebarTop) + 'px';
-                }
-            } else {
-                sidebar.style.position = 'static';
-                sidebar.style.top = 'auto';
-            }
-        });
-    }
-
-    // Ensure parent containers don't have overflow hidden
-    var section = document.querySelector('.pool-resurfacing-section');
-    if (section) {
-        section.style.overflow = 'visible';
-    }
-});
-</script>
 @endsection
