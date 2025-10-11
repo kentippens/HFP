@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogPost;
-use App\Models\Service;
-use App\Models\CorePage;
 use App\Models\LandingPage;
-use App\Models\Silo;
+use App\Repositories\BlogPostRepository;
+use App\Repositories\ServiceRepository;
+use App\Repositories\CorePageRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function __construct(
+        protected BlogPostRepository $blogPostRepository,
+        protected ServiceRepository $serviceRepository,
+        protected CorePageRepository $corePageRepository
+    ) {}
     public function index()
     {
-        $recentPosts = BlogPost::with(['blogCategory', 'author'])
-            ->published()
-            ->recent()
-            ->take(3)
-            ->get();
+        $recentPosts = $this->blogPostRepository->getPublishedRecent(3);
 
         // Get the 4 core services as silos
         $coreServiceData = [
@@ -108,11 +108,11 @@ class HomeController extends Controller
 
     public function sitemap()
     {
-        $corePages = CorePage::active()->inSitemap()->get();
-        $services = Service::active()->get();
-        $blogPosts = BlogPost::published()->get();
+        $corePages = $this->corePageRepository->getActiveInSitemap();
+        $services = $this->serviceRepository->getAllActive();
+        $blogPosts = $this->blogPostRepository->getPublishedRecent();
         $landingPages = LandingPage::active()->get();
-        
+
         $content = view('sitemap', compact('corePages', 'services', 'blogPosts', 'landingPages'))->render();
         return response($content, 200)
             ->header('Content-Type', 'application/xml');
@@ -176,31 +176,24 @@ class HomeController extends Controller
         ];
 
         // Get core services for the page
-        $coreServices = Service::where('is_active', true)
-            ->whereIn('slug', ['pool-resurfacing', 'pool-conversions', 'pool-remodeling', 'pool-repair'])
-            ->orderBy('order_index')
-            ->get();
+        $coreServices = $this->serviceRepository->getActiveBySlugs([
+            'pool-resurfacing',
+            'pool-conversions',
+            'pool-remodeling',
+            'pool-repair'
+        ]);
 
         return view('texas', compact('seoData', 'majorCities', 'coreServices'));
     }
 
     public function htmlSitemap()
     {
-        $services = Service::active()
-            ->whereNull('parent_id')
-            ->with('children')
-            ->ordered()
-            ->get();
-        
-        $recentPosts = BlogPost::published()
-            ->recent()
-            ->take(5)
-            ->get();
-        
-        $corePages = CorePage::active()
-            ->inSitemap()
-            ->get();
-        
+        $services = $this->serviceRepository->getActiveParentsWithChildren();
+
+        $recentPosts = $this->blogPostRepository->getPublishedRecent(5);
+
+        $corePages = $this->corePageRepository->getActiveInSitemap();
+
         return view('html-sitemap', compact('services', 'recentPosts', 'corePages'));
     }
 
@@ -225,9 +218,7 @@ class HomeController extends Controller
         }
         
         // Check if a Core Page exists with this slug
-        $corePage = CorePage::where('slug', $slug)
-            ->where('is_active', true)
-            ->first();
+        $corePage = $this->corePageRepository->findActiveBySlug($slug);
         
         if (!$corePage) {
             abort(404);

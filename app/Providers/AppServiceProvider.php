@@ -39,5 +39,22 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['components.header', 'components.mobile-menu-new'], function ($view) {
             $view->with('services', Service::active()->topLevel()->ordered()->get());
         });
+
+        // Configure Sentry user context
+        if (app()->bound('sentry')) {
+            \Sentry\configureScope(function (\Sentry\State\Scope $scope): void {
+                if ($user = auth()->user()) {
+                    $scope->setUser([
+                        'id' => $user->id,
+                        'username' => $user->name,
+                        'email' => $user->email,
+                        'ip_address' => request()->ip(),
+                    ]);
+
+                    // Add user role tag for filtering
+                    $scope->setTag('user_role', $user->is_admin ? 'admin' : 'user');
+                }
+            });
+        }
     }
 }

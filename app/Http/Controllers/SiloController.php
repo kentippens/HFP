@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Silo;
+use App\Repositories\SiloRepository;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SiloController extends Controller
 {
+    public function __construct(
+        protected SiloRepository $siloRepository
+    ) {}
     /**
      * Display the specified silo and its children
      */
@@ -20,29 +24,24 @@ class SiloController extends Controller
             $rootSlug = str_replace('_', '-', $rootSlug);
             
             // Find the root silo
-            $silo = Silo::active()
-                ->root()
-                ->where('slug', $rootSlug)
-                ->first();
-                
+            $silo = $this->siloRepository->findActiveRootBySlug($rootSlug);
+
             if (!$silo) {
                 abort(404, "The requested silo '{$rootSlug}' was not found.");
             }
-            
+
             // If there's a path, traverse the hierarchy
             if ($path) {
                 $segments = explode('/', trim($path, '/'));
                 foreach ($segments as $segment) {
                     if (empty($segment)) continue;
-                    
-                    $child = $silo->activeChildren()
-                        ->where('slug', $segment)
-                        ->first();
-                        
+
+                    $child = $this->siloRepository->findActiveChild($silo, $segment);
+
                     if (!$child) {
                         abort(404, "The page '{$segment}' was not found under '{$silo->name}'.");
                     }
-                    
+
                     $silo = $child;
                 }
             }
@@ -61,7 +60,7 @@ class SiloController extends Controller
         }
         
         // Get active children for display
-        $children = $silo->activeChildren()->ordered()->get();
+        $children = $this->siloRepository->getActiveChildren($silo);
         
         // Determine which view template to use
         $template = $this->getTemplate($silo);

@@ -2,36 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogPost;
 use App\Models\BlogCategory;
+use App\Repositories\BlogPostRepository;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    public function __construct(
+        protected BlogPostRepository $blogPostRepository
+    ) {}
     public function index(Request $request)
     {
-        $query = BlogPost::with(['blogCategory', 'author'])->published()->recent();
-
         // Handle search
         if ($request->has('search')) {
-            $search = $request->get('search');
-            $query->where(function ($q) use ($search) {
-                $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('content', 'like', "%{$search}%")
-                  ->orWhere('excerpt', 'like', "%{$search}%");
-            });
+            $posts = $this->blogPostRepository->search($request->get('search'));
         }
-
         // Handle category filter
-        if ($request->has('category')) {
+        elseif ($request->has('category')) {
             $categorySlug = $request->get('category');
             $category = BlogCategory::where('slug', $categorySlug)->first();
-            if ($category) {
-                $query->where('category_id', $category->id);
-            }
+            $posts = $category
+                ? $this->blogPostRepository->getByCategory($category->id)
+                : $this->blogPostRepository->getPaginatedPublished(5);
         }
-
-        $posts = $query->paginate(5);
+        else {
+            $posts = $this->blogPostRepository->getPaginatedPublished(5);
+        }
 
         // Get categories with post counts
         $categories = BlogCategory::withCount(['posts' => function($query) {
@@ -42,15 +38,10 @@ class BlogController extends Controller
             ->get();
 
         // Get recent posts for sidebar
-        $recentPosts = BlogPost::published()->recent()->take(5)->get();
+        $recentPosts = $this->blogPostRepository->getPublishedRecent(5);
 
         // Get archive data
-        $archives = BlogPost::published()
-            ->selectRaw('YEAR(published_at) as year, MONTH(published_at) as month, COUNT(*) as count')
-            ->groupBy('year', 'month')
-            ->orderBy('year', 'desc')
-            ->orderBy('month', 'desc')
-            ->get();
+        $archives = $this->blogPostRepository->getArchiveData();
 
         // Get SEO data for blog index page
         $seoData = $this->getSeoData('blog', [
@@ -64,26 +55,14 @@ class BlogController extends Controller
 
     public function show($slug)
     {
-        $post = BlogPost::with(['blogCategory', 'author'])->where('slug', $slug)->published()->firstOrFail();
+        $post = $this->blogPostRepository->findPublishedBySlug($slug);
 
         // Get previous and next posts
-        $previousPost = BlogPost::published()
-            ->where('published_at', '<', $post->published_at)
-            ->orderBy('published_at', 'desc')
-            ->first();
-
-        $nextPost = BlogPost::published()
-            ->where('published_at', '>', $post->published_at)
-            ->orderBy('published_at', 'asc')
-            ->first();
+        $previousPost = $this->blogPostRepository->getPreviousPost($post);
+        $nextPost = $this->blogPostRepository->getNextPost($post);
 
         // Get related posts
-        $relatedPosts = BlogPost::published()
-            ->where('category_id', $post->category_id)
-            ->where('id', '!=', $post->id)
-            ->recent()
-            ->take(3)
-            ->get();
+        $relatedPosts = $this->blogPostRepository->getRelatedPosts($post, 3);
 
         // Get categories with post counts for sidebar
         $categories = BlogCategory::withCount(['posts' => function($query) {
@@ -94,7 +73,7 @@ class BlogController extends Controller
             ->get();
 
         // Get recent posts for sidebar
-        $recentPosts = BlogPost::published()->recent()->take(5)->get();
+        $recentPosts = $this->blogPostRepository->getPublishedRecent(5);
 
         // Sample comments for now (could be made dynamic later)
         $comments = [
@@ -135,16 +114,13 @@ class BlogController extends Controller
     {
         // Find category by slug
         $categoryModel = BlogCategory::where('slug', $category)->firstOrFail();
-        
+
         // Block carpet cleaning category
         if (strtolower($category) === 'carpet-cleaning') {
             abort(404);
         }
-        
-        $posts = BlogPost::with(['blogCategory', 'author'])->published()
-            ->where('category_id', $categoryModel->id)
-            ->recent()
-            ->paginate(5);
+
+        $posts = $this->blogPostRepository->getByCategory($categoryModel->id, 5);
 
         // Get categories with post counts for sidebar
         $categories = BlogCategory::withCount(['posts' => function($query) {
@@ -155,21 +131,14 @@ class BlogController extends Controller
             ->get();
 
         // Get recent posts for sidebar
-        $recentPosts = BlogPost::published()->recent()->take(5)->get();
+        $recentPosts = $this->blogPostRepository->getPublishedRecent(5);
 
         return view('blog.category', compact('posts', 'categoryModel', 'categories', 'recentPosts'));
     }
 
     public function archive($year, $month = null)
     {
-        $query = BlogPost::with(['blogCategory', 'author'])->published()
-            ->whereYear('published_at', $year);
-
-        if ($month) {
-            $query->whereMonth('published_at', $month);
-        }
-
-        $posts = $query->recent()->paginate(5);
+        $posts = $this->blogPostRepository->getByArchive($year, $month, 5);
 
         return view('blog.archive', compact('posts', 'year', 'month'));
     }

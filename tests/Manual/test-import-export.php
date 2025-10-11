@@ -5,7 +5,7 @@
  * Run with: php test-import-export.php
  */
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use App\Services\ServiceImportService;
 use App\Services\BlogPostImportService;

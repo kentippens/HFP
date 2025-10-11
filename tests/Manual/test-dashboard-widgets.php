@@ -5,7 +5,7 @@
  * Run with: php test-dashboard-widgets.php
  */
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use App\Models\Service;
 use App\Models\BlogPost;
