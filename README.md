@@ -157,7 +157,7 @@ Complete pool renovation services:
 
 ## Technology Stack
 
-- **Framework:** Laravel 12.31.1
+- **Framework:** Laravel 12.33.0
 - **PHP Version:** 8.4.10
 - **Database:** MySQL 8.0
 - **Frontend:** Bootstrap 5, Alpine.js, Vanilla JavaScript
